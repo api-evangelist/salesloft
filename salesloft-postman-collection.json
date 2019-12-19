@@ -1,0 +1,3550 @@
+{
+    "id": "9cba4f9c0e503550534788a26c7e7443",
+    "name": "SalesLoft",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "e167b4a26ca58b627838ec1de7c5e043",
+            "name": "List accounts",
+            "url": "httpsapi.salesloft.com\/\/v2\/accounts.json",
+            "description": "Fetches multiple account records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "domain",
+                    "description": "Domain of the accounts to fetch. Domains are unique and lowercase",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "1488f29333d086843102b8e72ea150fa",
+            "name": "Create an account",
+            "url": "httpsapi.salesloft.com\/\/v2\/accounts.json",
+            "description": "Creates an account.\n\n\"domain\" must be unique on the current team.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "domain",
+                    "description": "Website domain, not a fully qualified URI",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversational_name",
+                    "description": "Conversational name of the Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "Description",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone",
+                    "description": "Phone number without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "website",
+                    "description": "Website",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "linkedin_url",
+                    "description": "Full LinkedIn url",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "twitter_handle",
+                    "description": "Twitter handle, with @",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "street",
+                    "description": "Street name and number",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "City",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "State",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "postal_code",
+                    "description": "Postal code",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country",
+                    "description": "Country",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "locale",
+                    "description": "Time locale",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "industry",
+                    "description": "Industry",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "company_type",
+                    "description": "Type of the Account's company",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "founded",
+                    "description": "Date or year of founding",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "revenue_range",
+                    "description": "Estimated revenue range",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "size",
+                    "description": "Estimated number of people in employment",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "do_not_contact",
+                    "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_fields",
+                    "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "All tags applied to this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "owner_id",
+                    "description": "ID of the User that owns this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "company_stage_id",
+                    "description": "ID of the CompanyStage assigned to this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "55dfa5183c43072438d0ea2d47bfca87",
+            "name": "Delete an account",
+            "url": "httpsapi.salesloft.com\/\/v2\/accounts\/{id}.json",
+            "description": "Deletes an account. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n\nDeleting an account will remove all connected people from that account.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "0e68a01ce49af29a1ed5d37d88f27b99",
+            "name": "Fetch an account",
+            "url": "httpsapi.salesloft.com\/\/v2\/accounts\/{id}.json",
+            "description": "Fetches an account, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "278f9557de784b008b5333d5ca1933b4",
+            "name": "Update an existing Account",
+            "url": "httpsapi.salesloft.com\/\/v2\/accounts\/{id}.json",
+            "description": "Updates an account.\n\n\"domain\" must be unique on the current team.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "domain",
+                    "description": "Website domain, not a fully qualified URI",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversational_name",
+                    "description": "Conversational name of the Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "Description",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone",
+                    "description": "Phone number without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "website",
+                    "description": "Website",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "linkedin_url",
+                    "description": "Full LinkedIn url",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "twitter_handle",
+                    "description": "Twitter handle, with @",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "street",
+                    "description": "Street name and number",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "City",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "State",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "postal_code",
+                    "description": "Postal code",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country",
+                    "description": "Country",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "locale",
+                    "description": "Time locale",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "industry",
+                    "description": "Industry",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "company_type",
+                    "description": "Type of the Account's company",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "founded",
+                    "description": "Date or year of founding",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "revenue_range",
+                    "description": "Estimated revenue range",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "size",
+                    "description": "Estimated number of people in employment",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "do_not_contact",
+                    "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_fields",
+                    "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "All tags applied to this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "owner_id",
+                    "description": "ID of the User that owns this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "company_stage_id",
+                    "description": "ID of the CompanyStage assigned to this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "bf17c78b7376cf51ebb9b29ceae88b73",
+            "name": "List call instructions",
+            "url": "httpsapi.salesloft.com\/\/v2\/action_details\/call_instructions.json",
+            "description": "Fetches multiple call instruction records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "2b40a77b6b8ec8601277f9ca16b7ceed",
+            "name": "Fetch a call instructions",
+            "url": "httpsapi.salesloft.com\/\/v2\/action_details\/call_instructions\/{id}.json",
+            "description": "Fetches a call instruction, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "b2b9139c43815e7b3b73675d8fe1ad9c",
+            "name": "List actions",
+            "url": "httpsapi.salesloft.com\/\/v2\/actions.json",
+            "description": "Fetches multiple action records. The records can be filtered, paged, and sorted according to\nthe respective parameters. Only actions that are currently \"in_progess\" will be returned by\nthis endpoint.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "step_id",
+                    "description": "Fetch actions by step ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "Filter actions by type",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "due_on",
+                    "description": "Equality filters that are applied to the due_on field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided i",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "167c417ff1b7b186782ece5a677c5dfe",
+            "name": "Fetch an action",
+            "url": "httpsapi.salesloft.com\/\/v2\/actions\/{id}.json",
+            "description": "Fetches an action, by ID only.\nThis endpoint will only return actions that are in_progress or pending_activity.\nOnce an action is complete, the request for that action will return a 404 status code.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "9e0f44e47e5e0a92ebbdb54691fdcc20",
+            "name": "List calls",
+            "url": "httpsapi.salesloft.com\/\/v2\/activities\/calls.json",
+            "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "0f882016462779aa5ca8b88804de27cf",
+            "name": "Fetch a call",
+            "url": "httpsapi.salesloft.com\/\/v2\/activities\/calls\/{id}.json",
+            "description": "Fetches a call, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "6ba2173899c9e5aab2a151ae952603ee",
+            "name": "List emails",
+            "url": "httpsapi.salesloft.com\/\/v2\/activities\/emails.json",
+            "description": "Fetches multiple email records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "bounced",
+                    "description": "Filters emails by whether they have bounced or not",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "61ffcd8c4d512f01e8b1fa75690b4f52",
+            "name": "Fetch an email",
+            "url": "httpsapi.salesloft.com\/\/v2\/activities\/emails\/{id}.json",
+            "description": "Fetches an email, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "4d681fddbc431897f4f0bd9f76a54939",
+            "name": "List cadence memberships",
+            "url": "httpsapi.salesloft.com\/\/v2\/cadence_memberships.json",
+            "description": "Fetches multiple cadence membership records. The records can be filtered, paged, and sorted according to\nthe respective parameters. A cadence membership is the association between a person and their current and\nhistorical time on a cadence. Cadence membership records are mutable and change over time. If a person is\nadded to a cadence and re-added to the same cadence in the future, there is a single membership record.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_id",
+                    "description": "ID of the person to find cadence memberships for",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cadence_id",
+                    "description": "ID of the cadence to find cadence memberships for",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "92fdf972f3d9ab0d9dbd7e5a88dfc04c",
+            "name": "Create a cadence membership",
+            "url": "httpsapi.salesloft.com\/\/v2\/cadence_memberships.json",
+            "description": "Adds a person to a cadence. person_id and cadence_id are required, and must be visible to the authenticated user. user_id will\ndefault to the authenticated user, but can be set to any visible user on the authenticated team.\n\nA person cannot be added to a cadence on behalf of a teammate unless the cadence is a team cadence, or the cadence is owned by\nthe teammate.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "person_id",
+                    "description": "ID of the person to find cadence memberships for",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cadence_id",
+                    "description": "ID of the cadence to find cadence memberships for",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "ID of the user to create a cadence membership for. The associated cadence must be owned by the user, or it must be a team cadence",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "1121b683973f3cef068a185089a59752",
+            "name": "Delete a cadence membership",
+            "url": "httpsapi.salesloft.com\/\/v2\/cadence_memberships\/{id}.json",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "6460dd1125b08a1c3515ce6575347b4d",
+            "name": "Fetch a cadence membership",
+            "url": "httpsapi.salesloft.com\/\/v2\/cadence_memberships\/{id}.json",
+            "description": "Fetches a cadence membership, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "d05f7e884cf7e1489fece704f382e847",
+            "name": "List cadences",
+            "url": "httpsapi.salesloft.com\/\/v2\/cadences.json",
+            "description": "Fetches multiple cadence records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "team_cadence",
+                    "description": "Filters cadences by whether they are a team cadence or not",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "aa6d0aceb72227dbd96e394fe76e5209",
+            "name": "Fetch a cadence",
+            "url": "httpsapi.salesloft.com\/\/v2\/cadences\/{id}.json",
+            "description": "Fetches a cadence, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "4ae88b13c72d033ebbe6e2f4973b82bc",
+            "name": "List call data records",
+            "url": "httpsapi.salesloft.com\/\/v2\/call_data_records.json",
+            "description": "Fetches multiple call data records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nCall data records are records of all inbound and outbound calls through SalesLoft. A call data record may\nbe associated with a call, but does not have to be.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "has_call",
+                    "description": "Return only call data records which have or do not have a call logged for them",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "091a431565b52048f2d62bdc18262df1",
+            "name": "Fetch a call data record",
+            "url": "httpsapi.salesloft.com\/\/v2\/call_data_records\/{id}.json",
+            "description": "Fetches a call data record, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "bdc8d1ed83b5a7d42078e71a4d39be0f",
+            "name": "List crm activities",
+            "url": "httpsapi.salesloft.com\/\/v2\/crm_activities.json",
+            "description": "Fetches multiple crm activity records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "fcca5981a287ddf813176e7e5a226002",
+            "name": "Fetch a crm activity",
+            "url": "httpsapi.salesloft.com\/\/v2\/crm_activities\/{id}.json",
+            "description": "Fetches a crm activity, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "bb209946a4b00ad24f1ccfe3eef8efb3",
+            "name": "List custom fields",
+            "url": "httpsapi.salesloft.com\/\/v2\/custom_fields.json",
+            "description": "Fetches multiple custom field records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "field_type",
+                    "description": "Type of field to fetch. Value must be one of: person, company, opportunity",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "bccdab46c0e9e749615d6753eb152eea",
+            "name": "Create a custom field",
+            "url": "httpsapi.salesloft.com\/\/v2\/custom_fields.json",
+            "description": "Creates a custom field.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "field_type",
+                    "description": "The field type of the custom field. Value must be one of: person, company, opportunity",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "a8a1d8f2c8eb2c1c95d0bb6a1fee7d63",
+            "name": "Delete a custom field",
+            "url": "httpsapi.salesloft.com\/\/v2\/custom_fields\/{id}.json",
+            "description": "Deletes a custom field.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "3d2547a24c1e76bd5dec97eeb82081dc",
+            "name": "Fetch a custom field",
+            "url": "httpsapi.salesloft.com\/\/v2\/custom_fields\/{id}.json",
+            "description": "Fetches a custom field, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "de8951b7004fc9e23f6fa05a117f971a",
+            "name": "Update a custom field",
+            "url": "httpsapi.salesloft.com\/\/v2\/custom_fields\/{id}.json",
+            "description": "Update a custom field.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "field_type",
+                    "description": "The field type of the custom field. Value must be one of: person, company, opportunity",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "6e040f1c3adf56058c87ed1c141315ca",
+            "name": "List email templates",
+            "url": "httpsapi.salesloft.com\/\/v2\/email_templates.json",
+            "description": "Fetches multiple email template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "linked_to_team_template",
+                    "description": "Filters email templates by whether they are linked to a team template or not",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "944c29edf285ad669cc4254e034be2fc",
+            "name": "Fetch an email template",
+            "url": "httpsapi.salesloft.com\/\/v2\/email_templates\/{id}.json",
+            "description": "Fetches an email template, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "4abc7369c7fe4a3db93b7f1e1580aa8c",
+            "name": "List imports",
+            "url": "httpsapi.salesloft.com\/\/v2\/imports.json",
+            "description": "Fetches multiple imports.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_ids",
+                    "description": "ID of users to fetch imports for. Using this filter will return an empty array for non-admin users who request other user's imports",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "f5c187cc2afade5371d8caed07785615",
+            "name": "Create an import",
+            "url": "httpsapi.salesloft.com\/\/v2\/imports.json",
+            "description": "Creates an import.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "ID of the User that owns this Import",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "0b2379f16b8084cc860bf02f8e460c57",
+            "name": "Delete an import",
+            "url": "httpsapi.salesloft.com\/\/v2\/imports\/{id}.json",
+            "description": "Deletes an import, by ID only. The associated people can be deleted as part of the deletion process.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "undo",
+                    "description": "Whether to delete people on this Import. Possible values are: [not present], all, single.\n\n'single' will delete people who are only present in this Import.\n'all' will delete people even if they are present in other Imports.\nNot specifying this parameter will not delete any people\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "91c335e3ca5b2499581b833a2e459277",
+            "name": "Fetch an import",
+            "url": "httpsapi.salesloft.com\/\/v2\/imports\/{id}.json",
+            "description": "Fetches an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "d44ab1ab05a81c5922eda8d351c7a8a3",
+            "name": "Update an import",
+            "url": "httpsapi.salesloft.com\/\/v2\/imports\/{id}.json",
+            "description": "Updates an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "ID of the User that owns this Import",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "0701f8aab871c357f1ceababe0873b51",
+            "name": "Fetch current user",
+            "url": "httpsapi.salesloft.com\/\/v2\/me.json",
+            "description": "Authenticated user information. This endpoint does not accept any parameters as it is\nrepresents your authenticated user. The \"Users\" resource provides user information\nfor other users on the team.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "7e3fec68751836786f6bd7aa26ca18f5",
+            "name": "List notes",
+            "url": "httpsapi.salesloft.com\/\/v2\/notes.json",
+            "description": "Fetches multiple note records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "associated_with_type",
+                    "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "associated_with_id",
+                    "description": "ID of the item with which the note is associated.  The associated_with_type must also be present if this parameter is used",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "f6a1f0b450137c824d478c53a6aa4d4c",
+            "name": "Create a note",
+            "url": "httpsapi.salesloft.com\/\/v2\/notes.json",
+            "description": "Creates a note.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "content",
+                    "description": "The content of the note",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "associated_with_type",
+                    "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "associated_with_id",
+                    "description": "ID of the item with which the note is associated",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skip_crm_sync",
+                    "description": "Boolean indicating if the CRM sync should be skipped.  No syncing will occur if true",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "call_id",
+                    "description": "ID of the call with which the note is associated. The call cannot already have a note",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "dc3235a61e577ddde378455f1a6c18f1",
+            "name": "Fetch a note",
+            "url": "httpsapi.salesloft.com\/\/v2\/notes\/{id}.json",
+            "description": "Fetches a note, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "d2eb101d48a665c509414507e1612d67",
+            "name": "Update a note",
+            "url": "httpsapi.salesloft.com\/\/v2\/notes\/{id}.json",
+            "description": "Updates a note. Any changes to the note or associated records will not reflect in Salesforce.com.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "content",
+                    "description": "The content of the note",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "call_id",
+                    "description": "ID of the call with which the note is associated. The call cannot already have a note",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "b870becfa143d76d9c5b0f7a9f00dbdc",
+            "name": "List people",
+            "url": "httpsapi.salesloft.com\/\/v2\/people.json",
+            "description": "Fetches multiple person records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email_addresses",
+                    "description": "Filters people by email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "c21fde89ba8b47b655ca92e3ad7c1284",
+            "name": "Create a person",
+            "url": "httpsapi.salesloft.com\/\/v2\/people.json",
+            "description": "Creates a person. Either email_address or phone\/last_name must be provided as a unique lookup\non the team.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "email_address",
+                    "description": "Email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_email_address",
+                    "description": "Alternate email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "personal_email_address",
+                    "description": "Personal email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "first_name",
+                    "description": "First name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "last_name",
+                    "description": "Last name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone",
+                    "description": "Phone number without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone_extension",
+                    "description": "Phone extension without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mobile_phone",
+                    "description": "Mobile phone without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "home_phone",
+                    "description": "Home phone without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "linkedin_url",
+                    "description": "Full LinkedIn url",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": "Job title",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "City",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "State",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country",
+                    "description": "Country",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "work_city",
+                    "description": "Work location - city",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "work_state",
+                    "description": "Work location - state",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "work_country",
+                    "description": "Work location - country",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_company_name",
+                    "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_company_website",
+                    "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_company_industry",
+                    "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "do_not_contact",
+                    "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "locale",
+                    "description": "Time locale",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "personal_website",
+                    "description": "The website of this person",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "twitter_handle",
+                    "description": "Twitter handle, with @",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "All tags applied to this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_fields",
+                    "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "account_id",
+                    "description": "ID of the Account to link this person to",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "owner_id",
+                    "description": "ID of the User that owns this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "import_id",
+                    "description": "ID of the Import this person is a part of. A person can be part of multiple imports, but this ID will always be the most recent Import",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_stage_id",
+                    "description": "ID of the PersonStage of this person",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "autotag_date",
+                    "description": "Whether the date should be added to this person as a tag. Default is false. The tag will be Y-m-d format.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "059e85f9281e257732e78f50178320eb",
+            "name": "Delete a person",
+            "url": "httpsapi.salesloft.com\/\/v2\/people\/{id}.json",
+            "description": "Deletes a person. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "5b059b96fd9bf553a0947370eecf7f1f",
+            "name": "Fetch a person",
+            "url": "httpsapi.salesloft.com\/\/v2\/people\/{id}.json",
+            "description": "Fetches a person, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "ec5b4d9cbc87b27c6bfb1726cd05f074",
+            "name": "Update a person",
+            "url": "httpsapi.salesloft.com\/\/v2\/people\/{id}.json",
+            "description": "Updates a person.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "email_address",
+                    "description": "Email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "secondary_email_address",
+                    "description": "Alternate email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "personal_email_address",
+                    "description": "Personal email address",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "first_name",
+                    "description": "First name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "last_name",
+                    "description": "Last name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone",
+                    "description": "Phone number without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone_extension",
+                    "description": "Phone extension without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mobile_phone",
+                    "description": "Mobile phone without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "home_phone",
+                    "description": "Home phone without formatting",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "linkedin_url",
+                    "description": "Full LinkedIn url",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": "Job title",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "city",
+                    "description": "City",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "State",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "country",
+                    "description": "Country",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "work_city",
+                    "description": "Work location - city",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "work_state",
+                    "description": "Work location - state",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "work_country",
+                    "description": "Work location - country",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_company_name",
+                    "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_company_website",
+                    "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_company_industry",
+                    "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "do_not_contact",
+                    "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "locale",
+                    "description": "Time locale",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "personal_website",
+                    "description": "The website of this person",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "twitter_handle",
+                    "description": "Twitter handle, with @",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": "All tags applied to this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_fields",
+                    "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "account_id",
+                    "description": "ID of the Account to link this person to",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "owner_id",
+                    "description": "ID of the User that owns this Account",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "import_id",
+                    "description": "ID of the Import this person is a part of. A person can be part of multiple imports, but this ID will always be the most recent Import",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "person_stage_id",
+                    "description": "ID of the PersonStage of this person",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "a2dfbc37989c80f2bf52422b3ae96f61",
+            "name": "List person stages",
+            "url": "httpsapi.salesloft.com\/\/v2\/person_stages.json",
+            "description": "Fetches multiple person stage records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "d0323b29959088f81c009655bd8f87c6",
+            "name": "Create a person stage",
+            "url": "httpsapi.salesloft.com\/\/v2\/person_stages.json",
+            "description": "Creates a person stage.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "4df9bdac9e9df4bec3c8742dba2698f6",
+            "name": "Delete an person stage",
+            "url": "httpsapi.salesloft.com\/\/v2\/person_stages\/{id}.json",
+            "description": "Deletes a person stage. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "38046e335471af3012ca2683d587bc84",
+            "name": "Fetch a person stage",
+            "url": "httpsapi.salesloft.com\/\/v2\/person_stages\/{id}.json",
+            "description": "Fetches a person stage, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "3254fb3caea778598d1eadc9665b58db",
+            "name": "Update a person stage",
+            "url": "httpsapi.salesloft.com\/\/v2\/person_stages\/{id}.json",
+            "description": "Updates a person stage.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "Account Full Name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "87de40f6fe3b9253489a1225c9ede76e",
+            "name": "List caller ids",
+            "url": "httpsapi.salesloft.com\/\/v2\/phone_numbers\/caller_ids.json",
+            "description": "Each entry is a possible caller ID match for the number. Multiple\nentries may be returned if the phone number is present on more than one\nperson in the system.  Phone number should be in E.164 format.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "phone_number",
+                    "description": "E.164 Phone Number",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "592daeee51c97104ac4c507211130b40",
+            "name": "Fetch recording setting",
+            "url": "httpsapi.salesloft.com\/\/v2\/phone_numbers\/recording_settings\/{id}.json",
+            "description": "Fetches the recording status for a given phone number, based on Do Not Record and Recording Governance for your team.\nPhone number should be in E.164 format.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "93a37b456c766a653d6963733157edf8",
+            "name": "List steps",
+            "url": "httpsapi.salesloft.com\/\/v2\/steps.json",
+            "description": "Fetches multiple step records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cadence_id",
+                    "description": "ID of the cadence to find cadence memberships for",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "Filter actions by type",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "has_due_actions",
+                    "description": "Filter by whether a step has due actions",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "8538c7acca5104ca68a236061b48453e",
+            "name": "Fetch a step",
+            "url": "httpsapi.salesloft.com\/\/v2\/steps\/{id}.json",
+            "description": "Fetches a step, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "56de66dde5c49a207a549fa43dc01e3c",
+            "name": "List successes",
+            "url": "httpsapi.salesloft.com\/\/v2\/successes.json",
+            "description": "Fetches multiple success records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "6858f30fb0e8b2b3e4fd326994111216",
+            "name": "Fetch current team",
+            "url": "httpsapi.salesloft.com\/\/v2\/team.json",
+            "description": "Fetches the team of the authenticated user.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "da4171fd33df6ec9e062e4ca42edabe9",
+            "name": "List team templates",
+            "url": "httpsapi.salesloft.com\/\/v2\/team_templates.json",
+            "description": "Fetches multiple team template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nTeam templates are templates that are available team-wide. Admins may use\nteam templates to create original content for the entire team, monitor version control to ensure templates are always up to date,\nand track template performance across the entire organization. All metrics on a team template reflect usage across the team; individual metrics can be found with the em",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "ids",
+                    "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "updated_at",
+                    "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_by",
+                    "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_direction",
+                    "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "per_page",
+                    "description": "How many records to show per page in the range [1, 100]. Defaults to 25",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "The current page to fetch results from. Defaults to 1",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include_paging_counts",
+                    "description": "Whether to include total_pages and total_count in the metadata. Defaults to false",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "0810736fc688130fdcf151125c5d0b9f",
+            "name": "Fetch a team template",
+            "url": "httpsapi.salesloft.com\/\/v2\/team_templates\/{id}.json",
+            "description": "Fetches a team template, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "54451ac0a9a1b206a04f466213d11096",
+            "name": "List users",
+            "url": "httpsapi.salesloft.com\/\/v2\/users.json",
+            "description": "Non Admin: Lists only your user, or all on team depending on group visibility policy\nTeam Admin: Lists users associated with your team\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        },
+        {
+            "id": "74d06328a0bb0ffc9fbab9b231f76837",
+            "name": "Fetch a user",
+            "url": "httpsapi.salesloft.com\/\/v2\/users\/{id}.json",
+            "description": "Fetches a user, by ID only.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "Account ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "9cba4f9c0e503550534788a26c7e7443",
+            "rawModeData": ""
+        }
+    ]
+}
