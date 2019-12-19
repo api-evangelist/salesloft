@@ -1,0 +1,88 @@
+{
+    "name": "SalesLoft",
+    "description": "<p>SalesLoft, the leading sales engagement platform, transforms the way sellers engage with their customers by delivering a better selling experience. Our sales engagement platform helps teams set and execute on a cadence of phone, email, and social communications to convert more target accounts into customer accounts. The platform equips sales leaders with new capabilities to test, learn and adapt to ensure their sales reps execute on the most effective selling process for their account-based approach. SalesLoft delivers access to an extensive ecosystem of 3rd party integrations allowing teams to perform all their sales engagement from a single platform.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/salesloft.png",
+    "tags": [
+        "have api",
+        "have swagger",
+        "relative data",
+        "service api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/salesloft\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "SalesLoft Platform",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/salesloft.png",
+            "humanURL": "http:\/\/salesloft.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/salesloft-platform.json"
+                }
+            ]
+        },
+        {
+            "name": "SalesLoft",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/salesloft.png",
+            "humanURL": "http:\/\/salesloft.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/salesloft.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "https:\/\/salesloft.com\/resources\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/salesloft.com\/feed\/"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/developers.salesloft.com\/api.html"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/developers.salesloft.com\/api.html#!\/Topic\/Introduction"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/SalesLoft"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/28497-2019-09-04-09-50-35.json"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/salesloft.com\/plans\/"
+        },
+        {
+            "type": "Support",
+            "url": "https:\/\/salesloft.com\/support\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/SalesLoft"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/salesloft.com"
+        }
+    ]
+}
