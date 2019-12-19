@@ -1,0 +1,4369 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v2",
+        "title": "SalesLoft Platform",
+        "description": "SalesLoft helps transform sales teams into modern sales organizations  - converting more target accounts into customer accounts\n",
+        "termsOfService": "http:\/\/exmple.com\/license\/"
+    },
+    "servers": [
+        "http:\/\/api.salesloft.com\/"
+    ],
+    "paths": {
+        "\/v2\/accounts.json": {
+            "get": {
+                "summary": "List accounts",
+                "description": "Fetches multiple account records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2AccountsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "description": "Domain of the accounts to fetch. Domains are unique and lowercase"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create an account",
+                "description": "Creates an account.\n\n\"domain\" must be unique on the current team.\n",
+                "operationId": "V2AccountsJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    },
+                    {
+                        "name": "domain",
+                        "in": "formData",
+                        "description": "Website domain, not a fully qualified URI"
+                    },
+                    {
+                        "name": "conversational_name",
+                        "in": "formData",
+                        "description": "Conversational name of the Account"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "Description"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "Phone number without formatting"
+                    },
+                    {
+                        "name": "website",
+                        "in": "formData",
+                        "description": "Website"
+                    },
+                    {
+                        "name": "linkedin_url",
+                        "in": "formData",
+                        "description": "Full LinkedIn url"
+                    },
+                    {
+                        "name": "twitter_handle",
+                        "in": "formData",
+                        "description": "Twitter handle, with @"
+                    },
+                    {
+                        "name": "street",
+                        "in": "formData",
+                        "description": "Street name and number"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "City"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "State"
+                    },
+                    {
+                        "name": "postal_code",
+                        "in": "formData",
+                        "description": "Postal code"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "Country"
+                    },
+                    {
+                        "name": "locale",
+                        "in": "formData",
+                        "description": "Time locale"
+                    },
+                    {
+                        "name": "industry",
+                        "in": "formData",
+                        "description": "Industry"
+                    },
+                    {
+                        "name": "company_type",
+                        "in": "formData",
+                        "description": "Type of the Account's company"
+                    },
+                    {
+                        "name": "founded",
+                        "in": "formData",
+                        "description": "Date or year of founding"
+                    },
+                    {
+                        "name": "revenue_range",
+                        "in": "formData",
+                        "description": "Estimated revenue range"
+                    },
+                    {
+                        "name": "size",
+                        "in": "formData",
+                        "description": "Estimated number of people in employment"
+                    },
+                    {
+                        "name": "do_not_contact",
+                        "in": "formData",
+                        "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications"
+                    },
+                    {
+                        "name": "custom_fields",
+                        "in": "formData",
+                        "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+                    },
+                    {
+                        "name": "tags",
+                        "in": "formData",
+                        "description": "All tags applied to this Account"
+                    },
+                    {
+                        "name": "owner_id",
+                        "in": "formData",
+                        "description": "ID of the User that owns this Account"
+                    },
+                    {
+                        "name": "company_stage_id",
+                        "in": "formData",
+                        "description": "ID of the CompanyStage assigned to this Account"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/accounts\/{id}.json": {
+            "delete": {
+                "summary": "Delete an account",
+                "description": "Deletes an account. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n\nDeleting an account will remove all connected people from that account.\n",
+                "operationId": "V2AccountsIdJsonDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The Account has been deleted successfully"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Fetch an account",
+                "description": "Fetches an account, by ID only.\n",
+                "operationId": "V2AccountsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update an existing Account",
+                "description": "Updates an account.\n\n\"domain\" must be unique on the current team.\n",
+                "operationId": "V2AccountsIdJsonPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    },
+                    {
+                        "name": "domain",
+                        "in": "formData",
+                        "description": "Website domain, not a fully qualified URI"
+                    },
+                    {
+                        "name": "conversational_name",
+                        "in": "formData",
+                        "description": "Conversational name of the Account"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "Description"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "Phone number without formatting"
+                    },
+                    {
+                        "name": "website",
+                        "in": "formData",
+                        "description": "Website"
+                    },
+                    {
+                        "name": "linkedin_url",
+                        "in": "formData",
+                        "description": "Full LinkedIn url"
+                    },
+                    {
+                        "name": "twitter_handle",
+                        "in": "formData",
+                        "description": "Twitter handle, with @"
+                    },
+                    {
+                        "name": "street",
+                        "in": "formData",
+                        "description": "Street name and number"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "City"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "State"
+                    },
+                    {
+                        "name": "postal_code",
+                        "in": "formData",
+                        "description": "Postal code"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "Country"
+                    },
+                    {
+                        "name": "locale",
+                        "in": "formData",
+                        "description": "Time locale"
+                    },
+                    {
+                        "name": "industry",
+                        "in": "formData",
+                        "description": "Industry"
+                    },
+                    {
+                        "name": "company_type",
+                        "in": "formData",
+                        "description": "Type of the Account's company"
+                    },
+                    {
+                        "name": "founded",
+                        "in": "formData",
+                        "description": "Date or year of founding"
+                    },
+                    {
+                        "name": "revenue_range",
+                        "in": "formData",
+                        "description": "Estimated revenue range"
+                    },
+                    {
+                        "name": "size",
+                        "in": "formData",
+                        "description": "Estimated number of people in employment"
+                    },
+                    {
+                        "name": "do_not_contact",
+                        "in": "formData",
+                        "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications"
+                    },
+                    {
+                        "name": "custom_fields",
+                        "in": "formData",
+                        "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+                    },
+                    {
+                        "name": "tags",
+                        "in": "formData",
+                        "description": "All tags applied to this Account"
+                    },
+                    {
+                        "name": "owner_id",
+                        "in": "formData",
+                        "description": "ID of the User that owns this Account"
+                    },
+                    {
+                        "name": "company_stage_id",
+                        "in": "formData",
+                        "description": "ID of the CompanyStage assigned to this Account"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/action_details\/call_instructions.json": {
+            "get": {
+                "summary": "List call instructions",
+                "description": "Fetches multiple call instruction records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2ActionDetailsCallInstructionsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/action_details\/call_instructions\/{id}.json": {
+            "get": {
+                "summary": "Fetch a call instructions",
+                "description": "Fetches a call instruction, by ID only.\n",
+                "operationId": "V2ActionDetailsCallInstructionsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/actions.json": {
+            "get": {
+                "summary": "List actions",
+                "description": "Fetches multiple action records. The records can be filtered, paged, and sorted according to\nthe respective parameters. Only actions that are currently \"in_progess\" will be returned by\nthis endpoint.\n",
+                "operationId": "V2ActionsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "step_id",
+                        "in": "query",
+                        "description": "Fetch actions by step ID"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Filter actions by type"
+                    },
+                    {
+                        "name": "due_on",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the due_on field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided i"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/actions\/{id}.json": {
+            "get": {
+                "summary": "Fetch an action",
+                "description": "Fetches an action, by ID only.\nThis endpoint will only return actions that are in_progress or pending_activity.\nOnce an action is complete, the request for that action will return a 404 status code.\n",
+                "operationId": "V2ActionsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/activities\/calls.json": {
+            "get": {
+                "summary": "List calls",
+                "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2ActivitiesCallsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/activities\/calls\/{id}.json": {
+            "get": {
+                "summary": "Fetch a call",
+                "description": "Fetches a call, by ID only.\n",
+                "operationId": "V2ActivitiesCallsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/activities\/emails.json": {
+            "get": {
+                "summary": "List emails",
+                "description": "Fetches multiple email records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2ActivitiesEmailsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "bounced",
+                        "in": "query",
+                        "description": "Filters emails by whether they have bounced or not"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/activities\/emails\/{id}.json": {
+            "get": {
+                "summary": "Fetch an email",
+                "description": "Fetches an email, by ID only.\n",
+                "operationId": "V2ActivitiesEmailsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/cadence_memberships.json": {
+            "get": {
+                "summary": "List cadence memberships",
+                "description": "Fetches multiple cadence membership records. The records can be filtered, paged, and sorted according to\nthe respective parameters. A cadence membership is the association between a person and their current and\nhistorical time on a cadence. Cadence membership records are mutable and change over time. If a person is\nadded to a cadence and re-added to the same cadence in the future, there is a single membership record.\n",
+                "operationId": "V2CadenceMembershipsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "person_id",
+                        "in": "query",
+                        "description": "ID of the person to find cadence memberships for"
+                    },
+                    {
+                        "name": "cadence_id",
+                        "in": "query",
+                        "description": "ID of the cadence to find cadence memberships for"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a cadence membership",
+                "description": "Adds a person to a cadence. person_id and cadence_id are required, and must be visible to the authenticated user. user_id will\ndefault to the authenticated user, but can be set to any visible user on the authenticated team.\n\nA person cannot be added to a cadence on behalf of a teammate unless the cadence is a team cadence, or the cadence is owned by\nthe teammate.\n",
+                "operationId": "V2CadenceMembershipsJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "person_id",
+                        "in": "query",
+                        "description": "ID of the person to find cadence memberships for"
+                    },
+                    {
+                        "name": "cadence_id",
+                        "in": "query",
+                        "description": "ID of the cadence to find cadence memberships for"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "ID of the user to create a cadence membership for. The associated cadence must be owned by the user, or it must be a team cadence"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/cadence_memberships\/{id}.json": {
+            "delete": {
+                "summary": "Delete a cadence membership",
+                "description": "",
+                "operationId": "V2CadenceMembershipsIdJsonDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The Account has been deleted successfully"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Fetch a cadence membership",
+                "description": "Fetches a cadence membership, by ID only.\n",
+                "operationId": "V2CadenceMembershipsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/cadences.json": {
+            "get": {
+                "summary": "List cadences",
+                "description": "Fetches multiple cadence records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2CadencesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "team_cadence",
+                        "in": "query",
+                        "description": "Filters cadences by whether they are a team cadence or not"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/cadences\/{id}.json": {
+            "get": {
+                "summary": "Fetch a cadence",
+                "description": "Fetches a cadence, by ID only.\n",
+                "operationId": "V2CadencesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/call_data_records.json": {
+            "get": {
+                "summary": "List call data records",
+                "description": "Fetches multiple call data records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nCall data records are records of all inbound and outbound calls through SalesLoft. A call data record may\nbe associated with a call, but does not have to be.\n",
+                "operationId": "V2CallDataRecordsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "has_call",
+                        "in": "query",
+                        "description": "Return only call data records which have or do not have a call logged for them"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/call_data_records\/{id}.json": {
+            "get": {
+                "summary": "Fetch a call data record",
+                "description": "Fetches a call data record, by ID only.\n",
+                "operationId": "V2CallDataRecordsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/crm_activities.json": {
+            "get": {
+                "summary": "List crm activities",
+                "description": "Fetches multiple crm activity records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2CrmActivitiesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/crm_activities\/{id}.json": {
+            "get": {
+                "summary": "Fetch a crm activity",
+                "description": "Fetches a crm activity, by ID only.\n",
+                "operationId": "V2CrmActivitiesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/custom_fields.json": {
+            "get": {
+                "summary": "List custom fields",
+                "description": "Fetches multiple custom field records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2CustomFieldsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "field_type",
+                        "in": "query",
+                        "description": "Type of field to fetch. Value must be one of: person, company, opportunity"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a custom field",
+                "description": "Creates a custom field.\n",
+                "operationId": "V2CustomFieldsJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    },
+                    {
+                        "name": "field_type",
+                        "in": "formData",
+                        "description": "The field type of the custom field. Value must be one of: person, company, opportunity"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/custom_fields\/{id}.json": {
+            "delete": {
+                "summary": "Delete a custom field",
+                "description": "Deletes a custom field.\n",
+                "operationId": "V2CustomFieldsIdJsonDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The Account has been deleted successfully"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Fetch a custom field",
+                "description": "Fetches a custom field, by ID only.\n",
+                "operationId": "V2CustomFieldsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a custom field",
+                "description": "Update a custom field.\n",
+                "operationId": "V2CustomFieldsIdJsonPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    },
+                    {
+                        "name": "field_type",
+                        "in": "formData",
+                        "description": "The field type of the custom field. Value must be one of: person, company, opportunity"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/email_templates.json": {
+            "get": {
+                "summary": "List email templates",
+                "description": "Fetches multiple email template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2EmailTemplatesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "linked_to_team_template",
+                        "in": "query",
+                        "description": "Filters email templates by whether they are linked to a team template or not"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/email_templates\/{id}.json": {
+            "get": {
+                "summary": "Fetch an email template",
+                "description": "Fetches an email template, by ID only.\n",
+                "operationId": "V2EmailTemplatesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/imports.json": {
+            "get": {
+                "summary": "List imports",
+                "description": "Fetches multiple imports.\n",
+                "operationId": "V2ImportsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "user_ids",
+                        "in": "query",
+                        "description": "ID of users to fetch imports for. Using this filter will return an empty array for non-admin users who request other user's imports"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create an import",
+                "description": "Creates an import.\n",
+                "operationId": "V2ImportsJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "ID of the User that owns this Import"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/imports\/{id}.json": {
+            "delete": {
+                "summary": "Delete an import",
+                "description": "Deletes an import, by ID only. The associated people can be deleted as part of the deletion process.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+                "operationId": "V2ImportsIdJsonDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    },
+                    {
+                        "name": "undo",
+                        "in": "query",
+                        "description": "Whether to delete people on this Import. Possible values are: [not present], all, single.\n\n'single' will delete people who are only present in this Import.\n'all' will delete people even if they are present in other Imports.\nNot specifying this parameter will not delete any people\n"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The Account has been deleted successfully"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Fetch an import",
+                "description": "Fetches an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+                "operationId": "V2ImportsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update an import",
+                "description": "Updates an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+                "operationId": "V2ImportsIdJsonPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "ID of the User that owns this Import"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/me.json": {
+            "get": {
+                "summary": "Fetch current user",
+                "description": "Authenticated user information. This endpoint does not accept any parameters as it is\nrepresents your authenticated user. The \"Users\" resource provides user information\nfor other users on the team.\n",
+                "operationId": "V2MeJsonGet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/notes.json": {
+            "get": {
+                "summary": "List notes",
+                "description": "Fetches multiple note records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2NotesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "associated_with_type",
+                        "in": "query",
+                        "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account"
+                    },
+                    {
+                        "name": "associated_with_id",
+                        "in": "query",
+                        "description": "ID of the item with which the note is associated.  The associated_with_type must also be present if this parameter is used"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a note",
+                "description": "Creates a note.\n",
+                "operationId": "V2NotesJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "content",
+                        "in": "formData",
+                        "description": "The content of the note"
+                    },
+                    {
+                        "name": "associated_with_type",
+                        "in": "formData",
+                        "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account"
+                    },
+                    {
+                        "name": "associated_with_id",
+                        "in": "formData",
+                        "description": "ID of the item with which the note is associated"
+                    },
+                    {
+                        "name": "skip_crm_sync",
+                        "in": "formData",
+                        "description": "Boolean indicating if the CRM sync should be skipped.  No syncing will occur if true"
+                    },
+                    {
+                        "name": "call_id",
+                        "in": "formData",
+                        "description": "ID of the call with which the note is associated. The call cannot already have a note"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/notes\/{id}.json": {
+            "get": {
+                "summary": "Fetch a note",
+                "description": "Fetches a note, by ID only.\n",
+                "operationId": "V2NotesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a note",
+                "description": "Updates a note. Any changes to the note or associated records will not reflect in Salesforce.com.\n",
+                "operationId": "V2NotesIdJsonPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    },
+                    {
+                        "name": "content",
+                        "in": "formData",
+                        "description": "The content of the note"
+                    },
+                    {
+                        "name": "call_id",
+                        "in": "formData",
+                        "description": "ID of the call with which the note is associated. The call cannot already have a note"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/people.json": {
+            "get": {
+                "summary": "List people",
+                "description": "Fetches multiple person records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2PeopleJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "email_addresses",
+                        "in": "query",
+                        "description": "Filters people by email address"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a person",
+                "description": "Creates a person. Either email_address or phone\/last_name must be provided as a unique lookup\non the team.\n",
+                "operationId": "V2PeopleJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "email_address",
+                        "in": "formData",
+                        "description": "Email address"
+                    },
+                    {
+                        "name": "secondary_email_address",
+                        "in": "formData",
+                        "description": "Alternate email address"
+                    },
+                    {
+                        "name": "personal_email_address",
+                        "in": "formData",
+                        "description": "Personal email address"
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "formData",
+                        "description": "First name"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "formData",
+                        "description": "Last name"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "Phone number without formatting"
+                    },
+                    {
+                        "name": "phone_extension",
+                        "in": "formData",
+                        "description": "Phone extension without formatting"
+                    },
+                    {
+                        "name": "mobile_phone",
+                        "in": "formData",
+                        "description": "Mobile phone without formatting"
+                    },
+                    {
+                        "name": "home_phone",
+                        "in": "formData",
+                        "description": "Home phone without formatting"
+                    },
+                    {
+                        "name": "linkedin_url",
+                        "in": "formData",
+                        "description": "Full LinkedIn url"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "Job title"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "City"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "State"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "Country"
+                    },
+                    {
+                        "name": "work_city",
+                        "in": "formData",
+                        "description": "Work location - city"
+                    },
+                    {
+                        "name": "work_state",
+                        "in": "formData",
+                        "description": "Work location - state"
+                    },
+                    {
+                        "name": "work_country",
+                        "in": "formData",
+                        "description": "Work location - country"
+                    },
+                    {
+                        "name": "person_company_name",
+                        "in": "formData",
+                        "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+                    },
+                    {
+                        "name": "person_company_website",
+                        "in": "formData",
+                        "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+                    },
+                    {
+                        "name": "person_company_industry",
+                        "in": "formData",
+                        "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+                    },
+                    {
+                        "name": "do_not_contact",
+                        "in": "formData",
+                        "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications"
+                    },
+                    {
+                        "name": "locale",
+                        "in": "formData",
+                        "description": "Time locale"
+                    },
+                    {
+                        "name": "personal_website",
+                        "in": "formData",
+                        "description": "The website of this person"
+                    },
+                    {
+                        "name": "twitter_handle",
+                        "in": "formData",
+                        "description": "Twitter handle, with @"
+                    },
+                    {
+                        "name": "tags",
+                        "in": "formData",
+                        "description": "All tags applied to this Account"
+                    },
+                    {
+                        "name": "custom_fields",
+                        "in": "formData",
+                        "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "formData",
+                        "description": "ID of the Account to link this person to"
+                    },
+                    {
+                        "name": "owner_id",
+                        "in": "formData",
+                        "description": "ID of the User that owns this Account"
+                    },
+                    {
+                        "name": "import_id",
+                        "in": "formData",
+                        "description": "ID of the Import this person is a part of. A person can be part of multiple imports, but this ID will always be the most recent Import"
+                    },
+                    {
+                        "name": "person_stage_id",
+                        "in": "formData",
+                        "description": "ID of the PersonStage of this person"
+                    },
+                    {
+                        "name": "autotag_date",
+                        "in": "formData",
+                        "description": "Whether the date should be added to this person as a tag. Default is false. The tag will be Y-m-d format."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/people\/{id}.json": {
+            "delete": {
+                "summary": "Delete a person",
+                "description": "Deletes a person. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+                "operationId": "V2PeopleIdJsonDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The Account has been deleted successfully"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Fetch a person",
+                "description": "Fetches a person, by ID only.\n",
+                "operationId": "V2PeopleIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a person",
+                "description": "Updates a person.\n",
+                "operationId": "V2PeopleIdJsonPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "email_address",
+                        "in": "formData",
+                        "description": "Email address"
+                    },
+                    {
+                        "name": "secondary_email_address",
+                        "in": "formData",
+                        "description": "Alternate email address"
+                    },
+                    {
+                        "name": "personal_email_address",
+                        "in": "formData",
+                        "description": "Personal email address"
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "formData",
+                        "description": "First name"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "formData",
+                        "description": "Last name"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "Phone number without formatting"
+                    },
+                    {
+                        "name": "phone_extension",
+                        "in": "formData",
+                        "description": "Phone extension without formatting"
+                    },
+                    {
+                        "name": "mobile_phone",
+                        "in": "formData",
+                        "description": "Mobile phone without formatting"
+                    },
+                    {
+                        "name": "home_phone",
+                        "in": "formData",
+                        "description": "Home phone without formatting"
+                    },
+                    {
+                        "name": "linkedin_url",
+                        "in": "formData",
+                        "description": "Full LinkedIn url"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "Job title"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "City"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "State"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "Country"
+                    },
+                    {
+                        "name": "work_city",
+                        "in": "formData",
+                        "description": "Work location - city"
+                    },
+                    {
+                        "name": "work_state",
+                        "in": "formData",
+                        "description": "Work location - state"
+                    },
+                    {
+                        "name": "work_country",
+                        "in": "formData",
+                        "description": "Work location - country"
+                    },
+                    {
+                        "name": "person_company_name",
+                        "in": "formData",
+                        "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+                    },
+                    {
+                        "name": "person_company_website",
+                        "in": "formData",
+                        "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+                    },
+                    {
+                        "name": "person_company_industry",
+                        "in": "formData",
+                        "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+                    },
+                    {
+                        "name": "do_not_contact",
+                        "in": "formData",
+                        "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications"
+                    },
+                    {
+                        "name": "locale",
+                        "in": "formData",
+                        "description": "Time locale"
+                    },
+                    {
+                        "name": "personal_website",
+                        "in": "formData",
+                        "description": "The website of this person"
+                    },
+                    {
+                        "name": "twitter_handle",
+                        "in": "formData",
+                        "description": "Twitter handle, with @"
+                    },
+                    {
+                        "name": "tags",
+                        "in": "formData",
+                        "description": "All tags applied to this Account"
+                    },
+                    {
+                        "name": "custom_fields",
+                        "in": "formData",
+                        "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "formData",
+                        "description": "ID of the Account to link this person to"
+                    },
+                    {
+                        "name": "owner_id",
+                        "in": "formData",
+                        "description": "ID of the User that owns this Account"
+                    },
+                    {
+                        "name": "import_id",
+                        "in": "formData",
+                        "description": "ID of the Import this person is a part of. A person can be part of multiple imports, but this ID will always be the most recent Import"
+                    },
+                    {
+                        "name": "person_stage_id",
+                        "in": "formData",
+                        "description": "ID of the PersonStage of this person"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/person_stages.json": {
+            "get": {
+                "summary": "List person stages",
+                "description": "Fetches multiple person stage records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2PersonStagesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a person stage",
+                "description": "Creates a person stage.\n",
+                "operationId": "V2PersonStagesJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/person_stages\/{id}.json": {
+            "delete": {
+                "summary": "Delete an person stage",
+                "description": "Deletes a person stage. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+                "operationId": "V2PersonStagesIdJsonDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The Account has been deleted successfully"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Fetch a person stage",
+                "description": "Fetches a person stage, by ID only.\n",
+                "operationId": "V2PersonStagesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a person stage",
+                "description": "Updates a person stage.\n",
+                "operationId": "V2PersonStagesIdJsonPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Account Full Name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/phone_numbers\/caller_ids.json": {
+            "get": {
+                "summary": "List caller ids",
+                "description": "Each entry is a possible caller ID match for the number. Multiple\nentries may be returned if the phone number is present on more than one\nperson in the system.  Phone number should be in E.164 format.\n",
+                "operationId": "V2PhoneNumbersCallerIdsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "phone_number",
+                        "in": "query",
+                        "description": "E.164 Phone Number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/phone_numbers\/recording_settings\/{id}.json": {
+            "get": {
+                "summary": "Fetch recording setting",
+                "description": "Fetches the recording status for a given phone number, based on Do Not Record and Recording Governance for your team.\nPhone number should be in E.164 format.\n",
+                "operationId": "V2PhoneNumbersRecordingSettingsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/steps.json": {
+            "get": {
+                "summary": "List steps",
+                "description": "Fetches multiple step records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2StepsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "cadence_id",
+                        "in": "query",
+                        "description": "ID of the cadence to find cadence memberships for"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Filter actions by type"
+                    },
+                    {
+                        "name": "has_due_actions",
+                        "in": "query",
+                        "description": "Filter by whether a step has due actions"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/steps\/{id}.json": {
+            "get": {
+                "summary": "Fetch a step",
+                "description": "Fetches a step, by ID only.\n",
+                "operationId": "V2StepsIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/successes.json": {
+            "get": {
+                "summary": "List successes",
+                "description": "Fetches multiple success records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+                "operationId": "V2SuccessesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/team.json": {
+            "get": {
+                "summary": "Fetch current team",
+                "description": "Fetches the team of the authenticated user.\n",
+                "operationId": "V2TeamJsonGet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/team_templates.json": {
+            "get": {
+                "summary": "List team templates",
+                "description": "Fetches multiple team template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nTeam templates are templates that are available team-wide. Admins may use\nteam templates to create original content for the entire team, monitor version control to ensure templates are always up to date,\nand track template performance across the entire organization. All metrics on a team template reflect usage across the team; individual metrics can be found with the em",
+                "operationId": "V2TeamTemplatesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+                    },
+                    {
+                        "name": "updated_at",
+                        "in": "query",
+                        "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provid"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+                    },
+                    {
+                        "name": "sort_direction",
+                        "in": "query",
+                        "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The current page to fetch results from. Defaults to 1"
+                    },
+                    {
+                        "name": "include_paging_counts",
+                        "in": "query",
+                        "description": "Whether to include total_pages and total_count in the metadata. Defaults to false"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/team_templates\/{id}.json": {
+            "get": {
+                "summary": "Fetch a team template",
+                "description": "Fetches a team template, by ID only.\n",
+                "operationId": "V2TeamTemplatesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/users.json": {
+            "get": {
+                "summary": "List users",
+                "description": "Non Admin: Lists only your user, or all on team depending on group visibility policy\nTeam Admin: Lists users associated with your team\n",
+                "operationId": "V2UsersJsonGet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/v2\/users\/{id}.json": {
+            "get": {
+                "summary": "Fetch a user",
+                "description": "Fetches a user, by ID only.\n",
+                "operationId": "V2UsersIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Account": {
+                "type": "object",
+                "properties": {
+                    "archived_at": {
+                        "description": "Datetime of when the Account was archived, if archived",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "City",
+                        "type": "string"
+                    },
+                    "company_stage": {
+                        "description": "Company Stage that this Account has set",
+                        "type": ""
+                    },
+                    "company_type": {
+                        "description": "Type of the Account's company",
+                        "type": "string"
+                    },
+                    "conversational_name": {
+                        "description": "Conversational name of the Account",
+                        "type": "string"
+                    },
+                    "country": {
+                        "description": "Country",
+                        "type": "string"
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "creator": {
+                        "description": "User that created this Account",
+                        "type": ""
+                    },
+                    "crm_id": {
+                        "description": "CRM ID, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "crm_object_type": {
+                        "description": "CRM object type, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "crm_url": {
+                        "description": "CRM url, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "custom_fields": {
+                        "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                        "type": "object"
+                    },
+                    "description": {
+                        "description": "Description",
+                        "type": "string"
+                    },
+                    "do_not_contact": {
+                        "description": "Whether this company has opted out of communications. Do not contact someone at this company when this is set to true",
+                        "type": "boolean"
+                    },
+                    "domain": {
+                        "description": "Website domain, not a fully qualified URI",
+                        "type": "string"
+                    },
+                    "founded": {
+                        "description": "Date or year of founding",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "industry": {
+                        "description": "Industry",
+                        "type": "string"
+                    },
+                    "last_contacted_at": {
+                        "description": "Datetime this Account was last contacted",
+                        "type": "string"
+                    },
+                    "last_contacted_by": {
+                        "description": "User that last contacted this Account",
+                        "type": ""
+                    },
+                    "last_contacted_person": {
+                        "description": "Person who was last contacted at this Account",
+                        "type": ""
+                    },
+                    "last_contacted_type": {
+                        "description": "The type of the last touch to this Account. Can be call, email, other",
+                        "type": "string"
+                    },
+                    "linkedin_url": {
+                        "description": "Full LinkedIn url",
+                        "type": "string"
+                    },
+                    "locale": {
+                        "description": "Time locale",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "owner": {
+                        "description": "User that is marked as the owner of this Account",
+                        "type": ""
+                    },
+                    "owner_crm_id": {
+                        "description": "Mapped owner field from the CRM, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "Phone number without formatting",
+                        "type": "string"
+                    },
+                    "postal_code": {
+                        "description": "Postal code",
+                        "type": "string"
+                    },
+                    "revenue_range": {
+                        "description": "Estimated revenue range",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "Estimated number of people in employment",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "State",
+                        "type": "string"
+                    },
+                    "street": {
+                        "description": "Street name and number",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "All tags applied to this Account",
+                        "type": "array"
+                    },
+                    "twitter_handle": {
+                        "description": "Twitter handle, with @",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "website": {
+                        "description": "Website",
+                        "type": "string"
+                    }
+                }
+            },
+            "company_stage": {
+                "type": "object"
+            },
+            "counts": {
+                "type": "object"
+            },
+            "creator": {
+                "type": "object"
+            },
+            "custom_fields": {
+                "type": "object"
+            },
+            "last_contacted_by": {
+                "type": "object"
+            },
+            "last_contacted_person": {
+                "type": "object"
+            },
+            "owner": {
+                "type": "object"
+            },
+            "tags": {
+                "type": "array"
+            },
+            "AccountCounts": {
+                "type": "object",
+                "properties": {
+                    "people": {
+                        "description": "Number of people in SalesLoft associated with this Account",
+                        "type": "integer"
+                    }
+                }
+            },
+            "Action": {
+                "type": "object",
+                "properties": {
+                    "action_details": {
+                        "description": "The type specific action details",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "due": {
+                        "description": "Whether this step is due",
+                        "type": "boolean"
+                    },
+                    "due_on": {
+                        "description": "When action is due",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "person": {
+                        "description": "The subject of an action",
+                        "type": ""
+                    },
+                    "status": {
+                        "description": "The current state of the person on the cadence. Possible values are:\n\nin_progress: this action has not been completed\n\npending_activity: this action has been acted upon, but the action has not been completed.\n(i.e. the email is scheduled to send, but has not been delivered yet)\n",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "The type of this action. Valid types are: email, phone, other. New types may be added in the future.\n",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "action_details": {
+                "type": "object"
+            },
+            "person": {
+                "type": "object",
+                "properties": {
+                    "EmbeddedResource": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "account": {
+                        "description": "Account that this person is associated to",
+                        "type": ""
+                    },
+                    "bouncing": {
+                        "description": "Whether this person's current email address has bounced",
+                        "type": "boolean"
+                    },
+                    "city": {
+                        "description": "City",
+                        "type": "string"
+                    },
+                    "country": {
+                        "description": "Country",
+                        "type": "string"
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "crm_id": {
+                        "description": "CRM ID, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "crm_object_type": {
+                        "description": "CRM object type, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "crm_url": {
+                        "description": "CRM url, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "custom_fields": {
+                        "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                        "type": "object"
+                    },
+                    "display_name": {
+                        "description": "The name of the person calling",
+                        "type": "string"
+                    },
+                    "do_not_contact": {
+                        "description": "Whether this company has opted out of communications. Do not contact someone at this company when this is set to true",
+                        "type": "boolean"
+                    },
+                    "email_address": {
+                        "description": "Email address",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "description": "First name",
+                        "type": "string"
+                    },
+                    "home_phone": {
+                        "description": "Home phone without formatting",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "import": {
+                        "description": "Import that this person was a part of",
+                        "type": ""
+                    },
+                    "last_contacted_at": {
+                        "description": "Datetime this Account was last contacted",
+                        "type": "string"
+                    },
+                    "last_contacted_by": {
+                        "description": "User that last contacted this Account",
+                        "type": ""
+                    },
+                    "last_contacted_type": {
+                        "description": "The type of the last touch to this Account. Can be call, email, other",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "description": "Last name",
+                        "type": "string"
+                    },
+                    "last_replied_at": {
+                        "description": "Last datetime this person replied to an email",
+                        "type": "string"
+                    },
+                    "linkedin_url": {
+                        "description": "Full LinkedIn url",
+                        "type": "string"
+                    },
+                    "locale": {
+                        "description": "Time locale",
+                        "type": "string"
+                    },
+                    "mobile_phone": {
+                        "description": "Mobile phone without formatting",
+                        "type": "string"
+                    },
+                    "owner": {
+                        "description": "User that is marked as the owner of this Account",
+                        "type": ""
+                    },
+                    "owner_crm_id": {
+                        "description": "Mapped owner field from the CRM, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "person_company_industry": {
+                        "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                        "type": "string"
+                    },
+                    "person_company_name": {
+                        "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                        "type": "string"
+                    },
+                    "person_company_website": {
+                        "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+                        "type": "string"
+                    },
+                    "person_stage": {
+                        "description": "Person stage that this person has set",
+                        "type": ""
+                    },
+                    "personal_email_address": {
+                        "description": "Personal email address",
+                        "type": "string"
+                    },
+                    "personal_website": {
+                        "description": "The website of this person",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "Phone number without formatting",
+                        "type": "string"
+                    },
+                    "phone_extension": {
+                        "description": "Phone extension without formatting",
+                        "type": "string"
+                    },
+                    "secondary_email_address": {
+                        "description": "Alternate email address",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "State",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "All tags applied to this Account",
+                        "type": "array"
+                    },
+                    "title": {
+                        "description": "The title of the person calling",
+                        "type": "string"
+                    },
+                    "twitter_handle": {
+                        "description": "Twitter handle, with @",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "work_city": {
+                        "description": "Work location - city",
+                        "type": "string"
+                    },
+                    "work_country": {
+                        "description": "Work location - country",
+                        "type": "string"
+                    },
+                    "work_state": {
+                        "description": "Work location - state",
+                        "type": "string"
+                    }
+                }
+            },
+            "user": {
+                "type": "object",
+                "properties": {
+                    "active": {
+                        "description": "Whether an user is currently active in SalesLoft",
+                        "type": "boolean"
+                    },
+                    "bcc_email_address": {
+                        "description": "Address that will be BBC'd on all emails from this user",
+                        "type": "string"
+                    },
+                    "click_to_call_enabled": {
+                        "description": "Whether this user has click to call enabled",
+                        "type": "boolean"
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "crm_connected": {
+                        "description": "Whether the user has a crm connected",
+                        "type": "boolean"
+                    },
+                    "email": {
+                        "description": "Email address provided to accounts.salesloft.com",
+                        "type": "string"
+                    },
+                    "email_client_configured": {
+                        "description": "Whether this user has a email client configured",
+                        "type": "boolean"
+                    },
+                    "email_client_email_address": {
+                        "description": "Email address associated with the email client of the user",
+                        "type": "string"
+                    },
+                    "email_signature": {
+                        "description": "Email signature",
+                        "type": "string"
+                    },
+                    "email_signature_click_tracking_disabled": {
+                        "description": "Whether this user has click tracking disabled in email signature",
+                        "type": "boolean"
+                    },
+                    "email_signature_type": {
+                        "description": "Email signature type",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "description": "First name",
+                        "type": "string"
+                    },
+                    "from_address": {
+                        "description": "The from address of this user",
+                        "type": "string"
+                    },
+                    "full_email_address": {
+                        "description": "RFC 5322 compliant email address",
+                        "type": "string"
+                    },
+                    "EmbeddedResource": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "group": {
+                        "description": "Group of user",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "last_name": {
+                        "description": "Last name",
+                        "type": "string"
+                    },
+                    "local_dial_enabled": {
+                        "description": "Whether this team has local dial enabled",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "phone_client": {
+                        "description": "Phone Client of user",
+                        "type": ""
+                    },
+                    "phone_number_assignment": {
+                        "description": "Phone number assignment of user",
+                        "type": ""
+                    },
+                    "sending_email_address": {
+                        "description": "The email address that email of the user will be sent from, resolved in the following resolution order: from_user, email_client_email_address, email",
+                        "type": "string"
+                    },
+                    "slack_username": {
+                        "description": "Slack username",
+                        "type": "string"
+                    },
+                    "team": {
+                        "description": "Team of user",
+                        "type": ""
+                    },
+                    "team_admin": {
+                        "description": "Team Admin",
+                        "type": "boolean"
+                    },
+                    "time_zone": {
+                        "description": "User Time Zone",
+                        "type": "string"
+                    },
+                    "twitter_handle": {
+                        "description": "Twitter handle, with @",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "Cadence": {
+                "type": "object",
+                "properties": {
+                    "added_stage": {
+                        "description": "Stage set when person is added to cadence",
+                        "type": ""
+                    },
+                    "archived_at": {
+                        "description": "Datetime of when the Account was archived, if archived",
+                        "type": "string"
+                    },
+                    "bounced_stage": {
+                        "description": "Stage set when person on cadence bounces",
+                        "type": ""
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "creator": {
+                        "description": "User that created this Account",
+                        "type": ""
+                    },
+                    "finished_stage": {
+                        "description": "Stage set when person is finished with cadence",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "opt_out_link_included": {
+                        "description": "Whether this cadence is configured to include an opt-out link by default",
+                        "type": "boolean"
+                    },
+                    "owner": {
+                        "description": "User that is marked as the owner of this Account",
+                        "type": ""
+                    },
+                    "remove_bounces_enabled": {
+                        "description": "Whether this cadence is configured to automatically remove people who have bounced",
+                        "type": "boolean"
+                    },
+                    "remove_replies_enabled": {
+                        "description": "Whether this cadence is configured to automatically remove people who have replied",
+                        "type": "boolean"
+                    },
+                    "replied_stage": {
+                        "description": "Stage set when person on cadence replies",
+                        "type": ""
+                    },
+                    "shared": {
+                        "description": "Whether this cadence is visible to team members (shared)",
+                        "type": "boolean"
+                    },
+                    "tags": {
+                        "description": "All tags applied to this Account",
+                        "type": "array"
+                    },
+                    "team_cadence": {
+                        "description": "Whether this cadence is a team cadence.  A team cadence is created by an admin and can be run by all users",
+                        "type": "boolean"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "added_stage": {
+                "type": "object"
+            },
+            "bounced_stage": {
+                "type": "object"
+            },
+            "finished_stage": {
+                "type": "object"
+            },
+            "replied_stage": {
+                "type": "object"
+            },
+            "CadenceCounts": {
+                "type": "object",
+                "properties": {
+                    "cadence_people": {
+                        "description": "The number of people that have ever been added to the cadence",
+                        "type": "integer"
+                    },
+                    "target_daily_people": {
+                        "description": "The user defined target for number of people to add to the cadence each day",
+                        "type": "integer"
+                    }
+                }
+            },
+            "CadenceMembership": {
+                "type": "object",
+                "properties": {
+                    "added_at": {
+                        "description": "Datetime of when the person was last added to this cadence",
+                        "type": "string"
+                    },
+                    "cadence": {
+                        "description": "The cadence that the person is on",
+                        "type": ""
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "current_state": {
+                        "description": "The current state of the person on the cadence. Possible values are:\n\nstaged: The person is waiting for the first step in the cadence to occur\n\nactive: The cadence has begun processing this person and is still in the process, but idle\n\nscheduled: The cadence has begun processing this person and is still in the process, with an activity scheduled to occur\n\ncompleted: The cadence has been completed for this person\n\nremoved: The person was manually or automatically removed from the cadence\n\nremoved_no_action: The person was removed from the cadence before any action occurred\n\nreassigned: The person's cadence execution was transferred to a different user, ending this user's interaction\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "latest_action": {
+                        "description": "The most recent action associated with the record",
+                        "type": ""
+                    },
+                    "person": {
+                        "description": "The subject of an action",
+                        "type": ""
+                    },
+                    "person_deleted": {
+                        "description": "Whether the associated person has since been deleted",
+                        "type": "boolean"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "cadence": {
+                "type": "object"
+            },
+            "latest_action": {
+                "type": "object"
+            },
+            "CadenceMembershipCounts": {
+                "type": "object",
+                "properties": {
+                    "bounces": {
+                        "description": "The number of times emails sent from the cadence to the person bounced",
+                        "type": "integer"
+                    },
+                    "calls": {
+                        "description": "The number of times a call was logged from the cadence to the person",
+                        "type": "integer"
+                    },
+                    "clicks": {
+                        "description": "The number of times emails sent from the cadence to the person were clicked",
+                        "type": "integer"
+                    },
+                    "replies": {
+                        "description": "The number of times emails sent from the cadence to the person were replied to",
+                        "type": "integer"
+                    },
+                    "sent_emails": {
+                        "description": "The number of times emails were sent from the cadence to the person",
+                        "type": "integer"
+                    },
+                    "views": {
+                        "description": "The number of times emails sent from the cadence to the person were opened",
+                        "type": "integer"
+                    }
+                }
+            },
+            "Call": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "description": "Action associated to the call",
+                        "type": ""
+                    },
+                    "called_person": {
+                        "description": "The person called",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "crm_activity": {
+                        "description": "CRM Activity associated with the call",
+                        "type": ""
+                    },
+                    "disposition": {
+                        "description": "Result of the call",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "Length of the call in seconds",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "note": {
+                        "description": "Note for this call",
+                        "type": ""
+                    },
+                    "recordings": {
+                        "description": "The recordings for this this call and their status",
+                        "type": "array"
+                    },
+                    "sentiment": {
+                        "description": "Outcome of the conversation",
+                        "type": "string"
+                    },
+                    "to": {
+                        "description": "Phone number that received the call",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "action": {
+                "type": "object"
+            },
+            "called_person": {
+                "type": "object"
+            },
+            "crm_activity": {
+                "type": "object"
+            },
+            "note": {
+                "type": "object",
+                "properties": {
+                    "EmbeddedResource": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "associated_with": {
+                        "description": "Item on which the note was made",
+                        "type": ""
+                    },
+                    "call": {
+                        "description": "Call that this record was logged to, if logged to a call",
+                        "type": ""
+                    },
+                    "content": {
+                        "description": "The content of the note",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "recordings": {
+                "type": "array"
+            },
+            "CallDataRecord": {
+                "type": "object",
+                "properties": {
+                    "call": {
+                        "description": "Call that this record was logged to, if logged to a call",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "direction": {
+                        "description": "Direction of the call. Can be one of: inbound, outbound",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "Length of the call in seconds",
+                        "type": "integer"
+                    },
+                    "from": {
+                        "description": "Phone number that placed the call",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "recording": {
+                        "description": "The recording for this this call data record, with a status",
+                        "type": ""
+                    },
+                    "to": {
+                        "description": "Phone number that received the call",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "call": {
+                "type": "object"
+            },
+            "recording": {
+                "type": "object"
+            },
+            "CallInstruction": {
+                "type": "object",
+                "properties": {
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "instructions": {
+                        "description": "The instructions",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "CallerId": {
+                "type": "object",
+                "properties": {
+                    "account_name": {
+                        "description": "The account of the person calling",
+                        "type": "string"
+                    },
+                    "display_name": {
+                        "description": "The name of the person calling",
+                        "type": "string"
+                    },
+                    "person": {
+                        "description": "The subject of an action",
+                        "type": ""
+                    },
+                    "title": {
+                        "description": "The title of the person calling",
+                        "type": "string"
+                    }
+                }
+            },
+            "CrmActivity": {
+                "type": "object",
+                "properties": {
+                    "activity_type": {
+                        "description": "The type of activity that is being recorded, if available. The values can change over time, but could be one of: email, phone, email reminder, inmail",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "crm_id": {
+                        "description": "CRM ID, currently Salesforce.com only",
+                        "type": "string"
+                    },
+                    "custom_crm_fields": {
+                        "description": "Additional fields that are logged to Salesforce, if mapped by the team at the time of writing to Salesforce",
+                        "type": "object"
+                    },
+                    "description": {
+                        "description": "Description",
+                        "type": "string"
+                    },
+                    "error": {
+                        "description": "Information about why this crm activity failed to sync, if it did fail to sync. Failed activities will be automatically retried and may become successful in the future",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "person": {
+                        "description": "The subject of an action",
+                        "type": ""
+                    },
+                    "subject": {
+                        "description": "The subject field of the activity in Salesforce",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "custom_crm_fields": {
+                "type": "object"
+            },
+            "CustomField": {
+                "type": "object",
+                "properties": {
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "field_type": {
+                        "description": "Type of the Custom Field. Value must be one of: person, company, opportunity.",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "Email": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "description": "Action associated to the call",
+                        "type": ""
+                    },
+                    "bounced": {
+                        "description": "Whether this email bounced",
+                        "type": "boolean"
+                    },
+                    "click_tracking": {
+                        "description": "Whether this email had click tracking enabled",
+                        "type": "boolean"
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "crm_activity": {
+                        "description": "CRM Activity associated with the call",
+                        "type": ""
+                    },
+                    "headers": {
+                        "description": "Selected headers that are included if this email used them. Available keys are: cc, bcc",
+                        "type": "object"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "mailing": {
+                        "description": "The mailing that this email was a part of",
+                        "type": ""
+                    },
+                    "recipient": {
+                        "description": "The person whom received this email",
+                        "type": ""
+                    },
+                    "recipient_email_address": {
+                        "description": "Email address of the recipient",
+                        "type": "string"
+                    },
+                    "send_after": {
+                        "description": "When this email will be sent, or null if already sent",
+                        "type": "string"
+                    },
+                    "sent_at": {
+                        "description": "When this email was sent, or null if it was not sent",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "The current state of the person on the cadence. Possible values are:\n\nin_progress: this action has not been completed\n\npending_activity: this action has been acted upon, but the action has not been completed.\n(i.e. the email is scheduled to send, but has not been delivered yet)\n",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    },
+                    "view_tracking": {
+                        "description": "Whether this email had view tracking enabled",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "headers": {
+                "type": "object"
+            },
+            "mailing": {
+                "type": "object"
+            },
+            "recipient": {
+                "type": "object"
+            },
+            "EmailCounts": {
+                "type": "object",
+                "properties": {
+                    "attachments": {
+                        "description": "The number of attachments on the email",
+                        "type": "integer"
+                    },
+                    "clicks": {
+                        "description": "The number of times emails sent from the cadence to the person were clicked",
+                        "type": "integer"
+                    },
+                    "replies": {
+                        "description": "The number of times emails sent from the cadence to the person were replied to",
+                        "type": "integer"
+                    },
+                    "unique_devices": {
+                        "description": "The number of unique devices that opened the email",
+                        "type": "integer"
+                    },
+                    "unique_locations": {
+                        "description": "The number of unique locations that opened the email",
+                        "type": "integer"
+                    },
+                    "views": {
+                        "description": "The number of times emails sent from the cadence to the person were opened",
+                        "type": "integer"
+                    }
+                }
+            },
+            "EmailTemplate": {
+                "type": "object",
+                "properties": {
+                    "archived_at": {
+                        "description": "Datetime of when the Account was archived, if archived",
+                        "type": "string"
+                    },
+                    "body": {
+                        "description": "Sanitized body of the email template without email signature",
+                        "type": "string"
+                    },
+                    "cadence_template": {
+                        "description": "Whether this email template is only used on a cadence step. These templates are not visible in the SalesLoft application template list. If false, this email template is visible in the SalesLoft application, and may be used when composing an email or creating a cadence step.",
+                        "type": "boolean"
+                    },
+                    "click_tracking_enabled": {
+                        "description": "Whether click tracking is enabled for this email template",
+                        "type": "boolean"
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "last_used_at": {
+                        "description": "Datetime of when the email template was last used",
+                        "type": "string"
+                    },
+                    "open_tracking_enabled": {
+                        "description": "Whether open tracking is enabled for this email template",
+                        "type": "boolean"
+                    },
+                    "shared": {
+                        "description": "Whether this cadence is visible to team members (shared)",
+                        "type": "boolean"
+                    },
+                    "subject": {
+                        "description": "The subject field of the activity in Salesforce",
+                        "type": "string"
+                    },
+                    "team_template": {
+                        "description": "Associated team template, if any",
+                        "type": ""
+                    },
+                    "template_owner": {
+                        "description": "User that owns this email template",
+                        "type": ""
+                    },
+                    "title": {
+                        "description": "The title of the person calling",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "team_template": {
+                "type": "object"
+            },
+            "template_owner": {
+                "type": "object"
+            },
+            "EmailTemplateCounts": {
+                "type": "object",
+                "properties": {
+                    "bounces": {
+                        "description": "The number of times emails sent from the cadence to the person bounced",
+                        "type": "integer"
+                    },
+                    "clicks": {
+                        "description": "The number of times emails sent from the cadence to the person were clicked",
+                        "type": "integer"
+                    },
+                    "replies": {
+                        "description": "The number of times emails sent from the cadence to the person were replied to",
+                        "type": "integer"
+                    },
+                    "sent_emails": {
+                        "description": "The number of times emails were sent from the cadence to the person",
+                        "type": "integer"
+                    },
+                    "views": {
+                        "description": "The number of times emails sent from the cadence to the person were opened",
+                        "type": "integer"
+                    }
+                }
+            },
+            "EmbeddedRecordingResource": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "The current state of the person on the cadence. Possible values are:\n\nin_progress: this action has not been completed\n\npending_activity: this action has been acted upon, but the action has not been completed.\n(i.e. the email is scheduled to send, but has not been delivered yet)\n",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "The url of the recording",
+                        "type": "string"
+                    }
+                }
+            },
+            "EmbeddedResource": {
+                "type": "object",
+                "properties": {
+                    "_href": {
+                        "description": "Resource URL, pointed at your API version, present if this resource is available in the API",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    }
+                }
+            },
+            "Import": {
+                "type": "object",
+                "properties": {
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "current_people_count": {
+                        "description": "Count of People that have not been deleted",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "imported_people_count": {
+                        "description": "Count of People that have ever been on this Import",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "PersonCounts": {
+                "type": "object",
+                "properties": {
+                    "calls": {
+                        "description": "The number of times a call was logged from the cadence to the person",
+                        "type": "integer"
+                    },
+                    "emails_bounced": {
+                        "description": "The number of unique emails sent to this person that bounced",
+                        "type": "integer"
+                    },
+                    "emails_clicked": {
+                        "description": "The number of unique emails clicked by this person",
+                        "type": "integer"
+                    },
+                    "emails_replied_to": {
+                        "description": "The number of unique emails replied to by this person",
+                        "type": "integer"
+                    },
+                    "emails_sent": {
+                        "description": "The number of emails sent to this person",
+                        "type": "integer"
+                    },
+                    "emails_viewed": {
+                        "description": "The number of unique emails viewed by this person",
+                        "type": "integer"
+                    }
+                }
+            },
+            "PersonStage": {
+                "type": "object",
+                "properties": {
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "RecordingSetting": {
+                "type": "object",
+                "properties": {
+                    "recording_default": {
+                        "description": "Whether this phone number should record by default",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Step": {
+                "type": "object",
+                "properties": {
+                    "EmbeddedResource": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "cadence": {
+                        "description": "The cadence that the person is on",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "day": {
+                        "description": "Day this step is associated with up",
+                        "type": "integer"
+                    },
+                    "details": {
+                        "description": "Details pertaining to the specific step type",
+                        "type": ""
+                    },
+                    "disabled": {
+                        "description": "Whether this step is currently active",
+                        "type": "boolean"
+                    },
+                    "display_name": {
+                        "description": "The name of the person calling",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "step_number": {
+                        "description": "The number of the step for this day",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "The type of this action. Valid types are: email, phone, other. New types may be added in the future.\n",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "Success": {
+                "type": "object",
+                "properties": {
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "EmbeddedResource": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "latest_action": {
+                        "description": "The most recent action associated with the record",
+                        "type": ""
+                    },
+                    "latest_call": {
+                        "description": "The call that was most recently made to this person before the success",
+                        "type": ""
+                    },
+                    "latest_email": {
+                        "description": "The email that was most recently sent to this person before the success",
+                        "type": ""
+                    },
+                    "person": {
+                        "description": "The subject of an action",
+                        "type": ""
+                    },
+                    "succeeded_at": {
+                        "description": "Datetime of when the success was recorded",
+                        "type": "string"
+                    },
+                    "success_window_started_at": {
+                        "description": "Datetime of when this person was first worked, leading up to the success",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    },
+                    "user": {
+                        "description": "User assigned to action",
+                        "type": ""
+                    }
+                }
+            },
+            "SuccessCounts": {
+                "type": "object",
+                "properties": {
+                    "total_calls": {
+                        "description": "The total number of calls made in this success window",
+                        "type": "integer"
+                    },
+                    "total_emails": {
+                        "description": "The total number of emails made in this success window",
+                        "type": "integer"
+                    },
+                    "total_other_touches": {
+                        "description": "The total number of other touches made in this success window",
+                        "type": "integer"
+                    }
+                }
+            },
+            "Team": {
+                "type": "object",
+                "properties": {
+                    "allow_automated_email_steps": {
+                        "description": "Whether team members are allowed to have automated email steps",
+                        "type": "boolean"
+                    },
+                    "call_recording_disabled": {
+                        "description": "Whether all call recording is disabled",
+                        "type": "boolean"
+                    },
+                    "click_tracking_default": {
+                        "description": "The team default for click tracking when composing emails",
+                        "type": "boolean"
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "custom_tracking_domain": {
+                        "description": "The domain click and open tracking will be proxied through",
+                        "type": "string"
+                    },
+                    "dispositions_required": {
+                        "description": "Whether team members are required to mark disposition at the end of calls",
+                        "type": "boolean"
+                    },
+                    "email_daily_limit": {
+                        "description": "Daily email limit for each member on the team",
+                        "type": "integer"
+                    },
+                    "group_privacy_setting": {
+                        "description": "Visibility setting for resources across the team. Possible values are: group_public, all_public.\nWhen the value is group_public, certain resources will only be visible to members of the same group.\nWhen the value is all_public, all resources are visible to all users on this team.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of Account",
+                        "type": "integer"
+                    },
+                    "license_limit": {
+                        "description": "Count of seats that this team has licensed",
+                        "type": "integer"
+                    },
+                    "local_dial_enabled": {
+                        "description": "Whether this team has local dial enabled",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Account Full Name",
+                        "type": "string"
+                    },
+                    "plan": {
+                        "description": "Plan type of the team, Possible values are: group, professional, enterprise",
+                        "type": "string"
+                    },
+                    "record_by_default": {
+                        "description": "Whether calls will record by default",
+                        "type": "boolean"
+                    },
+                    "sentiments_required": {
+                        "description": "Whether team members are required to log sentiments",
+                        "type": "boolean"
+                    },
+                    "team_visibility_default": {
+                        "description": "The default visibility of resources on the team, in the UI only. The API does not utilize this default.\nPossible values are: public, private.\n",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "TeamTemplate": {
+                "type": "object",
+                "properties": {
+                    "archived_at": {
+                        "description": "Datetime of when the Account was archived, if archived",
+                        "type": "string"
+                    },
+                    "body": {
+                        "description": "Sanitized body of the email template without email signature",
+                        "type": "string"
+                    },
+                    "click_tracking_enabled": {
+                        "description": "Whether click tracking is enabled for this email template",
+                        "type": "boolean"
+                    },
+                    "counts": {
+                        "description": "Various counts for this Account",
+                        "type": ""
+                    },
+                    "created_at": {
+                        "description": "Datetime of when the Account was created",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of team template",
+                        "type": "string"
+                    },
+                    "last_modified_at": {
+                        "description": "Datetime of when the team template was last modified",
+                        "type": "string"
+                    },
+                    "EmbeddedResource": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "last_modified_user": {
+                        "description": "User that last modified this team template",
+                        "type": ""
+                    },
+                    "last_used_at": {
+                        "description": "Datetime of when the email template was last used",
+                        "type": "string"
+                    },
+                    "open_tracking_enabled": {
+                        "description": "Whether open tracking is enabled for this email template",
+                        "type": "boolean"
+                    },
+                    "subject": {
+                        "description": "The subject field of the activity in Salesforce",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "The title of the person calling",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "description": "Datetime of when the Account was last updated",
+                        "type": "string"
+                    }
+                }
+            },
+            "TeamTemplateCounts": {
+                "type": "object",
+                "properties": {
+                    "bounces": {
+                        "description": "The number of times emails sent from the cadence to the person bounced",
+                        "type": "integer"
+                    },
+                    "clicks": {
+                        "description": "The number of times emails sent from the cadence to the person were clicked",
+                        "type": "integer"
+                    },
+                    "replies": {
+                        "description": "The number of times emails sent from the cadence to the person were replied to",
+                        "type": "integer"
+                    },
+                    "sent_emails": {
+                        "description": "The number of times emails were sent from the cadence to the person",
+                        "type": "integer"
+                    },
+                    "views": {
+                        "description": "The number of times emails sent from the cadence to the person were opened",
+                        "type": "integer"
+                    }
+                }
+            },
+            "ids": {
+                "type": "array"
+            },
+            "user_ids": {
+                "type": "array"
+            },
+            "email_addresses": {
+                "type": "array"
+            }
+        }
+    }
+}
