@@ -1,5 +1,5 @@
 {
-    "id": "d5d4410d0fa82e852fee66d3e6f98ff7",
+    "id": "1fd6d4ca00f562a321646cc8e41e7e09",
     "name": "SalesLoft Platform",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "76c899dc207c9ca95848a031931895df",
+            "id": "6ea966f9f5731b72c2dd25eab9d80645",
             "name": "List accounts",
             "url": "http:\/\/api.salesloft.com\/\/v2\/accounts.json",
             "description": "Fetches multiple account records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -86,11 +86,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "02df263d3ccde5111bbddf14dbcc328e",
+            "id": "28591e4935355e4764d1b38fd797d101",
             "name": "Create an account",
             "url": "http:\/\/api.salesloft.com\/\/v2\/accounts.json",
             "description": "Creates an account.\n\n\"domain\" must be unique on the current team.\n",
@@ -278,11 +278,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "e2ed53fed15b33554310214800d46a8b",
+            "id": "0694d271dcec0618f799c3da85674d87",
             "name": "Delete an account",
             "url": "http:\/\/api.salesloft.com\/\/v2\/accounts\/{id}.json",
             "description": "Deletes an account. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n\nDeleting an account will remove all connected people from that account.\n",
@@ -309,11 +309,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "1dda3906ca9e8ec0ec63bae58c1d835a",
+            "id": "bb2a9dca67796ec7fc4c921b2b90fba7",
             "name": "Fetch an account",
             "url": "http:\/\/api.salesloft.com\/\/v2\/accounts\/{id}.json",
             "description": "Fetches an account, by ID only.\n",
@@ -340,11 +340,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "5784cde15a82e89afef403b2207cbb3b",
+            "id": "05d7c4a4fd1c5cd3e142165021553c6d",
             "name": "Update an existing Account",
             "url": "http:\/\/api.salesloft.com\/\/v2\/accounts\/{id}.json",
             "description": "Updates an account.\n\n\"domain\" must be unique on the current team.\n",
@@ -539,11 +539,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "57e2d716b88cc189f3ff2fc04558af55",
+            "id": "cf3067574497811b6aacd2a106c0bfff",
             "name": "List call instructions",
             "url": "http:\/\/api.salesloft.com\/\/v2\/action_details\/call_instructions.json",
             "description": "Fetches multiple call instruction records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -605,11 +605,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "0dc15fbde582a707e31112bfe0c2ff02",
+            "id": "b8222a4b8a3d097be4cd5b2e369347f2",
             "name": "Fetch a call instructions",
             "url": "http:\/\/api.salesloft.com\/\/v2\/action_details\/call_instructions\/{id}.json",
             "description": "Fetches a call instruction, by ID only.\n",
@@ -636,11 +636,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "2b4334971eb6340e280b1af2702a2ebd",
+            "id": "ce20a42c8d4603bde0820d8ceaf2eb54",
             "name": "List actions",
             "url": "http:\/\/api.salesloft.com\/\/v2\/actions.json",
             "description": "Fetches multiple action records. The records can be filtered, paged, and sorted according to\nthe respective parameters. Only actions that are currently \"in_progess\" will be returned by\nthis endpoint.\n",
@@ -723,11 +723,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "e7b1604e3cc17768aa4c294f9f5a650e",
+            "id": "1c53d36a9efdd1a14ad661018cf634ab",
             "name": "Fetch an action",
             "url": "http:\/\/api.salesloft.com\/\/v2\/actions\/{id}.json",
             "description": "Fetches an action, by ID only.\nThis endpoint will only return actions that are in_progress or pending_activity.\nOnce an action is complete, the request for that action will return a 404 status code.\n",
@@ -754,11 +754,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "b7fff0451ec287bcfa154fa69f4c863b",
+            "id": "37e6e191d725b5054e60dcd1b8856aa2",
             "name": "List calls",
             "url": "http:\/\/api.salesloft.com\/\/v2\/activities\/calls.json",
             "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -827,11 +827,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "db260d28e347010e6fd6b834338f66d3",
+            "id": "0341d1277fcc3af786f0e228529cd5b2",
             "name": "Fetch a call",
             "url": "http:\/\/api.salesloft.com\/\/v2\/activities\/calls\/{id}.json",
             "description": "Fetches a call, by ID only.\n",
@@ -858,11 +858,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "2fc5a8488959f1e67b8a3c2f673dc746",
+            "id": "d901683051b23b83fc111a39393de9e5",
             "name": "List emails",
             "url": "http:\/\/api.salesloft.com\/\/v2\/activities\/emails.json",
             "description": "Fetches multiple email records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -938,11 +938,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "8917f221a19dbb8f5987536304e4ce93",
+            "id": "ff31d2fac7167aabd8c90aaf53f895e2",
             "name": "Fetch an email",
             "url": "http:\/\/api.salesloft.com\/\/v2\/activities\/emails\/{id}.json",
             "description": "Fetches an email, by ID only.\n",
@@ -969,11 +969,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "d7d3733cdfdcf162a455b060e18e06bb",
+            "id": "54f33166d327cce7daceefcbb6e625ef",
             "name": "List cadence memberships",
             "url": "http:\/\/api.salesloft.com\/\/v2\/cadence_memberships.json",
             "description": "Fetches multiple cadence membership records. The records can be filtered, paged, and sorted according to\nthe respective parameters. A cadence membership is the association between a person and their current and\nhistorical time on a cadence. Cadence membership records are mutable and change over time. If a person is\nadded to a cadence and re-added to the same cadence in the future, there is a single membership record.\n",
@@ -1056,11 +1056,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "fc93b84da38a6e61af04af66f7b17e01",
+            "id": "0e7fa3a6aae6b638ecd338c5eda1d6c2",
             "name": "Create a cadence membership",
             "url": "http:\/\/api.salesloft.com\/\/v2\/cadence_memberships.json",
             "description": "Adds a person to a cadence. person_id and cadence_id are required, and must be visible to the authenticated user. user_id will\ndefault to the authenticated user, but can be set to any visible user on the authenticated team.\n\nA person cannot be added to a cadence on behalf of a teammate unless the cadence is a team cadence, or the cadence is owned by\nthe teammate.\n",
@@ -1101,11 +1101,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "f0c84f5a3560c7d453c9811b7470e96b",
+            "id": "93fb82515f65df7a1df72b83ac49097a",
             "name": "Delete a cadence membership",
             "url": "http:\/\/api.salesloft.com\/\/v2\/cadence_memberships\/{id}.json",
             "description": "",
@@ -1132,11 +1132,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "f21a434dd08e24e4a8cb75dc566b26b8",
+            "id": "1d0ab24e55de2f5ced27d7d626338ecc",
             "name": "Fetch a cadence membership",
             "url": "http:\/\/api.salesloft.com\/\/v2\/cadence_memberships\/{id}.json",
             "description": "Fetches a cadence membership, by ID only.\n",
@@ -1163,11 +1163,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "93f86bc6000e40ffedac254e824deae1",
+            "id": "baeba86120f7cf7b2fb46f1d7e0fb780",
             "name": "List cadences",
             "url": "http:\/\/api.salesloft.com\/\/v2\/cadences.json",
             "description": "Fetches multiple cadence records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -1243,11 +1243,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "e9801408576ac9f54eded8787f9edc6e",
+            "id": "eadbe2c31d569ef9d242b9d687ef2c70",
             "name": "Fetch a cadence",
             "url": "http:\/\/api.salesloft.com\/\/v2\/cadences\/{id}.json",
             "description": "Fetches a cadence, by ID only.\n",
@@ -1274,11 +1274,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "f0835f07e23949c39d522e0650340bc5",
+            "id": "eeca2bc2adaac3607e8f9fd02aac2dd6",
             "name": "List call data records",
             "url": "http:\/\/api.salesloft.com\/\/v2\/call_data_records.json",
             "description": "Fetches multiple call data records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nCall data records are records of all inbound and outbound calls through SalesLoft. A call data record may\nbe associated with a call, but does not have to be.\n",
@@ -1354,11 +1354,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "fadded2288ab2912c9d8e4e176701c17",
+            "id": "5e41350de3a4e21a6485a760d719abf0",
             "name": "Fetch a call data record",
             "url": "http:\/\/api.salesloft.com\/\/v2\/call_data_records\/{id}.json",
             "description": "Fetches a call data record, by ID only.\n",
@@ -1385,11 +1385,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "771c3577c5b284f5e89fd1b17565cc6d",
+            "id": "fa7924d6151a7f0a55622dc3a01223cc",
             "name": "List crm activities",
             "url": "http:\/\/api.salesloft.com\/\/v2\/crm_activities.json",
             "description": "Fetches multiple crm activity records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -1458,11 +1458,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "48f634145a536dec823aa77664839fb0",
+            "id": "1f4f079fb90cdcce3c6e869778e9dd4f",
             "name": "Fetch a crm activity",
             "url": "http:\/\/api.salesloft.com\/\/v2\/crm_activities\/{id}.json",
             "description": "Fetches a crm activity, by ID only.\n",
@@ -1489,11 +1489,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "538fabccf6d03cc43697979ba206e1e6",
+            "id": "c6fedb4ff208e40fa4431b46f9908cee",
             "name": "List custom fields",
             "url": "http:\/\/api.salesloft.com\/\/v2\/custom_fields.json",
             "description": "Fetches multiple custom field records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -1562,11 +1562,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "52b12f222573e4e4539282845532f63f",
+            "id": "8f96be694519af72679a4bad517a5458",
             "name": "Create a custom field",
             "url": "http:\/\/api.salesloft.com\/\/v2\/custom_fields.json",
             "description": "Creates a custom field.\n",
@@ -1600,11 +1600,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "24d2afc73cff41ad3dc4fd4c73905b75",
+            "id": "e277f470f697a4bddb51b52a86af2a69",
             "name": "Delete a custom field",
             "url": "http:\/\/api.salesloft.com\/\/v2\/custom_fields\/{id}.json",
             "description": "Deletes a custom field.\n",
@@ -1631,11 +1631,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "4dda5afdbb153f60e2603c608780baaf",
+            "id": "5c5b864be7b96213ce547e1f6616f942",
             "name": "Fetch a custom field",
             "url": "http:\/\/api.salesloft.com\/\/v2\/custom_fields\/{id}.json",
             "description": "Fetches a custom field, by ID only.\n",
@@ -1662,11 +1662,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "2fb359df10d8698c9aa9eae0814370d7",
+            "id": "96d1ef7680ebf393b01d2f14e0c14388",
             "name": "Update a custom field",
             "url": "http:\/\/api.salesloft.com\/\/v2\/custom_fields\/{id}.json",
             "description": "Update a custom field.\n",
@@ -1707,11 +1707,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "6624206f0bd25cb7f0346261c9c6f96c",
+            "id": "a08710158c0c676415d4ddf53bee0254",
             "name": "List email templates",
             "url": "http:\/\/api.salesloft.com\/\/v2\/email_templates.json",
             "description": "Fetches multiple email template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -1787,11 +1787,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "17c2e8f87abc519d9c0e33e58dbca069",
+            "id": "df505328d0caaf716621b0c544b087de",
             "name": "Fetch an email template",
             "url": "http:\/\/api.salesloft.com\/\/v2\/email_templates\/{id}.json",
             "description": "Fetches an email template, by ID only.\n",
@@ -1818,11 +1818,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "93b43e59d513dd1c04abef0ae8465871",
+            "id": "5dee7d7da34e932582cf0d3de1e833b8",
             "name": "List imports",
             "url": "http:\/\/api.salesloft.com\/\/v2\/imports.json",
             "description": "Fetches multiple imports.\n",
@@ -1891,11 +1891,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "78eeb61ce4dd0df94bc9154bd38eba89",
+            "id": "acb6f950f7267fd53c37e981a4c62c17",
             "name": "Create an import",
             "url": "http:\/\/api.salesloft.com\/\/v2\/imports.json",
             "description": "Creates an import.\n",
@@ -1929,11 +1929,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "28eed4350abeddcf739dbdfa9c12aa96",
+            "id": "7ab49f1957e621fe865dea3eaed54a0f",
             "name": "Delete an import",
             "url": "http:\/\/api.salesloft.com\/\/v2\/imports\/{id}.json",
             "description": "Deletes an import, by ID only. The associated people can be deleted as part of the deletion process.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
@@ -1967,11 +1967,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "edd9c5cc7c330903c1f8d12fead40bb3",
+            "id": "b573b1275c5a9c88c091dc1312e4f148",
             "name": "Fetch an import",
             "url": "http:\/\/api.salesloft.com\/\/v2\/imports\/{id}.json",
             "description": "Fetches an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
@@ -1998,11 +1998,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "261467d5ea59dea8a170aa35fda34554",
+            "id": "b3234040e4fcc81fb61417012e1a9deb",
             "name": "Update an import",
             "url": "http:\/\/api.salesloft.com\/\/v2\/imports\/{id}.json",
             "description": "Updates an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
@@ -2043,11 +2043,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "cdce7627fb693bfc434f498045d67b42",
+            "id": "93e6dcd270b44d68224a67f55d6c6756",
             "name": "Fetch current user",
             "url": "http:\/\/api.salesloft.com\/\/v2\/me.json",
             "description": "Authenticated user information. This endpoint does not accept any parameters as it is\nrepresents your authenticated user. The \"Users\" resource provides user information\nfor other users on the team.\n",
@@ -2066,11 +2066,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "1e6823ab11e6a810c7dbd46eb19976f8",
+            "id": "ea2197beb184eec83ed3f77b9fb534d4",
             "name": "List notes",
             "url": "http:\/\/api.salesloft.com\/\/v2\/notes.json",
             "description": "Fetches multiple note records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -2153,11 +2153,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "bb01c6de0e6da88ae51bf3ec82d1e5b8",
+            "id": "ed9343673e435400bf85377bae85b51f",
             "name": "Create a note",
             "url": "http:\/\/api.salesloft.com\/\/v2\/notes.json",
             "description": "Creates a note.\n",
@@ -2212,11 +2212,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "01ff2d0790d31f20650c5215ef5849df",
+            "id": "ca23e253dead8e7b40e0fc6689f6c594",
             "name": "Fetch a note",
             "url": "http:\/\/api.salesloft.com\/\/v2\/notes\/{id}.json",
             "description": "Fetches a note, by ID only.\n",
@@ -2243,11 +2243,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "7f57b700eb4e510bf44c29833e8a8480",
+            "id": "d13afc11d6764120b5d4fcb7db8620ab",
             "name": "Update a note",
             "url": "http:\/\/api.salesloft.com\/\/v2\/notes\/{id}.json",
             "description": "Updates a note. Any changes to the note or associated records will not reflect in Salesforce.com.\n",
@@ -2288,11 +2288,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "13492cd9f5f8e89fc84159ada8e9b15b",
+            "id": "6e9ade014c3c0d7c33c5b7cd6a436365",
             "name": "List people",
             "url": "http:\/\/api.salesloft.com\/\/v2\/people.json",
             "description": "Fetches multiple person records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -2368,11 +2368,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "172cc9762495ed70b5039af61b25c995",
+            "id": "d168599ac3ad76eb50fd0b546a34dc04",
             "name": "Create a person",
             "url": "http:\/\/api.salesloft.com\/\/v2\/people.json",
             "description": "Creates a person. Either email_address or phone\/last_name must be provided as a unique lookup\non the team.\n",
@@ -2609,11 +2609,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "a94b58a1d953363ee7cd2b4bfc97806a",
+            "id": "fdf23bfafb68cd6dbd3ee96793b65d48",
             "name": "Delete a person",
             "url": "http:\/\/api.salesloft.com\/\/v2\/people\/{id}.json",
             "description": "Deletes a person. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
@@ -2640,11 +2640,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "78b419d5c45c9555d8582fc08b2aeb64",
+            "id": "34baf2f2ffd5e582d102386c06b38c6c",
             "name": "Fetch a person",
             "url": "http:\/\/api.salesloft.com\/\/v2\/people\/{id}.json",
             "description": "Fetches a person, by ID only.\n",
@@ -2671,11 +2671,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "91d1829380072831ad413e070d075c7e",
+            "id": "bdf18887b0c0b2951fd9379840254a5f",
             "name": "Update a person",
             "url": "http:\/\/api.salesloft.com\/\/v2\/people\/{id}.json",
             "description": "Updates a person.\n",
@@ -2912,11 +2912,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "b6df2b2f7789054a8c1141df5bad384c",
+            "id": "8fe1e2258b6da0868e9e81c4f280ff8a",
             "name": "List person stages",
             "url": "http:\/\/api.salesloft.com\/\/v2\/person_stages.json",
             "description": "Fetches multiple person stage records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -2978,11 +2978,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "362dd9f0096536da1dd59288e44fb1ad",
+            "id": "e9b1ec6a9e36af548fc7a292daed9b5f",
             "name": "Create a person stage",
             "url": "http:\/\/api.salesloft.com\/\/v2\/person_stages.json",
             "description": "Creates a person stage.\n",
@@ -3009,11 +3009,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "791ad75853c1ce5ace0815d9653f3711",
+            "id": "f204cabe9b9e64b133ac0148829903cc",
             "name": "Delete an person stage",
             "url": "http:\/\/api.salesloft.com\/\/v2\/person_stages\/{id}.json",
             "description": "Deletes a person stage. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
@@ -3040,11 +3040,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "4e1edadec1552ab813bd37b4b7d35c00",
+            "id": "87daf34ad26f9de57a81c646cb24528d",
             "name": "Fetch a person stage",
             "url": "http:\/\/api.salesloft.com\/\/v2\/person_stages\/{id}.json",
             "description": "Fetches a person stage, by ID only.\n",
@@ -3071,11 +3071,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "072f9c811bac6b80df9e286564eef197",
+            "id": "ea447d90ceaa6075648970472ba98b95",
             "name": "Update a person stage",
             "url": "http:\/\/api.salesloft.com\/\/v2\/person_stages\/{id}.json",
             "description": "Updates a person stage.\n",
@@ -3109,11 +3109,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "41e8b13afe17760a13121a14f2fc7a51",
+            "id": "dcc93c91c39305fb089c74c062a0d667",
             "name": "List caller ids",
             "url": "http:\/\/api.salesloft.com\/\/v2\/phone_numbers\/caller_ids.json",
             "description": "Each entry is a possible caller ID match for the number. Multiple\nentries may be returned if the phone number is present on more than one\nperson in the system.  Phone number should be in E.164 format.\n",
@@ -3140,11 +3140,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "dd95a4df842a84a7f7a95bc48d348231",
+            "id": "43569e3313ca66fa06b0b996cc806591",
             "name": "Fetch recording setting",
             "url": "http:\/\/api.salesloft.com\/\/v2\/phone_numbers\/recording_settings\/{id}.json",
             "description": "Fetches the recording status for a given phone number, based on Do Not Record and Recording Governance for your team.\nPhone number should be in E.164 format.\n",
@@ -3171,11 +3171,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "235ae574b90913b9e225ed302c13d048",
+            "id": "5a13a4fcb1c6cb12ed61404ebbcea0c7",
             "name": "List steps",
             "url": "http:\/\/api.salesloft.com\/\/v2\/steps.json",
             "description": "Fetches multiple step records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -3258,11 +3258,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "2554f7a30576faacf8758d3c9cd3fbea",
+            "id": "723c9bc9d16e84e941e62192a7e36432",
             "name": "Fetch a step",
             "url": "http:\/\/api.salesloft.com\/\/v2\/steps\/{id}.json",
             "description": "Fetches a step, by ID only.\n",
@@ -3289,11 +3289,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "a7134168285cb057102509e5622f6a6b",
+            "id": "854b293278e435f5b6e5bc07276aa2a1",
             "name": "List successes",
             "url": "http:\/\/api.salesloft.com\/\/v2\/successes.json",
             "description": "Fetches multiple success records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
@@ -3362,11 +3362,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "cce3b2cc731c97bf273b0fd0b1f647f9",
+            "id": "578da84cc60e93b80ab29f41f58217a4",
             "name": "Fetch current team",
             "url": "http:\/\/api.salesloft.com\/\/v2\/team.json",
             "description": "Fetches the team of the authenticated user.\n",
@@ -3385,11 +3385,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "cb4a0bd755d5f1e5c3a4ae3363518a3a",
+            "id": "a8fd86edb7c8b66ddbdc2f379e039e71",
             "name": "List team templates",
             "url": "http:\/\/api.salesloft.com\/\/v2\/team_templates.json",
             "description": "Fetches multiple team template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nTeam templates are templates that are available team-wide. Admins may use\nteam templates to create original content for the entire team, monitor version control to ensure templates are always up to date,\nand track template performance across the entire organization. All metrics on a team template reflect usage across the team; individual metrics can be found with the em",
@@ -3458,11 +3458,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "e95f2b1d72fc3a56188552c4a001ecd5",
+            "id": "7b2f20ea6eab16949ed7313d7b7e36fc",
             "name": "Fetch a team template",
             "url": "http:\/\/api.salesloft.com\/\/v2\/team_templates\/{id}.json",
             "description": "Fetches a team template, by ID only.\n",
@@ -3489,11 +3489,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "189453b977e4879edc72f9c4c72c582b",
+            "id": "2c676dbb356640099be8190d05f476c5",
             "name": "List users",
             "url": "http:\/\/api.salesloft.com\/\/v2\/users.json",
             "description": "Non Admin: Lists only your user, or all on team depending on group visibility policy\nTeam Admin: Lists users associated with your team\n",
@@ -3512,11 +3512,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         },
         {
-            "id": "1cb5044fd270a98ba8b3a0b9c3503aaa",
+            "id": "ca6ff7abb94aa808871833ab71daf550",
             "name": "Fetch a user",
             "url": "http:\/\/api.salesloft.com\/\/v2\/users\/{id}.json",
             "description": "Fetches a user, by ID only.\n",
@@ -3543,7 +3543,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "d5d4410d0fa82e852fee66d3e6f98ff7",
+            "collectionId": "1fd6d4ca00f562a321646cc8e41e7e09",
             "rawModeData": ""
         }
     ]
