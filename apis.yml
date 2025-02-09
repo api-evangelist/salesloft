@@ -5,7 +5,7 @@ apis:
   - aid: salesloft:salesloft
     name: Salesloft
     tags:
-      - API
+      - Sales
     humanURL: https://developers.salesloft.com/
     properties:
       - url: https://developers.salesloft.com/
