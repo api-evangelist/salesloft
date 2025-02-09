@@ -10,6 +10,8 @@ apis:
     properties:
       - url: https://developers.salesloft.com/
         type: Documentation
+      - type: OpenAPI
+        url: properties/salesloft-openapi.yml
     description: >-
       This data allows integration owners to self-serve and claim more ownership
       over API usage, especially when using the Signals API to integrate with
