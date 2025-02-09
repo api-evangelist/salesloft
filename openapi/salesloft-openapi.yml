@@ -1,85 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Salesloft Developer API
+  title: Salesloft
   description: >-
-    ## =K Introduction Welcome to the Salesloft Public API Postman collection.
-    This collection serves as a source for Salesloft Users to easily fork the
-    public Salesloft API for testing, familiarization and developing.
-
-    If you're new to Postman, we suggest referencing [Postman's basic
-    documentation](https://learning.postman.com/docs/getting-started/basics/navigating-postman/)
-    to familiarize yourself with the tool.
-
-    ## =€ Getting started with this collection In order to modify the collection
-    with variables specific to your instance of Salesloft, first
-    [fork](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/)
-    the collection. In your forked copy, follow the instructions below to begin
-    sending and receiving data from the Salesloft API. The
-    `salesloft_api_base_url` variable should be set to
-    [https://api.salesloft.com/v2](https://api.salesloft.com/v2)
-
-    To access the Salesloft API, you must create an application in Salesloft in
-    order to obtain your access token. Navigate to
-    [https://accounts.salesloft.com/oauth/applications](https://accounts.salesloft.com/oauth/applications)
-    to generate or retrieve an [API
-    Key](https://developer.salesloft.com/docs/platform/api-basics/api-key-authentication/)
-    or register an [OAuth
-    Application](https://developers.salesloft.com/docs/platform/api-basics/oauth-authentication/).
-
-    ### OAuth Setup Some Salesloft endpoints require the OAuth 2.0 generated
-    token. Therefore this collection is configured to allow Postman to manage
-    the OAuth 2.0 flow on your behalf. To configure the collection for your
-    instance of Salesloft, first create a Salesloft OAuth Application via the
-    instructions linked above. Your Salesloft OAuth application should provide
-    keys for `Application Id` and `Secret`. Add these values to the collection
-    variables called `client_id` and `client_secret`, respectively. **Ensure
-    your Salesloft OAuth application's redirect URI is set to**
-    [<code>https://oauth.pstmn.io/v1/browser-callback</code>](https://oauth.pstmn.io/v1/browser-callback).
-
-    To begin using OAuth with the collection, click the `Get New Access Token`
-    button at the bottom of the collection's Authorization tab and follow the
-    authorization flow to allow Postman to collect access and refresh tokens.
-    Check out this [demo using Postman with
-    OAuth](https://www.youtube.com/watch?v=j64kqwCvXWI) to learn more.
-
-    **Note:** Be sure to logout of current Salesloft sessions before triggering
-    the authorization flow in Postman. Then, when prompted during the
-    authorization flow, log into Salesloft with the same Salesloft identity used
-    to generate the OAuth application.
-
-    ### **OAuth Client Credentials** If you're building a private app (to be
-    used only by your organization's instance of Salesloft), using Client
-    Credentials may be more appropriate (and easier to configure). Using Client
-    Credentials eliminates the need to manage refresh tokens- simply request a
-    new access_token from Salesloft when your current token has expired. The
-    necessary POST request to retrieve an access_token via client credentials is
-    included within the _Client Credentials Access Token_ folder. Running this
-    request with valid client_id and client_secret values will return an
-    access_token and assign it to the `client_credentials_token` collection
-    variable. To use this token on subsequent requests, simply change the
-    Authorization to Bearer Token and set the value of the token to
-    `client_credentials_token`
-
-    ### API Key Setup If you prefer, most requests can be completed using an API
-    Key instead of the OAuth 2.0 flow. First [create an API Key
-    application](https://developer.salesloft.com/docs/platform/api-basics/api-key-authentication/)
-    under your
-    [https://accounts.salesloft.com/oauth/applications](https://accounts.salesloft.com/oauth/applications)
-    portal. Copy and paste the API Key into the collection variable called
-    `salesloft_api_token`. Then, when making individual requests, switch the
-    authorization from "Inherit auth from parent" to "Bearer token". Set the
-    Bearer Token value to `salesloft_api_token`.
-
-    ### Baseline URL The final variable to configure in the `Salesloft - OAuth`
-    collection is the `salesloft_api_base_url`. This should be set to
-    `https://api.salesloft.com/v2`.
-
-    ### Sending Requests Each Salesloft Endpoint is arranged as a sub-collection
-    within the `Salesloft - Developer API` collection. The description of each
-    sub-collection contains a link to the Salesloft API documentation specific
-    to that endpoint. Ensure necessary body or URL parameters are provided and
-    your auth (OAuth or API Key) is configured correctly before sending
-    requests.
+    This data allows integration owners to self-serve and claim more ownership
+    over API usage, especially when using the Signals API to integrate with
+    Rhythm. This ...
   version: 1.0.0
 servers:
   - url: http://{{salesloft_api_base_url}}
