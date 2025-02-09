@@ -1,7 +1,5 @@
 # Salesloft (salesloft)
-Salesloft delivers a performance force multiplier for the worlds most demanding companies. Saleslofts Revenue Orchestration Platform, delivering the first AI-powered durable revenue engagement model, keeps market-facing teams on top of all buyer signals, with outcomes-driven prioritization so they always act first on what matters most.
-
-
+Salesloft delivers a performance force multiplier for the worlds most demanding companies. Saleslofts Revenue Orchestration Platform, delivering the first AI-powered durable revenue engagement model, keeps market-facing teams on top of all buyer signals, with outcomes-driven prioritization so they always act first on what matters most.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/salesloft/refs/heads/main/apis.yml)
 
@@ -51,6 +49,7 @@ This data allows integration owners to self-serve and claim more ownership over 
 - [Status](https://status.salesloft.com/)
 - [Governance](https://www.salesloft.com/platform/governance)
 - [Security](https://www.salesloft.com/security-compliance)
+- [Summary](undefined)
 
 ## Maintainers
 
