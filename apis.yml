@@ -43,3 +43,43 @@ common:
   - name: Postman Workspace
     url: ' https://www.postman.com/salesloft-dev/salesloft/overview'
     type: PostmanWorkspace
+  - name: Salesloft Marketplace - Salesloft
+    description: 'null'
+    url: https://marketplace.salesloft.com/
+    type: Marketplace
+  - name: Salesloft Platform | Salesloft API
+    description: 'null'
+    url: https://developers.salesloft.com/docs/api/
+    type: Documentation
+  - name: Sign In | Salesloft
+    description: 'null'
+    url: https://accounts.salesloft.com/sign_in
+    type: Applications
+  - name: Revenue and Sales Blogs
+    description: 'null'
+    url: https://www.salesloft.com/resources/blog
+    type: Blog
+  - name: (1) New Messages!
+    description: 'null'
+    url: https://www.salesloft.com/pricing
+    type: Pricing
+  - name: Revenue and Sales Customer Stories
+    description: 'null'
+    url: https://www.salesloft.com/resources/case-studies
+    type: CaseStudies
+  - name: (1) New Messages!
+    description: 'null'
+    url: https://www.salesloft.com/events
+    type: Events
+  - name: Salesloft Status
+    description: 'null'
+    url: https://status.salesloft.com/
+    type: Status
+  - name: (1) New Messages!
+    description: 'null'
+    url: https://www.salesloft.com/platform/governance
+    type: Governance
+  - name: Security & Compliance
+    description: 'null'
+    url: https://www.salesloft.com/security-compliance
+    type: Security
