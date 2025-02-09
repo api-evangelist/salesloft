@@ -19,21 +19,19 @@ apis:
 name: Salesloft
 tags:
   - Sales
-type: Index
+type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2025-02-09'
 modified: '2025-02-09'
-position: Consumer
-description: >-
-  Salesloft is a leading sales engagement platform that helps companies
-  streamline their sales processes and drive revenue growth. The platform
-  provides sales teams with tools to automate and personalize their outreach,
-  prioritize leads, and track customer interactions. Salesloft enables sales
-  professionals to engage with prospects at the right time and with the right
-  message, leading to more meaningful conversations and higher conversion rates.
-  With Salesloft, companies can optimize their sales strategies and achieve
-  their revenue targets more efficiently.
+position: Consuming
+description: >+
+  Salesloft delivers a performance force multiplier for the worlds most
+  demanding companies. Saleslofts Revenue Orchestration Platform, delivering
+  the first AI-powered durable revenue engagement model, keeps market-facing
+  teams on top of all buyer signals, with outcomes-driven prioritization so they
+  always act first on what matters most.
+
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
