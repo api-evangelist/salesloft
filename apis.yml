@@ -22,6 +22,66 @@ tags:
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
+common:
+  - url: https://github.com/SalesLoft
+    name: GitHub Organization
+    type: GitHubOrganization
+  - url: ' https://www.postman.com/salesloft-dev/salesloft/overview'
+    name: Postman Workspace
+    type: PostmanWorkspace
+  - url: https://marketplace.salesloft.com/
+    name: Salesloft Marketplace - Salesloft
+    type: Marketplace
+    description: 'null'
+  - url: https://developers.salesloft.com/docs/api/
+    name: Salesloft Platform | Salesloft API
+    type: Documentation
+    description: 'null'
+  - url: https://accounts.salesloft.com/sign_in
+    name: Sign In | Salesloft
+    type: Applications
+    description: 'null'
+  - url: https://www.salesloft.com/resources/blog
+    name: Revenue and Sales Blogs
+    type: Blog
+    description: 'null'
+  - url: https://www.salesloft.com/pricing
+    name: (1) New Messages!
+    type: Pricing
+    description: 'null'
+  - url: https://www.salesloft.com/resources/case-studies
+    name: Revenue and Sales Customer Stories
+    type: CaseStudies
+    description: 'null'
+  - url: https://www.salesloft.com/events
+    name: (1) New Messages!
+    type: Events
+    description: 'null'
+  - url: https://status.salesloft.com/
+    name: Salesloft Status
+    type: Status
+    description: 'null'
+  - url: https://www.salesloft.com/platform/governance
+    name: (1) New Messages!
+    type: Governance
+    description: 'null'
+  - url: https://www.salesloft.com/security-compliance
+    name: Security & Compliance
+    type: Security
+    description: 'null'
+  - type: Summary
+    data:
+      numberOfAPITags: 1
+      numberOfAPIProperties: 0
+      numberOfAPIPaths: 0
+      numberOfAPIGetMethods: 0
+      numberOfAPIPostMethods: 0
+      numberOfAPIPutMethods: 0
+      numberOfAPIPatchMethods: 0
+      numberOfAPIDeleteMethods: 0
+      numberOfAPIOptionMethods: 0
+      numberOfAPIParameters: 0
+      numberOfAPISchema: 0
 created: '2025-02-09'
 modified: '2025-02-09'
 position: Consuming
@@ -36,50 +96,3 @@ maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
 specificationVersion: '0.19'
-common:
-  - name: GitHub Organization
-    url: https://github.com/SalesLoft
-    type: GitHubOrganization
-  - name: Postman Workspace
-    url: ' https://www.postman.com/salesloft-dev/salesloft/overview'
-    type: PostmanWorkspace
-  - name: Salesloft Marketplace - Salesloft
-    description: 'null'
-    url: https://marketplace.salesloft.com/
-    type: Marketplace
-  - name: Salesloft Platform | Salesloft API
-    description: 'null'
-    url: https://developers.salesloft.com/docs/api/
-    type: Documentation
-  - name: Sign In | Salesloft
-    description: 'null'
-    url: https://accounts.salesloft.com/sign_in
-    type: Applications
-  - name: Revenue and Sales Blogs
-    description: 'null'
-    url: https://www.salesloft.com/resources/blog
-    type: Blog
-  - name: (1) New Messages!
-    description: 'null'
-    url: https://www.salesloft.com/pricing
-    type: Pricing
-  - name: Revenue and Sales Customer Stories
-    description: 'null'
-    url: https://www.salesloft.com/resources/case-studies
-    type: CaseStudies
-  - name: (1) New Messages!
-    description: 'null'
-    url: https://www.salesloft.com/events
-    type: Events
-  - name: Salesloft Status
-    description: 'null'
-    url: https://status.salesloft.com/
-    type: Status
-  - name: (1) New Messages!
-    description: 'null'
-    url: https://www.salesloft.com/platform/governance
-    type: Governance
-  - name: Security & Compliance
-    description: 'null'
-    url: https://www.salesloft.com/security-compliance
-    type: Security
