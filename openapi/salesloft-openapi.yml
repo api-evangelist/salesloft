@@ -1,9 +1,10 @@
 openapi: 3.0.1
 info:
-  title: SalesLoft Platform
-  description: >
-    SalesLoft helps transform sales teams into modern sales organizations  -
-    converting more target accounts into customer accounts
+  title: Salesloft
+  description: >-
+    This data allows integration owners to self-serve and claim more ownership
+    over API usage, especially when using the Signals API to integrate with
+    Rhythm. This ...
   contact:
     email: integrations@salesloft.com
   version: v2
