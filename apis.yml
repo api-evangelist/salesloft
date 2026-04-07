@@ -98,13 +98,12 @@ common:
 created: '2025-02-09'
 modified: '2026-03-16'
 position: Consuming
-description: >+
-  Salesloft delivers a performance force multiplier for the worlds most
-  demanding companies. Saleslofts Revenue Orchestration Platform, delivering the
-  first AI-powered durable revenue engagement model, keeps market-facing teams
-  on top of all buyer signals, with outcomes-driven prioritization so they
-  always act first on what matters most.
-
+description: >-
+  Salesloft delivers a performance force multiplier for the worlds most demanding
+  companies. Saleslofts Revenue Orchestration Platform, delivering the first AI-powered
+  durable revenue engagement model, keeps market-facing teams on top of all buyer
+  signals, with outcomes-driven prioritization so they always act first on what matters
+  most.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

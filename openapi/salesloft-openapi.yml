@@ -281,7 +281,7 @@ paths:
     get:
       tags:
         - Me
-      summary: Get Current User
+      summary: Salesloft Get Current User
       responses:
         '200':
           description: Successful response
@@ -291,7 +291,7 @@ paths:
     get:
       tags:
         - Team
-      summary: Get Current Team
+      summary: Salesloft Get Current Team
       responses:
         '200':
           description: Successful response
@@ -301,7 +301,7 @@ paths:
     post:
       tags:
         - Account Redaction
-      summary: Execute an account redaction workflow
+      summary: Salesloft Execute an account redaction workflow
       requestBody:
         content:
           application/json:
@@ -321,7 +321,7 @@ paths:
     get:
       tags:
         - Account Stages
-      summary: List account stages
+      summary: Salesloft List account stages
       parameters:
         - name: ids
           in: query
@@ -380,7 +380,7 @@ paths:
     get:
       tags:
         - Account Stages
-      summary: Fetch an account stage
+      summary: Salesloft Fetch an account stage
       parameters:
         - name: id
           in: path
@@ -396,7 +396,7 @@ paths:
     get:
       tags:
         - Account Team Member Roles
-      summary: List CRM Account Team Member Roles
+      summary: Salesloft List CRM Account Team Member Roles
       parameters:
         - name: sort_by
           in: query
@@ -431,7 +431,7 @@ paths:
     get:
       tags:
         - Account Tiers
-      summary: List Account Tiers
+      summary: Salesloft List Account Tiers
       parameters:
         - name: ids
           in: query
@@ -478,7 +478,7 @@ paths:
     get:
       tags:
         - Account Tiers
-      summary: Fetch an account tier
+      summary: Salesloft Fetch an account tier
       parameters:
         - name: id
           in: path
@@ -494,7 +494,7 @@ paths:
     post:
       tags:
         - Account Upserts
-      summary: Upsert an account
+      summary: Salesloft Upsert an account
       requestBody:
         content:
           application/json:
@@ -538,7 +538,7 @@ paths:
     post:
       tags:
         - Account and People Redaction
-      summary: Submit an account and people redaction request
+      summary: Salesloft Submit an account and people redaction request
       requestBody:
         content:
           application/json:
@@ -558,7 +558,7 @@ paths:
     get:
       tags:
         - Accounts
-      summary: List Accounts
+      summary: Salesloft List Accounts
       parameters:
         - name: ids
           in: query
@@ -720,7 +720,7 @@ paths:
     post:
       tags:
         - Accounts
-      summary: Create an account
+      summary: Salesloft Create an account
       requestBody:
         content:
           application/json:
@@ -764,7 +764,7 @@ paths:
     get:
       tags:
         - Accounts
-      summary: Fetch an account
+      summary: Salesloft Fetch an account
       parameters:
         - name: id
           in: path
@@ -779,7 +779,7 @@ paths:
     delete:
       tags:
         - Accounts
-      summary: Delete an account
+      summary: Salesloft Delete an account
       parameters:
         - name: id
           in: path
@@ -795,7 +795,7 @@ paths:
     put:
       tags:
         - Accounts
-      summary: Update an existing Account
+      summary: Salesloft Update an existing Account
       requestBody:
         content:
           application/json:
@@ -840,7 +840,7 @@ paths:
     get:
       tags:
         - Actions
-      summary: List actions
+      summary: Salesloft List actions
       parameters:
         - name: ids
           in: query
@@ -935,7 +935,7 @@ paths:
     get:
       tags:
         - Actions
-      summary: Fetch an action
+      summary: Salesloft Fetch an action
       parameters:
         - name: id
           in: path
@@ -951,7 +951,7 @@ paths:
     get:
       tags:
         - Activities
-      summary: Create an activity
+      summary: Salesloft Create an activity
       responses:
         '200':
           description: Successful response
@@ -961,7 +961,7 @@ paths:
     get:
       tags:
         - Activity Histories
-      summary: List Past Activities
+      summary: Salesloft List Past Activities
       parameters:
         - name: per_page
           in: query
@@ -1052,7 +1052,7 @@ paths:
     put:
       tags:
         - Bulk Jobs
-      summary: Update a bulk job
+      summary: Salesloft Update a bulk job
       requestBody:
         content:
           application/json:
@@ -1075,7 +1075,7 @@ paths:
     get:
       tags:
         - Bulk Jobs
-      summary: Fetch a bulk job
+      summary: Salesloft Fetch a bulk job
       parameters:
         - name: id
           in: path
@@ -1091,7 +1091,7 @@ paths:
     post:
       tags:
         - Bulk Jobs
-      summary: Create a bulk job
+      summary: Salesloft Create a bulk job
       requestBody:
         content:
           application/json:
@@ -1108,7 +1108,7 @@ paths:
     get:
       tags:
         - Bulk Jobs
-      summary: List bulk jobs
+      summary: Salesloft List bulk jobs
       parameters:
         - name: state
           in: query
@@ -1131,7 +1131,7 @@ paths:
     post:
       tags:
         - Bulk Jobs - Job Data
-      summary: Create job data for a bulk job
+      summary: Salesloft Create job data for a bulk job
       requestBody:
         content:
           application/json:
@@ -1158,7 +1158,7 @@ paths:
     get:
       tags:
         - Bulk Jobs - Job Data
-      summary: List job data for a bulk job
+      summary: Salesloft List job data for a bulk job
       parameters:
         - name: status
           in: query
@@ -1191,7 +1191,7 @@ paths:
     get:
       tags:
         - Bulk Jobs - Results
-      summary: List job data for a completed bulk job
+      summary: Salesloft List job data for a completed bulk job
       parameters:
         - name: status
           in: query
@@ -1219,7 +1219,7 @@ paths:
     post:
       tags:
         - Bulk Reschedule Tasks
-      summary: Reschedule many tasks at once
+      summary: Salesloft Reschedule many tasks at once
       requestBody:
         content:
           application/json:
@@ -1239,7 +1239,7 @@ paths:
     get:
       tags:
         - Cadence Exports
-      summary: Export a cadence
+      summary: Salesloft Export a cadence
       parameters:
         - name: id
           in: path
@@ -1255,7 +1255,7 @@ paths:
     post:
       tags:
         - Cadence Imports
-      summary: Import cadences from JSON
+      summary: Salesloft Import cadences from JSON
       requestBody:
         content:
           application/json:
@@ -1274,7 +1274,7 @@ paths:
     get:
       tags:
         - Cadence Memberships
-      summary: List cadence memberships
+      summary: Salesloft List cadence memberships
       parameters:
         - name: ids
           in: query
@@ -1340,7 +1340,7 @@ paths:
     post:
       tags:
         - Cadence Memberships
-      summary: Create a cadence membership
+      summary: Salesloft Create a cadence membership
       requestBody:
         content: {}
       parameters:
@@ -1373,7 +1373,7 @@ paths:
     get:
       tags:
         - Cadence Memberships
-      summary: Fetch a cadence membership
+      summary: Salesloft Fetch a cadence membership
       parameters:
         - name: id
           in: path
@@ -1388,7 +1388,7 @@ paths:
     delete:
       tags:
         - Cadence Memberships
-      summary: Delete a cadence membership
+      summary: Salesloft Delete a cadence membership
       parameters:
         - name: id
           in: path
@@ -1404,7 +1404,7 @@ paths:
     get:
       tags:
         - Cadence Stats
-      summary: Fetch stats for a cadence
+      summary: Salesloft Fetch stats for a cadence
       parameters:
         - name: id
           in: path
@@ -1420,7 +1420,7 @@ paths:
     get:
       tags:
         - Cadences
-      summary: List cadences
+      summary: Salesloft List cadences
       parameters:
         - name: ids
           in: query
@@ -1515,7 +1515,7 @@ paths:
     get:
       tags:
         - Cadences
-      summary: Fetch a cadence
+      summary: Salesloft Fetch a cadence
       parameters:
         - name: id
           in: path
@@ -1531,7 +1531,7 @@ paths:
     post:
       tags:
         - Calendar Events
-      summary: Upsert a calendar event
+      summary: Salesloft Upsert a calendar event
       requestBody:
         content:
           application/json:
@@ -1539,14 +1539,14 @@ paths:
               type: object
               example:
                 upsert_key:
-                  - null
+                  - 
                 updated_at: string
                 title: string
                 status: string
                 start_time: '2024-06-20'
                 recurring: true
                 recurrence:
-                  - null
+                  - 
                 organizer: string
                 location: string
                 id: string
@@ -1566,7 +1566,7 @@ paths:
     get:
       tags:
         - Calendar Events
-      summary: List calendar events
+      summary: Salesloft List calendar events
       parameters:
         - name: sort_by
           in: query
@@ -1609,7 +1609,7 @@ paths:
     get:
       tags:
         - Call Data Records
-      summary: List call data records
+      summary: Salesloft List call data records
       parameters:
         - name: ids
           in: query
@@ -1692,7 +1692,7 @@ paths:
     get:
       tags:
         - Call Data Records
-      summary: Fetch a call data record
+      summary: Salesloft Fetch a call data record
       parameters:
         - name: Accept
           in: header
@@ -1718,7 +1718,7 @@ paths:
     get:
       tags:
         - Call Dispositions
-      summary: List call dispositions
+      summary: Salesloft List call dispositions
       parameters:
         - name: sort_by
           in: query
@@ -1753,7 +1753,7 @@ paths:
     get:
       tags:
         - Call Instructions
-      summary: List call instructions
+      summary: Salesloft List call instructions
       parameters:
         - name: sort_by
           in: query
@@ -1788,7 +1788,7 @@ paths:
     get:
       tags:
         - Call Instructions
-      summary: Fetch a call instructions
+      summary: Salesloft Fetch a call instructions
       parameters:
         - name: id
           in: path
@@ -1804,7 +1804,7 @@ paths:
     get:
       tags:
         - Call Sentiments
-      summary: List call sentiments
+      summary: Salesloft List call sentiments
       parameters:
         - name: name
           in: query
@@ -1843,7 +1843,7 @@ paths:
     get:
       tags:
         - Caller Ids
-      summary: List caller ids
+      summary: Salesloft List caller ids
       parameters:
         - name: phone_number
           in: query
@@ -1858,7 +1858,7 @@ paths:
     get:
       tags:
         - Calls
-      summary: List calls
+      summary: Salesloft List calls
       parameters:
         - name: ids
           in: query
@@ -1944,7 +1944,7 @@ paths:
     post:
       tags:
         - Calls
-      summary: Create a call
+      summary: Salesloft Create a call
       requestBody:
         content:
           application/json:
@@ -1974,7 +1974,7 @@ paths:
     get:
       tags:
         - Calls
-      summary: Fetch a call
+      summary: Salesloft Fetch a call
       parameters:
         - name: id
           in: path
@@ -1990,7 +1990,7 @@ paths:
     post:
       tags:
         - Client Credentials Access Token
-      summary: Retrieve Client Credentials Access Token
+      summary: Salesloft Retrieve Client Credentials Access Token
       requestBody:
         content: {}
       security:
@@ -2025,7 +2025,7 @@ paths:
     get:
       tags:
         - Conversations
-      summary: Fetch Conversations
+      summary: Salesloft Fetch Conversations
       security:
         - bearerAuth: []
       parameters:
@@ -2150,7 +2150,7 @@ paths:
     get:
       tags:
         - Conversations
-      summary: Fetch a Conversation
+      summary: Salesloft Fetch a Conversation
       parameters:
         - name: id
           in: path
@@ -2166,7 +2166,7 @@ paths:
     get:
       tags:
         - Conversations
-      summary: Fetch an extensive conversation
+      summary: Salesloft Fetch an extensive conversation
       security:
         - bearerAuth: []
       responses:
@@ -2178,7 +2178,7 @@ paths:
     get:
       tags:
         - Conversations
-      summary: Fetch Conversation Media
+      summary: Salesloft Fetch Conversation Media
       parameters:
         - name: id
           in: path
@@ -2194,7 +2194,7 @@ paths:
     post:
       tags:
         - Conversations Calls
-      summary: Create a new call
+      summary: Salesloft Create a new call
       requestBody:
         content:
           application/json:
@@ -2218,7 +2218,7 @@ paths:
     get:
       tags:
         - Counts
-      summary: Fetch task counts
+      summary: Salesloft Fetch task counts
       parameters:
         - name: ids
           in: query
@@ -2281,7 +2281,7 @@ paths:
     get:
       tags:
         - Crm Account Team Members
-      summary: List CRM Account Team Members
+      summary: Salesloft List CRM Account Team Members
       responses:
         '200':
           description: Successful response
@@ -2291,7 +2291,7 @@ paths:
     get:
       tags:
         - Crm Activities
-      summary: List crm activities
+      summary: Salesloft List crm activities
       parameters:
         - name: ids
           in: query
@@ -2346,7 +2346,7 @@ paths:
     get:
       tags:
         - Crm Activities
-      summary: Fetch a crm activity
+      summary: Salesloft Fetch a crm activity
       parameters:
         - name: id
           in: path
@@ -2362,7 +2362,7 @@ paths:
     get:
       tags:
         - Crm Activity Fields
-      summary: List crm activity fields
+      summary: Salesloft List crm activity fields
       parameters:
         - name: source
           in: query
@@ -2405,7 +2405,7 @@ paths:
     get:
       tags:
         - Crm Users
-      summary: List crm users
+      summary: Salesloft List crm users
       parameters:
         - name: ids
           in: query
@@ -2460,7 +2460,7 @@ paths:
     get:
       tags:
         - Custom Fields
-      summary: Fetch a custom field
+      summary: Salesloft Fetch a custom field
       parameters:
         - name: id
           in: path
@@ -2475,7 +2475,7 @@ paths:
     delete:
       tags:
         - Custom Fields
-      summary: Delete a custom field
+      summary: Salesloft Delete a custom field
       parameters:
         - name: id
           in: path
@@ -2491,7 +2491,7 @@ paths:
     get:
       tags:
         - Custom Fields
-      summary: List custom fields
+      summary: Salesloft List custom fields
       parameters:
         - name: ids
           in: query
@@ -2537,7 +2537,7 @@ paths:
     post:
       tags:
         - Custom Fields
-      summary: Create a custom field
+      summary: Salesloft Create a custom field
       requestBody:
         content:
           application/json:
@@ -2555,7 +2555,7 @@ paths:
     get:
       tags:
         - Custom Roles
-      summary: List custom roles
+      summary: Salesloft List custom roles
       parameters:
         - name: ids
           in: query
@@ -2594,7 +2594,7 @@ paths:
     get:
       tags:
         - Custom Roles
-      summary: Fetch a custom role
+      summary: Salesloft Fetch a custom role
       parameters:
         - name: id
           in: path
@@ -2610,7 +2610,7 @@ paths:
     post:
       tags:
         - Email Missing Tags
-      summary: Requests a check of the template for missed tags
+      summary: Salesloft Requests a check of the template for missed tags
       requestBody:
         content:
           application/json:
@@ -2629,7 +2629,7 @@ paths:
     get:
       tags:
         - Email Template Attachments
-      summary: List email template attachments
+      summary: Salesloft List email template attachments
       parameters:
         - name: ids
           in: query
@@ -2668,7 +2668,7 @@ paths:
     get:
       tags:
         - Email Templates
-      summary: List email templates
+      summary: Salesloft List email templates
       parameters:
         - name: ids
           in: query
@@ -2758,7 +2758,7 @@ paths:
     post:
       tags:
         - Email Templates
-      summary: Create Personal Email Template
+      summary: Salesloft Create Personal Email Template
       requestBody:
         content:
           application/json:
@@ -2782,7 +2782,7 @@ paths:
     put:
       tags:
         - Email Templates
-      summary: Update Personal Email Template
+      summary: Salesloft Update Personal Email Template
       requestBody:
         content:
           application/json:
@@ -2813,7 +2813,7 @@ paths:
     get:
       tags:
         - Email Templates
-      summary: Fetch an email template
+      summary: Salesloft Fetch an email template
       parameters:
         - name: include_signature
           in: query
@@ -2833,7 +2833,7 @@ paths:
     get:
       tags:
         - Emails
-      summary: List emails
+      summary: Salesloft List emails
       parameters:
         - name: ids
           in: query
@@ -2973,7 +2973,7 @@ paths:
     get:
       tags:
         - Emails
-      summary: Fetch an email
+      summary: Salesloft Fetch an email
       parameters:
         - name: scoped_fields
           in: query
@@ -2993,7 +2993,7 @@ paths:
     post:
       tags:
         - External Emails
-      summary: Create an External Email
+      summary: Salesloft Create an External Email
       requestBody:
         content:
           application/json:
@@ -3011,7 +3011,7 @@ paths:
     get:
       tags:
         - External Id Mapping
-      summary: List team mappings
+      summary: Salesloft List team mappings
       parameters:
         - name: per_page
           in: query
@@ -3062,7 +3062,7 @@ paths:
     delete:
       tags:
         - External Id Configuration
-      summary: Delete a configuration
+      summary: Salesloft Delete a configuration
       parameters:
         - name: id
           in: path
@@ -3078,7 +3078,7 @@ paths:
     post:
       tags:
         - External Id Configuration
-      summary: Create a configuration
+      summary: Salesloft Create a configuration
       requestBody:
         content:
           application/json:
@@ -3096,7 +3096,7 @@ paths:
     delete:
       tags:
         - External Id Mapping
-      summary: Delete a mapping
+      summary: Salesloft Delete a mapping
       parameters:
         - name: id
           in: path
@@ -3112,7 +3112,7 @@ paths:
     post:
       tags:
         - External Id Mapping
-      summary: Create a mapping
+      summary: Salesloft Create a mapping
       requestBody:
         content:
           application/json:
@@ -3132,7 +3132,7 @@ paths:
     post:
       tags:
         - Groups
-      summary: Create a group
+      summary: Salesloft Create a group
       requestBody:
         content:
           application/json:
@@ -3149,7 +3149,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: List groups
+      summary: Salesloft List groups
       parameters:
         - name: ids
           in: query
@@ -3172,7 +3172,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Fetch a group
+      summary: Salesloft Fetch a group
       parameters:
         - name: id
           in: path
@@ -3187,7 +3187,7 @@ paths:
     put:
       tags:
         - Groups
-      summary: Update a group
+      summary: Salesloft Update a group
       requestBody:
         content:
           application/json:
@@ -3210,7 +3210,7 @@ paths:
     delete:
       tags:
         - Groups
-      summary: Deletes a group by ID
+      summary: Salesloft Deletes a group by ID
       parameters:
         - name: id
           in: path
@@ -3226,7 +3226,7 @@ paths:
     get:
       tags:
         - Imports
-      summary: List imports
+      summary: Salesloft List imports
       parameters:
         - name: ids
           in: query
@@ -3292,7 +3292,7 @@ paths:
     post:
       tags:
         - Imports
-      summary: Create an import
+      summary: Salesloft Create an import
       requestBody:
         content:
           application/json:
@@ -3310,7 +3310,7 @@ paths:
     get:
       tags:
         - Imports
-      summary: Fetch an import
+      summary: Salesloft Fetch an import
       parameters:
         - name: id
           in: path
@@ -3325,7 +3325,7 @@ paths:
     put:
       tags:
         - Imports
-      summary: Update an import
+      summary: Salesloft Update an import
       requestBody:
         content:
           application/json:
@@ -3348,7 +3348,7 @@ paths:
     delete:
       tags:
         - Imports
-      summary: Delete an import
+      summary: Salesloft Delete an import
       parameters:
         - name: undo
           in: query
@@ -3368,7 +3368,7 @@ paths:
     post:
       tags:
         - Live Feed Items
-      summary: Create a live feed item
+      summary: Salesloft Create a live feed item
       requestBody:
         content:
           application/json:
@@ -3390,7 +3390,7 @@ paths:
     post:
       tags:
         - Live Website Tracking Parameters
-      summary: Create an Live Website Tracking Parameter
+      summary: Salesloft Create an Live Website Tracking Parameter
       requestBody:
         content:
           application/json:
@@ -3407,7 +3407,7 @@ paths:
     get:
       tags:
         - Meetings
-      summary: List meetings
+      summary: Salesloft List meetings
       parameters:
         - name: ids
           in: query
@@ -3538,7 +3538,7 @@ paths:
     put:
       tags:
         - Meetings
-      summary: Update a meeting
+      summary: Salesloft Update a meeting
       requestBody:
         content:
           application/json:
@@ -3565,7 +3565,7 @@ paths:
     get:
       tags:
         - Mime Email Payloads
-      summary: Fetch the MIME content for email
+      summary: Salesloft Fetch the MIME content for email
       parameters:
         - name: id
           in: path
@@ -3581,7 +3581,7 @@ paths:
     post:
       tags:
         - Notes
-      summary: Create a note
+      summary: Salesloft Create a note
       requestBody:
         content:
           application/json:
@@ -3603,7 +3603,7 @@ paths:
     get:
       tags:
         - Notes
-      summary: List notes
+      summary: Salesloft List notes
       parameters:
         - name: associated_with_type
           in: query
@@ -3666,7 +3666,7 @@ paths:
     get:
       tags:
         - Notes
-      summary: Fetch a note
+      summary: Salesloft Fetch a note
       parameters:
         - name: id
           in: path
@@ -3681,7 +3681,7 @@ paths:
     put:
       tags:
         - Notes
-      summary: Update a note
+      summary: Salesloft Update a note
       requestBody:
         content:
           application/json:
@@ -3704,7 +3704,7 @@ paths:
     delete:
       tags:
         - Notes
-      summary: Delete a note
+      summary: Salesloft Delete a note
       parameters:
         - name: id
           in: path
@@ -3720,7 +3720,7 @@ paths:
     post:
       tags:
         - Ongoing Actions
-      summary: Create an ongoing action
+      summary: Salesloft Create an ongoing action
       requestBody:
         content:
           application/json:
@@ -3737,7 +3737,7 @@ paths:
     get:
       tags:
         - Opportunities
-      summary: List Opportunities
+      summary: Salesloft List Opportunities
       parameters:
         - name: ids
           in: query
@@ -3888,7 +3888,7 @@ paths:
     get:
       tags:
         - Opportunities
-      summary: Fetch an Opportunity
+      summary: Salesloft Fetch an Opportunity
       parameters:
         - name: id
           in: path
@@ -3904,7 +3904,7 @@ paths:
     get:
       tags:
         - Opportunity People
-      summary: List opportunity/person associations
+      summary: Salesloft List opportunity/person associations
       responses:
         '200':
           description: Successful response
@@ -3913,7 +3913,7 @@ paths:
     post:
       tags:
         - Opportunity People
-      summary: Create a Sales Opportunity Person
+      summary: Salesloft Create a Sales Opportunity Person
       requestBody:
         content:
           multipart/form-data:
@@ -3935,7 +3935,7 @@ paths:
     delete:
       tags:
         - Opportunity People
-      summary: Delete a Opportunity Association
+      summary: Salesloft Delete a Opportunity Association
       parameters:
         - name: id
           in: path
@@ -3951,7 +3951,7 @@ paths:
     get:
       tags:
         - Opportunity Stages
-      summary: List Opportunity Stages
+      summary: Salesloft List Opportunity Stages
       responses:
         '200':
           description: Successful response
@@ -3960,7 +3960,7 @@ paths:
     post:
       tags:
         - Opportunity Stages
-      summary: Create an Opportunity Stage
+      summary: Salesloft Create an Opportunity Stage
       requestBody:
         content:
           multipart/form-data:
@@ -3982,7 +3982,7 @@ paths:
     get:
       tags:
         - Opportunity Stages
-      summary: Fetch an Opportunity Stage
+      summary: Salesloft Fetch an Opportunity Stage
       parameters:
         - name: id
           in: path
@@ -3997,7 +3997,7 @@ paths:
     put:
       tags:
         - Opportunity Stages
-      summary: Update an Opportunity Stage
+      summary: Salesloft Update an Opportunity Stage
       requestBody:
         content:
           multipart/form-data:
@@ -4024,7 +4024,7 @@ paths:
     delete:
       tags:
         - Opportunity Stages
-      summary: Delete an Opportunity Stage
+      summary: Salesloft Delete an Opportunity Stage
       parameters:
         - name: id
           in: path
@@ -4040,7 +4040,7 @@ paths:
     get:
       tags:
         - Pending Emails
-      summary: List pending emails
+      summary: Salesloft List pending emails
       parameters:
         - name: per_page
           in: query
@@ -4067,7 +4067,7 @@ paths:
     get:
       tags:
         - Pending Emails
-      summary: Update a pending email
+      summary: Salesloft Update a pending email
       parameters:
         - name: id
           in: path
@@ -4083,7 +4083,7 @@ paths:
     post:
       tags:
         - People
-      summary: Create a person
+      summary: Salesloft Create a person
       requestBody:
         content:
           application/json:
@@ -4135,7 +4135,7 @@ paths:
     get:
       tags:
         - People
-      summary: List people
+      summary: Salesloft List people
       responses:
         '200':
           description: Successful response
@@ -4145,7 +4145,7 @@ paths:
     get:
       tags:
         - People
-      summary: Fetch a person
+      summary: Salesloft Fetch a person
       parameters:
         - name: id
           in: path
@@ -4160,7 +4160,7 @@ paths:
     put:
       tags:
         - People
-      summary: Update a person
+      summary: Salesloft Update a person
       requestBody:
         content:
           application/json:
@@ -4219,7 +4219,7 @@ paths:
     get:
       tags:
         - People
-      summary: Delete a person
+      summary: Salesloft Delete a person
       responses:
         '200':
           description: Successful response
@@ -4229,7 +4229,7 @@ paths:
     post:
       tags:
         - People Soft Deletion
-      summary: Submit a people soft deletion request
+      summary: Salesloft Submit a people soft deletion request
       requestBody:
         content:
           application/json:
@@ -4239,7 +4239,7 @@ paths:
                 team_id: 0
                 schedule: {}
                 people_ids:
-                  - null
+                  - 
                 dry_run: true
       responses:
         '200':
@@ -4250,7 +4250,7 @@ paths:
     get:
       tags:
         - Person Stages
-      summary: List person stages
+      summary: Salesloft List person stages
       parameters:
         - name: ids
           in: query
@@ -4292,7 +4292,7 @@ paths:
     post:
       tags:
         - Person Stages
-      summary: Create a person stage
+      summary: Salesloft Create a person stage
       requestBody:
         content:
           application/json:
@@ -4309,7 +4309,7 @@ paths:
     get:
       tags:
         - Person Stages
-      summary: Fetch a person stage
+      summary: Salesloft Fetch a person stage
       parameters:
         - name: id
           in: path
@@ -4324,7 +4324,7 @@ paths:
     put:
       tags:
         - Person Stages
-      summary: Update a person stage
+      summary: Salesloft Update a person stage
       requestBody:
         content:
           application/json:
@@ -4346,7 +4346,7 @@ paths:
     delete:
       tags:
         - Person Stages
-      summary: Delete a person stage
+      summary: Salesloft Delete a person stage
       parameters:
         - name: id
           in: path
@@ -4362,7 +4362,7 @@ paths:
     post:
       tags:
         - Person Upserts
-      summary: Person Upsert
+      summary: Salesloft Person Upsert
       requestBody:
         content:
           application/json:
@@ -4417,7 +4417,7 @@ paths:
     get:
       tags:
         - Phone Number Assignments
-      summary: List phone number assignments
+      summary: Salesloft List phone number assignments
       parameters:
         - name: ids
           in: query
@@ -4456,7 +4456,7 @@ paths:
     get:
       tags:
         - Phone Number Assignments
-      summary: Fetch a phone number assignments
+      summary: Salesloft Fetch a phone number assignments
       parameters:
         - name: id
           in: path
@@ -4472,7 +4472,7 @@ paths:
     post:
       tags:
         - Play Registrations
-      summary: Create a play registration
+      summary: Salesloft Create a play registration
       requestBody:
         content:
           application/json:
@@ -4494,7 +4494,7 @@ paths:
     get:
       tags:
         - Play Registrations
-      summary: List play registrations
+      summary: Salesloft List play registrations
       responses:
         '200':
           description: Successful response
@@ -4504,7 +4504,7 @@ paths:
     delete:
       tags:
         - Play Registrations
-      summary: Delete a Play Registration
+      summary: Salesloft Delete a Play Registration
       parameters:
         - name: id
           in: path
@@ -4519,7 +4519,7 @@ paths:
     get:
       tags:
         - Play Registrations
-      summary: Fetch a Play Registration
+      summary: Salesloft Fetch a Play Registration
       parameters:
         - name: id
           in: path
@@ -4534,7 +4534,7 @@ paths:
     put:
       tags:
         - Play Registrations
-      summary: Update a Play Registration
+      summary: Salesloft Update a Play Registration
       requestBody:
         content:
           application/json:
@@ -4562,7 +4562,7 @@ paths:
     get:
       tags:
         - Profiles
-      summary: Fetch current user's profile
+      summary: Salesloft Fetch current user's profile
       responses:
         '200':
           description: Successful response
@@ -4572,7 +4572,7 @@ paths:
     get:
       tags:
         - Recording Settings
-      summary: Fetch recording setting
+      summary: Salesloft Fetch recording setting
       parameters:
         - name: id
           in: path
@@ -4588,7 +4588,7 @@ paths:
     get:
       tags:
         - Requests
-      summary: Fetch a Request record
+      summary: Salesloft Fetch a Request record
       parameters:
         - name: id
           in: path
@@ -4604,7 +4604,7 @@ paths:
     get:
       tags:
         - Requests
-      summary: Retrieve a list of Requests
+      summary: Salesloft Retrieve a list of Requests
       parameters:
         - name: sort_by
           in: query
@@ -4651,7 +4651,7 @@ paths:
     get:
       tags:
         - Reschedule Links
-      summary: Fetch a reschedule meeting link
+      summary: Salesloft Fetch a reschedule meeting link
       parameters:
         - name: id
           in: path
@@ -4667,7 +4667,7 @@ paths:
     post:
       tags:
         - Right To Be Forgotten
-      summary: Submit a right to be forgotten request
+      summary: Salesloft Submit a right to be forgotten request
       requestBody:
         content:
           application/json:
@@ -4688,7 +4688,7 @@ paths:
     get:
       tags:
         - Saved List Views
-      summary: List saved list views
+      summary: Salesloft List saved list views
       parameters:
         - name: ids
           in: query
@@ -4738,7 +4738,7 @@ paths:
     post:
       tags:
         - Saved List Views
-      summary: Create a saved list view
+      summary: Salesloft Create a saved list view
       requestBody:
         content:
           application/json:
@@ -4759,7 +4759,7 @@ paths:
     put:
       tags:
         - Saved List Views
-      summary: Update a saved list view
+      summary: Salesloft Update a saved list view
       requestBody:
         content:
           application/json:
@@ -4784,7 +4784,7 @@ paths:
     get:
       tags:
         - Saved List Views
-      summary: Fetch a saved list view
+      summary: Salesloft Fetch a saved list view
       parameters:
         - name: id
           in: path
@@ -4799,7 +4799,7 @@ paths:
     delete:
       tags:
         - Saved List Views
-      summary: Delete a saved list view
+      summary: Salesloft Delete a saved list view
       parameters:
         - name: id
           in: path
@@ -4815,7 +4815,7 @@ paths:
     post:
       tags:
         - Searches
-      summary: List meeting settings
+      summary: Salesloft List meeting settings
       requestBody:
         content: {}
       parameters:
@@ -4876,7 +4876,7 @@ paths:
     put:
       tags:
         - Settings
-      summary: Update a meeting setting
+      summary: Salesloft Update a meeting setting
       requestBody:
         content:
           application/json:
@@ -4920,7 +4920,7 @@ paths:
     get:
       tags:
         - Signal Registrations
-      summary: Fetch a Signal Registration
+      summary: Salesloft Fetch a Signal Registration
       parameters:
         - name: id
           in: path
@@ -4935,7 +4935,7 @@ paths:
     delete:
       tags:
         - Signal Registrations
-      summary: Deletes a Signal Registrations
+      summary: Salesloft Deletes a Signal Registrations
       parameters:
         - name: id
           in: path
@@ -4950,7 +4950,7 @@ paths:
     put:
       tags:
         - Signal Registrations
-      summary: Update a Signal Registration
+      summary: Salesloft Update a Signal Registration
       requestBody:
         content:
           application/json:
@@ -4979,7 +4979,7 @@ paths:
     get:
       tags:
         - Signal Registrations
-      summary: List  Signal Registrations
+      summary: Salesloft List  Signal Registrations
       responses:
         '200':
           description: Successful response
@@ -4988,7 +4988,7 @@ paths:
     post:
       tags:
         - Signal Registrations
-      summary: Create a Signal Registration
+      summary: Salesloft Create a Signal Registration
       requestBody:
         content:
           application/json:
@@ -5012,7 +5012,7 @@ paths:
     post:
       tags:
         - Signals
-      summary: Create a signal
+      summary: Salesloft Create a signal
       requestBody:
         content:
           application/json:
@@ -5036,7 +5036,7 @@ paths:
     get:
       tags:
         - Steps
-      summary: List steps
+      summary: Salesloft List steps
       parameters:
         - name: ids
           in: query
@@ -5103,7 +5103,7 @@ paths:
     get:
       tags:
         - Steps
-      summary: Fetch a step
+      summary: Salesloft Fetch a step
       parameters:
         - name: id
           in: path
@@ -5119,7 +5119,7 @@ paths:
     get:
       tags:
         - Successes
-      summary: List successes
+      summary: Salesloft List successes
       parameters:
         - name: ids
           in: query
@@ -5178,7 +5178,7 @@ paths:
     get:
       tags:
         - Tags
-      summary: List team tags
+      summary: Salesloft List team tags
       parameters:
         - name: ids
           in: query
@@ -5217,7 +5217,7 @@ paths:
     get:
       tags:
         - Tasks
-      summary: List tasks
+      summary: Salesloft List tasks
       parameters:
         - name: ids
           in: query
@@ -5343,7 +5343,7 @@ paths:
     post:
       tags:
         - Tasks
-      summary: Create a Task
+      summary: Salesloft Create a Task
       requestBody:
         content:
           application/json:
@@ -5368,7 +5368,7 @@ paths:
     put:
       tags:
         - Tasks
-      summary: Update a Task
+      summary: Salesloft Update a Task
       requestBody:
         content:
           application/json:
@@ -5395,7 +5395,7 @@ paths:
     get:
       tags:
         - Tasks
-      summary: Fetch a task
+      summary: Salesloft Fetch a task
       parameters:
         - name: id
           in: path
@@ -5411,7 +5411,7 @@ paths:
     get:
       tags:
         - Team Template Attachments
-      summary: List team template attachments
+      summary: Salesloft List team template attachments
       parameters:
         - name: ids
           in: query
@@ -5446,7 +5446,7 @@ paths:
     get:
       tags:
         - Team Templates
-      summary: List team templates
+      summary: Salesloft List team templates
       parameters:
         - name: ids
           in: query
@@ -5516,7 +5516,7 @@ paths:
     post:
       tags:
         - Team Templates
-      summary: Create Team Email Template
+      summary: Salesloft Create Team Email Template
       requestBody:
         content:
           application/json:
@@ -5539,7 +5539,7 @@ paths:
     get:
       tags:
         - Team Templates
-      summary: Fetch a team template
+      summary: Salesloft Fetch a team template
       parameters:
         - name: include_signature
           in: query
@@ -5558,7 +5558,7 @@ paths:
     put:
       tags:
         - Team Templates
-      summary: Update Team Email Template
+      summary: Salesloft Update Team Email Template
       requestBody:
         content:
           application/json:
@@ -5587,7 +5587,7 @@ paths:
     get:
       tags:
         - Transcriptions
-      summary: List Transcriptions
+      summary: Salesloft List Transcriptions
       security:
         - bearerAuth: []
       parameters:
@@ -5656,7 +5656,7 @@ paths:
     get:
       tags:
         - Transcriptions
-      summary: Fetch a Transcription
+      summary: Salesloft Fetch a Transcription
       security:
         - bearerAuth: []
       parameters:
@@ -5674,7 +5674,7 @@ paths:
     get:
       tags:
         - Transcriptions
-      summary: Fetch a Transcription Artifact
+      summary: Salesloft Fetch a Transcription Artifact
       security:
         - bearerAuth: []
       parameters:
@@ -5692,7 +5692,7 @@ paths:
     get:
       tags:
         - Transcriptions
-      summary: Fetch a Transcription's Sentences
+      summary: Salesloft Fetch a Transcription's Sentences
       security:
         - bearerAuth: []
       parameters:
@@ -5722,7 +5722,7 @@ paths:
     get:
       tags:
         - Users
-      summary: List users
+      summary: Salesloft List users
       parameters:
         - name: ids
           in: query
@@ -5801,7 +5801,7 @@ paths:
     get:
       tags:
         - Users
-      summary: Fetch a user
+      summary: Salesloft Fetch a user
       parameters:
         - name: id
           in: path
@@ -5816,7 +5816,7 @@ paths:
     put:
       tags:
         - Users
-      summary: Update a user
+      summary: Salesloft Update a user
       requestBody:
         content:
           application/json:
@@ -5844,7 +5844,7 @@ paths:
     get:
       tags:
         - Webhook Subscriptions
-      summary: List webhook subscriptions
+      summary: Salesloft List webhook subscriptions
       parameters:
         - name: enabled
           in: query
@@ -5858,7 +5858,7 @@ paths:
     post:
       tags:
         - Webhook Subscriptions
-      summary: Create a webhook subscription
+      summary: Salesloft Create a webhook subscription
       requestBody:
         content:
           application/json:
@@ -5877,7 +5877,7 @@ paths:
     get:
       tags:
         - Webhook Subscriptions
-      summary: Fetch a webhook subscription
+      summary: Salesloft Fetch a webhook subscription
       parameters:
         - name: id
           in: path
@@ -5892,7 +5892,7 @@ paths:
     put:
       tags:
         - Webhook Subscriptions
-      summary: Update a webhook subscription
+      summary: Salesloft Update a webhook subscription
       requestBody:
         content:
           application/json:
@@ -5916,7 +5916,7 @@ paths:
     delete:
       tags:
         - Webhook Subscriptions
-      summary: Delete a webhook subscription
+      summary: Salesloft Delete a webhook subscription
       parameters:
         - name: id
           in: path
