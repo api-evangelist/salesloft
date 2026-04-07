@@ -24,12 +24,9 @@ components:
 security:
   - oauth2Auth: []
 tags:
-  - name: Me
+  - name: Account and People Redaction
     description: >-
-      [https://developer.salesloft.com/docs/api/me/](https://developer.salesloft.com/docs/api/me/)
-  - name: Team
-    description: >-
-      [https://developer.salesloft.com/docs/api/team/](https://developer.salesloft.com/docs/api/team/)
+      [https://developer.salesloft.com/docs/api/account-and-people-redaction/](https://developer.salesloft.com/docs/api/account-and-people-redaction/)
   - name: Account Redaction
     description: >-
       [https://developer.salesloft.com/docs/api/account-redaction/](https://developer.salesloft.com/docs/api/account-redaction/)
@@ -45,9 +42,6 @@ tags:
   - name: Account Upserts
     description: >-
       [https://developer.salesloft.com/docs/api/account-upserts/](https://developer.salesloft.com/docs/api/account-upserts/)
-  - name: Account and People Redaction
-    description: >-
-      [https://developer.salesloft.com/docs/api/account-and-people-redaction/](https://developer.salesloft.com/docs/api/account-and-people-redaction/)
   - name: Accounts
     description: >-
       [https://developer.salesloft.com/docs/api/accounts/](https://developer.salesloft.com/docs/api/accounts/)
@@ -177,6 +171,9 @@ tags:
   - name: Live Website Tracking Parameters
     description: >-
       [https://developer.salesloft.com/docs/api/live-website-tracking-parameters/](https://developer.salesloft.com/docs/api/live-website-tracking-parameters/)
+  - name: Me
+    description: >-
+      [https://developer.salesloft.com/docs/api/me/](https://developer.salesloft.com/docs/api/me/)
   - name: Meetings
     description: >-
       [https://developer.salesloft.com/docs/api/meetings/](https://developer.salesloft.com/docs/api/meetings/)
@@ -231,7 +228,7 @@ tags:
   - name: Reschedule Links
     description: >-
       [https://developer.salesloft.com/docs/api/reschedule-links/](https://developer.salesloft.com/docs/api/reschedule-links/)
-  - name: Right To Be Forgotten
+  - name: Right to Be Forgotten
     description: >-
       [https://developer.salesloft.com/docs/api/right-to-be-forgotten/](https://developer.salesloft.com/docs/api/right-to-be-forgotten/)
   - name: Saved List Views
@@ -255,12 +252,12 @@ tags:
   - name: Successes
     description: >-
       [https://developer.salesloft.com/docs/api/successes/](https://developer.salesloft.com/docs/api/successes/)
-  - name: Tags
-    description: >-
-      [https://developer.salesloft.com/docs/api/tags/](https://developer.salesloft.com/docs/api/tags/)
   - name: Tasks
     description: >-
       [https://developer.salesloft.com/docs/api/tasks/](https://developer.salesloft.com/docs/api/tasks/)
+  - name: Team
+    description: >-
+      [https://developer.salesloft.com/docs/api/team/](https://developer.salesloft.com/docs/api/team/)
   - name: Team Template Attachments
     description: >-
       [https://developer.salesloft.com/docs/api/team-template-attachments/](https://developer.salesloft.com/docs/api/team-template-attachments/)
@@ -4666,7 +4663,7 @@ paths:
   /data_control/right_to_be_forgotten:
     post:
       tags:
-        - Right To Be Forgotten
+        - Right to Be Forgotten
       summary: Salesloft Submit a right to be forgotten request
       requestBody:
         content:
@@ -5176,8 +5173,7 @@ paths:
             application/json: {}
   /tags:
     get:
-      tags:
-        - Tags
+      tags: []
       summary: Salesloft List team tags
       parameters:
         - name: ids
