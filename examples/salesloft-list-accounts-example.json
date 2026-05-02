@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "filtering": {},
+    "paging": {
+      "per_page": 25,
+      "current_page": 1,
+      "next_page": 2,
+      "prev_page": null
+    },
+    "sorting": {}
+  },
+  "data": [
+    {
+      "id": 1234567,
+      "name": "Acme Corporation",
+      "domain": "acme.com",
+      "conversational_name": "Acme",
+      "description": "Enterprise software solutions provider",
+      "phone": "+1-555-123-4567",
+      "website": "https://www.acme.com",
+      "linkedin_url": "https://www.linkedin.com/company/acme",
+      "twitter_handle": "AcmeCorp",
+      "street": "123 Main Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "postal_code": "94105",
+      "country": "US",
+      "locale": "en_US",
+      "industry": "Software",
+      "company_type": "private",
+      "founded": "2010",
+      "revenue_range": "$10M-$50M",
+      "size": "50-200",
+      "do_not_contact": false,
+      "custom_fields": {
+        "account_priority": "high",
+        "region": "West"
+      },
+      "tags": ["enterprise", "priority"],
+      "owner_id": 789,
+      "account_tier_id": 3,
+      "crm_id": "001XXXXXXXXXXXX",
+      "crm_id_type": "salesforce",
+      "created_at": "2025-01-15T10:30:00.000Z",
+      "updated_at": "2026-04-20T14:22:00.000Z"
+    },
+    {
+      "id": 2345678,
+      "name": "TechStart Inc",
+      "domain": "techstart.io",
+      "conversational_name": "TechStart",
+      "description": "B2B SaaS startup in growth stage",
+      "phone": "+1-555-987-6543",
+      "website": "https://www.techstart.io",
+      "linkedin_url": "https://www.linkedin.com/company/techstart",
+      "twitter_handle": "TechStartHQ",
+      "city": "Austin",
+      "state": "TX",
+      "country": "US",
+      "locale": "en_US",
+      "industry": "Technology",
+      "company_type": "private",
+      "size": "11-50",
+      "do_not_contact": false,
+      "tags": ["smb", "startup"],
+      "owner_id": 456,
+      "created_at": "2025-06-01T09:00:00.000Z",
+      "updated_at": "2026-03-10T11:15:00.000Z"
+    }
+  ]
+}

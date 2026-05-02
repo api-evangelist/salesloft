@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/salesloft/json-schema/salesloft-account-schema.json",
+  "title": "Salesloft Account",
+  "description": "An Account in Salesloft represents a company or organization being tracked in the sales process.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the account"
+    },
+    "name": {
+      "type": "string",
+      "description": "The full name of the account"
+    },
+    "domain": {
+      "type": "string",
+      "description": "The web domain of the account"
+    },
+    "conversational_name": {
+      "type": "string",
+      "description": "Short conversational name for the account"
+    },
+    "description": {
+      "type": "string",
+      "description": "Free-text description of the account"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Primary phone number of the account"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Company website URL"
+    },
+    "linkedin_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "LinkedIn profile URL of the company"
+    },
+    "twitter_handle": {
+      "type": "string",
+      "description": "Twitter handle of the company"
+    },
+    "street": {
+      "type": "string",
+      "description": "Street address"
+    },
+    "city": {
+      "type": "string",
+      "description": "City"
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "Postal/ZIP code"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country"
+    },
+    "locale": {
+      "type": "string",
+      "description": "Locale for the account (e.g. en_US)"
+    },
+    "industry": {
+      "type": "string",
+      "description": "Industry vertical"
+    },
+    "company_type": {
+      "type": "string",
+      "description": "Type of company (e.g. private, public)"
+    },
+    "founded": {
+      "type": "string",
+      "description": "Year the company was founded"
+    },
+    "revenue_range": {
+      "type": "string",
+      "description": "Annual revenue range"
+    },
+    "size": {
+      "type": "string",
+      "description": "Company size by employee count range"
+    },
+    "do_not_contact": {
+      "type": "boolean",
+      "description": "Whether this account is flagged as do not contact"
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "Key-value pairs of custom field data",
+      "additionalProperties": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of tags associated with the account"
+    },
+    "owner_id": {
+      "type": "integer",
+      "description": "ID of the user who owns this account"
+    },
+    "company_stage_id": {
+      "type": "integer",
+      "description": "ID of the company stage"
+    },
+    "account_tier_id": {
+      "type": "integer",
+      "description": "ID of the account tier"
+    },
+    "crm_id": {
+      "type": "string",
+      "description": "External CRM identifier"
+    },
+    "crm_id_type": {
+      "type": "string",
+      "description": "Type of external CRM (e.g. salesforce)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the account was created"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the account was last updated"
+    }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}

@@ -1,59 +1,56 @@
-# Salesloft (salesloft)
-Salesloft delivers a performance force multiplier for the worlds most demanding companies. Saleslofts Revenue Orchestration Platform, delivering the first AI-powered durable revenue engagement model, keeps market-facing teams on top of all buyer signals, with outcomes-driven prioritization so they always act first on what matters most.
+# Salesloft
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/salesloft/refs/heads/main/apis.yml)
-
-## Scope
-
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
-
-## Tags:
-
- - Sales
-
-## Timestamps
-
-- **Created:** 2025-02-09 
-- **Modified:** 2025-02-09 
+Salesloft delivers a performance force multiplier for the world's most demanding companies. Salesloft's Revenue Orchestration Platform, delivering the first AI-powered durable revenue engagement model, keeps market-facing teams on top of all buyer signals, with outcomes-driven prioritization so they always act first on what matters most.
 
 ## APIs
 
-### Salesloft
-This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+| API | Description |
+|---|---|
+| [Salesloft API](https://developers.salesloft.com/docs/platform/intro/) | Core REST API for accounts, people, cadences, calls, emails, tasks, and opportunities |
 
-**Human URL:** [https://developers.salesloft.com/](https://developers.salesloft.com/)
+## Resources
 
+- **Developer Portal**: [developers.salesloft.com](https://developers.salesloft.com)
+- **API Documentation**: [developers.salesloft.com/docs/api/](https://developers.salesloft.com/docs/api/)
+- **GitHub Org**: [github.com/SalesLoft](https://github.com/SalesLoft)
+- **Postman Workspace**: [postman.com/salesloft-dev](https://www.postman.com/salesloft-dev/salesloft/overview)
+- **Marketplace**: [marketplace.salesloft.com](https://marketplace.salesloft.com/)
+- **Status**: [status.salesloft.com](https://status.salesloft.com/)
+- **Pricing**: [salesloft.com/pricing](https://www.salesloft.com/pricing)
 
-#### Tags:
+## Artifacts
 
- - Sales
+### OpenAPI Specs
+- [salesloft-openapi.yml](openapi/salesloft-openapi.yml) — Full Salesloft REST API (176 operations)
 
-#### Properties
+### Spectral Rules
+- [salesloft-rules.yml](rules/salesloft-rules.yml) — API style and compliance rules
 
-- [Documentation](https://developers.salesloft.com/)
-- [OpenAPI](properties/salesloft-openapi.yml)
+### Capabilities
+- [sales-engagement.yaml](capabilities/sales-engagement.yaml) — Account + People + Cadence enrollment workflow
+- [revenue-intelligence.yaml](capabilities/revenue-intelligence.yaml) — Calls + Opportunities + Signals + Tasks workflow
+- [shared/salesloft.yaml](capabilities/shared/salesloft.yaml) — Base Salesloft API consumed definition
 
-## Common Properties
+### JSON Schema
+- [salesloft-account-schema.json](json-schema/salesloft-account-schema.json) — Account entity schema
+- [salesloft-person-schema.json](json-schema/salesloft-person-schema.json) — Person/contact entity schema
+- [salesloft-cadence-schema.json](json-schema/salesloft-cadence-schema.json) — Cadence entity schema
 
-- [GitHubOrganization](https://github.com/SalesLoft)
-- [PostmanWorkspace]( https://www.postman.com/salesloft-dev/salesloft/overview)
-- [Marketplace](https://marketplace.salesloft.com/)
-- [Documentation](https://developers.salesloft.com/docs/api/)
-- [Applications](https://accounts.salesloft.com/sign_in)
-- [Blog](https://www.salesloft.com/resources/blog)
-- [Pricing](https://www.salesloft.com/pricing)
-- [CaseStudies](https://www.salesloft.com/resources/case-studies)
-- [Events](https://www.salesloft.com/events)
-- [Status](https://status.salesloft.com/)
-- [Governance](https://www.salesloft.com/platform/governance)
-- [Security](https://www.salesloft.com/security-compliance)
-- [Summary](undefined)
+### JSON Structure
+- [salesloft-account-structure.json](json-structure/salesloft-account-structure.json) — Account structure documentation
+- [salesloft-person-structure.json](json-structure/salesloft-person-structure.json) — Person structure documentation
 
-## Maintainers
+### JSON-LD
+- [salesloft-context.jsonld](json-ld/salesloft-context.jsonld) — Linked data context for sales entities
 
-**FN:** Kin Lane
+### Examples
+- [salesloft-list-accounts-example.json](examples/salesloft-list-accounts-example.json) — List accounts example
+- [salesloft-create-person-example.json](examples/salesloft-create-person-example.json) — Create person request/response
 
-**Email:** info@apievangelist.com
+### Vocabulary
+- [salesloft-vocabulary.yml](vocabulary/salesloft-vocabulary.yml) — Salesloft platform terminology
+
+## Maintained By
+
+[Kin Lane](mailto:kin@apievangelist.com) — [API Evangelist](https://apievangelist.com)
 

@@ -1,0 +1,136 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sl": "https://api-evangelist.github.io/salesloft/vocab#",
+
+    "Account": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "domain": "schema:url",
+        "phone": "schema:telephone",
+        "website": "schema:url",
+        "linkedin_url": "schema:sameAs",
+        "twitter_handle": "schema:sameAs",
+        "street": "schema:streetAddress",
+        "city": "schema:addressLocality",
+        "state": "schema:addressRegion",
+        "postal_code": "schema:postalCode",
+        "country": "schema:addressCountry",
+        "industry": "schema:industry",
+        "description": "schema:description",
+        "size": "schema:numberOfEmployees",
+        "founded": "schema:foundingDate",
+        "owner_id": "sl:ownedBy",
+        "tags": "schema:keywords",
+        "do_not_contact": "sl:doNotContact",
+        "crm_id": "sl:externalId",
+        "created_at": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Person": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": "@id",
+        "first_name": "schema:givenName",
+        "last_name": "schema:familyName",
+        "email_address": "schema:email",
+        "phone": "schema:telephone",
+        "mobile_phone": "schema:telephone",
+        "title": "schema:jobTitle",
+        "linkedin_url": "schema:sameAs",
+        "twitter_handle": "schema:sameAs",
+        "personal_website": "schema:url",
+        "city": "schema:addressLocality",
+        "state": "schema:addressRegion",
+        "country": "schema:addressCountry",
+        "person_company_name": "schema:worksFor",
+        "job_seniority": "sl:seniority",
+        "do_not_contact": "sl:doNotContact",
+        "eu_resident": "sl:euResident",
+        "tags": "schema:keywords",
+        "account_id": "sl:associatedAccount",
+        "owner_id": "sl:ownedBy",
+        "crm_id": "sl:externalId",
+        "created_at": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Cadence": {
+      "@id": "sl:Cadence",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "description": "schema:description",
+        "current_state": "sl:state",
+        "cadence_function": "sl:cadenceFunction",
+        "is_team": "sl:isTeamCadence",
+        "owner_id": "sl:ownedBy",
+        "created_at": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Opportunity": {
+      "@id": "schema:Offer",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "description": "schema:description",
+        "owner_id": "sl:ownedBy",
+        "account_id": "sl:associatedAccount",
+        "created_at": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Task": {
+      "@id": "schema:Action",
+      "@context": {
+        "id": "@id",
+        "description": "schema:description",
+        "due_on": "schema:scheduledTime",
+        "owner_id": "sl:ownedBy",
+        "person_id": "sl:associatedPerson",
+        "created_at": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

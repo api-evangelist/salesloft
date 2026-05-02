@@ -1,0 +1,131 @@
+extends: spectral:oas
+rules:
+
+  # Salesloft requires all operation summaries to begin with "Salesloft" provider prefix
+  salesloft-summary-provider-prefix:
+    description: All operation summaries must begin with "Salesloft" provider prefix
+    message: "Summary '{{value}}' must start with 'Salesloft'"
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Salesloft "
+    severity: warn
+
+  # All summaries must use Title Case
+  salesloft-summary-title-case:
+    description: Operation summaries must use Title Case
+    message: "Summary '{{value}}' should use Title Case"
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z]*(\\s[A-Z][a-zA-Z0-9]*|\\s(a|an|the|and|or|for|of|in|to|by|at))*$"
+    severity: hint
+
+  # Salesloft uses OAuth2 / Bearer token auth - operations must reference security
+  salesloft-security-defined:
+    description: Operations should define security requirements
+    message: "Operation '{{path}}' should have security defined"
+    given: "$.paths[*][get,post,put,delete]"
+    then:
+      - field: security
+        function: truthy
+    severity: hint
+
+  # All tags must use Title Case
+  salesloft-tags-title-case:
+    description: Tags must use Title Case
+    message: "Tag '{{value}}' should use Title Case"
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+    severity: warn
+
+  # Paths should use kebab-case
+  salesloft-paths-kebab-case:
+    description: Path segments should use kebab-case
+    message: "Path '{{path}}' should use kebab-case"
+    given: "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(\\/[a-z0-9_{}\\-]+)+$"
+    severity: hint
+
+  # Operations must have at least one tag
+  salesloft-operation-tags-required:
+    description: Operations must have at least one tag
+    message: "Operation '{{path}}' must have at least one tag"
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      - field: tags
+        function: truthy
+    severity: warn
+
+  # Response codes must be defined
+  salesloft-responses-required:
+    description: Operations must define response codes
+    message: "Operation '{{path}}' must define at least one response"
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      - field: responses
+        function: truthy
+    severity: error
+
+  # GET operations should have a 200 response
+  salesloft-get-200-response:
+    description: GET operations should define a 200 response
+    message: "GET operation at '{{path}}' should have a 200 response"
+    given: "$.paths[*].get"
+    then:
+      - field: responses.200
+        function: truthy
+    severity: warn
+
+  # POST operations should have a 200 or 201 response
+  salesloft-post-success-response:
+    description: POST operations should define a 200 or 201 response
+    message: "POST operation at '{{path}}' should have a 200 or 201 response"
+    given: "$.paths[*].post"
+    then:
+      - field: responses
+        function: schema
+        functionOptions:
+          schema:
+            anyOf:
+              - required: ["200"]
+              - required: ["201"]
+    severity: hint
+
+  # Info title must be present
+  salesloft-info-title:
+    description: API must have an info title
+    message: "API info.title is required"
+    given: "$.info"
+    then:
+      - field: title
+        function: truthy
+    severity: error
+
+  # Info description must be present
+  salesloft-info-description:
+    description: API must have an info description
+    message: "API info.description is required"
+    given: "$.info"
+    then:
+      - field: description
+        function: truthy
+    severity: warn
+
+  # Servers must be defined
+  salesloft-servers-defined:
+    description: API must define servers
+    message: "API must have at least one server defined"
+    given: "$"
+    then:
+      - field: servers
+        function: truthy
+    severity: error

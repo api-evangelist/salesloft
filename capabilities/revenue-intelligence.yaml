@@ -1,0 +1,233 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Salesloft Revenue Intelligence"
+  description: >-
+    Revenue intelligence workflow combining calls, conversations, signals, and
+    opportunities to provide pipeline visibility and AI-driven coaching insights.
+    Used by sales managers and revenue leaders to monitor deal health and rep performance.
+  tags:
+    - Revenue Intelligence
+    - Conversations
+    - Opportunities
+    - Signals
+    - Analytics
+    - Salesloft
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SALESLOFT_API_KEY: SALESLOFT_API_KEY
+
+capability:
+  consumes:
+    - import: salesloft
+      location: ./shared/salesloft.yaml
+
+  exposes:
+    - type: rest
+      port: 8081
+      namespace: revenue-intelligence-api
+      description: "Unified REST API for Salesloft revenue intelligence and pipeline management."
+      resources:
+        - path: /v1/calls
+          name: calls
+          description: "Call recordings and outcomes"
+          operations:
+            - method: GET
+              name: list-calls
+              description: "List all calls"
+              call: "salesloft.list-calls"
+              with:
+                page: "rest.page"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/opportunities
+          name: opportunities
+          description: "Sales opportunities and pipeline"
+          operations:
+            - method: GET
+              name: list-opportunities
+              description: "List all opportunities"
+              call: "salesloft.list-opportunities"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/opportunities/{id}
+          name: opportunity-by-id
+          description: "Single opportunity"
+          operations:
+            - method: GET
+              name: fetch-opportunity
+              description: "Get opportunity by ID"
+              call: "salesloft.fetch-opportunity"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/signals
+          name: signals
+          description: "Buyer intent signals for Rhythm"
+          operations:
+            - method: POST
+              name: create-signal
+              description: "Submit a buyer signal to Rhythm"
+              call: "salesloft.create-signal"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/emails
+          name: emails
+          description: "Email activity tracking"
+          operations:
+            - method: GET
+              name: list-emails
+              description: "List all emails"
+              call: "salesloft.list-emails"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/tasks
+          name: tasks
+          description: "Tasks and follow-ups"
+          operations:
+            - method: GET
+              name: list-tasks
+              description: "List all tasks"
+              call: "salesloft.list-tasks"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-task
+              description: "Create a follow-up task"
+              call: "salesloft.create-task"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/users
+          name: users
+          description: "Sales team users"
+          operations:
+            - method: GET
+              name: list-users
+              description: "List all users"
+              call: "salesloft.list-users"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9081
+      namespace: revenue-intelligence-mcp
+      transport: http
+      description: "MCP server for AI-assisted revenue intelligence and pipeline management."
+      tools:
+        - name: list-calls
+          description: "List call recordings and outcomes from Salesloft"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-calls"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-opportunities
+          description: "List sales opportunities and pipeline in Salesloft"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-opportunities"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: fetch-opportunity
+          description: "Get details for a specific opportunity"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.fetch-opportunity"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: submit-buyer-signal
+          description: "Submit a buyer intent signal to Salesloft Rhythm to prioritize follow-up"
+          hints:
+            readOnly: false
+          call: "salesloft.create-signal"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-emails
+          description: "List emails sent through Salesloft for activity tracking"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-emails"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-tasks
+          description: "List pending sales tasks and follow-ups"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-tasks"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-task
+          description: "Create a follow-up task for a sales rep"
+          hints:
+            readOnly: false
+          call: "salesloft.create-task"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-users
+          description: "List sales team members in Salesloft"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-users"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-webhook-subscriptions
+          description: "List webhook subscriptions for Salesloft event notifications"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-webhook-subscriptions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-webhook-subscription
+          description: "Create a webhook subscription to receive Salesloft events"
+          hints:
+            readOnly: false
+          call: "salesloft.create-webhook-subscription"
+          outputParameters:
+            - type: object
+              mapping: "$."

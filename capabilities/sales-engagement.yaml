@@ -1,0 +1,320 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Salesloft Sales Engagement"
+  description: >-
+    Sales engagement workflow combining account and people management with cadence
+    enrollment. Used by sales reps to discover accounts, add prospects, and enroll
+    them in structured outreach sequences to drive pipeline.
+  tags:
+    - Sales
+    - Engagement
+    - Cadences
+    - Accounts
+    - People
+    - Salesloft
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SALESLOFT_API_KEY: SALESLOFT_API_KEY
+
+capability:
+  consumes:
+    - import: salesloft
+      location: ./shared/salesloft.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: sales-engagement-api
+      description: "Unified REST API for Salesloft sales engagement workflows."
+      resources:
+        - path: /v1/accounts
+          name: accounts
+          description: "Manage company accounts"
+          operations:
+            - method: GET
+              name: list-accounts
+              description: "List all accounts"
+              call: "salesloft.list-accounts"
+              with:
+                page: "rest.page"
+                per_page: "rest.per_page"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-account
+              description: "Create a new account"
+              call: "salesloft.create-account"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/accounts/{id}
+          name: account-by-id
+          description: "Single account operations"
+          operations:
+            - method: GET
+              name: fetch-account
+              description: "Get account by ID"
+              call: "salesloft.fetch-account"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PUT
+              name: update-account
+              description: "Update an account"
+              call: "salesloft.update-account"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-account
+              description: "Delete an account"
+              call: "salesloft.delete-account"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/people
+          name: people
+          description: "Manage contacts and prospects"
+          operations:
+            - method: GET
+              name: list-people
+              description: "List all people"
+              call: "salesloft.list-people"
+              with:
+                page: "rest.page"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-person
+              description: "Create a new person"
+              call: "salesloft.create-person"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/people/{id}
+          name: person-by-id
+          description: "Single person operations"
+          operations:
+            - method: GET
+              name: fetch-person
+              description: "Get person by ID"
+              call: "salesloft.fetch-person"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PUT
+              name: update-person
+              description: "Update a person"
+              call: "salesloft.update-person"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-person
+              description: "Delete a person"
+              call: "salesloft.delete-person"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/cadences
+          name: cadences
+          description: "Sales cadences and outreach sequences"
+          operations:
+            - method: GET
+              name: list-cadences
+              description: "List all cadences"
+              call: "salesloft.list-cadences"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/cadences/{id}
+          name: cadence-by-id
+          description: "Single cadence operations"
+          operations:
+            - method: GET
+              name: fetch-cadence
+              description: "Get cadence by ID"
+              call: "salesloft.fetch-cadence"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/cadence-memberships
+          name: cadence-memberships
+          description: "Enroll people in cadences"
+          operations:
+            - method: GET
+              name: list-cadence-memberships
+              description: "List cadence enrollments"
+              call: "salesloft.list-cadence-memberships"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: enroll-person
+              description: "Enroll a person in a cadence"
+              call: "salesloft.create-cadence-membership"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9080
+      namespace: sales-engagement-mcp
+      transport: http
+      description: "MCP server for AI-assisted Salesloft sales engagement workflows."
+      tools:
+        - name: list-accounts
+          description: "List Salesloft accounts to find target companies"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-accounts"
+          with:
+            page: "tools.page"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-account
+          description: "Create a new company account in Salesloft"
+          hints:
+            readOnly: false
+          call: "salesloft.create-account"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: fetch-account
+          description: "Get details for a specific account"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.fetch-account"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: update-account
+          description: "Update account details in Salesloft"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "salesloft.update-account"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-people
+          description: "List contacts and prospects in Salesloft"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-people"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-person
+          description: "Add a new contact/prospect to Salesloft"
+          hints:
+            readOnly: false
+          call: "salesloft.create-person"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: fetch-person
+          description: "Get details for a specific person"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.fetch-person"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: update-person
+          description: "Update person/contact details"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "salesloft.update-person"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-cadences
+          description: "List available sales cadences/outreach sequences"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-cadences"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: fetch-cadence
+          description: "Get details for a specific cadence"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.fetch-cadence"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: enroll-person-in-cadence
+          description: "Enroll a person in a sales cadence for structured outreach"
+          hints:
+            readOnly: false
+          call: "salesloft.create-cadence-membership"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-cadence-memberships
+          description: "List current cadence enrollments"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesloft.list-cadence-memberships"
+          outputParameters:
+            - type: object
+              mapping: "$."

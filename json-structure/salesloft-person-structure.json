@@ -1,0 +1,49 @@
+{
+  "title": "Salesloft Person Structure",
+  "description": "JSON structure documentation for the Salesloft Person entity",
+  "type": "object",
+  "structure": {
+    "id": "integer - Unique person identifier",
+    "first_name": "string - First name",
+    "last_name": "string - Last name",
+    "email_address": "string(email) - Primary email [required]",
+    "secondary_email_address": "string(email) - Secondary email",
+    "personal_email_address": "string(email) - Personal email",
+    "phone": "string - Primary phone",
+    "phone_extension": "string - Phone extension",
+    "mobile_phone": "string - Mobile phone",
+    "home_phone": "string - Home phone",
+    "linkedin_url": "string(uri) - LinkedIn profile URL",
+    "title": "string - Job title",
+    "location": {
+      "city": "string - City",
+      "state": "string - State/Province",
+      "country": "string - Country"
+    },
+    "work_location": {
+      "work_city": "string - Work city",
+      "work_state": "string - Work state",
+      "work_country": "string - Work country"
+    },
+    "person_company_name": "string - Company name",
+    "person_company_website": "string(uri) - Company website",
+    "person_company_industry": "string - Company industry",
+    "job_seniority": "string - Seniority level (individual_contributor|manager|director|vp|c_suite|owner)",
+    "do_not_contact": "boolean - DNC flag",
+    "eu_resident": "boolean - EU resident for GDPR",
+    "locale": "string - Language locale",
+    "personal_website": "string(uri) - Personal website",
+    "twitter_handle": "string - Twitter handle",
+    "tags": "array[string] - Tags",
+    "contact_restrictions": "array[string] - Contact restrictions (call|email)",
+    "custom_fields": "object - Custom field key-value pairs",
+    "account_id": "integer - Associated account ID",
+    "owner_id": "integer - Owner user ID",
+    "import_id": "integer - Import ID",
+    "person_stage_id": "integer - Stage ID",
+    "crm_id": "string - External CRM ID",
+    "crm_id_type": "string - CRM system type",
+    "created_at": "string(date-time) - Creation timestamp",
+    "updated_at": "string(date-time) - Last update timestamp"
+  }
+}

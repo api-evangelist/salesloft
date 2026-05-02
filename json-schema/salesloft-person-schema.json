@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/salesloft/json-schema/salesloft-person-schema.json",
+  "title": "Salesloft Person",
+  "description": "A Person in Salesloft represents a contact or prospect being engaged through the sales process.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the person"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "First name of the person"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Last name of the person"
+    },
+    "email_address": {
+      "type": "string",
+      "format": "email",
+      "description": "Primary email address"
+    },
+    "secondary_email_address": {
+      "type": "string",
+      "format": "email",
+      "description": "Secondary email address"
+    },
+    "personal_email_address": {
+      "type": "string",
+      "format": "email",
+      "description": "Personal email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Primary phone number"
+    },
+    "phone_extension": {
+      "type": "string",
+      "description": "Phone extension"
+    },
+    "mobile_phone": {
+      "type": "string",
+      "description": "Mobile phone number"
+    },
+    "home_phone": {
+      "type": "string",
+      "description": "Home phone number"
+    },
+    "linkedin_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "LinkedIn profile URL"
+    },
+    "title": {
+      "type": "string",
+      "description": "Job title of the person"
+    },
+    "city": {
+      "type": "string",
+      "description": "City"
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country"
+    },
+    "work_city": {
+      "type": "string",
+      "description": "Work city"
+    },
+    "work_state": {
+      "type": "string",
+      "description": "Work state"
+    },
+    "work_country": {
+      "type": "string",
+      "description": "Work country"
+    },
+    "person_company_name": {
+      "type": "string",
+      "description": "Company name associated with this person"
+    },
+    "person_company_website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Company website for this person"
+    },
+    "person_company_industry": {
+      "type": "string",
+      "description": "Company industry for this person"
+    },
+    "job_seniority": {
+      "type": "string",
+      "description": "Seniority level of the person's role",
+      "enum": ["individual_contributor", "manager", "director", "vp", "c_suite", "owner", "unknown"]
+    },
+    "do_not_contact": {
+      "type": "boolean",
+      "description": "Whether this person is flagged as do not contact"
+    },
+    "eu_resident": {
+      "type": "boolean",
+      "description": "Whether this person is an EU resident (GDPR)"
+    },
+    "locale": {
+      "type": "string",
+      "description": "Locale (e.g. en_US)"
+    },
+    "personal_website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Personal website URL"
+    },
+    "twitter_handle": {
+      "type": "string",
+      "description": "Twitter handle"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of tags"
+    },
+    "contact_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Contact restriction types (e.g. call, email)"
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "Custom field key-value pairs",
+      "additionalProperties": true
+    },
+    "account_id": {
+      "type": "integer",
+      "description": "ID of the associated Account"
+    },
+    "owner_id": {
+      "type": "integer",
+      "description": "ID of the user who owns this person"
+    },
+    "import_id": {
+      "type": "integer",
+      "description": "ID of the import this person came from"
+    },
+    "person_stage_id": {
+      "type": "integer",
+      "description": "ID of the person's current stage"
+    },
+    "crm_id": {
+      "type": "string",
+      "description": "External CRM identifier"
+    },
+    "crm_id_type": {
+      "type": "string",
+      "description": "Type of external CRM"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the person was created"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the person was last updated"
+    }
+  },
+  "required": ["id", "email_address"],
+  "additionalProperties": false
+}

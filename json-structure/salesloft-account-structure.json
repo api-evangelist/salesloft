@@ -1,0 +1,39 @@
+{
+  "title": "Salesloft Account Structure",
+  "description": "JSON structure documentation for the Salesloft Account entity",
+  "type": "object",
+  "structure": {
+    "id": "integer - Unique account identifier",
+    "name": "string - Full company name [required]",
+    "domain": "string - Company web domain",
+    "conversational_name": "string - Short name for conversations",
+    "description": "string - Free-text description",
+    "phone": "string - Primary phone number",
+    "website": "string(uri) - Company website URL",
+    "linkedin_url": "string(uri) - LinkedIn page URL",
+    "twitter_handle": "string - Twitter @handle",
+    "address": {
+      "street": "string - Street address",
+      "city": "string - City",
+      "state": "string - State/Province",
+      "postal_code": "string - ZIP/Postal code",
+      "country": "string - Country"
+    },
+    "locale": "string - Language locale (e.g. en_US)",
+    "industry": "string - Industry vertical",
+    "company_type": "string - Type (private/public)",
+    "founded": "string - Founding year",
+    "revenue_range": "string - Annual revenue range",
+    "size": "string - Headcount range",
+    "do_not_contact": "boolean - DNC flag",
+    "custom_fields": "object - Custom field key-value pairs",
+    "tags": "array[string] - Associated tags",
+    "owner_id": "integer - Owner user ID",
+    "company_stage_id": "integer - Stage ID",
+    "account_tier_id": "integer - Tier ID",
+    "crm_id": "string - External CRM ID",
+    "crm_id_type": "string - CRM system type",
+    "created_at": "string(date-time) - Creation timestamp",
+    "updated_at": "string(date-time) - Last update timestamp"
+  }
+}
