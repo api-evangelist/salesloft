@@ -18,6 +18,7 @@ tags:
 access: 3rd-Party
 created: '2025-02-09'
 modified: '2026-05-02'
+x-profiled: '2026-05'
 specificationVersion: '0.19'
 apis:
   - aid: salesloft:salesloft-api
