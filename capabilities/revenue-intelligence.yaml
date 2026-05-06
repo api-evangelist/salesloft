@@ -1,233 +1,633 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Salesloft Revenue Intelligence"
-  description: >-
-    Revenue intelligence workflow combining calls, conversations, signals, and
-    opportunities to provide pipeline visibility and AI-driven coaching insights.
-    Used by sales managers and revenue leaders to monitor deal health and rep performance.
+  label: Salesloft Revenue Intelligence
+  description: Revenue intelligence workflow combining calls, conversations, signals, and opportunities to provide pipeline
+    visibility and AI-driven coaching insights. Used by sales managers and revenue leaders to monitor deal health and rep
+    performance.
   tags:
-    - Revenue Intelligence
-    - Conversations
-    - Opportunities
-    - Signals
-    - Analytics
-    - Salesloft
-  created: "2026-05-02"
-  modified: "2026-05-02"
-
+  - Revenue Intelligence
+  - Conversations
+  - Opportunities
+  - Signals
+  - Analytics
+  - Salesloft
+  created: '2026-05-02'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      SALESLOFT_API_KEY: SALESLOFT_API_KEY
-
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
 capability:
   consumes:
-    - import: salesloft
-      location: ./shared/salesloft.yaml
-
+  - type: http
+    namespace: salesloft
+    baseUri: https://api.salesloft.com/v2
+    description: Salesloft Revenue Orchestration Platform REST API
+    authentication:
+      type: bearer
+      token: '{{SALESLOFT_API_KEY}}'
+    resources:
+    - name: me
+      path: /me
+      description: Current authenticated user
+      operations:
+      - name: get-current-user
+        method: GET
+        description: Retrieve the current authenticated user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: team
+      path: /team
+      description: Current team settings
+      operations:
+      - name: get-current-team
+        method: GET
+        description: Retrieve the current team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts
+      path: /accounts
+      description: Company accounts in Salesloft
+      operations:
+      - name: list-accounts
+        method: GET
+        description: List all accounts
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          required: false
+          description: Results per page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-account
+        method: POST
+        description: Create a new account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            domain: '{{tools.domain}}'
+            phone: '{{tools.phone}}'
+            website: '{{tools.website}}'
+            industry: '{{tools.industry}}'
+            owner_id: '{{tools.owner_id}}'
+    - name: accounts-by-id
+      path: /accounts/{id}
+      description: Single account by ID
+      operations:
+      - name: fetch-account
+        method: GET
+        description: Fetch a single account by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Account ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: update-account
+        method: PUT
+        description: Update an existing account
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Account ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            domain: '{{tools.domain}}'
+      - name: delete-account
+        method: DELETE
+        description: Delete an account
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Account ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: people
+      path: /people
+      description: Prospects and contacts in Salesloft
+      operations:
+      - name: list-people
+        method: GET
+        description: List all people
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          required: false
+          description: Results per page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-person
+        method: POST
+        description: Create a new person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            email_address: '{{tools.email_address}}'
+            first_name: '{{tools.first_name}}'
+            last_name: '{{tools.last_name}}'
+            title: '{{tools.title}}'
+            account_id: '{{tools.account_id}}'
+            owner_id: '{{tools.owner_id}}'
+    - name: people-by-id
+      path: /people/{id}
+      description: Single person by ID
+      operations:
+      - name: fetch-person
+        method: GET
+        description: Fetch a single person by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Person ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: update-person
+        method: PUT
+        description: Update a person
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Person ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            first_name: '{{tools.first_name}}'
+            last_name: '{{tools.last_name}}'
+            title: '{{tools.title}}'
+      - name: delete-person
+        method: DELETE
+        description: Delete a person
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Person ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cadences
+      path: /cadences
+      description: Sales cadences (structured outreach sequences)
+      operations:
+      - name: list-cadences
+        method: GET
+        description: List all cadences
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cadences-by-id
+      path: /cadences/{id}
+      description: Single cadence by ID
+      operations:
+      - name: fetch-cadence
+        method: GET
+        description: Fetch a cadence by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Cadence ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cadence-memberships
+      path: /cadence_memberships
+      description: Person-cadence enrollment associations
+      operations:
+      - name: list-cadence-memberships
+        method: GET
+        description: List cadence memberships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-cadence-membership
+        method: POST
+        description: Enroll a person in a cadence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            person_id: '{{tools.person_id}}'
+            cadence_id: '{{tools.cadence_id}}'
+            user_id: '{{tools.user_id}}'
+    - name: calls
+      path: /calls
+      description: Phone calls made through Salesloft
+      operations:
+      - name: list-calls
+        method: GET
+        description: List all calls
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: emails
+      path: /emails
+      description: Emails sent via Salesloft
+      operations:
+      - name: list-emails
+        method: GET
+        description: List all emails
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tasks
+      path: /tasks
+      description: Sales tasks and to-dos
+      operations:
+      - name: list-tasks
+        method: GET
+        description: List all tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-task
+        method: POST
+        description: Create a task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            subject: '{{tools.subject}}'
+            person_id: '{{tools.person_id}}'
+            due_on: '{{tools.due_on}}'
+    - name: opportunities
+      path: /opportunities
+      description: Sales opportunities
+      operations:
+      - name: list-opportunities
+        method: GET
+        description: List all opportunities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: opportunities-by-id
+      path: /opportunities/{id}
+      description: Single opportunity by ID
+      operations:
+      - name: fetch-opportunity
+        method: GET
+        description: Fetch an opportunity by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Opportunity ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: signals
+      path: /signals
+      description: Buyer intent signals for Rhythm
+      operations:
+      - name: create-signal
+        method: POST
+        description: Submit a buyer intent signal to Rhythm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            person_id: '{{tools.person_id}}'
+    - name: users
+      path: /users
+      description: Salesloft platform users
+      operations:
+      - name: list-users
+        method: GET
+        description: List all users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: webhook-subscriptions
+      path: /webhook_subscriptions
+      description: Webhook subscriptions for event notifications
+      operations:
+      - name: list-webhook-subscriptions
+        method: GET
+        description: List webhook subscriptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-webhook-subscription
+        method: POST
+        description: Create a webhook subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            url: '{{tools.url}}'
+            event_type: '{{tools.event_type}}'
   exposes:
-    - type: rest
-      port: 8081
-      namespace: revenue-intelligence-api
-      description: "Unified REST API for Salesloft revenue intelligence and pipeline management."
-      resources:
-        - path: /v1/calls
-          name: calls
-          description: "Call recordings and outcomes"
-          operations:
-            - method: GET
-              name: list-calls
-              description: "List all calls"
-              call: "salesloft.list-calls"
-              with:
-                page: "rest.page"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/opportunities
-          name: opportunities
-          description: "Sales opportunities and pipeline"
-          operations:
-            - method: GET
-              name: list-opportunities
-              description: "List all opportunities"
-              call: "salesloft.list-opportunities"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/opportunities/{id}
-          name: opportunity-by-id
-          description: "Single opportunity"
-          operations:
-            - method: GET
-              name: fetch-opportunity
-              description: "Get opportunity by ID"
-              call: "salesloft.fetch-opportunity"
-              with:
-                id: "rest.id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/signals
-          name: signals
-          description: "Buyer intent signals for Rhythm"
-          operations:
-            - method: POST
-              name: create-signal
-              description: "Submit a buyer signal to Rhythm"
-              call: "salesloft.create-signal"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/emails
-          name: emails
-          description: "Email activity tracking"
-          operations:
-            - method: GET
-              name: list-emails
-              description: "List all emails"
-              call: "salesloft.list-emails"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/tasks
-          name: tasks
-          description: "Tasks and follow-ups"
-          operations:
-            - method: GET
-              name: list-tasks
-              description: "List all tasks"
-              call: "salesloft.list-tasks"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-task
-              description: "Create a follow-up task"
-              call: "salesloft.create-task"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/users
-          name: users
-          description: "Sales team users"
-          operations:
-            - method: GET
-              name: list-users
-              description: "List all users"
-              call: "salesloft.list-users"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9081
-      namespace: revenue-intelligence-mcp
-      transport: http
-      description: "MCP server for AI-assisted revenue intelligence and pipeline management."
-      tools:
-        - name: list-calls
-          description: "List call recordings and outcomes from Salesloft"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.list-calls"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-opportunities
-          description: "List sales opportunities and pipeline in Salesloft"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.list-opportunities"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: fetch-opportunity
-          description: "Get details for a specific opportunity"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.fetch-opportunity"
-          with:
-            id: "tools.id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: submit-buyer-signal
-          description: "Submit a buyer intent signal to Salesloft Rhythm to prioritize follow-up"
-          hints:
-            readOnly: false
-          call: "salesloft.create-signal"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-emails
-          description: "List emails sent through Salesloft for activity tracking"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.list-emails"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-tasks
-          description: "List pending sales tasks and follow-ups"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.list-tasks"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: create-task
-          description: "Create a follow-up task for a sales rep"
-          hints:
-            readOnly: false
-          call: "salesloft.create-task"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-users
-          description: "List sales team members in Salesloft"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.list-users"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-webhook-subscriptions
-          description: "List webhook subscriptions for Salesloft event notifications"
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "salesloft.list-webhook-subscriptions"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: create-webhook-subscription
-          description: "Create a webhook subscription to receive Salesloft events"
-          hints:
-            readOnly: false
-          call: "salesloft.create-webhook-subscription"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8081
+    namespace: revenue-intelligence-api
+    description: Unified REST API for Salesloft revenue intelligence and pipeline management.
+    resources:
+    - path: /v1/calls
+      name: calls
+      description: Call recordings and outcomes
+      operations:
+      - method: GET
+        name: list-calls
+        description: List all calls
+        call: salesloft.list-calls
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/opportunities
+      name: opportunities
+      description: Sales opportunities and pipeline
+      operations:
+      - method: GET
+        name: list-opportunities
+        description: List all opportunities
+        call: salesloft.list-opportunities
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/opportunities/{id}
+      name: opportunity-by-id
+      description: Single opportunity
+      operations:
+      - method: GET
+        name: fetch-opportunity
+        description: Get opportunity by ID
+        call: salesloft.fetch-opportunity
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/signals
+      name: signals
+      description: Buyer intent signals for Rhythm
+      operations:
+      - method: POST
+        name: create-signal
+        description: Submit a buyer signal to Rhythm
+        call: salesloft.create-signal
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/emails
+      name: emails
+      description: Email activity tracking
+      operations:
+      - method: GET
+        name: list-emails
+        description: List all emails
+        call: salesloft.list-emails
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tasks
+      name: tasks
+      description: Tasks and follow-ups
+      operations:
+      - method: GET
+        name: list-tasks
+        description: List all tasks
+        call: salesloft.list-tasks
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-task
+        description: Create a follow-up task
+        call: salesloft.create-task
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/users
+      name: users
+      description: Sales team users
+      operations:
+      - method: GET
+        name: list-users
+        description: List all users
+        call: salesloft.list-users
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9081
+    namespace: revenue-intelligence-mcp
+    transport: http
+    description: MCP server for AI-assisted revenue intelligence and pipeline management.
+    tools:
+    - name: list-calls
+      description: List call recordings and outcomes from Salesloft
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.list-calls
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-opportunities
+      description: List sales opportunities and pipeline in Salesloft
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.list-opportunities
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fetch-opportunity
+      description: Get details for a specific opportunity
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.fetch-opportunity
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: submit-buyer-signal
+      description: Submit a buyer intent signal to Salesloft Rhythm to prioritize follow-up
+      hints:
+        readOnly: false
+      call: salesloft.create-signal
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-emails
+      description: List emails sent through Salesloft for activity tracking
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.list-emails
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-tasks
+      description: List pending sales tasks and follow-ups
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.list-tasks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-task
+      description: Create a follow-up task for a sales rep
+      hints:
+        readOnly: false
+      call: salesloft.create-task
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-users
+      description: List sales team members in Salesloft
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.list-users
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-webhook-subscriptions
+      description: List webhook subscriptions for Salesloft event notifications
+      hints:
+        readOnly: true
+        idempotent: true
+      call: salesloft.list-webhook-subscriptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-webhook-subscription
+      description: Create a webhook subscription to receive Salesloft events
+      hints:
+        readOnly: false
+      call: salesloft.create-webhook-subscription
+      outputParameters:
+      - type: object
+        mapping: $.
