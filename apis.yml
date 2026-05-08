@@ -2,28 +2,48 @@ aid: salesloft
 url: https://raw.githubusercontent.com/api-evangelist/salesloft/refs/heads/main/apis.yml
 name: Salesloft
 x-type: company
-description: >-
-  Salesloft is a sales engagement and revenue orchestration platform. APIs cover cadences, people, accounts, calls, emails, meetings, and webhooks.
+description: Salesloft is a sales engagement and revenue orchestration platform. APIs cover cadences, people, accounts, calls,
+  emails, meetings, and webhooks.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Sales
-  - Sales Engagement
-  - Cadences
-  - CRM
-  - Email
+- Sales
+- Sales Engagement
+- Cadences
+- CRM
+- Email
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+- name: Salesloft Platform API
+  description: REST API for cadences, people, accounts, emails, calls, tasks, opportunities and analytics.
+  humanURL: https://developers.salesloft.com/docs/platform
+  baseURL: https://api.salesloft.com/v2
+  tags:
+  - Sales Engagement
+  - Cadences
+  properties:
+  - type: Documentation
+    url: https://developers.salesloft.com/docs/platform
+- name: Salesloft Webhooks API
+  description: Subscribe to platform events for real-time updates.
+  humanURL: https://developers.salesloft.com/docs/platform
+  baseURL: https://api.salesloft.com/v2
+  tags:
+  - Webhooks
+  - Events
+  properties:
+  - type: Documentation
+    url: https://developers.salesloft.com/docs/platform
 common:
-  - type: Website
-    url: https://salesloft.com/
-  - type: Plans
-    url: plans/salesloft-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/salesloft-rate-limits.yml
-  - type: FinOps
-    url: finops/salesloft-finops.yml
+- type: Website
+  url: https://salesloft.com/
+- type: Plans
+  url: plans/salesloft-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/salesloft-rate-limits.yml
+- type: FinOps
+  url: finops/salesloft-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

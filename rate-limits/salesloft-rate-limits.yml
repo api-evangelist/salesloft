@@ -16,9 +16,11 @@ tags:
 - Quotas
 - Throttling
 description: Placeholder rate-limit artifact for Salesloft. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+notes: "Initial scaffold \u2014 limits have not yet been reconciled."
 sources:
 - https://salesloft.com/
+- https://developers.salesloft.com/
+- https://developers.salesloft.com/docs/platform
 responseCodes:
   throttled: 429
 limits:

@@ -16,9 +16,11 @@ tags:
 - Cost Management
 - FOCUS
 description: FOCUS-aligned FinOps placeholder for Salesloft. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+notes: "Initial scaffold \u2014 billing model has not yet been reconciled."
 sources:
 - https://salesloft.com/
+- https://developers.salesloft.com/
+- https://developers.salesloft.com/docs/platform
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
