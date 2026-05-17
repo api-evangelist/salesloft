@@ -1,7 +1,7 @@
 aid: salesloft
 url: https://raw.githubusercontent.com/api-evangelist/salesloft/refs/heads/main/apis.yml
 name: Salesloft
-x-type: company
+kind: company
 description: Salesloft is a sales engagement and revenue orchestration platform. APIs cover cadences, people, accounts, calls,
   emails, meetings, and webhooks.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
