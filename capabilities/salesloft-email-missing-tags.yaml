@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Email Missing Tags
+  description: 'Salesloft — Email Missing Tags. 1 operations. Lead operation: Salesloft Requests a Check of the Template for
+    Missed Tags. Self-contained Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Email Missing Tags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-email-missing-tags
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Email Missing Tags business capability. Self-contained, no shared references.
+    resources:
+    - name: email_missing_tags
+      path: /email_missing_tags
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Requests a Check of the Template for Missed Tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-email-missing-tags-rest
+    port: 8080
+    description: REST adapter for Salesloft — Email Missing Tags. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/email-missing-tags
+      name: email-missing-tags
+      description: REST surface for email_missing_tags.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Requests a Check of the Template for Missed Tags
+        call: salesloft-email-missing-tags.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-email-missing-tags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Email Missing Tags. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: salesloft-requests-check-template-missed
+      description: Salesloft Requests a Check of the Template for Missed Tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: salesloft-email-missing-tags.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

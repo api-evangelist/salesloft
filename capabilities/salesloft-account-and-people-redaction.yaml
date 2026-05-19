@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Account and People Redaction
+  description: 'Salesloft — Account and People Redaction. 1 operations. Lead operation: Salesloft Submit an Account and People
+    Redaction Request. Self-contained Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Account and People Redaction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-account-and-people-redaction
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Account and People Redaction business capability. Self-contained, no shared references.
+    resources:
+    - name: data_control-account_and_people_redaction
+      path: /data_control/account_and_people_redaction
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Submit an Account and People Redaction Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-account-and-people-redaction-rest
+    port: 8080
+    description: REST adapter for Salesloft — Account and People Redaction. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/data-control/account-and-people-redaction
+      name: data-control-account-and-people-redaction
+      description: REST surface for data_control-account_and_people_redaction.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Submit an Account and People Redaction Request
+        call: salesloft-account-and-people-redaction.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-account-and-people-redaction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Account and People Redaction. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: salesloft-submit-account-and-people
+      description: Salesloft Submit an Account and People Redaction Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-account-and-people-redaction.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

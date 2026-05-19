@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — People Soft Deletion
+  description: 'Salesloft — People Soft Deletion. 1 operations. Lead operation: Salesloft Submit a People Soft Deletion Request.
+    Self-contained Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - People Soft Deletion
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-people-soft-deletion
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — People Soft Deletion business capability. Self-contained, no shared references.
+    resources:
+    - name: data_control-people_soft_deletion
+      path: /data_control/people_soft_deletion
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Submit a People Soft Deletion Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-people-soft-deletion-rest
+    port: 8080
+    description: REST adapter for Salesloft — People Soft Deletion. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/data-control/people-soft-deletion
+      name: data-control-people-soft-deletion
+      description: REST surface for data_control-people_soft_deletion.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Submit a People Soft Deletion Request
+        call: salesloft-people-soft-deletion.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-people-soft-deletion-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — People Soft Deletion. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: salesloft-submit-people-soft-deletion
+      description: Salesloft Submit a People Soft Deletion Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-people-soft-deletion.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

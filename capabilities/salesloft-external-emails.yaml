@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — External Emails
+  description: 'Salesloft — External Emails. 1 operations. Lead operation: Salesloft Create an External Email. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - External Emails
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-external-emails
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — External Emails business capability. Self-contained, no shared references.
+    resources:
+    - name: external_emails
+      path: /external_emails
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Create an External Email
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-external-emails-rest
+    port: 8080
+    description: REST adapter for Salesloft — External Emails. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/external-emails
+      name: external-emails
+      description: REST surface for external_emails.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Create an External Email
+        call: salesloft-external-emails.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-external-emails-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — External Emails. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: salesloft-create-external-email
+      description: Salesloft Create an External Email
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-external-emails.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

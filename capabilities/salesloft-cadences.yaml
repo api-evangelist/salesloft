@@ -1,0 +1,219 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Cadences
+  description: 'Salesloft — Cadences. 2 operations. Lead operation: Salesloft List Cadences. Self-contained Naftiko capability
+    covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Cadences
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-cadences
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Cadences business capability. Self-contained, no shared references.
+    resources:
+    - name: cadences
+      path: /cadences
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Cadences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: updated_at[gt]
+          in: query
+          type: string
+        - name: updated_at[gte]
+          in: query
+          type: string
+        - name: updated_at[lt]
+          in: query
+          type: string
+        - name: updated_at[lte]
+          in: query
+          type: string
+        - name: team_cadence
+          in: query
+          type: string
+        - name: shared
+          in: query
+          type: string
+        - name: owned_by_guid
+          in: query
+          type: string
+        - name: people_addable
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+        - name: group_ids
+          in: query
+          type: string
+        - name: tag_ids
+          in: query
+          type: string
+        - name: archived
+          in: query
+          type: string
+        - name: override_contact_restrictions
+          in: query
+          type: string
+        - name: pending_actions_assigned_to
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+    - name: cadences-id
+      path: /cadences/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Cadence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-cadences-rest
+    port: 8080
+    description: REST adapter for Salesloft — Cadences. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/cadences
+      name: cadences
+      description: REST surface for cadences.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Cadences
+        call: salesloft-cadences.get
+        with:
+          ids: rest.ids
+          updated_at[gt]: rest.updated_at[gt]
+          updated_at[gte]: rest.updated_at[gte]
+          updated_at[lt]: rest.updated_at[lt]
+          updated_at[lte]: rest.updated_at[lte]
+          team_cadence: rest.team_cadence
+          shared: rest.shared
+          owned_by_guid: rest.owned_by_guid
+          people_addable: rest.people_addable
+          name: rest.name
+          group_ids: rest.group_ids
+          tag_ids: rest.tag_ids
+          archived: rest.archived
+          override_contact_restrictions: rest.override_contact_restrictions
+          pending_actions_assigned_to: rest.pending_actions_assigned_to
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cadences/{id}
+      name: cadences-id
+      description: REST surface for cadences-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Cadence
+        call: salesloft-cadences.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-cadences-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Cadences. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-list-cadences
+      description: Salesloft List Cadences
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-cadences.get
+      with:
+        ids: tools.ids
+        updated_at[gt]: tools.updated_at[gt]
+        updated_at[gte]: tools.updated_at[gte]
+        updated_at[lt]: tools.updated_at[lt]
+        updated_at[lte]: tools.updated_at[lte]
+        team_cadence: tools.team_cadence
+        shared: tools.shared
+        owned_by_guid: tools.owned_by_guid
+        people_addable: tools.people_addable
+        name: tools.name
+        group_ids: tools.group_ids
+        tag_ids: tools.tag_ids
+        archived: tools.archived
+        override_contact_restrictions: tools.override_contact_restrictions
+        pending_actions_assigned_to: tools.pending_actions_assigned_to
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-cadence
+      description: Salesloft Fetch a Cadence
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-cadences.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,205 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Bulk Jobs
+  description: 'Salesloft — Bulk Jobs. 4 operations. Lead operation: Salesloft Create a Bulk Job. Self-contained Naftiko capability
+    covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Bulk Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-bulk-jobs
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Bulk Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: bulk_jobs
+      path: /bulk_jobs
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Create a Bulk Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: get
+        method: GET
+        description: Salesloft List Bulk Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: state
+          in: query
+          type: string
+        - name: id
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+    - name: bulk_jobs-id
+      path: /bulk_jobs/{id}
+      operations:
+      - name: put
+        method: PUT
+        description: Salesloft Update a Bulk Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Bulk Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-bulk-jobs-rest
+    port: 8080
+    description: REST adapter for Salesloft — Bulk Jobs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/bulk-jobs
+      name: bulk-jobs
+      description: REST surface for bulk_jobs.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Create a Bulk Job
+        call: salesloft-bulk-jobs.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: get
+        description: Salesloft List Bulk Jobs
+        call: salesloft-bulk-jobs.get
+        with:
+          state: rest.state
+          id: rest.id
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bulk-jobs/{id}
+      name: bulk-jobs-id
+      description: REST surface for bulk_jobs-id.
+      operations:
+      - method: PUT
+        name: put
+        description: Salesloft Update a Bulk Job
+        call: salesloft-bulk-jobs.put
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Bulk Job
+        call: salesloft-bulk-jobs.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-bulk-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Bulk Jobs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-create-bulk-job
+      description: Salesloft Create a Bulk Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-bulk-jobs.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-list-bulk-jobs
+      description: Salesloft List Bulk Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-bulk-jobs.get
+      with:
+        state: tools.state
+        id: tools.id
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-update-bulk-job
+      description: Salesloft Update a Bulk Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: salesloft-bulk-jobs.put
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-bulk-job
+      description: Salesloft Fetch a Bulk Job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-bulk-jobs.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

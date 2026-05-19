@@ -1,0 +1,108 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Call Sentiments
+  description: 'Salesloft — Call Sentiments. 1 operations. Lead operation: Salesloft List Call Sentiments. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Call Sentiments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-call-sentiments
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Call Sentiments business capability. Self-contained, no shared references.
+    resources:
+    - name: call_sentiments
+      path: /call_sentiments
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Call Sentiments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-call-sentiments-rest
+    port: 8080
+    description: REST adapter for Salesloft — Call Sentiments. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/call-sentiments
+      name: call-sentiments
+      description: REST surface for call_sentiments.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Call Sentiments
+        call: salesloft-call-sentiments.get
+        with:
+          name: rest.name
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-call-sentiments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Call Sentiments. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: salesloft-list-call-sentiments
+      description: Salesloft List Call Sentiments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-call-sentiments.get
+      with:
+        name: tools.name
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,221 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Signal Registrations
+  description: 'Salesloft — Signal Registrations. 5 operations. Lead operation: Salesloft List  Signal Registrations. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Signal Registrations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-signal-registrations
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Signal Registrations business capability. Self-contained, no shared references.
+    resources:
+    - name: integrations-signals-registrations
+      path: /integrations/signals/registrations
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List  Signal Registrations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post
+        method: POST
+        description: Salesloft Create a Signal Registration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: integrations-signals-registrations-id
+      path: /integrations/signals/registrations/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Signal Registration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Salesloft Deletes a Signal Registrations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: put
+        method: PUT
+        description: Salesloft Update a Signal Registration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-signal-registrations-rest
+    port: 8080
+    description: REST adapter for Salesloft — Signal Registrations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/integrations/signals/registrations
+      name: integrations-signals-registrations
+      description: REST surface for integrations-signals-registrations.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List  Signal Registrations
+        call: salesloft-signal-registrations.get
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Salesloft Create a Signal Registration
+        call: salesloft-signal-registrations.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/integrations/signals/registrations/{id}
+      name: integrations-signals-registrations-id
+      description: REST surface for integrations-signals-registrations-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Signal Registration
+        call: salesloft-signal-registrations.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Salesloft Deletes a Signal Registrations
+        call: salesloft-signal-registrations.delete
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Salesloft Update a Signal Registration
+        call: salesloft-signal-registrations.put
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-signal-registrations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Signal Registrations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: salesloft-list-signal-registrations
+      description: Salesloft List  Signal Registrations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-signal-registrations.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-create-signal-registration
+      description: Salesloft Create a Signal Registration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-signal-registrations.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-signal-registration
+      description: Salesloft Fetch a Signal Registration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-signal-registrations.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-deletes-signal-registrations
+      description: Salesloft Deletes a Signal Registrations
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: salesloft-signal-registrations.delete
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-update-signal-registration
+      description: Salesloft Update a Signal Registration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: salesloft-signal-registrations.put
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

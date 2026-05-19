@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Profiles
+  description: 'Salesloft — Profiles. 1 operations. Lead operation: Salesloft Fetch Current User''s Profile. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-profiles
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Profiles business capability. Self-contained, no shared references.
+    resources:
+    - name: profiles
+      path: /profiles
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch Current User's Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-profiles-rest
+    port: 8080
+    description: REST adapter for Salesloft — Profiles. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/profiles
+      name: profiles
+      description: REST surface for profiles.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch Current User's Profile
+        call: salesloft-profiles.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Profiles. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-fetch-current-user-s-profile
+      description: Salesloft Fetch Current User's Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-profiles.get
+      outputParameters:
+      - type: object
+        mapping: $.

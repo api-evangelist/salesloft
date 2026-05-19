@@ -1,0 +1,113 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Crm Activity Fields
+  description: 'Salesloft — Crm Activity Fields. 1 operations. Lead operation: Salesloft List Crm Activity Fields. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Crm Activity Fields
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-crm-activity-fields
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Crm Activity Fields business capability. Self-contained, no shared references.
+    resources:
+    - name: crm_activity_fields
+      path: /crm_activity_fields
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Crm Activity Fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: source
+          in: query
+          type: string
+        - name: editable_source
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-crm-activity-fields-rest
+    port: 8080
+    description: REST adapter for Salesloft — Crm Activity Fields. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/crm-activity-fields
+      name: crm-activity-fields
+      description: REST surface for crm_activity_fields.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Crm Activity Fields
+        call: salesloft-crm-activity-fields.get
+        with:
+          source: rest.source
+          editable_source: rest.editable_source
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-crm-activity-fields-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Crm Activity Fields. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: salesloft-list-crm-activity-fields
+      description: Salesloft List Crm Activity Fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-crm-activity-fields.get
+      with:
+        source: tools.source
+        editable_source: tools.editable_source
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.

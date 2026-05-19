@@ -1,0 +1,264 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Person Stages
+  description: 'Salesloft — Person Stages. 5 operations. Lead operation: Salesloft List Person Stages. Self-contained Naftiko
+    capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Person Stages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-person-stages
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Person Stages business capability. Self-contained, no shared references.
+    resources:
+    - name: person_stages
+      path: /person_stages
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Person Stages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: active
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+      - name: post
+        method: POST
+        description: Salesloft Create a Person Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: person_stages-id
+      path: /person_stages/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Person Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: put
+        method: PUT
+        description: Salesloft Update a Person Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: delete
+        method: DELETE
+        description: Salesloft Delete a Person Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-person-stages-rest
+    port: 8080
+    description: REST adapter for Salesloft — Person Stages. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/person-stages
+      name: person-stages
+      description: REST surface for person_stages.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Person Stages
+        call: salesloft-person-stages.get
+        with:
+          ids: rest.ids
+          active: rest.active
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Salesloft Create a Person Stage
+        call: salesloft-person-stages.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/person-stages/{id}
+      name: person-stages-id
+      description: REST surface for person_stages-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Person Stage
+        call: salesloft-person-stages.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Salesloft Update a Person Stage
+        call: salesloft-person-stages.put
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Salesloft Delete a Person Stage
+        call: salesloft-person-stages.delete
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-person-stages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Person Stages. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-list-person-stages
+      description: Salesloft List Person Stages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-person-stages.get
+      with:
+        ids: tools.ids
+        active: tools.active
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-create-person-stage
+      description: Salesloft Create a Person Stage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-person-stages.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-person-stage
+      description: Salesloft Fetch a Person Stage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-person-stages.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-update-person-stage
+      description: Salesloft Update a Person Stage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: salesloft-person-stages.put
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-delete-person-stage
+      description: Salesloft Delete a Person Stage
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: salesloft-person-stages.delete
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

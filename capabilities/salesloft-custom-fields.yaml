@@ -1,0 +1,228 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Custom Fields
+  description: 'Salesloft — Custom Fields. 4 operations. Lead operation: Salesloft List Custom Fields. Self-contained Naftiko
+    capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Custom Fields
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-custom-fields
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Custom Fields business capability. Self-contained, no shared references.
+    resources:
+    - name: custom_fields
+      path: /custom_fields
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Custom Fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: field_type
+          in: query
+          type: string
+        - name: value_type
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+      - name: post
+        method: POST
+        description: Salesloft Create a Custom Field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: custom_fields-id
+      path: /custom_fields/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Custom Field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Salesloft Delete a Custom Field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-custom-fields-rest
+    port: 8080
+    description: REST adapter for Salesloft — Custom Fields. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/custom-fields
+      name: custom-fields
+      description: REST surface for custom_fields.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Custom Fields
+        call: salesloft-custom-fields.get
+        with:
+          ids: rest.ids
+          field_type: rest.field_type
+          value_type: rest.value_type
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Salesloft Create a Custom Field
+        call: salesloft-custom-fields.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-fields/{id}
+      name: custom-fields-id
+      description: REST surface for custom_fields-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Custom Field
+        call: salesloft-custom-fields.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Salesloft Delete a Custom Field
+        call: salesloft-custom-fields.delete
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-custom-fields-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Custom Fields. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-list-custom-fields
+      description: Salesloft List Custom Fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-custom-fields.get
+      with:
+        ids: tools.ids
+        field_type: tools.field_type
+        value_type: tools.value_type
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-create-custom-field
+      description: Salesloft Create a Custom Field
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-custom-fields.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-custom-field
+      description: Salesloft Fetch a Custom Field
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-custom-fields.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-delete-custom-field
+      description: Salesloft Delete a Custom Field
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: salesloft-custom-fields.delete
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

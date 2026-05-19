@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Cadence Imports
+  description: 'Salesloft — Cadence Imports. 1 operations. Lead operation: Salesloft Import Cadences From JSON. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Cadence Imports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-cadence-imports
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Cadence Imports business capability. Self-contained, no shared references.
+    resources:
+    - name: cadence_imports
+      path: /cadence_imports
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Import Cadences From JSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-cadence-imports-rest
+    port: 8080
+    description: REST adapter for Salesloft — Cadence Imports. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/cadence-imports
+      name: cadence-imports
+      description: REST surface for cadence_imports.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Import Cadences From JSON
+        call: salesloft-cadence-imports.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-cadence-imports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Cadence Imports. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: salesloft-import-cadences-json
+      description: Salesloft Import Cadences From JSON
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-cadence-imports.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

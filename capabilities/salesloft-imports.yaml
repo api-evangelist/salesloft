@@ -1,0 +1,299 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Imports
+  description: 'Salesloft — Imports. 5 operations. Lead operation: Salesloft List Imports. Self-contained Naftiko capability
+    covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Imports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-imports
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Imports business capability. Self-contained, no shared references.
+    resources:
+    - name: imports
+      path: /imports
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Imports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: user_ids
+          in: query
+          type: string
+        - name: import_type
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+        - name: created_at[gt]
+          in: query
+          type: string
+        - name: created_at[gte]
+          in: query
+          type: string
+        - name: created_at[lt]
+          in: query
+          type: string
+        - name: created_at[lte]
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+      - name: post
+        method: POST
+        description: Salesloft Create an Import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: imports-id
+      path: /imports/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch an Import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: put
+        method: PUT
+        description: Salesloft Update an Import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: delete
+        method: DELETE
+        description: Salesloft Delete an Import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: undo
+          in: query
+          type: string
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-imports-rest
+    port: 8080
+    description: REST adapter for Salesloft — Imports. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/imports
+      name: imports
+      description: REST surface for imports.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Imports
+        call: salesloft-imports.get
+        with:
+          ids: rest.ids
+          user_ids: rest.user_ids
+          import_type: rest.import_type
+          name: rest.name
+          created_at[gt]: rest.created_at[gt]
+          created_at[gte]: rest.created_at[gte]
+          created_at[lt]: rest.created_at[lt]
+          created_at[lte]: rest.created_at[lte]
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Salesloft Create an Import
+        call: salesloft-imports.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/imports/{id}
+      name: imports-id
+      description: REST surface for imports-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch an Import
+        call: salesloft-imports.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Salesloft Update an Import
+        call: salesloft-imports.put
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Salesloft Delete an Import
+        call: salesloft-imports.delete
+        with:
+          undo: rest.undo
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-imports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Imports. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-list-imports
+      description: Salesloft List Imports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-imports.get
+      with:
+        ids: tools.ids
+        user_ids: tools.user_ids
+        import_type: tools.import_type
+        name: tools.name
+        created_at[gt]: tools.created_at[gt]
+        created_at[gte]: tools.created_at[gte]
+        created_at[lt]: tools.created_at[lt]
+        created_at[lte]: tools.created_at[lte]
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-create-import
+      description: Salesloft Create an Import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-imports.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-import
+      description: Salesloft Fetch an Import
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-imports.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-update-import
+      description: Salesloft Update an Import
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: salesloft-imports.put
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-delete-import
+      description: Salesloft Delete an Import
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: salesloft-imports.delete
+      with:
+        undo: tools.undo
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

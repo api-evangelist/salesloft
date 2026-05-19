@@ -1,0 +1,174 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Account Stages
+  description: 'Salesloft — Account Stages. 2 operations. Lead operation: Salesloft List Account Stages. Self-contained Naftiko
+    capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Account Stages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-account-stages
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Account Stages business capability. Self-contained, no shared references.
+    resources:
+    - name: account_stages
+      path: /account_stages
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Account Stages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: updated_at[gt]
+          in: query
+          type: string
+        - name: updated_at[gte]
+          in: query
+          type: string
+        - name: updated_at[lt]
+          in: query
+          type: string
+        - name: updated_at[lte]
+          in: query
+          type: string
+        - name: active
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_driection
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+    - name: account_stages-id
+      path: /account_stages/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch an Account Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-account-stages-rest
+    port: 8080
+    description: REST adapter for Salesloft — Account Stages. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/account-stages
+      name: account-stages
+      description: REST surface for account_stages.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Account Stages
+        call: salesloft-account-stages.get
+        with:
+          ids: rest.ids
+          updated_at[gt]: rest.updated_at[gt]
+          updated_at[gte]: rest.updated_at[gte]
+          updated_at[lt]: rest.updated_at[lt]
+          updated_at[lte]: rest.updated_at[lte]
+          active: rest.active
+          sort_by: rest.sort_by
+          sort_driection: rest.sort_driection
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/account-stages/{id}
+      name: account-stages-id
+      description: REST surface for account_stages-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch an Account Stage
+        call: salesloft-account-stages.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-account-stages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Account Stages. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-list-account-stages
+      description: Salesloft List Account Stages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-account-stages.get
+      with:
+        ids: tools.ids
+        updated_at[gt]: tools.updated_at[gt]
+        updated_at[gte]: tools.updated_at[gte]
+        updated_at[lt]: tools.updated_at[lt]
+        updated_at[lte]: tools.updated_at[lte]
+        active: tools.active
+        sort_by: tools.sort_by
+        sort_driection: tools.sort_driection
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-account-stage
+      description: Salesloft Fetch an Account Stage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-account-stages.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

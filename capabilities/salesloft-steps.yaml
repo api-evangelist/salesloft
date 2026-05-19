@@ -1,0 +1,184 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Steps
+  description: 'Salesloft — Steps. 2 operations. Lead operation: Salesloft List Steps. Self-contained Naftiko capability covering
+    one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Steps
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-steps
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Steps business capability. Self-contained, no shared references.
+    resources:
+    - name: steps
+      path: /steps
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Steps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: cadence_id
+          in: query
+          type: string
+        - name: type
+          in: query
+          type: string
+        - name: has_due_actions
+          in: query
+          type: string
+        - name: updated_at[gt]
+          in: query
+          type: string
+        - name: updated_at[gte]
+          in: query
+          type: string
+        - name: updated_at[lt]
+          in: query
+          type: string
+        - name: updated_at[lte]
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+    - name: steps-id
+      path: /steps/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Step
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-steps-rest
+    port: 8080
+    description: REST adapter for Salesloft — Steps. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/steps
+      name: steps
+      description: REST surface for steps.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Steps
+        call: salesloft-steps.get
+        with:
+          ids: rest.ids
+          cadence_id: rest.cadence_id
+          type: rest.type
+          has_due_actions: rest.has_due_actions
+          updated_at[gt]: rest.updated_at[gt]
+          updated_at[gte]: rest.updated_at[gte]
+          updated_at[lt]: rest.updated_at[lt]
+          updated_at[lte]: rest.updated_at[lte]
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/steps/{id}
+      name: steps-id
+      description: REST surface for steps-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Step
+        call: salesloft-steps.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-steps-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Steps. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: salesloft-list-steps
+      description: Salesloft List Steps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-steps.get
+      with:
+        ids: tools.ids
+        cadence_id: tools.cadence_id
+        type: tools.type
+        has_due_actions: tools.has_due_actions
+        updated_at[gt]: tools.updated_at[gt]
+        updated_at[gte]: tools.updated_at[gte]
+        updated_at[lt]: tools.updated_at[lt]
+        updated_at[lte]: tools.updated_at[lte]
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-step
+      description: Salesloft Fetch a Step
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-steps.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

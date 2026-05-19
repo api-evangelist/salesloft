@@ -1,0 +1,214 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Call Data Records
+  description: 'Salesloft — Call Data Records. 2 operations. Lead operation: Salesloft List Call Data Records. Self-contained
+    Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Call Data Records
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-call-data-records
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Call Data Records business capability. Self-contained, no shared references.
+    resources:
+    - name: call_data_records
+      path: /call_data_records
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft List Call Data Records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: string
+        - name: has_call
+          in: query
+          type: string
+        - name: created_at
+          in: query
+          type: string
+        - name: updated_at
+          in: query
+          type: string
+        - name: user_guid
+          in: query
+          type: string
+        - name: person_id
+          in: query
+          type: string
+        - name: direction
+          in: query
+          type: string
+        - name: status
+          in: query
+          type: string
+        - name: sentiment
+          in: query
+          type: string
+        - name: disposition
+          in: query
+          type: string
+        - name: recordings_only
+          in: query
+          type: string
+        - name: group_id
+          in: query
+          type: string
+        - name: sort_by
+          in: query
+          type: string
+        - name: sort_direction
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: string
+        - name: include_paging_counts
+          in: query
+          type: string
+        - name: limit_paging_counts
+          in: query
+          type: string
+    - name: call_data_records-id
+      path: /call_data_records/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Salesloft Fetch a Call Data Record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: Authorization
+          in: header
+          type: string
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-call-data-records-rest
+    port: 8080
+    description: REST adapter for Salesloft — Call Data Records. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/call-data-records
+      name: call-data-records
+      description: REST surface for call_data_records.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft List Call Data Records
+        call: salesloft-call-data-records.get
+        with:
+          ids: rest.ids
+          has_call: rest.has_call
+          created_at: rest.created_at
+          updated_at: rest.updated_at
+          user_guid: rest.user_guid
+          person_id: rest.person_id
+          direction: rest.direction
+          status: rest.status
+          sentiment: rest.sentiment
+          disposition: rest.disposition
+          recordings_only: rest.recordings_only
+          group_id: rest.group_id
+          sort_by: rest.sort_by
+          sort_direction: rest.sort_direction
+          per_page: rest.per_page
+          page: rest.page
+          include_paging_counts: rest.include_paging_counts
+          limit_paging_counts: rest.limit_paging_counts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/call-data-records/{id}
+      name: call-data-records-id
+      description: REST surface for call_data_records-id.
+      operations:
+      - method: GET
+        name: get
+        description: Salesloft Fetch a Call Data Record
+        call: salesloft-call-data-records.get
+        with:
+          Accept: rest.Accept
+          Authorization: rest.Authorization
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-call-data-records-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Call Data Records. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: salesloft-list-call-data-records
+      description: Salesloft List Call Data Records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-call-data-records.get
+      with:
+        ids: tools.ids
+        has_call: tools.has_call
+        created_at: tools.created_at
+        updated_at: tools.updated_at
+        user_guid: tools.user_guid
+        person_id: tools.person_id
+        direction: tools.direction
+        status: tools.status
+        sentiment: tools.sentiment
+        disposition: tools.disposition
+        recordings_only: tools.recordings_only
+        group_id: tools.group_id
+        sort_by: tools.sort_by
+        sort_direction: tools.sort_direction
+        per_page: tools.per_page
+        page: tools.page
+        include_paging_counts: tools.include_paging_counts
+        limit_paging_counts: tools.limit_paging_counts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: salesloft-fetch-call-data-record
+      description: Salesloft Fetch a Call Data Record
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: salesloft-call-data-records.get
+      with:
+        Accept: tools.Accept
+        Authorization: tools.Authorization
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

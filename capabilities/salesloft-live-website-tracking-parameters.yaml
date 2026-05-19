@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesloft — Live Website Tracking Parameters
+  description: 'Salesloft — Live Website Tracking Parameters. 1 operations. Lead operation: Salesloft Create an Live Website
+    Tracking Parameter. Self-contained Naftiko capability covering one Salesloft business surface.'
+  tags:
+  - Salesloft
+  - Live Website Tracking Parameters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESLOFT_API_KEY: SALESLOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: salesloft-live-website-tracking-parameters
+    baseUri: http://{{salesloft_api_base_url}}
+    description: Salesloft — Live Website Tracking Parameters business capability. Self-contained, no shared references.
+    resources:
+    - name: live_website_tracking_parameters
+      path: /live_website_tracking_parameters
+      operations:
+      - name: post
+        method: POST
+        description: Salesloft Create an Live Website Tracking Parameter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SALESLOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: salesloft-live-website-tracking-parameters-rest
+    port: 8080
+    description: REST adapter for Salesloft — Live Website Tracking Parameters. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/live-website-tracking-parameters
+      name: live-website-tracking-parameters
+      description: REST surface for live_website_tracking_parameters.
+      operations:
+      - method: POST
+        name: post
+        description: Salesloft Create an Live Website Tracking Parameter
+        call: salesloft-live-website-tracking-parameters.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: salesloft-live-website-tracking-parameters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesloft — Live Website Tracking Parameters. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: salesloft-create-live-website-tracking
+      description: Salesloft Create an Live Website Tracking Parameter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: salesloft-live-website-tracking-parameters.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
