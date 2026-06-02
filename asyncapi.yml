@@ -1,0 +1,811 @@
+asyncapi: '2.6.0'
+info:
+  title: Salesloft Webhooks
+  version: '1.0.0'
+  description: >-
+    AsyncAPI 2.6 description of Salesloft's webhook (push notification) surface.
+    Salesloft delivers event-specific notifications by HTTP POST to a
+    customer-configured URL endpoint when an authorized subscription matches a
+    documented event type. Each delivery carries an `x-salesloft-event` header
+    naming the event type and an `x-salesloft-signature` header containing the
+    HMAC-SHA1 hex digest of the response body computed using the subscription's
+    callback token as the key. Subscriptions are managed through the Salesloft
+    REST API `/v2/webhook_subscriptions` resource. Event coverage in this
+    document is taken verbatim from the published Salesloft webhook event
+    types reference and spans accounts, cadences, cadence memberships, calls,
+    call data records, conversations, emails, meetings, notes, people, steps,
+    tasks, users, successes, and bulk jobs.
+  contact:
+    name: Salesloft Developer Documentation
+    url: https://developers.salesloft.com/docs/platform/webhooks/
+  license:
+    name: Proprietary - Salesloft
+    url: https://salesloft.com/legal/
+  x-source-references:
+    - https://developers.salesloft.com/docs/platform/webhooks/
+    - https://developers.salesloft.com/docs/platform/webhooks/event-types/
+    - https://developers.salesloft.com/docs/platform/webhooks/delivery-headers/
+    - https://developers.salesloft.com/docs/api/webhook-subscriptions/
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{endpointUrl}'
+    protocol: https
+    description: >-
+      Customer-hosted HTTPS endpoint registered through the Salesloft Webhook
+      Subscriptions API. Salesloft POSTs event payloads to this URL with the
+      `x-salesloft-event` and `x-salesloft-signature` headers.
+    variables:
+      endpointUrl:
+        description: Fully qualified HTTPS URL of the subscriber endpoint.
+        default: https://example.com/salesloft/webhooks
+
+channels:
+
+  # ----------------------------------------------------------------------
+  # Account events
+  # ----------------------------------------------------------------------
+  account_created:
+    description: A new Account record was created in Salesloft.
+    subscribe:
+      operationId: onAccountCreated
+      summary: account_created event.
+      message:
+        $ref: '#/components/messages/AccountCreated'
+
+  account_updated:
+    description: An existing Account record was updated.
+    subscribe:
+      operationId: onAccountUpdated
+      summary: account_updated event.
+      message:
+        $ref: '#/components/messages/AccountUpdated'
+
+  account_deleted:
+    description: An Account record was deleted.
+    subscribe:
+      operationId: onAccountDeleted
+      summary: account_deleted event.
+      message:
+        $ref: '#/components/messages/AccountDeleted'
+
+  # ----------------------------------------------------------------------
+  # Cadence events
+  # ----------------------------------------------------------------------
+  cadence_created:
+    description: A new Cadence was created.
+    subscribe:
+      operationId: onCadenceCreated
+      summary: cadence_created event.
+      message:
+        $ref: '#/components/messages/CadenceCreated'
+
+  cadence_updated:
+    description: An existing Cadence was updated.
+    subscribe:
+      operationId: onCadenceUpdated
+      summary: cadence_updated event.
+      message:
+        $ref: '#/components/messages/CadenceUpdated'
+
+  cadence_deleted:
+    description: A Cadence was deleted.
+    subscribe:
+      operationId: onCadenceDeleted
+      summary: cadence_deleted event.
+      message:
+        $ref: '#/components/messages/CadenceDeleted'
+
+  # ----------------------------------------------------------------------
+  # Cadence Membership events
+  # ----------------------------------------------------------------------
+  cadence_membership_created:
+    description: A Person was added to a Cadence (Cadence Membership created).
+    subscribe:
+      operationId: onCadenceMembershipCreated
+      summary: cadence_membership_created event.
+      message:
+        $ref: '#/components/messages/CadenceMembershipCreated'
+
+  cadence_membership_updated:
+    description: A Cadence Membership was updated (state change, advance, etc.).
+    subscribe:
+      operationId: onCadenceMembershipUpdated
+      summary: cadence_membership_updated event.
+      message:
+        $ref: '#/components/messages/CadenceMembershipUpdated'
+
+  # ----------------------------------------------------------------------
+  # Call events
+  # ----------------------------------------------------------------------
+  call_created:
+    description: A Call activity record was created.
+    subscribe:
+      operationId: onCallCreated
+      summary: call_created event.
+      message:
+        $ref: '#/components/messages/CallCreated'
+
+  call_updated:
+    description: A Call activity record was updated.
+    subscribe:
+      operationId: onCallUpdated
+      summary: call_updated event.
+      message:
+        $ref: '#/components/messages/CallUpdated'
+
+  # ----------------------------------------------------------------------
+  # Call Data Record events
+  # ----------------------------------------------------------------------
+  call_data_record_created:
+    description: A Call Data Record (CDR) was created.
+    subscribe:
+      operationId: onCallDataRecordCreated
+      summary: call_data_record_created event.
+      message:
+        $ref: '#/components/messages/CallDataRecordCreated'
+
+  call_data_record_updated:
+    description: A Call Data Record (CDR) was updated.
+    subscribe:
+      operationId: onCallDataRecordUpdated
+      summary: call_data_record_updated event.
+      message:
+        $ref: '#/components/messages/CallDataRecordUpdated'
+
+  # ----------------------------------------------------------------------
+  # Conversation events
+  # ----------------------------------------------------------------------
+  conversation_created:
+    description: A Conversation (Salesloft Conversations / recorded meeting) was created.
+    subscribe:
+      operationId: onConversationCreated
+      summary: conversation_created event.
+      message:
+        $ref: '#/components/messages/ConversationCreated'
+
+  conversation_recording_created:
+    description: A recording was attached to a Conversation.
+    subscribe:
+      operationId: onConversationRecordingCreated
+      summary: conversation_recording_created event.
+      message:
+        $ref: '#/components/messages/ConversationRecordingCreated'
+
+  conversation_transcript_created:
+    description: A transcript was generated for a Conversation.
+    subscribe:
+      operationId: onConversationTranscriptCreated
+      summary: conversation_transcript_created event.
+      message:
+        $ref: '#/components/messages/ConversationTranscriptCreated'
+
+  # ----------------------------------------------------------------------
+  # Email events
+  # ----------------------------------------------------------------------
+  email_updated:
+    description: An Email record state was updated (sent, delivered, bounced, etc.).
+    subscribe:
+      operationId: onEmailUpdated
+      summary: email_updated event.
+      message:
+        $ref: '#/components/messages/EmailUpdated'
+
+  email_with_body_and_subject_updated:
+    description: An Email record state was updated; payload includes body and subject.
+    subscribe:
+      operationId: onEmailWithBodyAndSubjectUpdated
+      summary: email_with_body_and_subject_updated event.
+      message:
+        $ref: '#/components/messages/EmailWithBodyAndSubjectUpdated'
+
+  link_swap:
+    description: A link contained in a Salesloft email was swapped (tracked link substitution).
+    subscribe:
+      operationId: onLinkSwap
+      summary: link_swap event.
+      message:
+        $ref: '#/components/messages/LinkSwap'
+
+  # ----------------------------------------------------------------------
+  # Meeting events
+  # ----------------------------------------------------------------------
+  meeting_booked:
+    description: A Meeting was booked.
+    subscribe:
+      operationId: onMeetingBooked
+      summary: meeting_booked event.
+      message:
+        $ref: '#/components/messages/MeetingBooked'
+
+  meeting_updated:
+    description: A Meeting record was updated.
+    subscribe:
+      operationId: onMeetingUpdated
+      summary: meeting_updated event.
+      message:
+        $ref: '#/components/messages/MeetingUpdated'
+
+  # ----------------------------------------------------------------------
+  # Note events
+  # ----------------------------------------------------------------------
+  note_created:
+    description: A Note was created.
+    subscribe:
+      operationId: onNoteCreated
+      summary: note_created event.
+      message:
+        $ref: '#/components/messages/NoteCreated'
+
+  note_updated:
+    description: A Note was updated.
+    subscribe:
+      operationId: onNoteUpdated
+      summary: note_updated event.
+      message:
+        $ref: '#/components/messages/NoteUpdated'
+
+  note_deleted:
+    description: A Note was deleted.
+    subscribe:
+      operationId: onNoteDeleted
+      summary: note_deleted event.
+      message:
+        $ref: '#/components/messages/NoteDeleted'
+
+  # ----------------------------------------------------------------------
+  # Person events
+  # ----------------------------------------------------------------------
+  person_created:
+    description: A Person record was created.
+    subscribe:
+      operationId: onPersonCreated
+      summary: person_created event.
+      message:
+        $ref: '#/components/messages/PersonCreated'
+
+  person_updated:
+    description: A Person record was updated.
+    subscribe:
+      operationId: onPersonUpdated
+      summary: person_updated event.
+      message:
+        $ref: '#/components/messages/PersonUpdated'
+
+  person_deleted:
+    description: A Person record was deleted.
+    subscribe:
+      operationId: onPersonDeleted
+      summary: person_deleted event.
+      message:
+        $ref: '#/components/messages/PersonDeleted'
+
+  # ----------------------------------------------------------------------
+  # Step events
+  # ----------------------------------------------------------------------
+  step_created:
+    description: A Cadence Step was created.
+    subscribe:
+      operationId: onStepCreated
+      summary: step_created event.
+      message:
+        $ref: '#/components/messages/StepCreated'
+
+  step_updated:
+    description: A Cadence Step was updated.
+    subscribe:
+      operationId: onStepUpdated
+      summary: step_updated event.
+      message:
+        $ref: '#/components/messages/StepUpdated'
+
+  step_deleted:
+    description: A Cadence Step was deleted.
+    subscribe:
+      operationId: onStepDeleted
+      summary: step_deleted event.
+      message:
+        $ref: '#/components/messages/StepDeleted'
+
+  # ----------------------------------------------------------------------
+  # Task events
+  # ----------------------------------------------------------------------
+  task_created:
+    description: A Task was created.
+    subscribe:
+      operationId: onTaskCreated
+      summary: task_created event.
+      message:
+        $ref: '#/components/messages/TaskCreated'
+
+  task_updated:
+    description: A Task was updated.
+    subscribe:
+      operationId: onTaskUpdated
+      summary: task_updated event.
+      message:
+        $ref: '#/components/messages/TaskUpdated'
+
+  task_completed:
+    description: A Task was completed.
+    subscribe:
+      operationId: onTaskCompleted
+      summary: task_completed event.
+      message:
+        $ref: '#/components/messages/TaskCompleted'
+
+  task_deleted:
+    description: A Task was deleted.
+    subscribe:
+      operationId: onTaskDeleted
+      summary: task_deleted event.
+      message:
+        $ref: '#/components/messages/TaskDeleted'
+
+  # ----------------------------------------------------------------------
+  # User events
+  # ----------------------------------------------------------------------
+  user_created:
+    description: A Salesloft User was created.
+    subscribe:
+      operationId: onUserCreated
+      summary: user_created event.
+      message:
+        $ref: '#/components/messages/UserCreated'
+
+  user_updated:
+    description: A Salesloft User was updated.
+    subscribe:
+      operationId: onUserUpdated
+      summary: user_updated event.
+      message:
+        $ref: '#/components/messages/UserUpdated'
+
+  # ----------------------------------------------------------------------
+  # Success events
+  # ----------------------------------------------------------------------
+  success_created:
+    description: A Success (closed-won / outcome) record was created.
+    subscribe:
+      operationId: onSuccessCreated
+      summary: success_created event.
+      message:
+        $ref: '#/components/messages/SuccessCreated'
+
+  # ----------------------------------------------------------------------
+  # Bulk Job events
+  # ----------------------------------------------------------------------
+  bulk_job_completed:
+    description: A Bulk Job has completed processing.
+    subscribe:
+      operationId: onBulkJobCompleted
+      summary: bulk_job_completed event.
+      message:
+        $ref: '#/components/messages/BulkJobCompleted'
+
+components:
+
+  messageTraits:
+    SalesloftWebhookHeaders:
+      headers:
+        type: object
+        required:
+          - x-salesloft-event
+          - x-salesloft-signature
+        properties:
+          x-salesloft-event:
+            type: string
+            description: Name of the event type that triggered the delivery.
+          x-salesloft-signature:
+            type: string
+            description: >-
+              HMAC hex digest of the response body computed with SHA1, using
+              the subscription's callback token as the HMAC key.
+
+  messages:
+
+    AccountCreated:
+      name: account_created
+      title: Account Created
+      summary: Sent when a new Account record is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    AccountUpdated:
+      name: account_updated
+      title: Account Updated
+      summary: Sent when an Account record is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    AccountDeleted:
+      name: account_deleted
+      title: Account Deleted
+      summary: Sent when an Account record is deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CadenceCreated:
+      name: cadence_created
+      title: Cadence Created
+      summary: Sent when a Cadence is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CadenceUpdated:
+      name: cadence_updated
+      title: Cadence Updated
+      summary: Sent when a Cadence is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CadenceDeleted:
+      name: cadence_deleted
+      title: Cadence Deleted
+      summary: Sent when a Cadence is deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CadenceMembershipCreated:
+      name: cadence_membership_created
+      title: Cadence Membership Created
+      summary: Sent when a Person is added to a Cadence.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CadenceMembershipUpdated:
+      name: cadence_membership_updated
+      title: Cadence Membership Updated
+      summary: Sent when a Cadence Membership is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CallCreated:
+      name: call_created
+      title: Call Created
+      summary: Sent when a Call activity is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CallUpdated:
+      name: call_updated
+      title: Call Updated
+      summary: Sent when a Call activity is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CallDataRecordCreated:
+      name: call_data_record_created
+      title: Call Data Record Created
+      summary: Sent when a Call Data Record is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    CallDataRecordUpdated:
+      name: call_data_record_updated
+      title: Call Data Record Updated
+      summary: Sent when a Call Data Record is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    ConversationCreated:
+      name: conversation_created
+      title: Conversation Created
+      summary: Sent when a Conversation is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    ConversationRecordingCreated:
+      name: conversation_recording_created
+      title: Conversation Recording Created
+      summary: Sent when a Conversation recording is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    ConversationTranscriptCreated:
+      name: conversation_transcript_created
+      title: Conversation Transcript Created
+      summary: Sent when a Conversation transcript is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    EmailUpdated:
+      name: email_updated
+      title: Email Updated
+      summary: Sent when an Email record state changes.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    EmailWithBodyAndSubjectUpdated:
+      name: email_with_body_and_subject_updated
+      title: Email With Body and Subject Updated
+      summary: Sent when an Email record state changes; includes body and subject.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    LinkSwap:
+      name: link_swap
+      title: Link Swap
+      summary: Sent when Salesloft swaps a tracked link in an outbound email.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    MeetingBooked:
+      name: meeting_booked
+      title: Meeting Booked
+      summary: Sent when a Meeting is booked.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    MeetingUpdated:
+      name: meeting_updated
+      title: Meeting Updated
+      summary: Sent when a Meeting record is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    NoteCreated:
+      name: note_created
+      title: Note Created
+      summary: Sent when a Note is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    NoteUpdated:
+      name: note_updated
+      title: Note Updated
+      summary: Sent when a Note is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    NoteDeleted:
+      name: note_deleted
+      title: Note Deleted
+      summary: Sent when a Note is deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    PersonCreated:
+      name: person_created
+      title: Person Created
+      summary: Sent when a Person record is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    PersonUpdated:
+      name: person_updated
+      title: Person Updated
+      summary: Sent when a Person record is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    PersonDeleted:
+      name: person_deleted
+      title: Person Deleted
+      summary: Sent when a Person record is deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    StepCreated:
+      name: step_created
+      title: Step Created
+      summary: Sent when a Cadence Step is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    StepUpdated:
+      name: step_updated
+      title: Step Updated
+      summary: Sent when a Cadence Step is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    StepDeleted:
+      name: step_deleted
+      title: Step Deleted
+      summary: Sent when a Cadence Step is deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    TaskCreated:
+      name: task_created
+      title: Task Created
+      summary: Sent when a Task is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    TaskUpdated:
+      name: task_updated
+      title: Task Updated
+      summary: Sent when a Task is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    TaskCompleted:
+      name: task_completed
+      title: Task Completed
+      summary: Sent when a Task is completed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    TaskDeleted:
+      name: task_deleted
+      title: Task Deleted
+      summary: Sent when a Task is deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    UserCreated:
+      name: user_created
+      title: User Created
+      summary: Sent when a Salesloft User is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    UserUpdated:
+      name: user_updated
+      title: User Updated
+      summary: Sent when a Salesloft User is updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    SuccessCreated:
+      name: success_created
+      title: Success Created
+      summary: Sent when a Success record is created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+    BulkJobCompleted:
+      name: bulk_job_completed
+      title: Bulk Job Completed
+      summary: Sent when a Bulk Job completes processing.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SalesloftWebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+
+  schemas:
+
+    EventEnvelope:
+      type: object
+      description: >-
+        Generic Salesloft webhook event envelope. The Salesloft documentation
+        confirms the event-name and HMAC signature delivery headers but does
+        not publish a single fixed payload schema; the body is JSON whose
+        shape mirrors the affected resource on the Salesloft REST API. The
+        `event_type` field below matches the `x-salesloft-event` header value.
+      additionalProperties: true
+      properties:
+        event_type:
+          type: string
+          description: Event type name (matches the `x-salesloft-event` header).
+        data:
+          description: Resource payload for the affected entity.
+          oneOf:
+            - type: object
+              additionalProperties: true
+            - type: array
+              items:
+                type: object
+                additionalProperties: true
+
+  securitySchemes:
+    salesloftSignature:
+      type: symmetricEncryption
+      description: >-
+        Each delivery is signed with an `x-salesloft-signature` header whose
+        value is the HMAC-SHA1 hex digest of the response body, keyed with the
+        subscription's callback token. Subscribers should recompute the digest
+        and reject deliveries whose signature does not match.

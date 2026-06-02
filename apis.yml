@@ -12,7 +12,7 @@ tags:
   - CRM
   - Email
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - name: Salesloft Platform API
@@ -34,7 +34,11 @@ apis:
     - Events
     properties:
     - type: Documentation
-      url: https://developers.salesloft.com/docs/platform
+      url: https://developers.salesloft.com/docs/platform/webhooks/
+    - type: Documentation
+      url: https://developers.salesloft.com/docs/api/webhook-subscriptions/
+    - type: AsyncAPI
+      url: asyncapi.yml
 common:
   - type: GitHubOrganization
     url: https://github.com/SalesLoft
