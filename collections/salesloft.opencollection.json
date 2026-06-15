@@ -1,0 +1,6756 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Me",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Get Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/me"
+          },
+          "docs": "Salesloft Get Current User"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Get Current Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/team"
+          },
+          "docs": "Salesloft Get Current Team"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Redaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Execute an Account Redaction Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/data_control/account_redaction",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Execute an Account Redaction Workflow"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Stages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Account Stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/account_stages",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_driection",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Account Stages"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Account Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/account_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Account Stage"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Team Member Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List CRM Account Team Member Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/account_team_member_roles",
+            "params": [
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List CRM Account Team Member Roles"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Tiers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Account Tiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/account_tiers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Account Tiers"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Account Tier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/account_tiers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Account Tier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Upserts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Upsert an Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/account_upserts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Upsert an Account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account and People Redaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Submit an Account and People Redaction Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/data_control/account_and_people_redaction",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Submit an Account and People Redaction Request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/accounts",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "website",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_stage_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_tier_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_is_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_contacted[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_contacted[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_contacted[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_contacted[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "custom_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "industry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locales",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_relationships",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Accounts"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create an Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create an Account"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Account"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete an Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete an Account"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update an Existing Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/accounts/53457352",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update an Existing Account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/actions",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "due_on[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "due_on[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "due_on[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "due_on[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "multitouch_group_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Actions"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/actions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Action"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create an Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities"
+          },
+          "docs": "Salesloft Create an Activity"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Activity Histories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Past Activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activity_histories",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pinned",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Past Activities"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch a Bulk Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Bulk Job"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Bulk Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Bulk Job"
+        },
+        {
+          "info": {
+            "name": "Salesloft List Bulk Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Bulk Jobs"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Bulk Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Bulk Job"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Jobs - Job Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Job Data for a Bulk Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs/:bulk_jobs_id/job_data/:bulk_jobs_id",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bulk_jobs_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft List Job Data for a Bulk Job"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create Job Data for a Bulk Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs/:bulk_jobs_id/job_data/:bulk_jobs_id",
+            "params": [
+              {
+                "name": "bulk_jobs_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create Job Data for a Bulk Job"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Jobs - Results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Job Data for a Completed Bulk Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/bulk_jobs/:bulk_jobs_id/results",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bulk_jobs_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft List Job Data for a Completed Bulk Job"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Reschedule Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Reschedule Many Tasks at Once",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/bulk_reschedule_tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Reschedule Many Tasks at Once"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cadence Exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Export a Cadence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/cadence_exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Export a Cadence"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cadence Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Import Cadences From JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/cadence_imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Import Cadences From JSON"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cadence Memberships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Cadence Memberships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/cadence_memberships",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "currently_on_cadence",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Cadence Memberships"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Cadence Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/cadence_memberships",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft Create a Cadence Membership"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Cadence Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/cadence_memberships/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Cadence Membership"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Cadence Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/cadence_memberships/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Cadence Membership"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cadence Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch Stats for a Cadence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/cadence_stats/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch Stats for a Cadence"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cadences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Cadences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/cadences",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "team_cadence",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "shared",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owned_by_guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "people_addable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "override_contact_restrictions",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_actions_assigned_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Cadences"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Cadence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/cadences/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Cadence"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Calendar Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Upsert a Calendar Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/calendar/events/upsert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Upsert a Calendar Event"
+        },
+        {
+          "info": {
+            "name": "Salesloft List Calendar Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/calendar/events",
+            "params": [
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Calendar Events"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Call Data Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Call Data Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/call_data_records",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_call",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sentiment",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "disposition",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "recordings_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Call Data Records"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Call Data Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/call_data_records/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <TOKEN>"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Call Data Record"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Call Dispositions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Call Dispositions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/call_dispositions",
+            "params": [
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Call Dispositions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Call Instructions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Call Instructions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/action_details/call_instructions",
+            "params": [
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Call Instructions"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Call Instructions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/action_details/call_instructions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Call Instructions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Call Sentiments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Call Sentiments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/call_sentiments",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Call Sentiments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Caller Ids",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Caller Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/phone_numbers/caller_ids",
+            "params": [
+              {
+                "name": "phone_number",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Caller Ids"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities/calls",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sentiment",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "disposition",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Calls"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/activities/calls",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Call"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities/calls/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Call"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Credentials Access Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Retrieve Client Credentials Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/oauth/token",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "{{client_id}}",
+                "type": "query"
+              },
+              {
+                "name": "client_secret",
+                "value": "{{client_secret}}",
+                "type": "query"
+              },
+              {
+                "name": "grant_type",
+                "value": "client_credentials",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "public:all",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft Retrieve Client Credentials Access Token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch Conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/conversations",
+            "params": [
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "title[_starts_with]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "platform",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_api",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "media_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Salesloft Fetch Conversations"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/conversations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Conversation"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Extensive Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/conversations/71d91aec-80bc-463b-b072-475aea744805/extensive",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Salesloft Fetch an Extensive Conversation"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch Conversation Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/conversations/:id/recording",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch Conversation Media"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Conversations Calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create a New Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/conversations/calls",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a New Call"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Counts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch Task Counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/tasks/counts",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "current_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "time_interval_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_time_interval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "idempotency_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch Task Counts"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crm Account Team Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List CRM Account Team Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/crm_account_team_members"
+          },
+          "docs": "Salesloft List CRM Account Team Members"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crm Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Crm Activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/crm_activities",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Crm Activities"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Crm Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/crm_activities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Crm Activity"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crm Activity Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Crm Activity Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/crm_activity_fields",
+            "params": [
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "editable_source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Crm Activity Fields"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crm Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Crm Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/crm_users",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid;",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Crm Users"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch a Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/custom_fields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Custom Field"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/custom_fields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Custom Field"
+        },
+        {
+          "info": {
+            "name": "Salesloft List Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/custom_fields",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "value_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Custom Fields"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/custom_fields",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Custom Field"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Custom Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/custom_roles",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Custom Roles"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Custom Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/custom_roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Custom Role"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Email Missing Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Requests a Check of the Template for Missed Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/email_missing_tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Requests a Check of the Template for Missed Tags"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Email Template Attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Email Template Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/email_template_attachments",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Email Template Attachments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Email Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Email Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/email_templates",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "linked_to_team_template",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter_by_owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_cadence_templates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_archived_templates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Email Templates"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create Personal Email Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/email_templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create Personal Email Template"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Email Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/email_templates/:id",
+            "params": [
+              {
+                "name": "include_signature",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Email Template"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update Personal Email Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/email_templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update Personal Email Template"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities/emails",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bounced",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crm_activity_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "action_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": " ",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "one_off",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scoped_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email_addresses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "personalization",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email_template_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_replies",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_clicks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_views",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Emails"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities/emails/:id",
+            "params": [
+              {
+                "name": "scoped_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Email"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "External Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create an External Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/external_emails",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create an External Email"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "External Id Mapping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Team Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/external/configurations",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "object_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "object_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Team Mappings"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/external/mappings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Mapping"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/mappings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Mapping"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "External Id Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Delete a Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/external/configurations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Configuration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/configurations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Configuration"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/groups",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Groups"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Group"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Group"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Group"
+        },
+        {
+          "info": {
+            "name": "Salesloft Deletes a Group by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Deletes a Group by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Imports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/imports",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "import_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Imports"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create an Import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create an Import"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Import",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Import"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update an Import",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/imports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update an Import"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete an Import",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/imports/:id",
+            "params": [
+              {
+                "name": "undo",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete an Import"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Live Feed Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create a Live Feed Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/third_party_live_feed_items",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Live Feed Item"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Live Website Tracking Parameters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create an Live Website Tracking Parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/live_website_tracking_parameters",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create an Live Website Tracking Parameter"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Meetings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Meetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/meetings",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "event_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "i_cal_uids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_meetings_settings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "show_deleted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booked_by_user_uuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "no_show",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "meeting_type_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Meetings"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Meeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/meetings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Meeting"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Mime Email Payloads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch the MIME Content for Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/mime_email_payloads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch the MIME Content for Email"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/notes",
+            "params": [
+              {
+                "name": "associated_with_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "associated_with_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Notes"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/notes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Note"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Note"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Note"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Note"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ongoing Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create an Ongoing Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/ongoing_actions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create an Ongoing Action"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Opportunities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunities",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "associated_account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "opportunity_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stage_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_closed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_won",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "most_recent_cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scoped_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Opportunities"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Opportunity"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Opportunity People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Opportunity/person Associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_people"
+          },
+          "docs": "Salesloft List Opportunity/person Associations"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Sales Opportunity Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_people",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "opportunity_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "person_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Salesloft Create a Sales Opportunity Person"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Opportunity Association",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Opportunity Association"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Opportunity Stages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Opportunity Stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_stages"
+          },
+          "docs": "Salesloft List Opportunity Stages"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create an Opportunity Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_stages",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "order",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Salesloft Create an Opportunity Stage"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Opportunity Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Opportunity Stage"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update an Opportunity Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "order",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Salesloft Update an Opportunity Stage"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete an Opportunity Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete an Opportunity Stage"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pending Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Pending Emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/pending_emails",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Pending Emails"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Pending Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/pending_emails/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Update a Pending Email"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/people"
+          },
+          "docs": "Salesloft List People"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/people",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Person"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Person"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Person"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/people/199954973"
+          },
+          "docs": "Salesloft Delete a Person"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "People Soft Deletion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Submit a People Soft Deletion Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/data_control/people_soft_deletion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Submit a People Soft Deletion Request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Person Stages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Person Stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/person_stages",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Person Stages"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Person Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/person_stages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Person Stage"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Person Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/person_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Person Stage"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Person Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/person_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Person Stage"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Person Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/person_stages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Person Stage"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Person Upserts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Person Upsert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/person_upserts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Person Upsert"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Phone Number Assignments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Phone Number Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/phone_number_assignments",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Phone Number Assignments"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Phone Number Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/phone_number_assignments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Phone Number Assignments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Play Registrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Play Registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays"
+          },
+          "docs": "Salesloft List Play Registrations"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Play Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Play Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Play Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Play Registration"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch Current User's Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/profiles"
+          },
+          "docs": "Salesloft Fetch Current User's Profile"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Recording Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch Recording Setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/phone_numbers/recording_settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch Recording Setting"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch a Request Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/data_control/requests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Request Record"
+        },
+        {
+          "info": {
+            "name": "Salesloft Retrieve a List of Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/data_control/requests",
+            "params": [
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dry_run",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft Retrieve a List of Requests"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reschedule Links",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch a Reschedule Meeting Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/meetings/reschedule_links/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Reschedule Meeting Link"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Right to Be Forgotten",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Submit a Right to Be Forgotten Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/data_control/right_to_be_forgotten",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Submit a Right to Be Forgotten Request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Saved List Views",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Saved List Views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/saved_list_views",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "shared",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_shared",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Saved List Views"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Saved List View",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/saved_list_views",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Saved List View"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Saved List View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/saved_list_views/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Saved List View"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Saved List View",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/saved_list_views/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Saved List View"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Saved List View",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/saved_list_views/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Saved List View"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Searches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Meeting Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/meetings/settings/searches",
+            "params": [
+              {
+                "name": "user_guids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "calendar_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Meeting Settings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Update a Meeting Setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/meetings/settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Meeting Setting"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Signal Registrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Fetch a Signal Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Signal Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Signal Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Signal Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Deletes a Signal Registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Deletes a Signal Registrations"
+        },
+        {
+          "info": {
+            "name": "Salesloft List  Signal Registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations"
+          },
+          "docs": "Salesloft List  Signal Registrations"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Signal Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Signal Registration"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Signals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Create a Signal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/signals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Signal"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Steps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Steps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/steps",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_due_actions",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Steps"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Step",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/steps/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Step"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Successes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Successes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/successes",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Successes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Default",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Team Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/tags",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Team Tags"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/tasks",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "current_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "time_interval_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_time_interval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "idempotency_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Tasks"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Task"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/tasks/265615502",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Task"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Task"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team Template Attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Team Template Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/team_template_attachments",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "team_template_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Team Template Attachments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Team Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/team_templates",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_archived_templates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Team Templates"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create Team Email Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/team_templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create Team Email Template"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Team Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/team_templates/:id",
+            "params": [
+              {
+                "name": "include_signature",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Team Template"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update Team Email Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/team_templates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update Team Email Template"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transcriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Transcriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/transcriptions",
+            "params": [
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Salesloft List Transcriptions"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Transcription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/transcriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Salesloft Fetch a Transcription"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Transcription Artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/transcriptions/:id/artifact",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Salesloft Fetch a Transcription Artifact"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Transcription's Sentences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/transcriptions/:id/sentences",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Salesloft Fetch a Transcription's Sentences"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/users",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "visible_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_crm_user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "work_country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "seat_package",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "managed_ar",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manager_user_guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Users"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a User"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a User"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhook Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Webhook Subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/webhook_subscriptions",
+            "params": [
+              {
+                "name": "enabled",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Webhook Subscriptions"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/webhook_subscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/webhook_subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/webhook_subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/webhook_subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Webhook Subscription"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
