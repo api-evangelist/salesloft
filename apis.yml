@@ -40,6 +40,12 @@ apis:
     - type: AsyncAPI
       url: asyncapi.yml
 common:
+  - type: TrustCenter
+    url: security/salesloft-trust-center.yml
+  - type: DomainSecurity
+    url: security/salesloft-domain-security.yml
+  - type: Authentication
+    url: authentication/salesloft-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/SalesLoft
   - type: LinkedIn

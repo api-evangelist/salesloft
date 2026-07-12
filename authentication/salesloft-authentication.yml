@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/salesloft-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: noauthAuth
+  type: http
+  scheme: noauth
+  sources:
+  - openapi/salesloft-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/salesloft-openapi.yml
+- name: oauth2Auth
+  type: http
+  scheme: oauth2
+  sources:
+  - openapi/salesloft-openapi.yml
