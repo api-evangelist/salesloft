@@ -40,6 +40,8 @@ apis:
     - type: AsyncAPI
       url: asyncapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/salesloft-agentic-access.yml
   - type: TrustCenter
     url: security/salesloft-trust-center.yml
   - type: DomainSecurity
