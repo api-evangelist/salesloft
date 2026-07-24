@@ -1,0 +1,308 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Accounts API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Accounts
+  description: '[https://developer.salesloft.com/docs/api/accounts/](https://developer.salesloft.com/docs/api/accounts/)'
+paths:
+  /accounts:
+    get:
+      tags:
+      - Accounts
+      summary: Salesloft List Accounts
+      parameters:
+      - name: ids
+        in: query
+        schema:
+          type: string
+      - name: crm_id
+        in: query
+        schema:
+          type: string
+      - name: tag
+        in: query
+        schema:
+          type: string
+      - name: tag_id
+        in: query
+        schema:
+          type: string
+      - name: created_at[gt]
+        in: query
+        schema:
+          type: string
+      - name: created_at[gte]
+        in: query
+        schema:
+          type: string
+      - name: created_at[lt]
+        in: query
+        schema:
+          type: string
+      - name: created_at[lte]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[gt]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[gte]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[lt]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[lte]
+        in: query
+        schema:
+          type: string
+      - name: domain
+        in: query
+        schema:
+          type: string
+      - name: website
+        in: query
+        schema:
+          type: string
+      - name: archived
+        in: query
+        schema:
+          type: string
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: account_stage_id
+        in: query
+        schema:
+          type: string
+      - name: account_tier_id
+        in: query
+        schema:
+          type: string
+      - name: owner_id
+        in: query
+        schema:
+          type: string
+      - name: owner_is_active
+        in: query
+        schema:
+          type: string
+      - name: last_contacted[gt]
+        in: query
+        schema:
+          type: string
+      - name: last_contacted[gte]
+        in: query
+        schema:
+          type: string
+      - name: last_contacted[lt]
+        in: query
+        schema:
+          type: string
+      - name: last_contacted[lte]
+        in: query
+        schema:
+          type: string
+      - name: custom_fields
+        in: query
+        schema:
+          type: string
+      - name: industry
+        in: query
+        schema:
+          type: string
+      - name: country
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: city
+        in: query
+        schema:
+          type: string
+      - name: owner_crm_id
+        in: query
+        schema:
+          type: string
+      - name: locales
+        in: query
+        schema:
+          type: string
+      - name: user_relationships
+        in: query
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: limit_paging_counts
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+      - Accounts
+      summary: Salesloft Create an Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: string
+                domain: string
+                conversational_name: string
+                description: string
+                phone: string
+                website: string
+                linkedin_url: string
+                twitter_handle: string
+                street: string
+                city: string
+                state: string
+                postal_code: string
+                country: string
+                locale: string
+                industry: string
+                company_type: string
+                founded: string
+                revenue_range: string
+                size: string
+                do_not_contact: true
+                custom_fields: {}
+                tags:
+                - string
+                owner_id: string
+                company_stage_id: string
+                account_tier_id: string
+                crm_id_type: string
+                crm_id: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /accounts/{id}:
+    get:
+      tags:
+      - Accounts
+      summary: Salesloft Fetch an Account
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Accounts
+      summary: Salesloft Delete an Account
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /accounts/53457352:
+    put:
+      tags:
+      - Accounts
+      summary: Salesloft Update an Existing Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: string
+                domain: string
+                conversational_name: string
+                description: string
+                phone: string
+                website: string
+                linkedin_url: string
+                twitter_handle: string
+                street: string
+                city: string
+                state: string
+                postal_code: string
+                country: string
+                locale: string
+                industry: string
+                company_type: string
+                founded: string
+                revenue_range: string
+                size: string
+                do_not_contact: true
+                custom_fields: {}
+                tags:
+                - string
+                owner_id: string
+                company_stage_id: string
+                account_tier_id: string
+                crm_id_tyep: string
+                crm_id: string
+                archived: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

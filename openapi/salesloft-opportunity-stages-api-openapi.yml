@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Opportunity Stages API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Opportunity Stages
+  description: '[https://developers.salesloft.com/docs/api/opportunity-stages/](https://developers.salesloft.com/docs/api/opportunity-stages/)'
+paths:
+  /opportunity_stages:
+    get:
+      tags:
+      - Opportunity Stages
+      summary: Salesloft List Opportunity Stages
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+      - Opportunity Stages
+      summary: Salesloft Create an Opportunity Stage
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the Opportunity Stage
+                order:
+                  type: string
+                  description: The order of the Opportunity Stage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /opportunity_stages/{id}:
+    get:
+      tags:
+      - Opportunity Stages
+      summary: Salesloft Fetch an Opportunity Stage
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+      - Opportunity Stages
+      summary: Salesloft Update an Opportunity Stage
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the Opportunity Stage
+                order:
+                  type: string
+                  description: The order of the Opportunity Stage
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Opportunity Stages
+      summary: Salesloft Delete an Opportunity Stage
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Groups API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Groups
+  description: '[https://developer.salesloft.com/docs/api/groups/](https://developer.salesloft.com/docs/api/groups/)'
+paths:
+  /groups:
+    post:
+      tags:
+      - Groups
+      summary: Salesloft Create a Group
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: string
+                parent_id: 0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+      - Groups
+      summary: Salesloft List Groups
+      parameters:
+      - name: ids
+        in: query
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /groups/{id}:
+    get:
+      tags:
+      - Groups
+      summary: Salesloft Fetch a Group
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+      - Groups
+      summary: Salesloft Update a Group
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: string
+                parent_id: 0
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Groups
+      summary: Salesloft Deletes a Group by ID
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

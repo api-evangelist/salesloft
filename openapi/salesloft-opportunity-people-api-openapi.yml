@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Opportunity People API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Opportunity People
+  description: '[https://developers.salesloft.com/docs/api/opportunity-people/](https://developers.salesloft.com/docs/api/opportunity-people/)'
+paths:
+  /opportunity_people:
+    get:
+      tags:
+      - Opportunity People
+      summary: Salesloft List Opportunity/person Associations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+      - Opportunity People
+      summary: Salesloft Create a Sales Opportunity Person
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                opportunity_id:
+                  type: string
+                  description: The name of the Opportunity Stage
+                person_id:
+                  type: string
+                  description: The order of the Opportunity Stage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /opportunity_people/{id}:
+    delete:
+      tags:
+      - Opportunity People
+      summary: Salesloft Delete a Opportunity Association
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

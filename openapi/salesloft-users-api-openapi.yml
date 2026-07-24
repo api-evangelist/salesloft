@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Users API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Users
+  description: '[https://developer.salesloft.com/docs/api/users/](https://developer.salesloft.com/docs/api/users/)'
+paths:
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Salesloft List Users
+      parameters:
+      - name: ids
+        in: query
+        schema:
+          type: string
+      - name: guid
+        in: query
+        schema:
+          type: string
+      - name: group_id
+        in: query
+        schema:
+          type: string
+      - name: role_id
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: active
+        in: query
+        schema:
+          type: string
+      - name: visible_only
+        in: query
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: has_crm_user
+        in: query
+        schema:
+          type: string
+      - name: work_country
+        in: query
+        schema:
+          type: string
+      - name: seat_package
+        in: query
+        schema:
+          type: string
+      - name: managed_ar
+        in: query
+        schema:
+          type: string
+      - name: manager_user_guid
+        in: query
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/{id}:
+    get:
+      tags:
+      - Users
+      summary: Salesloft Fetch a User
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+      - Users
+      summary: Salesloft Update a User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                active: true
+                work_country: string
+                role_id: string
+                group_id: 0
+                seat_package: string
+                manager_user_guid: string
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

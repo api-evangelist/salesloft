@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Calendar Events API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Calendar Events
+  description: '[https://developer.salesloft.com/docs/api/calendar-events/](https://developer.salesloft.com/docs/api/calendar-events/)'
+paths:
+  /calendar/events/upsert:
+    post:
+      tags:
+      - Calendar Events
+      summary: Salesloft Upsert a Calendar Event
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                upsert_key:
+                - null
+                updated_at: string
+                title: string
+                status: string
+                start_time: '2024-06-20'
+                recurring: true
+                recurrence:
+                - null
+                organizer: string
+                location: string
+                id: string
+                i_cal_uid: string
+                end_time: '2024-06-20'
+                description: string
+                canceled_at: string
+                calendar_id: string
+                attendees: {}
+                all_day: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /calendar/events:
+    get:
+      tags:
+      - Calendar Events
+      summary: Salesloft List Calendar Events
+      parameters:
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: start_time
+        in: query
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        schema:
+          type: string
+      - name: user_guid
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

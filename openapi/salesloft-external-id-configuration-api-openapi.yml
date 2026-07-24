@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction External Id Configuration API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: External Id Configuration
+  description: '[https://developer.salesloft.com/docs/api/external-id-configuration/](https://developer.salesloft.com/docs/api/external-id-configuration/)'
+paths:
+  /external/configurations/{id}:
+    delete:
+      tags:
+      - External Id Configuration
+      summary: Salesloft Delete a Configuration
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /configurations:
+    post:
+      tags:
+      - External Id Configuration
+      summary: Salesloft Create a Configuration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                object_type: string
+                external_type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

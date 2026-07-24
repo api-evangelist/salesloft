@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Call Data Records API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Call Data Records
+  description: '[https://developer.salesloft.com/docs/api/call-data-records/](https://developer.salesloft.com/docs/api/call-data-records/)'
+paths:
+  /call_data_records:
+    get:
+      tags:
+      - Call Data Records
+      summary: Salesloft List Call Data Records
+      parameters:
+      - name: ids
+        in: query
+        schema:
+          type: string
+      - name: has_call
+        in: query
+        schema:
+          type: string
+      - name: created_at
+        in: query
+        schema:
+          type: string
+      - name: updated_at
+        in: query
+        schema:
+          type: string
+      - name: user_guid
+        in: query
+        schema:
+          type: string
+      - name: person_id
+        in: query
+        schema:
+          type: string
+      - name: direction
+        in: query
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+      - name: sentiment
+        in: query
+        schema:
+          type: string
+      - name: disposition
+        in: query
+        schema:
+          type: string
+      - name: recordings_only
+        in: query
+        schema:
+          type: string
+      - name: group_id
+        in: query
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: limit_paging_counts
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /call_data_records/{id}:
+    get:
+      tags:
+      - Call Data Records
+      summary: Salesloft Fetch a Call Data Record
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <TOKEN>
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

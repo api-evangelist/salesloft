@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Activities API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Activities
+  description: '[https://developer.salesloft.com/docs/api/activities/](https://developer.salesloft.com/docs/api/activities/)'
+paths:
+  /activities:
+    get:
+      tags:
+      - Activities
+      summary: Salesloft Create an Activity
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Live Website Tracking Parameters API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Live Website Tracking Parameters
+  description: '[https://developer.salesloft.com/docs/api/live-website-tracking-parameters/](https://developer.salesloft.com/docs/api/live-website-tracking-parameters/)'
+paths:
+  /live_website_tracking_parameters:
+    post:
+      tags:
+      - Live Website Tracking Parameters
+      summary: Salesloft Create an Live Website Tracking Parameter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                person_id: 0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

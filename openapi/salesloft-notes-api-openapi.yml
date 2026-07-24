@@ -1,0 +1,165 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Notes API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Notes
+  description: '[https://developer.salesloft.com/docs/api/notes/](https://developer.salesloft.com/docs/api/notes/)'
+paths:
+  /notes:
+    post:
+      tags:
+      - Notes
+      summary: Salesloft Create a Note
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: string
+                associated_with_type: string
+                associated_with_id: string
+                skip_crm_sync: false
+                call_id: 0
+                subject: string
+                user_guid: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+      - Notes
+      summary: Salesloft List Notes
+      parameters:
+      - name: associated_with_type
+        in: query
+        schema:
+          type: string
+      - name: associated_with_id
+        in: query
+        schema:
+          type: string
+      - name: ids
+        in: query
+        schema:
+          type: string
+      - name: updated_at[gt]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[gte]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[lt]
+        in: query
+        schema:
+          type: string
+      - name: updated_at[lte]
+        in: query
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: limit_paging_counts
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /notes/{id}:
+    get:
+      tags:
+      - Notes
+      summary: Salesloft Fetch a Note
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+      - Notes
+      summary: Salesloft Update a Note
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: string
+                call_id: 0
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Notes
+      summary: Salesloft Delete a Note
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

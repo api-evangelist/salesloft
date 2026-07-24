@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Play Registrations API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Play Registrations
+  description: '[https://developer.salesloft.com/docs/api/play-registrations/](https://developer.salesloft.com/docs/api/play-registrations/)'
+paths:
+  /integrations/signals/registrations/plays:
+    post:
+      tags:
+      - Play Registrations
+      summary: Salesloft Create a Play Registration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                signal_registration_id: 0
+                name: {}
+                label: {}
+                indicators:
+                - string
+                description: {}
+                attributes: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+      - Play Registrations
+      summary: Salesloft List Play Registrations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /integrations/signals/registrations/plays/{id}:
+    delete:
+      tags:
+      - Play Registrations
+      summary: Salesloft Delete a Play Registration
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+      - Play Registrations
+      summary: Salesloft Fetch a Play Registration
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+      - Play Registrations
+      summary: Salesloft Update a Play Registration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: {}
+                label: {}
+                indicators:
+                - string
+                description: {}
+                attributes: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

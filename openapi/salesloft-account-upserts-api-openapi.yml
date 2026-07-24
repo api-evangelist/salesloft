@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Account Upserts API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Account Upserts
+  description: '[https://developer.salesloft.com/docs/api/account-upserts/](https://developer.salesloft.com/docs/api/account-upserts/)'
+paths:
+  /account_upserts:
+    post:
+      tags:
+      - Account Upserts
+      summary: Salesloft Upsert an Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: string
+                name: string
+                domain: string
+                conversational_name: string
+                description: string
+                phone: string
+                website: string
+                linkedin_url: string
+                twitter_handle: string
+                street: string
+                city: string
+                state: string
+                postal_code: string
+                country: string
+                locale: string
+                industry: string
+                company_type: string
+                founded: string
+                revenue_range: string
+                size: string
+                do_not_contact: string
+                custom_fields: {}
+                tags: string
+                owner_id: string
+                company_stage_id: string
+                account_tier_id: string
+                crm_id_type: string
+                crm_id: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

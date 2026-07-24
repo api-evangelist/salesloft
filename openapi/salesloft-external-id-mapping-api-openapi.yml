@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction External Id Mapping API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: External Id Mapping
+  description: '[https://developer.salesloft.com/docs/api/external-id-mapping/](https://developer.salesloft.com/docs/api/external-id-mapping/)'
+paths:
+  /external/configurations:
+    get:
+      tags:
+      - External Id Mapping
+      summary: Salesloft List Team Mappings
+      parameters:
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          type: string
+      - name: external_type
+        in: query
+        schema:
+          type: string
+      - name: deleted
+        in: query
+        schema:
+          type: string
+      - name: external_id
+        in: query
+        schema:
+          type: string
+      - name: object_type
+        in: query
+        schema:
+          type: string
+      - name: object_id
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /external/mappings/{id}:
+    delete:
+      tags:
+      - External Id Mapping
+      summary: Salesloft Delete a Mapping
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /mappings:
+    post:
+      tags:
+      - External Id Mapping
+      summary: Salesloft Create a Mapping
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                object_type: string
+                object_id: 0
+                external_type: string
+                external_id: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

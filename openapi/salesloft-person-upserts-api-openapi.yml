@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Person Upserts API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Person Upserts
+  description: '[https://developer.salesloft.com/docs/api/person-upserts/](https://developer.salesloft.com/docs/api/person-upserts/)'
+paths:
+  /person_upserts:
+    post:
+      tags:
+      - Person Upserts
+      summary: Salesloft Person Upsert
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                upsert_key: string
+                id: 0
+                email_address: string
+                secondary_email_adress: string
+                personal_email_address: string
+                first_name: string
+                last_name: string
+                phone: string
+                phone_extension: string
+                mobile_phone: string
+                home_phone: string
+                linkedin_url: string
+                title: string
+                city: string
+                state: string
+                country: string
+                work_city: string
+                work_state: string
+                work_country: string
+                person-company_name: string
+                person_company_website: string
+                person_company_industry: string
+                job_seniority: string
+                do_not_contact: false
+                eu_resident: false
+                locale: string
+                personal_website: string
+                twitter_handle: string
+                tags:
+                - string
+                contact_restrictions:
+                - string
+                custom_fields: {}
+                account_id: 0
+                owner_id: 0
+                import_id: 0
+                person_stage_id: 0
+                crm_id_type: string
+                crm_d: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

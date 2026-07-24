@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Pending Emails API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Pending Emails
+  description: '[https://developer.salesloft.com/docs/api/pending-emails/](https://developer.salesloft.com/docs/api/pending-emails/)'
+paths:
+  /pending_emails:
+    get:
+      tags:
+      - Pending Emails
+      summary: Salesloft List Pending Emails
+      parameters:
+      - name: per_page
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: string
+      - name: include_paging_counts
+        in: query
+        schema:
+          type: string
+      - name: limit_paging_counts
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /pending_emails/{id}:
+    get:
+      tags:
+      - Pending Emails
+      summary: Salesloft Update a Pending Email
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2

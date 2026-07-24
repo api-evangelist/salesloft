@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Salesloft Account and People Redaction Settings API
+  description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
+  version: 1.0.0
+servers:
+- url: http://{{salesloft_api_base_url}}
+- url: https://accounts.salesloft.com
+- url: http://{{salesloft_api_base_url}}external
+security:
+- oauth2Auth: []
+tags:
+- name: Settings
+  description: '[https://developer.salesloft.com/docs/api/settings/](https://developer.salesloft.com/docs/api/settings/)'
+paths:
+  /meetings/settings/{id}:
+    put:
+      tags:
+      - Settings
+      summary: Salesloft Update a Meeting Setting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                primary_calendar_id: string
+                primary_calendar_name: string
+                calendar_type: string
+                title: string
+                description: string
+                location: string
+                default_meeting_length: 0
+                buffer_time_duration: 0
+                times_available: {}
+                schedule_buffer_enabled: true
+                availability_limit_enabled: true
+                availability_limit: 0
+                schedule_delay: 0
+                allow_booking_on_behalf: true
+                allow_booking_overtime: false
+                allow_event_overlap: false
+                share_event_detail: true
+                enable_dynamic_location: true
+                enable_calendar_sync: true
+                time_zone: string
+                primary_calendar_connection_failed: false
+                reschedule_meetings_enabled: true
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    bearerAuth:
+      type: http
+      scheme: bearer
+    oauth2Auth:
+      type: http
+      scheme: oauth2
