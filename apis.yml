@@ -2,8 +2,13 @@ aid: salesloft
 url: https://raw.githubusercontent.com/api-evangelist/salesloft/refs/heads/main/apis.yml
 name: Salesloft
 kind: company
-description: Salesloft is a sales engagement and revenue orchestration platform. APIs cover cadences, people, accounts, calls,
-  emails, meetings, and webhooks.
+description: Salesloft is a sales engagement and revenue orchestration platform, now combined with Clari, Drift and Groove,
+  used by more than 4,000 sales teams to run cadences, dial and email prospects, capture and analyse conversations, and forecast
+  pipeline. The Salesloft Platform API v2 at https://api.salesloft.com/v2 covers accounts, people, cadences, steps and actions,
+  tasks, calls, emails, meetings, notes, opportunities, conversation intelligence, bulk jobs, imports, CRM mirroring, data-redaction
+  governance and Rhythm signals, authenticated with OAuth 2.0 (authorization code and client credentials) or scoped API keys
+  and priced against a 600-cost-per-minute per-team budget. Salesloft also publishes a documented webhook surface with HMAC-signed
+  deliveries and a first-party remote MCP server at https://mcp.salesloft.com/mcp exposing fifteen read-only tools to AI agents.
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -19,18 +24,26 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/salesloft.png
 tags:
-  - Sales
-  - Sales Engagement
-  - Cadences
-  - CRM
-  - Email
+- Sales
+- Sales Engagement
+- Cadences
+- CRM
+- Email
+- Revenue Intelligence
+- Conversation Intelligence
+- Sales Automation
+- Webhooks
+- MCP
+- Agents
+- Dialer
+- Pipeline
+- Forecasting
 created: '2026-05-08'
-modified: '2026-05-30'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 apis:
 - name: Salesloft Platform API
-  description: >-
-    REST API for cadences, people, accounts, emails, calls, tasks, opportunities and analytics.
+  description: REST API for cadences, people, accounts, emails, calls, tasks, opportunities and analytics.
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -39,6 +52,22 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.salesloft.com/docs/platform
+- name: Salesloft MCP Server
+  description: First-party remote Model Context Protocol server exposing fifteen read-only tools over Salesloft accounts,
+    people, users, opportunities, conversations and team data. OAuth 2.1 protected resource with dynamic client registration;
+    the full tool manifest with input and output schemas is published anonymously at the server root.
+  humanURL: https://www.salesloft.com/company/newsroom/salesloft-mcp-server-revenue-data-ai-ecosystem
+  baseURL: https://mcp.salesloft.com/mcp
+  tags:
+  - MCP
+  - Agents
+  - Revenue Intelligence
+  - Conversation Intelligence
+  properties:
+  - type: MCPServer
+    url: mcp/salesloft-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/salesloft-tool-crosswalk.yml
 - name: Salesloft Webhooks API
   description: Subscribe to platform events for real-time updates.
   humanURL: https://developers.salesloft.com/docs/platform
@@ -53,10 +82,11 @@ apis:
     url: https://developers.salesloft.com/docs/api/webhook-subscriptions/
   - type: AsyncAPI
     url: asyncapi.yml
+  - type: Webhooks
+    url: https://developers.salesloft.com/docs/platform/webhooks/
 - aid: salesloft:salesloft-account-and-people-redaction-api
   name: Salesloft Account and People Redaction API
-  description: >-
-    [https://developer.salesloft.com/docs/api/account-and-people-redaction/](https://developer.salesloft.com/docs/api/account-and-people-redaction/)
+  description: '[https://developer.salesloft.com/docs/api/account-and-people-redaction/](https://developer.salesloft.com/docs/api/account-and-people-redaction/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -64,10 +94,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-account-and-people-redaction-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-account-and-people-redaction-api-overlay.yaml
 - aid: salesloft:salesloft-account-redaction-api
   name: Salesloft Account Redaction API
-  description: >-
-    [https://developer.salesloft.com/docs/api/account-redaction/](https://developer.salesloft.com/docs/api/account-redaction/)
+  description: '[https://developer.salesloft.com/docs/api/account-redaction/](https://developer.salesloft.com/docs/api/account-redaction/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -75,10 +106,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-account-redaction-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-account-redaction-api-overlay.yaml
 - aid: salesloft:salesloft-account-stages-api
   name: Salesloft Account Stages API
-  description: >-
-    [https://developer.salesloft.com/docs/api/account-stages/](https://developer.salesloft.com/docs/api/account-stages/)
+  description: '[https://developer.salesloft.com/docs/api/account-stages/](https://developer.salesloft.com/docs/api/account-stages/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -86,10 +118,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-account-stages-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-account-stages-api-overlay.yaml
 - aid: salesloft:salesloft-account-team-member-roles-api
   name: Salesloft Account Team Member Roles API
-  description: >-
-    [https://developer.salesloft.com/docs/api/account-team-member-roles-index/](https://developer.salesloft.com/docs/api/account-team-member-roles-index/)
+  description: '[https://developer.salesloft.com/docs/api/account-team-member-roles-index/](https://developer.salesloft.com/docs/api/account-team-member-roles-index/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -97,10 +130,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-account-team-member-roles-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-account-team-member-roles-api-overlay.yaml
 - aid: salesloft:salesloft-account-tiers-api
   name: Salesloft Account Tiers API
-  description: >-
-    [https://developer.salesloft.com/docs/api/account-tiers/](https://developer.salesloft.com/docs/api/account-tiers/)
+  description: '[https://developer.salesloft.com/docs/api/account-tiers/](https://developer.salesloft.com/docs/api/account-tiers/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -108,10 +142,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-account-tiers-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-account-tiers-api-overlay.yaml
 - aid: salesloft:salesloft-account-upserts-api
   name: Salesloft Account Upserts API
-  description: >-
-    [https://developer.salesloft.com/docs/api/account-upserts/](https://developer.salesloft.com/docs/api/account-upserts/)
+  description: '[https://developer.salesloft.com/docs/api/account-upserts/](https://developer.salesloft.com/docs/api/account-upserts/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -119,10 +154,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-account-upserts-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-account-upserts-api-overlay.yaml
 - aid: salesloft:salesloft-accounts-api
   name: Salesloft Accounts API
-  description: >-
-    [https://developer.salesloft.com/docs/api/accounts/](https://developer.salesloft.com/docs/api/accounts/)
+  description: '[https://developer.salesloft.com/docs/api/accounts/](https://developer.salesloft.com/docs/api/accounts/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -130,10 +166,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-accounts-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-accounts-api-overlay.yaml
 - aid: salesloft:salesloft-actions-api
   name: Salesloft Actions API
-  description: >-
-    [https://developer.salesloft.com/docs/api/actions/](https://developer.salesloft.com/docs/api/actions/)
+  description: '[https://developer.salesloft.com/docs/api/actions/](https://developer.salesloft.com/docs/api/actions/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -141,10 +178,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-actions-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-actions-api-overlay.yaml
 - aid: salesloft:salesloft-activities-api
   name: Salesloft Activities API
-  description: >-
-    [https://developer.salesloft.com/docs/api/activities/](https://developer.salesloft.com/docs/api/activities/)
+  description: '[https://developer.salesloft.com/docs/api/activities/](https://developer.salesloft.com/docs/api/activities/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -152,10 +190,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-activities-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-activities-api-overlay.yaml
 - aid: salesloft:salesloft-activity-histories-api
   name: Salesloft Activity Histories API
-  description: >-
-    [https://developer.salesloft.com/docs/api/activity-histories/](https://developer.salesloft.com/docs/api/activity-histories/)
+  description: '[https://developer.salesloft.com/docs/api/activity-histories/](https://developer.salesloft.com/docs/api/activity-histories/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -163,10 +202,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-activity-histories-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-activity-histories-api-overlay.yaml
 - aid: salesloft:salesloft-bulk-jobs-api
   name: Salesloft Bulk Jobs API
-  description: >-
-    [https://developer.salesloft.com/docs/api/bulk-jobs/](https://developer.salesloft.com/docs/api/bulk-jobs/)
+  description: '[https://developer.salesloft.com/docs/api/bulk-jobs/](https://developer.salesloft.com/docs/api/bulk-jobs/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -174,10 +214,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-bulk-jobs-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-bulk-jobs-api-overlay.yaml
 - aid: salesloft:salesloft-bulk-jobs-job-data-api
   name: Salesloft Bulk Jobs - Job Data API
-  description: >-
-    [https://developer.salesloft.com/docs/api/bulk-jobs-job-data/](https://developer.salesloft.com/docs/api/bulk-jobs-job-data/)
+  description: '[https://developer.salesloft.com/docs/api/bulk-jobs-job-data/](https://developer.salesloft.com/docs/api/bulk-jobs-job-data/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -185,10 +226,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-bulk-jobs-job-data-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-bulk-jobs-job-data-api-overlay.yaml
 - aid: salesloft:salesloft-bulk-jobs-results-api
   name: Salesloft Bulk Jobs - Results API
-  description: >-
-    [https://developer.salesloft.com/docs/api/bulk-jobs-results/](https://developer.salesloft.com/docs/api/bulk-jobs-results/)
+  description: '[https://developer.salesloft.com/docs/api/bulk-jobs-results/](https://developer.salesloft.com/docs/api/bulk-jobs-results/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -196,10 +238,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-bulk-jobs-results-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-bulk-jobs-results-api-overlay.yaml
 - aid: salesloft:salesloft-bulk-reschedule-tasks-api
   name: Salesloft Bulk Reschedule Tasks API
-  description: >-
-    [https://developer.salesloft.com/docs/api/bulk-reschedule-tasks/](https://developer.salesloft.com/docs/api/bulk-reschedule-tasks/)
+  description: '[https://developer.salesloft.com/docs/api/bulk-reschedule-tasks/](https://developer.salesloft.com/docs/api/bulk-reschedule-tasks/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -207,10 +250,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-bulk-reschedule-tasks-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-bulk-reschedule-tasks-api-overlay.yaml
 - aid: salesloft:salesloft-cadence-exports-api
   name: Salesloft Cadence Exports API
-  description: >-
-    [https://developer.salesloft.com/docs/api/cadence-exports/](https://developer.salesloft.com/docs/api/cadence-exports/)
+  description: '[https://developer.salesloft.com/docs/api/cadence-exports/](https://developer.salesloft.com/docs/api/cadence-exports/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -218,10 +262,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-cadence-exports-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-cadence-exports-api-overlay.yaml
 - aid: salesloft:salesloft-cadence-imports-api
   name: Salesloft Cadence Imports API
-  description: >-
-    [https://developer.salesloft.com/docs/api/cadence-imports/](https://developer.salesloft.com/docs/api/cadence-imports/)
+  description: '[https://developer.salesloft.com/docs/api/cadence-imports/](https://developer.salesloft.com/docs/api/cadence-imports/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -229,10 +274,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-cadence-imports-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-cadence-imports-api-overlay.yaml
 - aid: salesloft:salesloft-cadence-memberships-api
   name: Salesloft Cadence Memberships API
-  description: >-
-    [https://developer.salesloft.com/docs/api/cadence-memberships/](https://developer.salesloft.com/docs/api/cadence-memberships/)
+  description: '[https://developer.salesloft.com/docs/api/cadence-memberships/](https://developer.salesloft.com/docs/api/cadence-memberships/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -240,10 +286,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-cadence-memberships-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-cadence-memberships-api-overlay.yaml
 - aid: salesloft:salesloft-cadence-stats-api
   name: Salesloft Cadence Stats API
-  description: >-
-    [https://developer.salesloft.com/docs/api/cadence-stats/](https://developer.salesloft.com/docs/api/cadence-stats/)
+  description: '[https://developer.salesloft.com/docs/api/cadence-stats/](https://developer.salesloft.com/docs/api/cadence-stats/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -251,10 +298,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-cadence-stats-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-cadence-stats-api-overlay.yaml
 - aid: salesloft:salesloft-cadences-api
   name: Salesloft Cadences API
-  description: >-
-    [https://developer.salesloft.com/docs/api/cadences/](https://developer.salesloft.com/docs/api/cadences/)
+  description: '[https://developer.salesloft.com/docs/api/cadences/](https://developer.salesloft.com/docs/api/cadences/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -262,10 +310,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-cadences-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-cadences-api-overlay.yaml
 - aid: salesloft:salesloft-calendar-events-api
   name: Salesloft Calendar Events API
-  description: >-
-    [https://developer.salesloft.com/docs/api/calendar-events/](https://developer.salesloft.com/docs/api/calendar-events/)
+  description: '[https://developer.salesloft.com/docs/api/calendar-events/](https://developer.salesloft.com/docs/api/calendar-events/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -273,10 +322,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-calendar-events-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-calendar-events-api-overlay.yaml
 - aid: salesloft:salesloft-call-data-records-api
   name: Salesloft Call Data Records API
-  description: >-
-    [https://developer.salesloft.com/docs/api/call-data-records/](https://developer.salesloft.com/docs/api/call-data-records/)
+  description: '[https://developer.salesloft.com/docs/api/call-data-records/](https://developer.salesloft.com/docs/api/call-data-records/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -284,10 +334,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-call-data-records-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-call-data-records-api-overlay.yaml
 - aid: salesloft:salesloft-call-dispositions-api
   name: Salesloft Call Dispositions API
-  description: >-
-    [https://developer.salesloft.com/docs/api/call-dispositions/](https://developer.salesloft.com/docs/api/call-dispositions/)
+  description: '[https://developer.salesloft.com/docs/api/call-dispositions/](https://developer.salesloft.com/docs/api/call-dispositions/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -295,10 +346,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-call-dispositions-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-call-dispositions-api-overlay.yaml
 - aid: salesloft:salesloft-call-instructions-api
   name: Salesloft Call Instructions API
-  description: >-
-    [https://developer.salesloft.com/docs/api/call-instructions/](https://developer.salesloft.com/docs/api/call-instructions/)
+  description: '[https://developer.salesloft.com/docs/api/call-instructions/](https://developer.salesloft.com/docs/api/call-instructions/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -306,10 +358,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-call-instructions-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-call-instructions-api-overlay.yaml
 - aid: salesloft:salesloft-call-sentiments-api
   name: Salesloft Call Sentiments API
-  description: >-
-    [https://developer.salesloft.com/docs/api/call-sentiments/](https://developer.salesloft.com/docs/api/call-sentiments/)
+  description: '[https://developer.salesloft.com/docs/api/call-sentiments/](https://developer.salesloft.com/docs/api/call-sentiments/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -317,10 +370,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-call-sentiments-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-call-sentiments-api-overlay.yaml
 - aid: salesloft:salesloft-caller-ids-api
   name: Salesloft Caller Ids API
-  description: >-
-    [https://developer.salesloft.com/docs/api/caller-ids/](https://developer.salesloft.com/docs/api/caller-ids/)
+  description: '[https://developer.salesloft.com/docs/api/caller-ids/](https://developer.salesloft.com/docs/api/caller-ids/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -328,10 +382,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-caller-ids-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-caller-ids-api-overlay.yaml
 - aid: salesloft:salesloft-calls-api
   name: Salesloft Calls API
-  description: >-
-    [https://developer.salesloft.com/docs/api/calls/](https://developer.salesloft.com/docs/api/calls/)
+  description: '[https://developer.salesloft.com/docs/api/calls/](https://developer.salesloft.com/docs/api/calls/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -339,25 +394,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-calls-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-calls-api-overlay.yaml
 - aid: salesloft:salesloft-client-credentials-access-token-api
   name: Salesloft Client Credentials Access Token API
-  description: >-
-    If you are building a private OAuth app, it's likely easier to use Client Credentials rather than
-    OAuth2.0 refresh tokens. Use the request in this folder to retreive an access_token for your private
-    OAuth app using client credentials. The request includes a Postman script to add the returned access_token
-    as a variable in the collection. To use this token in subsequent requests, adjust the authorization
-    of the request to Bearer Token and add {{client_credentials_token}} in the token field.
+  description: OAuth 2.0 token endpoint for private Salesloft applications using the client credentials grant. POST /oauth/token
+    on the Salesloft accounts host, not on the v2 API host.
   humanURL: https://developers.salesloft.com/docs/platform
-  baseURL: https://api.salesloft.com/v2
+  baseURL: https://accounts.salesloft.com
   tags:
   - Client Credentials Access Token
   properties:
   - type: OpenAPI
     url: openapi/salesloft-client-credentials-access-token-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-client-credentials-access-token-api-overlay.yaml
 - aid: salesloft:salesloft-conversations-api
   name: Salesloft Conversations API
-  description: >-
-    [https://developer.salesloft.com/docs/api/conversations/](https://developer.salesloft.com/docs/api/conversations/)
+  description: '[https://developer.salesloft.com/docs/api/conversations/](https://developer.salesloft.com/docs/api/conversations/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -365,10 +419,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-conversations-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-conversations-api-overlay.yaml
 - aid: salesloft:salesloft-conversations-calls-api
   name: Salesloft Conversations Calls API
-  description: >-
-    [https://developer.salesloft.com/docs/api/conversations-calls/](https://developer.salesloft.com/docs/api/conversations-calls/)
+  description: '[https://developer.salesloft.com/docs/api/conversations-calls/](https://developer.salesloft.com/docs/api/conversations-calls/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -376,10 +431,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-conversations-calls-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-conversations-calls-api-overlay.yaml
 - aid: salesloft:salesloft-counts-api
   name: Salesloft Counts API
-  description: >-
-    [https://developer.salesloft.com/docs/api/counts/](https://developer.salesloft.com/docs/api/counts/)
+  description: '[https://developer.salesloft.com/docs/api/counts/](https://developer.salesloft.com/docs/api/counts/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -387,10 +443,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-counts-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-counts-api-overlay.yaml
 - aid: salesloft:salesloft-crm-account-team-members-api
   name: Salesloft Crm Account Team Members API
-  description: >-
-    [https://developers.salesloft.com/docs/api/crm-account-team-members/](https://developers.salesloft.com/docs/api/crm-account-team-members/)
+  description: '[https://developers.salesloft.com/docs/api/crm-account-team-members/](https://developers.salesloft.com/docs/api/crm-account-team-members/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -398,10 +455,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-crm-account-team-members-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-crm-account-team-members-api-overlay.yaml
 - aid: salesloft:salesloft-crm-activities-api
   name: Salesloft Crm Activities API
-  description: >-
-    [https://developer.salesloft.com/docs/api/crm-activities/](https://developer.salesloft.com/docs/api/crm-activities/)
+  description: '[https://developer.salesloft.com/docs/api/crm-activities/](https://developer.salesloft.com/docs/api/crm-activities/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -409,10 +467,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-crm-activities-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-crm-activities-api-overlay.yaml
 - aid: salesloft:salesloft-crm-activity-fields-api
   name: Salesloft Crm Activity Fields API
-  description: >-
-    [https://developer.salesloft.com/docs/api/crm-activity-fields/](https://developer.salesloft.com/docs/api/crm-activity-fields/)
+  description: '[https://developer.salesloft.com/docs/api/crm-activity-fields/](https://developer.salesloft.com/docs/api/crm-activity-fields/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -420,10 +479,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-crm-activity-fields-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-crm-activity-fields-api-overlay.yaml
 - aid: salesloft:salesloft-crm-users-api
   name: Salesloft Crm Users API
-  description: >-
-    [https://developer.salesloft.com/docs/api/crm-users/](https://developer.salesloft.com/docs/api/crm-users/)
+  description: '[https://developer.salesloft.com/docs/api/crm-users/](https://developer.salesloft.com/docs/api/crm-users/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -431,10 +491,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-crm-users-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-crm-users-api-overlay.yaml
 - aid: salesloft:salesloft-custom-fields-api
   name: Salesloft Custom Fields API
-  description: >-
-    [https://developer.salesloft.com/docs/api/custom-fields/](https://developer.salesloft.com/docs/api/custom-fields/)
+  description: '[https://developer.salesloft.com/docs/api/custom-fields/](https://developer.salesloft.com/docs/api/custom-fields/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -442,10 +503,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-custom-fields-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-custom-fields-api-overlay.yaml
 - aid: salesloft:salesloft-custom-roles-api
   name: Salesloft Custom Roles API
-  description: >-
-    [https://developer.salesloft.com/docs/api/custom-roles/](https://developer.salesloft.com/docs/api/custom-roles/)
+  description: '[https://developer.salesloft.com/docs/api/custom-roles/](https://developer.salesloft.com/docs/api/custom-roles/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -453,10 +515,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-custom-roles-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-custom-roles-api-overlay.yaml
 - aid: salesloft:salesloft-email-missing-tags-api
   name: Salesloft Email Missing Tags API
-  description: >-
-    [https://developer.salesloft.com/docs/api/email-missing-tags/](https://developer.salesloft.com/docs/api/email-missing-tags/)
+  description: '[https://developer.salesloft.com/docs/api/email-missing-tags/](https://developer.salesloft.com/docs/api/email-missing-tags/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -464,10 +527,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-email-missing-tags-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-email-missing-tags-api-overlay.yaml
 - aid: salesloft:salesloft-email-template-attachments-api
   name: Salesloft Email Template Attachments API
-  description: >-
-    [https://developer.salesloft.com/docs/api/email-template-attachments/](https://developer.salesloft.com/docs/api/email-template-attachments/)
+  description: '[https://developer.salesloft.com/docs/api/email-template-attachments/](https://developer.salesloft.com/docs/api/email-template-attachments/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -475,10 +539,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-email-template-attachments-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-email-template-attachments-api-overlay.yaml
 - aid: salesloft:salesloft-email-templates-api
   name: Salesloft Email Templates API
-  description: >-
-    [https://developer.salesloft.com/docs/api/email-templates/](https://developer.salesloft.com/docs/api/email-templates/)
+  description: '[https://developer.salesloft.com/docs/api/email-templates/](https://developer.salesloft.com/docs/api/email-templates/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -486,10 +551,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-email-templates-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-email-templates-api-overlay.yaml
 - aid: salesloft:salesloft-emails-api
   name: Salesloft Emails API
-  description: >-
-    [https://developer.salesloft.com/docs/api/emails/](https://developer.salesloft.com/docs/api/emails/)
+  description: '[https://developer.salesloft.com/docs/api/emails/](https://developer.salesloft.com/docs/api/emails/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -497,10 +563,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-emails-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-emails-api-overlay.yaml
 - aid: salesloft:salesloft-external-emails-api
   name: Salesloft External Emails API
-  description: >-
-    [https://developer.salesloft.com/docs/api/external-emails/](https://developer.salesloft.com/docs/api/external-emails/)
+  description: '[https://developer.salesloft.com/docs/api/external-emails/](https://developer.salesloft.com/docs/api/external-emails/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -508,10 +575,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-external-emails-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-external-emails-api-overlay.yaml
 - aid: salesloft:salesloft-external-id-configuration-api
   name: Salesloft External Id Configuration API
-  description: >-
-    [https://developer.salesloft.com/docs/api/external-id-configuration/](https://developer.salesloft.com/docs/api/external-id-configuration/)
+  description: '[https://developer.salesloft.com/docs/api/external-id-configuration/](https://developer.salesloft.com/docs/api/external-id-configuration/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -519,10 +587,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-external-id-configuration-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-external-id-configuration-api-overlay.yaml
 - aid: salesloft:salesloft-external-id-mapping-api
   name: Salesloft External Id Mapping API
-  description: >-
-    [https://developer.salesloft.com/docs/api/external-id-mapping/](https://developer.salesloft.com/docs/api/external-id-mapping/)
+  description: '[https://developer.salesloft.com/docs/api/external-id-mapping/](https://developer.salesloft.com/docs/api/external-id-mapping/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -530,10 +599,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-external-id-mapping-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-external-id-mapping-api-overlay.yaml
 - aid: salesloft:salesloft-groups-api
   name: Salesloft Groups API
-  description: >-
-    [https://developer.salesloft.com/docs/api/groups/](https://developer.salesloft.com/docs/api/groups/)
+  description: '[https://developer.salesloft.com/docs/api/groups/](https://developer.salesloft.com/docs/api/groups/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -541,10 +611,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-groups-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-groups-api-overlay.yaml
 - aid: salesloft:salesloft-imports-api
   name: Salesloft Imports API
-  description: >-
-    [https://developer.salesloft.com/docs/api/imports/](https://developer.salesloft.com/docs/api/imports/)
+  description: '[https://developer.salesloft.com/docs/api/imports/](https://developer.salesloft.com/docs/api/imports/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -552,10 +623,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-imports-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-imports-api-overlay.yaml
 - aid: salesloft:salesloft-live-feed-items-api
   name: Salesloft Live Feed Items API
-  description: >-
-    [https://developer.salesloft.com/docs/api/live-feed-items/](https://developer.salesloft.com/docs/api/live-feed-items/)
+  description: '[https://developer.salesloft.com/docs/api/live-feed-items/](https://developer.salesloft.com/docs/api/live-feed-items/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -563,10 +635,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-live-feed-items-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-live-feed-items-api-overlay.yaml
 - aid: salesloft:salesloft-live-website-tracking-parameters-api
   name: Salesloft Live Website Tracking Parameters API
-  description: >-
-    [https://developer.salesloft.com/docs/api/live-website-tracking-parameters/](https://developer.salesloft.com/docs/api/live-website-tracking-parameters/)
+  description: '[https://developer.salesloft.com/docs/api/live-website-tracking-parameters/](https://developer.salesloft.com/docs/api/live-website-tracking-parameters/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -574,10 +647,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-live-website-tracking-parameters-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-live-website-tracking-parameters-api-overlay.yaml
 - aid: salesloft:salesloft-me-api
   name: Salesloft Me API
-  description: >-
-    [https://developer.salesloft.com/docs/api/me/](https://developer.salesloft.com/docs/api/me/)
+  description: '[https://developer.salesloft.com/docs/api/me/](https://developer.salesloft.com/docs/api/me/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -585,10 +659,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-me-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-me-api-overlay.yaml
 - aid: salesloft:salesloft-meetings-api
   name: Salesloft Meetings API
-  description: >-
-    [https://developer.salesloft.com/docs/api/meetings/](https://developer.salesloft.com/docs/api/meetings/)
+  description: '[https://developer.salesloft.com/docs/api/meetings/](https://developer.salesloft.com/docs/api/meetings/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -596,10 +671,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-meetings-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-meetings-api-overlay.yaml
 - aid: salesloft:salesloft-mime-email-payloads-api
   name: Salesloft Mime Email Payloads API
-  description: >-
-    [https://developer.salesloft.com/docs/api/mime-email-payloads/](https://developer.salesloft.com/docs/api/mime-email-payloads/)
+  description: '[https://developer.salesloft.com/docs/api/mime-email-payloads/](https://developer.salesloft.com/docs/api/mime-email-payloads/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -607,10 +683,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-mime-email-payloads-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-mime-email-payloads-api-overlay.yaml
 - aid: salesloft:salesloft-notes-api
   name: Salesloft Notes API
-  description: >-
-    [https://developer.salesloft.com/docs/api/notes/](https://developer.salesloft.com/docs/api/notes/)
+  description: '[https://developer.salesloft.com/docs/api/notes/](https://developer.salesloft.com/docs/api/notes/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -618,10 +695,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-notes-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-notes-api-overlay.yaml
 - aid: salesloft:salesloft-ongoing-actions-api
   name: Salesloft Ongoing Actions API
-  description: >-
-    [https://developer.salesloft.com/docs/api/ongoing-actions/](https://developer.salesloft.com/docs/api/ongoing-actions/)
+  description: '[https://developer.salesloft.com/docs/api/ongoing-actions/](https://developer.salesloft.com/docs/api/ongoing-actions/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -629,10 +707,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-ongoing-actions-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-ongoing-actions-api-overlay.yaml
 - aid: salesloft:salesloft-opportunities-api
   name: Salesloft Opportunities API
-  description: >-
-    [https://developers.salesloft.com/docs/api/opportunities/](https://developers.salesloft.com/docs/api/opportunities/)
+  description: '[https://developers.salesloft.com/docs/api/opportunities/](https://developers.salesloft.com/docs/api/opportunities/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -640,10 +719,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-opportunities-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-opportunities-api-overlay.yaml
 - aid: salesloft:salesloft-opportunity-people-api
   name: Salesloft Opportunity People API
-  description: >-
-    [https://developers.salesloft.com/docs/api/opportunity-people/](https://developers.salesloft.com/docs/api/opportunity-people/)
+  description: '[https://developers.salesloft.com/docs/api/opportunity-people/](https://developers.salesloft.com/docs/api/opportunity-people/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -651,10 +731,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-opportunity-people-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-opportunity-people-api-overlay.yaml
 - aid: salesloft:salesloft-opportunity-stages-api
   name: Salesloft Opportunity Stages API
-  description: >-
-    [https://developers.salesloft.com/docs/api/opportunity-stages/](https://developers.salesloft.com/docs/api/opportunity-stages/)
+  description: '[https://developers.salesloft.com/docs/api/opportunity-stages/](https://developers.salesloft.com/docs/api/opportunity-stages/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -662,10 +743,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-opportunity-stages-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-opportunity-stages-api-overlay.yaml
 - aid: salesloft:salesloft-pending-emails-api
   name: Salesloft Pending Emails API
-  description: >-
-    [https://developer.salesloft.com/docs/api/pending-emails/](https://developer.salesloft.com/docs/api/pending-emails/)
+  description: '[https://developer.salesloft.com/docs/api/pending-emails/](https://developer.salesloft.com/docs/api/pending-emails/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -673,10 +755,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-pending-emails-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-pending-emails-api-overlay.yaml
 - aid: salesloft:salesloft-people-api
   name: Salesloft People API
-  description: >-
-    [https://developer.salesloft.com/docs/api/people/](https://developer.salesloft.com/docs/api/people/)
+  description: '[https://developer.salesloft.com/docs/api/people/](https://developer.salesloft.com/docs/api/people/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -684,10 +767,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-people-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-people-api-overlay.yaml
 - aid: salesloft:salesloft-people-soft-deletion-api
   name: Salesloft People Soft Deletion API
-  description: >-
-    [https://developer.salesloft.com/docs/api/people-soft-deletion/](https://developer.salesloft.com/docs/api/people-soft-deletion/)
+  description: '[https://developer.salesloft.com/docs/api/people-soft-deletion/](https://developer.salesloft.com/docs/api/people-soft-deletion/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -695,10 +779,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-people-soft-deletion-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-people-soft-deletion-api-overlay.yaml
 - aid: salesloft:salesloft-person-stages-api
   name: Salesloft Person Stages API
-  description: >-
-    [https://developer.salesloft.com/docs/api/person-stages/](https://developer.salesloft.com/docs/api/person-stages/)
+  description: '[https://developer.salesloft.com/docs/api/person-stages/](https://developer.salesloft.com/docs/api/person-stages/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -706,10 +791,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-person-stages-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-person-stages-api-overlay.yaml
 - aid: salesloft:salesloft-person-upserts-api
   name: Salesloft Person Upserts API
-  description: >-
-    [https://developer.salesloft.com/docs/api/person-upserts/](https://developer.salesloft.com/docs/api/person-upserts/)
+  description: '[https://developer.salesloft.com/docs/api/person-upserts/](https://developer.salesloft.com/docs/api/person-upserts/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -717,10 +803,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-person-upserts-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-person-upserts-api-overlay.yaml
 - aid: salesloft:salesloft-phone-number-assignments-api
   name: Salesloft Phone Number Assignments API
-  description: >-
-    [https://developer.salesloft.com/docs/api/phone-number-assignments/](https://developer.salesloft.com/docs/api/phone-number-assignments/)
+  description: '[https://developer.salesloft.com/docs/api/phone-number-assignments/](https://developer.salesloft.com/docs/api/phone-number-assignments/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -728,10 +815,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-phone-number-assignments-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-phone-number-assignments-api-overlay.yaml
 - aid: salesloft:salesloft-play-registrations-api
   name: Salesloft Play Registrations API
-  description: >-
-    [https://developer.salesloft.com/docs/api/play-registrations/](https://developer.salesloft.com/docs/api/play-registrations/)
+  description: '[https://developer.salesloft.com/docs/api/play-registrations/](https://developer.salesloft.com/docs/api/play-registrations/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -739,10 +827,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-play-registrations-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-play-registrations-api-overlay.yaml
 - aid: salesloft:salesloft-profiles-api
   name: Salesloft Profiles API
-  description: >-
-    [https://developers.salesloft.com/docs/api/profiles/](https://developers.salesloft.com/docs/api/profiles/)
+  description: '[https://developers.salesloft.com/docs/api/profiles/](https://developers.salesloft.com/docs/api/profiles/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -750,10 +839,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-profiles-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-profiles-api-overlay.yaml
 - aid: salesloft:salesloft-recording-settings-api
   name: Salesloft Recording Settings API
-  description: >-
-    [https://developer.salesloft.com/docs/api/recording-settings/](https://developer.salesloft.com/docs/api/recording-settings/)
+  description: '[https://developer.salesloft.com/docs/api/recording-settings/](https://developer.salesloft.com/docs/api/recording-settings/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -761,10 +851,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-recording-settings-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-recording-settings-api-overlay.yaml
 - aid: salesloft:salesloft-requests-api
   name: Salesloft Requests API
-  description: >-
-    [https://developer.salesloft.com/docs/api/requests/](https://developer.salesloft.com/docs/api/requests/)
+  description: '[https://developer.salesloft.com/docs/api/requests/](https://developer.salesloft.com/docs/api/requests/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -772,10 +863,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-requests-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-requests-api-overlay.yaml
 - aid: salesloft:salesloft-reschedule-links-api
   name: Salesloft Reschedule Links API
-  description: >-
-    [https://developer.salesloft.com/docs/api/reschedule-links/](https://developer.salesloft.com/docs/api/reschedule-links/)
+  description: '[https://developer.salesloft.com/docs/api/reschedule-links/](https://developer.salesloft.com/docs/api/reschedule-links/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -783,10 +875,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-reschedule-links-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-reschedule-links-api-overlay.yaml
 - aid: salesloft:salesloft-right-to-be-forgotten-api
   name: Salesloft Right to Be Forgotten API
-  description: >-
-    [https://developer.salesloft.com/docs/api/right-to-be-forgotten/](https://developer.salesloft.com/docs/api/right-to-be-forgotten/)
+  description: '[https://developer.salesloft.com/docs/api/right-to-be-forgotten/](https://developer.salesloft.com/docs/api/right-to-be-forgotten/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -794,10 +887,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-right-to-be-forgotten-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-right-to-be-forgotten-api-overlay.yaml
 - aid: salesloft:salesloft-saved-list-views-api
   name: Salesloft Saved List Views API
-  description: >-
-    [https://developer.salesloft.com/docs/api/saved-list-views/](https://developer.salesloft.com/docs/api/saved-list-views/)
+  description: '[https://developer.salesloft.com/docs/api/saved-list-views/](https://developer.salesloft.com/docs/api/saved-list-views/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -805,10 +899,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-saved-list-views-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-saved-list-views-api-overlay.yaml
 - aid: salesloft:salesloft-searches-api
   name: Salesloft Searches API
-  description: >-
-    [https://developer.salesloft.com/docs/api/searches/](https://developer.salesloft.com/docs/api/searches/)
+  description: '[https://developer.salesloft.com/docs/api/searches/](https://developer.salesloft.com/docs/api/searches/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -816,10 +911,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-searches-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-searches-api-overlay.yaml
 - aid: salesloft:salesloft-settings-api
   name: Salesloft Settings API
-  description: >-
-    [https://developer.salesloft.com/docs/api/settings/](https://developer.salesloft.com/docs/api/settings/)
+  description: '[https://developer.salesloft.com/docs/api/settings/](https://developer.salesloft.com/docs/api/settings/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -827,10 +923,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-settings-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-settings-api-overlay.yaml
 - aid: salesloft:salesloft-signal-registrations-api
   name: Salesloft Signal Registrations API
-  description: >-
-    [https://developer.salesloft.com/docs/api/signal-registrations/](https://developer.salesloft.com/docs/api/signal-registrations/)
+  description: '[https://developer.salesloft.com/docs/api/signal-registrations/](https://developer.salesloft.com/docs/api/signal-registrations/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -838,10 +935,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-signal-registrations-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-signal-registrations-api-overlay.yaml
 - aid: salesloft:salesloft-signals-api
   name: Salesloft Signals API
-  description: >-
-    [https://developer.salesloft.com/docs/api/signals/](https://developer.salesloft.com/docs/api/signals/)
+  description: '[https://developer.salesloft.com/docs/api/signals/](https://developer.salesloft.com/docs/api/signals/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -849,10 +947,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-signals-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-signals-api-overlay.yaml
 - aid: salesloft:salesloft-steps-api
   name: Salesloft Steps API
-  description: >-
-    [https://developer.salesloft.com/docs/api/steps/](https://developer.salesloft.com/docs/api/steps/)
+  description: '[https://developer.salesloft.com/docs/api/steps/](https://developer.salesloft.com/docs/api/steps/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -860,10 +959,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-steps-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-steps-api-overlay.yaml
 - aid: salesloft:salesloft-successes-api
   name: Salesloft Successes API
-  description: >-
-    [https://developer.salesloft.com/docs/api/successes/](https://developer.salesloft.com/docs/api/successes/)
+  description: '[https://developer.salesloft.com/docs/api/successes/](https://developer.salesloft.com/docs/api/successes/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -871,6 +971,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-successes-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-successes-api-overlay.yaml
 - aid: salesloft:salesloft-tags-api
   name: Salesloft Tags API
   description: The Tags API from Salesloft — 1 operation(s) for tags.
@@ -881,10 +983,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-tags-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-tags-api-overlay.yaml
 - aid: salesloft:salesloft-tasks-api
   name: Salesloft Tasks API
-  description: >-
-    [https://developer.salesloft.com/docs/api/tasks/](https://developer.salesloft.com/docs/api/tasks/)
+  description: '[https://developer.salesloft.com/docs/api/tasks/](https://developer.salesloft.com/docs/api/tasks/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -892,10 +995,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-tasks-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-tasks-api-overlay.yaml
 - aid: salesloft:salesloft-team-api
   name: Salesloft Team API
-  description: >-
-    [https://developer.salesloft.com/docs/api/team/](https://developer.salesloft.com/docs/api/team/)
+  description: '[https://developer.salesloft.com/docs/api/team/](https://developer.salesloft.com/docs/api/team/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -903,10 +1007,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-team-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-team-api-overlay.yaml
 - aid: salesloft:salesloft-team-template-attachments-api
   name: Salesloft Team Template Attachments API
-  description: >-
-    [https://developer.salesloft.com/docs/api/team-template-attachments/](https://developer.salesloft.com/docs/api/team-template-attachments/)
+  description: '[https://developer.salesloft.com/docs/api/team-template-attachments/](https://developer.salesloft.com/docs/api/team-template-attachments/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -914,10 +1019,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-team-template-attachments-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-team-template-attachments-api-overlay.yaml
 - aid: salesloft:salesloft-team-templates-api
   name: Salesloft Team Templates API
-  description: >-
-    [https://developer.salesloft.com/docs/api/team-templates/](https://developer.salesloft.com/docs/api/team-templates/)
+  description: '[https://developer.salesloft.com/docs/api/team-templates/](https://developer.salesloft.com/docs/api/team-templates/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -925,10 +1031,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-team-templates-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-team-templates-api-overlay.yaml
 - aid: salesloft:salesloft-transcriptions-api
   name: Salesloft Transcriptions API
-  description: >-
-    [https://developer.salesloft.com/docs/api/transcriptions/](https://developer.salesloft.com/docs/api/transcriptions/)
+  description: '[https://developer.salesloft.com/docs/api/transcriptions/](https://developer.salesloft.com/docs/api/transcriptions/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -936,10 +1043,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-transcriptions-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-transcriptions-api-overlay.yaml
 - aid: salesloft:salesloft-users-api
   name: Salesloft Users API
-  description: >-
-    [https://developer.salesloft.com/docs/api/users/](https://developer.salesloft.com/docs/api/users/)
+  description: '[https://developer.salesloft.com/docs/api/users/](https://developer.salesloft.com/docs/api/users/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -947,10 +1055,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-users-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-users-api-overlay.yaml
 - aid: salesloft:salesloft-webhook-subscriptions-api
   name: Salesloft Webhook Subscriptions API
-  description: >-
-    [https://developer.salesloft.com/docs/api/webhook-subscriptions/](https://developer.salesloft.com/docs/api/webhook-subscriptions/)
+  description: '[https://developer.salesloft.com/docs/api/webhook-subscriptions/](https://developer.salesloft.com/docs/api/webhook-subscriptions/)'
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
@@ -958,27 +1067,98 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/salesloft-webhook-subscriptions-api-openapi.yml
+  - type: Overlay
+    url: overlays/salesloft-webhook-subscriptions-api-overlay.yaml
 common:
-  - type: AgenticAccess
-    url: agentic-access/salesloft-agentic-access.yml
-  - type: TrustCenter
-    url: security/salesloft-trust-center.yml
-  - type: DomainSecurity
-    url: security/salesloft-domain-security.yml
-  - type: Authentication
-    url: authentication/salesloft-authentication.yml
-  - type: GitHubOrganization
-    url: https://github.com/SalesLoft
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/salesloft
-  - type: Website
-    url: https://salesloft.com/
-  - type: Plans
-    url: plans/salesloft-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/salesloft-rate-limits.yml
-  - type: FinOps
-    url: finops/salesloft-finops.yml
+- type: AgenticAccess
+  url: agentic-access/salesloft-agentic-access.yml
+- type: TrustCenter
+  url: security/salesloft-trust-center.yml
+- type: DomainSecurity
+  url: security/salesloft-domain-security.yml
+- type: Authentication
+  url: authentication/salesloft-authentication.yml
+- type: GitHubOrganization
+  url: https://github.com/SalesLoft
+- type: LinkedIn
+  url: https://www.linkedin.com/company/salesloft
+- type: Website
+  url: https://salesloft.com/
+- type: Plans
+  url: plans/salesloft-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/salesloft-rate-limits.yml
+- type: FinOps
+  url: finops/salesloft-finops.yml
+- type: MCPServer
+  url: mcp/salesloft-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/salesloft-tool-crosswalk.yml
+- type: WellKnown
+  url: well-known/salesloft-well-known.yml
+- type: Packages
+  url: packages/salesloft-packages.yml
+- type: LLMsTxt
+  url: llms/salesloft-llms.txt
+- type: Conformance
+  url: conformance/salesloft-conformance.yml
+- type: Compliance
+  url: https://trust.salesloft.com/
+- type: ErrorCatalog
+  url: errors/salesloft-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/salesloft-lifecycle.yml
+- type: StatusPage
+  url: https://status.salesloft.com/
+- type: OAuthScopes
+  url: scopes/salesloft-scopes.yml
+- type: Conventions
+  url: conventions/salesloft-conventions.yml
+- type: Idempotency
+  url: conventions/salesloft-conventions.yml
+- type: ChangeLog
+  url: changelog/salesloft-changelog.yml
+- type: DataModel
+  url: data-model/salesloft-data-model.yml
+- type: VulnerabilityDisclosure
+  url: security/salesloft-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.salesloft.com/security
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: https://developers.salesloft.com/docs/platform/webhooks/
+- type: AsyncAPI
+  url: asyncapi.yml
+- type: DeveloperPortal
+  url: https://developers.salesloft.com/
+- type: Documentation
+  url: https://developers.salesloft.com/docs/platform/
+- type: APIReference
+  url: https://developers.salesloft.com/docs/api/
+- type: GettingStarted
+  url: https://developers.salesloft.com/docs/platform/intro/
+- type: Support
+  url: https://help.salesloft.com/
+- type: Community
+  url: https://champions.salesloft.com/
+- type: Blog
+  url: https://www.salesloft.com/resources/blog
+- type: Pricing
+  url: https://www.salesloft.com/pricing
+- type: Login
+  url: https://accounts.salesloft.com/sign_in
+- type: TermsOfService
+  url: https://www.salesloft.com/legal/msa
+- type: PrivacyPolicy
+  url: https://www.salesloft.com/legal/platform-privacy-notice
+- type: Postman
+  url: https://www.postman.com/salesloft-dev/salesloft
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 109
+  pass: local-v1
