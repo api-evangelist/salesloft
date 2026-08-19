@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Users API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/users",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "role_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "visible_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_crm_user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "work_country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "seat_package",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "managed_ar",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manager_user_guid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Users"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a User"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a User"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

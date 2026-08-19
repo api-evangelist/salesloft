@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Pending Emails API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pending Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Pending Emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/pending_emails",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Pending Emails"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Pending Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/pending_emails/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Update a Pending Email"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

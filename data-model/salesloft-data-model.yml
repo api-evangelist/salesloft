@@ -1,0 +1,129 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  Derived from two real sources, in this order of strength:
+  (1) the JSON Schema outputSchemas published anonymously at https://mcp.salesloft.com/ and
+  saved verbatim to mcp/salesloft-mcp-tools.json — these carry the actual field names, types
+  and embedded reference objects for Account, Person, User, Opportunity, Conversation and Team;
+  (2) the resource inventory in openapi/ (82 documents, 176 operations), which supplies the
+  paths and the entities the MCP surface does not cover.
+  The OpenAPI itself contributes NO schemas: it is Postman-derived and every operation declares
+  a bare 200 with an empty content object, so no $ref graph exists to walk.
+docs: https://developers.salesloft.com/docs/api/
+notation: >-
+  relationships use has_one / has_many / belongs_to with the referencing field name; direction is
+  from the entity that holds the reference.
+reference_idiom: >-
+  Salesloft embeds related records as a small object {"_href": "<absolute v2 URL>", "id": <int>}
+  rather than a bare foreign key or an expandable sub-object. A client follows _href to hydrate.
+  There is no expand[] parameter — see conventions/salesloft-conventions.yml.
+id_scheme: >-
+  Integer surrogate ids on most resources (Account, Person, User, Opportunity, Task, Note,
+  Cadence, Step, Import). Conversations use a string id and additionally carry user_guid /
+  organization_id. Users carry BOTH a numeric id and a guid. No prefixed ids.
+crm_mirroring: >-
+  Nearly every core entity carries crm_id, crm_object_type and crm_url, plus *_crm_id fields on
+  its relationships (owner_crm_id, account_crm_id, company_crm_id, created_by_crm_id). Salesloft's
+  data model is explicitly a mirror of an external CRM, not a system of record — this is the single
+  most load-bearing fact about integrating with it.
+
+entities:
+  - {name: Team, path: /v2/team, domain: identity, description: 'The authenticated user''s team; carries plan (group|professional|enterprise), plan_features, license_limit, and team-wide toggles.'}
+  - {name: User, path: /v2/users, domain: identity, description: 'A Salesloft seat. id (integer) + guid.'}
+  - {name: Group, path: /v2/groups, domain: identity, description: 'Visibility grouping for team members and resources.'}
+  - {name: CustomRole, path: /v2/custom_roles, domain: identity}
+  - {name: Account, path: /v2/accounts, domain: core, description: 'A company record. 42 published fields including domain, industry, size, revenue_range, prospector_engagement_score.'}
+  - {name: Person, path: /v2/people, domain: core, description: 'A prospect or contact. 60 published fields including bouncing, do_not_contact, eu_resident, hot_lead, engagement counts.'}
+  - {name: Opportunity, path: /v2/opportunities, domain: pipeline, description: 'A CRM-synced deal. stage_name, probability, is_won, is_closed, amount currency_iso_code.'}
+  - {name: Cadence, path: /v2/cadences, domain: engagement}
+  - {name: Step, path: /v2/steps, domain: engagement}
+  - {name: Action, path: /v2/actions, domain: engagement}
+  - {name: CadenceMembership, path: /v2/cadence_memberships, domain: engagement, description: 'Join entity binding a Person to a Cadence.'}
+  - {name: Task, path: /v2/tasks, domain: engagement}
+  - {name: Call, path: /v2/activities/calls, domain: activity}
+  - {name: Email, path: /v2/activities/emails, domain: activity}
+  - {name: Activity, path: /v2/activities, domain: activity}
+  - {name: Note, path: /v2/notes, domain: activity}
+  - {name: Success, path: /v2/successes, domain: activity}
+  - {name: Meeting, path: /v2/meetings, domain: activity}
+  - {name: CalendarEvent, path: /v2/calendar_events, domain: activity}
+  - {name: Conversation, path: /v2/conversations, domain: intelligence, description: 'A recorded call/meeting. String id. Carries summary, action_items, key_moments, meddpicc, attendees, invitees, platform, media_type.'}
+  - {name: Recording, path: '/v2/conversations/{id}/recording', domain: intelligence}
+  - {name: Transcription, path: /v2/transcriptions, domain: intelligence}
+  - {name: CallDataRecord, path: /v2/call_data_records, domain: intelligence}
+  - {name: AccountStage, path: /v2/account_stages, domain: taxonomy}
+  - {name: AccountTier, path: /v2/account_tiers, domain: taxonomy}
+  - {name: PersonStage, path: /v2/person_stages, domain: taxonomy}
+  - {name: OpportunityStage, path: /v2/opportunity_stages, domain: taxonomy}
+  - {name: CallDisposition, path: /v2/call_dispositions, domain: taxonomy}
+  - {name: CallSentiment, path: /v2/call_sentiments, domain: taxonomy}
+  - {name: Tag, path: /v2/tags, domain: taxonomy}
+  - {name: CustomField, path: /v2/custom_fields, domain: taxonomy}
+  - {name: EmailTemplate, path: /v2/email_templates, domain: content}
+  - {name: TeamTemplate, path: /v2/team_templates, domain: content}
+  - {name: Import, path: /v2/imports, domain: data-ops}
+  - {name: BulkJob, path: /v2/bulk_jobs, domain: data-ops}
+  - {name: WebhookSubscription, path: /v2/webhook_subscriptions, domain: platform}
+  - {name: Signal, path: /v2/signals, domain: rhythm, description: 'A Rhythm signal. Requires urgency, occurred_at and an idempotency_key (UUID4).'}
+  - {name: SignalRegistration, path: /v2/signal_registrations, domain: rhythm}
+  - {name: PlayRegistration, path: /v2/play_registrations, domain: rhythm}
+  - {name: CrmActivity, path: /v2/crm_activities, domain: crm}
+  - {name: CrmUser, path: /v2/crm_users, domain: crm}
+  - {name: ExternalIdMapping, path: /v2/external_id_mapping, domain: crm}
+  - {name: RedactionRequest, path: /v2/data_control/account_and_people_redaction, domain: governance}
+
+relationships:
+  # verified against published outputSchemas in mcp/salesloft-mcp-tools.json
+  - {from: Account, to: User, kind: belongs_to, via: owner, evidence: 'account_by_id.owner {_href,id}'}
+  - {from: Account, to: User, kind: belongs_to, via: creator, evidence: 'account_by_id.creator {_href,id}'}
+  - {from: Account, to: User, kind: belongs_to, via: last_contacted_by, evidence: 'account_by_id.last_contacted_by {_href,id}'}
+  - {from: Account, to: Person, kind: belongs_to, via: last_contacted_person, evidence: 'account_by_id.last_contacted_person {_href,id}'}
+  - {from: Account, to: AccountStage, kind: belongs_to, via: company_stage, evidence: 'account_by_id.company_stage {_href,id}'}
+  - {from: Account, to: AccountTier, kind: belongs_to, via: account_tier, evidence: 'account_by_id.account_tier {_href,id}'}
+  - {from: Account, to: Person, kind: has_many, via: 'counts.people', evidence: 'account_by_id.counts.people'}
+  - {from: Account, to: Tag, kind: has_many, via: tags}
+  - {from: Person, to: Account, kind: belongs_to, via: account, evidence: 'person_by_id.account {_href,id}'}
+  - {from: Person, to: User, kind: belongs_to, via: owner, evidence: 'person_by_id.owner {_href,id}'}
+  - {from: Person, to: User, kind: belongs_to, via: last_contacted_by, evidence: 'person_by_id.last_contacted_by {_href,id}'}
+  - {from: Person, to: PersonStage, kind: belongs_to, via: person_stage, evidence: 'person_by_id.person_stage {_href,id}'}
+  - {from: Person, to: Import, kind: belongs_to, via: import, evidence: 'person_by_id.import {_href,id}'}
+  - {from: Person, to: Cadence, kind: has_many, via: cadences, evidence: 'person_by_id.cadences[]'}
+  - {from: Person, to: Cadence, kind: belongs_to, via: most_recent_cadence, evidence: 'person_by_id.most_recent_cadence {_href,id}'}
+  - {from: Person, to: Step, kind: belongs_to, via: last_completed_step, evidence: 'person_by_id.last_completed_step {_href,id}'}
+  - {from: Person, to: Cadence, kind: belongs_to, via: last_completed_step_cadence, evidence: 'person_by_id.last_completed_step_cadence {_href,id}'}
+  - {from: Person, to: Tag, kind: has_many, via: tags}
+  - {from: Opportunity, to: User, kind: belongs_to, via: owner, evidence: 'opportunity_by_id.owner {_href,id}'}
+  - {from: Opportunity, to: Account, kind: belongs_to, via: account_crm_id, evidence: 'opportunity_by_id.account_crm_id (CRM id, not a Salesloft id)'}
+  - {from: Opportunity, to: Account, kind: belongs_to, via: most_recent_step_account, evidence: 'opportunity_by_id.most_recent_step_account {_href,id}'}
+  - {from: Opportunity, to: Person, kind: belongs_to, via: opportunity_window_person_id, evidence: 'opportunity_by_id.opportunity_window_person_id'}
+  - {from: Conversation, to: Account, kind: belongs_to, via: account, evidence: 'conversation_by_id.account {_href,id}'}
+  - {from: Conversation, to: Person, kind: belongs_to, via: person, evidence: 'conversation_by_id.person {_href,id}'}
+  - {from: Conversation, to: Opportunity, kind: belongs_to, via: opportunity, evidence: 'conversation_by_id.opportunity {_href,id}'}
+  - {from: Conversation, to: Recording, kind: has_one, via: recording, evidence: 'conversation_by_id.recording {_href,id}'}
+  - {from: Conversation, to: Transcription, kind: has_one, via: transcription, evidence: 'conversation_by_id.transcription {_href,id}'}
+  - {from: Conversation, to: Call, kind: belongs_to, via: call_id, evidence: 'conversation_by_id.call_id'}
+  - {from: Conversation, to: User, kind: belongs_to, via: user_guid, evidence: 'conversation_by_id.user_guid / owner_id / owner_email'}
+  # derived from the REST resource inventory (openapi/), lower confidence
+  - {from: CadenceMembership, to: Person, kind: belongs_to, via: person_id, confidence: medium}
+  - {from: CadenceMembership, to: Cadence, kind: belongs_to, via: cadence_id, confidence: medium}
+  - {from: Cadence, to: Step, kind: has_many, via: cadence_id, confidence: medium}
+  - {from: Step, to: Action, kind: has_many, via: step_id, confidence: medium}
+  - {from: Task, to: Person, kind: belongs_to, via: person_id, confidence: medium}
+  - {from: Note, to: Person, kind: belongs_to, via: associated_id/associated_type, confidence: medium}
+  - {from: Call, to: Person, kind: belongs_to, via: person_id, confidence: medium}
+  - {from: Email, to: Person, kind: belongs_to, via: recipient_id, confidence: medium}
+  - {from: BulkJob, to: Person, kind: has_many, via: job_data, confidence: medium}
+  - {from: Team, to: User, kind: has_many, via: team_id, confidence: medium}
+
+core_graph_summary: >-
+  Account is the hub. Person belongs_to Account and to a User (owner); Opportunity and
+  Conversation both hang off Account and Person; every engagement artifact (Cadence,
+  Step, Task, Call, Email, Note) resolves back to a Person, and every one of them carries a
+  parallel CRM identifier so the whole graph can be reconciled against Salesforce, HubSpot
+  or Dynamics.
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://mcp.salesloft.com/', status: 200, note: 'outputSchema per tool — the only machine-readable Salesloft object schemas published anywhere'}
+    - {url: 'https://developers.salesloft.com/docs/api/', status: 200}

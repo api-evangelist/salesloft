@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "d00116de-5ccb-4c7b-911e-3aae7428170f",
+      "name": "Successes",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/successes/](https://developer.salesloft.com/docs/api/successes/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8bcefb6-ffbc-46e0-a097-8c2d8ea29911",
+          "name": "Salesloft List Successes",
+          "request": {
+            "name": "Salesloft List Successes",
+            "description": {},
+            "url": {
+              "path": [
+                "successes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "person_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_paging_counts",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit_paging_counts",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "434d69e0-9325-4dd0-892c-9e65bae6615b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "successes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "person_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_paging_counts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit_paging_counts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b846acaf-9c2a-4946-8ae6-5b7892da5a0c",
+    "name": "Salesloft Account and People Redaction Successes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

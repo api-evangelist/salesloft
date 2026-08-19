@@ -1,0 +1,224 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Tasks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/tasks",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "current_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "time_interval_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_time_interval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "idempotency_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_counts_acted_on[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Tasks"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Task"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/tasks/265615502",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Task"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Task"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,150 @@
+generated: '2026-08-13'
+method: searched
+description: >-
+  Results of probing the /.well-known/ discovery surface on every Salesloft host
+  named in apis.yml (baseURL), the OpenAPI servers[], and the docs/console hosts.
+  Status is the HTTP code observed at fetch time. Only responses that returned a
+  real, correctly typed document were saved verbatim. accounts.salesloft.com is an
+  SPA that answers 200 with a text/html shell for ANY unknown /.well-known/* path,
+  so every HTML 200 on that host is recorded as present-but-not-a-real-document and
+  is NOT counted as a hit; the two JSON documents it serves (OIDC discovery and the
+  RFC 8414 authorization-server metadata, byte-identical) are real.
+  api.salesloft.com requires a bearer token on every path including /.well-known/*,
+  so the whole discovery surface there is auth-gated (401), not absent.
+hosts:
+  - host: https://accounts.salesloft.com
+    role: OAuth 2.0 / OIDC authorization server for the Salesloft platform
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        type: application/json
+        file: salesloft-accounts-openid-configuration.json
+        note: >-
+          OIDC discovery. issuer https://accounts.salesloft.com; authorize/token/userinfo
+          under /oidc/; jwks at /oidc/discovery/keys; scopes_supported [system:all,
+          external_emails:create, openid]; RS256 id tokens.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: application/json
+        file: salesloft-accounts-oauth-authorization-server.json
+        note: RFC 8414 metadata; byte-identical to the openid-configuration document on this host.
+      - path: /.well-known/security.txt
+        status: 200
+        type: text/html
+        real_document: false
+        note: SPA catch-all HTML shell, not an RFC 9116 document. Recorded as a miss.
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        type: text/html
+        real_document: false
+        note: SPA catch-all HTML shell. Recorded as a miss.
+      - path: /.well-known/api-catalog
+        status: 200
+        type: text/html
+        real_document: false
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        type: text/html
+        real_document: false
+      - path: /.well-known/agent-card.json
+        status: 200
+        type: text/html
+        real_document: false
+        note: HTML shell, not an A2A AgentCard. No agent card exists on this host.
+      - path: /.well-known/agent.json
+        status: 200
+        type: text/html
+        real_document: false
+  - host: https://mcp.salesloft.com
+    role: Salesloft remote MCP server (OAuth 2.1 protected resource)
+    documents:
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        type: application/json
+        file: salesloft-mcp-oauth-protected-resource.json
+        note: >-
+          RFC 9728. resource https://mcp.salesloft.com, authorization_servers
+          [https://mcp.salesloft.com], bearer_methods_supported [header]. Advertised in the
+          WWW-Authenticate header of the 401 returned by POST https://mcp.salesloft.com/mcp.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: application/json
+        file: salesloft-mcp-oauth-authorization-server.json
+        note: >-
+          RFC 8414 + dynamic client registration (RFC 7591) at
+          https://accounts.salesloft.com/oauth/client/register. authorization_code +
+          refresh_token, PKCE S256. scopes_supported [accounts:read, conversations:read,
+          opportunities:read, people:read, team:read, claudeai].
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://api.salesloft.com
+    role: Salesloft Platform REST API v2
+    gated: true
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/oauth-protected-resource
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+    note: >-
+      Every path on this host returns {"error":"No Bearer Token attached to request,
+      please see documentation at developers.salesloft.com"}. Auth-gated, not absent.
+  - host: https://www.salesloft.com
+    role: marketing site
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://developers.salesloft.com
+    role: developer documentation (Docusaurus 3.7)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /llms-full.txt
+        status: 404
+summary:
+  hosts_probed: 5
+  real_documents: 4
+  security_txt: false
+  openid_configuration: true
+  oauth_authorization_server: true
+  oauth_protected_resource: true
+  api_catalog: false
+  agent_card: false
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://accounts.salesloft.com/.well-known/openid-configuration', status: 200}
+    - {url: 'https://accounts.salesloft.com/.well-known/oauth-authorization-server', status: 200}
+    - {url: 'https://mcp.salesloft.com/.well-known/oauth-protected-resource', status: 200}
+    - {url: 'https://mcp.salesloft.com/.well-known/oauth-authorization-server', status: 200}
+    - {url: 'https://api.salesloft.com/.well-known/security.txt', status: 401}
+    - {url: 'https://www.salesloft.com/.well-known/security.txt', status: 404}

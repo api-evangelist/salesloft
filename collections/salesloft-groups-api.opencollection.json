@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Groups API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/groups",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Groups"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Group"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Group"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Group"
+        },
+        {
+          "info": {
+            "name": "Salesloft Deletes a Group by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Deletes a Group by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,122 @@
+{
+  "item": [
+    {
+      "id": "0d00e347-4610-416f-9fe0-3a710819218d",
+      "name": "Conversations Calls",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/conversations-calls/](https://developer.salesloft.com/docs/api/conversations-calls/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73f974e0-219d-4132-bae9-7c63f491bc0a",
+          "name": "Salesloft Create a New Call",
+          "request": {
+            "name": "Salesloft Create a New Call",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                "calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f457f39-653b-445c-9b3e-d00d875b1aa7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": \"string\",\n  \"from\": \"string\",\n  \"duration\": 1,\n  \"call_created_at\": \"string\",\n  \"user_guid\": \"string\",\n  \"direction\": \"string\",\n  \"recording\": {\n    \"url\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4664802b-1684-466b-86fd-63585e1c1e6b",
+    "name": "Salesloft Account and People Redaction Conversations Calls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  Derived by aligning the 15 tools published anonymously at https://mcp.salesloft.com/
+  (saved verbatim to mcp/salesloft-mcp-tools.json) with the REST operations in openapi/,
+  which is split one-per-resource from openapi/_original/salesloft-openapi.yml (176
+  operations across 82 documents).
+purpose: >-
+  Bind every Salesloft MCP tool to the REST operation that backs it, so the agent-facing
+  tool is a first-class discovery unit with a real input contract instead of a guessed one.
+  Salesloft is an unusually clean case: the MCP surface is a deliberate READ-ONLY subset of
+  the REST surface — 13 of 15 tools map 1:1 onto a documented v2 operation, and the divergence
+  runs almost entirely the other way (the REST API exposes ~163 operations the MCP server does
+  not, including every write path).
+
+surfaces:
+  rest_openapi: openapi/            # 82 documents, 176 operations; source in openapi/_original/
+  rest_base: https://api.salesloft.com/v2
+  mcp: https://mcp.salesloft.com/mcp
+  mcp_manifest: https://mcp.salesloft.com/         # 200 anonymous — inputSchema AND outputSchema per tool
+  graphql: null                                     # Salesloft publishes no GraphQL surface
+  notes: >-
+    tools/list on the JSON-RPC endpoint is OAuth-gated (401), but the server root publishes the
+    full manifest unauthenticated, so every inputSchema in this crosswalk is the REAL published
+    schema, not an inference. The OpenAPI in openapi/ is Postman-derived and carries no
+    operationIds, so REST operations are identified here by METHOD + path, which is what the
+    spec actually contains — none of these identifiers is invented.
+
+crosswalk:
+  - tool: current_user
+    category: identity
+    rest: ['GET /me']
+    rest_file: openapi/salesloft-me-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: current_team
+    category: identity
+    rest: ['GET /team']
+    rest_file: openapi/salesloft-team-api-openapi.yml
+    binding: rest
+    confidence: high
+    note: >-
+      The tool's published outputSchema enumerates team.plan as group | professional | enterprise —
+      the only place Salesloft publishes its plan tier names in machine-readable form.
+  - tool: search_accounts
+    category: accounts
+    rest: ['GET /accounts']
+    rest_file: openapi/salesloft-accounts-api-openapi.yml
+    binding: rest
+    confidence: high
+    note: Tool inputSchema mirrors the v2 list filters (crm_id, owner_crm_id, account_tier_id, tag_id, locales, page, per_page, sort_by, sort_direction, include_paging_counts).
+  - tool: account_by_id
+    category: accounts
+    rest: ['GET /accounts/{id}']
+    rest_file: openapi/salesloft-accounts-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: search_people
+    category: people
+    rest: ['GET /people']
+    rest_file: openapi/salesloft-people-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: person_by_id
+    category: people
+    rest: ['GET /people/{id}']
+    rest_file: openapi/salesloft-people-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: search_users
+    category: team
+    rest: ['GET /users']
+    rest_file: openapi/salesloft-users-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: user_by_id
+    category: team
+    rest: ['GET /users/{id}']
+    rest_file: openapi/salesloft-users-api-openapi.yml
+    binding: rest
+    confidence: high
+    note: Tool accepts either the numeric id or the user GUID; the REST path parameter is the numeric id.
+  - tool: search_opportunities
+    category: pipeline
+    rest: ['GET /opportunities']
+    rest_file: openapi/salesloft-opportunities-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: opportunity_by_id
+    category: pipeline
+    rest: ['GET /opportunities/{id}']
+    rest_file: openapi/salesloft-opportunities-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: search_conversations
+    category: conversations
+    rest: ['GET /conversations']
+    rest_file: openapi/salesloft-conversations-api-openapi.yml
+    binding: rest
+    confidence: high
+  - tool: conversation_by_id
+    category: conversations
+    rest: ['GET /conversations/{id}', 'GET /conversations/{id}/extensive']
+    rest_file: openapi/salesloft-conversations-api-openapi.yml
+    binding: rest
+    confidence: medium
+    note: >-
+      The tool returns AI summary, extracted fields and key moments, which the v2 API splits between
+      the conversation detail and the "extensive" variant; exact routing is server-side. The
+      spec captures the extensive path with a literal example id
+      (/conversations/71d91aec-80bc-463b-b072-475aea744805/extensive) rather than a {id} template,
+      a defect inherited from the Postman source.
+  - tool: conversation_recording_by_id
+    category: conversations
+    rest: ['GET /conversations/{id}/recording']
+    rest_file: openapi/salesloft-conversations-api-openapi.yml
+    binding: rest
+    confidence: high
+
+mcp_only:
+  - tool: report_missing_functionality
+    reason: >-
+      Product-telemetry tool with no public REST counterpart. Writes a capability-gap report into
+      Salesloft's own feedback channel so the vendor can see what agents asked for and could not do.
+  - tool: submit_feedback
+    reason: >-
+      Product-telemetry tool with no public REST counterpart. Records a user's explicit reaction to
+      a tool result (rating, feedback_text, tool_name, additional_context).
+
+rest_only:
+  summary: >-
+    163 of the 176 REST operations have no MCP tool. The divergence is systematic rather than
+    incidental: the MCP server is read-only, so every create/update/delete path in v2 is REST-only,
+    and whole product areas are absent from the tool surface.
+  groups:
+    - {capability: writes to any resource, rest: 'all POST/PUT/DELETE operations (accounts, people, notes, tasks, imports, bulk_jobs, cadence_memberships, signals, webhook_subscriptions, ...)', reason: 'MCP server is read-only by design; every tool carries readOnlyHint true'}
+    - {capability: cadences and steps, rest: 'GET /cadences, GET /cadences/{id}, GET /steps, GET /steps/{id}, GET /actions, GET /actions/{id}, GET /cadence_memberships', reason: 'no cadence execution tool is exposed'}
+    - {capability: emails and templates, rest: 'GET /activities/emails, GET /activities/emails/{id}, /email_templates, /team_templates, /pending_emails, /external_emails, /mime_email_payloads', reason: 'email_contents is a privileged scope; not in the MCP scope set'}
+    - {capability: calls and call data, rest: 'GET /activities/calls, /call_data_records, /call_dispositions, /call_sentiments, /call_instructions, /caller_ids, /phone_number_assignments', reason: 'dialer surface has no tool; conversation tools cover recorded meetings only'}
+    - {capability: tasks and meetings, rest: '/tasks, /meetings, /calendar_events, /reschedule_links, /bulk_reschedule_tasks', reason: 'no tool'}
+    - {capability: CRM sync and mapping, rest: '/crm_activities, /crm_activity_fields, /crm_users, /crm_account_team_members, /external_id_mapping, /external_id_configuration', reason: 'no tool'}
+    - {capability: Rhythm signals and plays, rest: 'POST /signals, /signal_registrations, /play_registrations, /live_feed_items', reason: 'write surface; no tool'}
+    - {capability: bulk and import, rest: '/bulk_jobs, /bulk_jobs/{id}/job_data, /bulk_jobs/{id}/results, /imports, /account_upserts, /person_upserts, /cadence_imports, /cadence_exports', reason: 'no tool'}
+    - {capability: data governance, rest: '/data_control/account_redaction, /data_control/account_and_people_redaction, /people/soft_deletion, right-to-be-forgotten', reason: 'data_control is a privileged scope; not in the MCP scope set'}
+    - {capability: webhooks, rest: '/webhook_subscriptions (all methods)', reason: 'event subscription is not an agent-callable surface'}
+    - {capability: taxonomy and settings, rest: '/account_stages, /account_tiers, /person_stages, /opportunity_stages, /custom_fields, /custom_roles, /groups, /tags, /settings, /profiles, /recording_settings, /saved_list_views, /counts, /successes, /notes, /activity_histories, /transcriptions, /searches, /requests, /ongoing_actions, /email_missing_tags, /live_website_tracking_parameters', reason: 'no tool'}
+
+coverage:
+  mcp_tools_published: 15
+  mcp_tools_bound_to_rest: 13
+  mcp_only_tools: 2
+  rest_operations_total: 176
+  rest_operations_with_a_tool: 13
+  rest_operations_without_a_tool: 163
+  rest_coverage_pct: 7.4
+  mcp_binding_pct: 86.7
+  graphql_only: 0
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://mcp.salesloft.com/', status: 200}
+    - {url: 'https://mcp.salesloft.com/mcp', status: 401}

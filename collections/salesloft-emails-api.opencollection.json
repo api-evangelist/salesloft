@@ -1,0 +1,214 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Emails API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities/emails",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bounced",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crm_activity_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "action_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": " ",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "one_off",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scoped_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email_addresses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "personalization",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sent_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email_template_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_replies",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_clicks",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_views",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Emails"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activities/emails/:id",
+            "params": [
+              {
+                "name": "scoped_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Email"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "84f80e43-8393-41a9-bd52-914dfef46b47",
+      "name": "Searches",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/searches/](https://developer.salesloft.com/docs/api/searches/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4bfd58ab-fcc1-48a8-991a-7b94df9f1b29",
+          "name": "Salesloft List Meeting Settings",
+          "request": {
+            "name": "Salesloft List Meeting Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "meetings",
+                "settings",
+                "searches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_guids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "calendar_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_paging_counts",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit_paging_counts",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "id": "395b2424-844a-4ad1-8e3d-214900d372e3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meetings",
+                    "settings",
+                    "searches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_guids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "calendar_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_paging_counts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit_paging_counts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5a68bf75-ba3c-4f3f-8988-1bde3c0bde60",
+    "name": "Salesloft Account and People Redaction Searches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

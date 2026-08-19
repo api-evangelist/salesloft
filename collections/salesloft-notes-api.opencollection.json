@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Notes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/notes",
+            "params": [
+              {
+                "name": "associated_with_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "associated_with_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Notes"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/notes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Note"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Note"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Note"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/notes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Note"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

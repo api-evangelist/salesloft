@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Activity Histories API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activity Histories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Past Activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/activity_histories",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "occurred_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pinned",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Past Activities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

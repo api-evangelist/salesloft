@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "2887c864-a8ac-433a-a12c-57a883f58af9",
+      "name": "Account Upserts",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/account-upserts/](https://developer.salesloft.com/docs/api/account-upserts/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06fd2de2-aabd-4f4f-83ab-9b8157cb08bb",
+          "name": "Salesloft Upsert an Account",
+          "request": {
+            "name": "Salesloft Upsert an Account",
+            "description": {},
+            "url": {
+              "path": [
+                "account_upserts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfa56aee-3f4e-437b-ad45-99e45abbad36",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account_upserts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"domain\": \"string\",\n  \"conversational_name\": \"string\",\n  \"description\": \"string\",\n  \"phone\": \"string\",\n  \"website\": \"string\",\n  \"linkedin_url\": \"string\",\n  \"twitter_handle\": \"string\",\n  \"street\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"postal_code\": \"string\",\n  \"country\": \"string\",\n  \"locale\": \"string\",\n  \"industry\": \"string\",\n  \"company_type\": \"string\",\n  \"founded\": \"string\",\n  \"revenue_range\": \"string\",\n  \"size\": \"string\",\n  \"do_not_contact\": \"string\",\n  \"custom_fields\": {},\n  \"tags\": \"string\",\n  \"owner_id\": \"string\",\n  \"company_stage_id\": \"string\",\n  \"account_tier_id\": \"string\",\n  \"crm_id_type\": \"string\",\n  \"crm_id\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bbab086d-25a1-4840-a49e-75a1771ec151",
+    "name": "Salesloft Account and People Redaction Account Upserts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

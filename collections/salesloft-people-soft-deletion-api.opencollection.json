@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction People Soft Deletion API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "People Soft Deletion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft Submit a People Soft Deletion Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/data_control/people_soft_deletion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Submit a People Soft Deletion Request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

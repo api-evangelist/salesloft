@@ -1,0 +1,145 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.salesloft.com/docs/platform/api-basics/
+description: >-
+  How the Salesloft Platform API v2 behaves across every operation — the cross-cutting
+  request/response semantics OpenAPI does not express. Transcribed from the provider's
+  API Basics pages (request/response format, filtering-paging-sorting, rate limits,
+  authentication) and the Rhythm Signals reference, and cross-checked against openapi/.
+
+base_url: https://api.salesloft.com/v2
+api_style: REST over HTTPS, JSON requests and responses (form-encoded accepted but discouraged)
+content_type: 'application/json — set Content-Type explicitly; form-encoded requests "may experience quirks that come from limitations in this request format".'
+
+authentication:
+  scheme: 'Authorization: Bearer <token>'
+  token_types: [OAuth 2.0 access token (authorization_code or client_credentials), API key ("ak" + 64 hex)]
+  token_lifetime_seconds: 7200
+  docs: https://developers.salesloft.com/docs/platform/api-basics/oauth-authentication/
+  detail: authentication/salesloft-authentication.yml
+
+response_envelope:
+  supported: true
+  fields:
+    data: 'The key that all returned data lives under. Present on every response that has a body.'
+    metadata: 'Information about the request as processed — for list requests this echoes the filtering, paging and sorting parameters actually applied.'
+    error: 'Singular error message. Always present on 403 and 404.'
+    errors: 'Object of field -> array-of-messages pairs. Always present on 422, so many validation errors return in one response.'
+  example_422: '{"errors": {"email_address": ["is already taken"], "first_name": ["is required"]}}'
+  docs: https://developers.salesloft.com/docs/platform/api-basics/request-response-format/
+
+idempotency:
+  supported: true
+  scope: endpoint-scoped
+  mechanism: 'idempotency_key request-body field (UUID4)'
+  applies_to: 'POST /v2/signals — the Rhythm Signals endpoint. Required, alongside urgency and occurred_at.'
+  not_supported_on: >-
+    There is no platform-wide Idempotency-Key request header. Every other write endpoint
+    (POST /accounts, POST /people, POST /notes, POST /tasks, POST /cadence_memberships,
+    POST /bulk_jobs, ...) is documented without any idempotency contract, so a retried
+    create on those paths can duplicate a record.
+  key_format: UUID4
+  docs: https://developers.salesloft.com/docs/platform/rhythm-resources/sending-signals/
+  honest_note: >-
+    Recorded as supported because the provider documents a real, required idempotency key on a
+    real endpoint — but the coverage is one endpoint out of ~60 write operations, not a
+    platform guarantee. Do not read this as Stripe-style idempotency.
+
+pagination:
+  style: offset
+  request_params:
+    per_page: 'Records per page. Generally defaults to 25, inclusive range [1, 100]; the default and range are documented per endpoint.'
+    page: 'Page index. Minimum 1 (not 0), no maximum — but see rate-limit cost escalation below.'
+  response_fields:
+    per_page: value of per_page as applied
+    current_page: value of page as applied
+    next_page: next valid page, or null
+    prev_page: previous valid page, or null
+    total_pages: count of total pages
+    total_count: count of total records for this request
+  correction_behavior: 'Out-of-range per_page or invalid page values are silently corrected to defaults and the corrected values are echoed in metadata.'
+  empty_page_behavior: 'Requesting a page past the end returns an empty result set, not an error.'
+  cost_warning: >-
+    Deep paging is priced, not blocked. Pages 101-150 cost 3 points, 151-250 cost 8,
+    251-500 cost 10, and 501+ cost 30 — against a 600-point-per-minute budget. Salesloft
+    directs high-volume consumers to a cursor poller over updated_at instead.
+  recommended_alternative: https://developers.salesloft.com/docs/platform/guides/building-an-efficient-cursor-poller/
+  docs: https://developers.salesloft.com/docs/platform/api-basics/filtering-paging-sorting/
+
+sorting:
+  request_params: [sort_by, sort_direction]
+  directions: [ASC, DESC]
+  null_ordering: 'ASC sorts nulls first; DESC sorts nulls last.'
+  echoed_in_metadata: true
+  invalid_behavior: '422 with an error indicating the sort is invalid.'
+
+filtering:
+  style: per-endpoint query parameters
+  echoed_in_metadata: true
+  unknown_filter_behavior: 'Invalid filter NAMES are silently ignored (they are simply not valid query parameters).'
+  invalid_value_behavior: '422 with a descriptive errors field.'
+  partial_matching:
+    supported: true
+    mechanism: '?<field>[_starts_with]=<value>'
+    constraints: 'Case-insensitive prefix match; requires at least 3 leading characters. Only on filters documented as "Supports partial matching".'
+    example: '?industry[_starts_with]=Health'
+
+field_expansion:
+  supported: false
+  note: 'Salesloft documents no expand[] / sparse-fieldset mechanism. Related records are returned as embedded id references.'
+
+metadata_field:
+  supported: false
+  note: >-
+    "metadata" at Salesloft is the response envelope key describing how the request was
+    processed — NOT a user-writable key/value bag on objects. Custom data is modelled with
+    Custom Fields (/v2/custom_fields) instead.
+
+rate_limiting:
+  model: cost-based
+  budget: 600 cost per minute
+  granularity: 'Per TEAM, not per integration. Multiple integrations on one team share and can exhaust one budget.'
+  default_cost: 1 per request
+  response_headers:
+    x-ratelimit-endpoint-cost: cost of the request just executed
+    x-ratelimit-remaining-minute: remaining budget for the current minute
+  status_on_exhaustion: 429
+  adjustable: 'Salesloft can raise the limit customer-wide or per team; contact integrations@salesloft.com.'
+  docs: https://developers.salesloft.com/docs/platform/api-basics/rate-limits/
+  detail: rate-limits/salesloft-rate-limits.yml
+
+request_tracing:
+  request_id_header: null
+  note: >-
+    No request-id header is documented for the REST API. Salesloft does publish an API Logs
+    surface for after-the-fact inspection of an integration's calls
+    (https://developers.salesloft.com/docs/platform/guides/api-logs/).
+    The MCP host at mcp.salesloft.com does return x-request-id on its responses.
+
+versioning:
+  scheme: uri-path
+  current: v2
+  base: https://api.salesloft.com/v2
+  legacy: 'A v1 surface is still documented at /docs/api/1.0/ (cadences, calls, companies, custom fields, me, people, person cadence memberships, successes, tags).'
+  notes: >-
+    No version header, no date-pinned versions, and no published deprecation or sunset policy —
+    see lifecycle/salesloft-lifecycle.yml.
+
+timezones:
+  docs: https://developers.salesloft.com/docs/platform/api-basics/timezones/
+  format: ISO 8601 date-time
+
+related:
+  errors: errors/salesloft-problem-types.yml
+  lifecycle: lifecycle/salesloft-lifecycle.yml
+  authentication: authentication/salesloft-authentication.yml
+  scopes: scopes/salesloft-scopes.yml
+  rate_limits: rate-limits/salesloft-rate-limits.yml
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/request-response-format/', status: 200}
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/filtering-paging-sorting/', status: 200}
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/rate-limits/', status: 200}
+    - {url: 'https://developers.salesloft.com/docs/platform/rhythm-resources/sending-signals/', status: 200}

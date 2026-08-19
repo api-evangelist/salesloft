@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Play Registrations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Play Registrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Play Registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays"
+          },
+          "docs": "Salesloft List Play Registrations"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Create a Play Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch a Play Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Play Registration"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Play Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/integrations/signals/registrations/plays/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Play Registration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

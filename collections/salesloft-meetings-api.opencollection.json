@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Meetings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meetings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Meetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/meetings",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "event_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "i_cal_uids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_meetings_settings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_guids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "show_deleted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "booked_by_user_uuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "no_show",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "meeting_type_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Meetings"
+        },
+        {
+          "info": {
+            "name": "Salesloft Update a Meeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{{salesloft_api_base_url}}/meetings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Salesloft Update a Meeting"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

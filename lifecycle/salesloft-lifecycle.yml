@@ -1,0 +1,76 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.salesloft.com/docs/platform/
+description: >-
+  Versioning, deprecation, availability and status posture for the Salesloft Platform API.
+  Salesloft runs a Statuspage and ships monthly, dated release notes, but publishes no API
+  deprecation policy, no Sunset/Deprecation header support, and no public SLA — the absences
+  below were checked, not assumed.
+
+versioning:
+  scheme: uri-path
+  current: v2
+  base: https://api.salesloft.com/v2
+  previous:
+    - {version: v1, status: documented, docs: 'https://developers.salesloft.com/docs/api/1.0/', note: 'A 1.0 reference is still published (cadences, calls, companies, custom fields, me, people, person cadence memberships, successes, tags). No end-of-life date is stated for it.'}
+  header_versioning: false
+  date_versioning: false
+  docs: https://developers.salesloft.com/docs/platform/intro/
+
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  notice_period: null
+  note: >-
+    No API deprecation or sunset policy is published anywhere on developers.salesloft.com
+    (the full 88-page docs sitemap was fetched and searched). Deprecations are announced in
+    prose in the monthly release notes instead — e.g. the August 2026 notes announce that the
+    Salesforce Connected App is replaced by the External Client Application with a hard
+    migration date of 2026-09-02, and that the transcript-retrieval tool was removed from the
+    MCP server. That is a communication channel, not a policy.
+  observed_deprecations:
+    - {what: 'MCP transcript-retrieval tool', action: removed, announced: '2026-08-04', source: 'https://champions.salesloft.com/product-updates', replacement: 'conversation_by_id (AI summary, extracted fields, key moments)'}
+    - {what: 'Salesforce Connected App', action: replaced, deadline: '2026-09-02', source: 'https://champions.salesloft.com/product-updates', replacement: 'Salesloft External Client Application (ECA) on the Salesforce AppExchange'}
+
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in openapi/ carries deprecated: true. The harvested spec is Postman-derived and
+  would not have carried the flag even if Salesloft set one, so this is a weak negative.
+
+status_page:
+  url: https://status.salesloft.com/
+  provider: Atlassian Statuspage
+  machine_readable:
+    - {url: 'https://status.salesloft.com/api/v2/status.json', status: 200}
+    - {url: 'https://status.salesloft.com/api/v2/summary.json', status: 200}
+  observed: '2026-08-13 — {"indicator":"none","description":"All Systems Operational"}'
+  referenced_by: 'https://www.salesloft.com/security ("Salesloft publishes its operating status and historical uptime statistics on the Salesloft Status Page")'
+
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No public SLA or uptime commitment. The Master Subscription Agreement
+    (https://www.salesloft.com/legal/msa) is the contractual surface; historical uptime
+    statistics are published on the status page but no target is stated publicly.
+
+release_notes:
+  url: https://champions.salesloft.com/product-updates
+  cadence: monthly
+  detail: changelog/salesloft-changelog.yml
+
+support:
+  help_center: https://help.salesloft.com/
+  community: https://champions.salesloft.com/
+  integrations_contact: integrations@salesloft.com
+  note: 'integrations@salesloft.com is the published contact for rate-limit increases and integration issues.'
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://status.salesloft.com/api/v2/status.json', status: 200}
+    - {url: 'https://developers.salesloft.com/sitemap.xml', status: 200, note: '88 non-reference pages enumerated; no deprecation-policy page exists'}
+    - {url: 'https://champions.salesloft.com/product-updates', status: 200}
+    - {url: 'https://www.salesloft.com/roadmap', status: 404}

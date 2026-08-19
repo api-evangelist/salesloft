@@ -1,0 +1,122 @@
+{
+  "item": [
+    {
+      "id": "c46843ad-6aa5-43e6-b06d-da78a667aa51",
+      "name": "Account Redaction",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/account-redaction/](https://developer.salesloft.com/docs/api/account-redaction/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3717a933-efb9-43be-87cd-2e6dafdfd2c0",
+          "name": "Salesloft Execute an Account Redaction Workflow",
+          "request": {
+            "name": "Salesloft Execute an Account Redaction Workflow",
+            "description": {},
+            "url": {
+              "path": [
+                "data_control",
+                "account_redaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24901903-475a-49df-92ff-f52a435ab7bc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_control",
+                    "account_redaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team_id\": 0,\n  \"schedule\": {},\n  \"dry_run\": true,\n  \"account_id\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e38dd78b-6e60-4130-8675-18f4724b834d",
+    "name": "Salesloft Account and People Redaction Account Redaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

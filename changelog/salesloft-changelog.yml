@@ -1,0 +1,72 @@
+generated: '2026-08-13'
+method: searched
+source: https://champions.salesloft.com/product-updates
+description: >-
+  Salesloft publishes dated, monthly release notes on its customer community (Champions),
+  not on the developer portal — developers.salesloft.com has no changelog page anywhere in
+  its 88-page sitemap. The notes are product-wide (Salesloft, Copilot, Clari, Groove, Drift)
+  and API/agent changes are announced inside them rather than in a separate API changelog.
+  Recent window only; the live page is the source of truth.
+url: https://champions.salesloft.com/product-updates
+cadence: monthly
+scheme: calendar
+current_version: '2026-08'
+api_specific_changelog: false
+api_specific_changelog_note: >-
+  This is the material gap for an integrator: an API consumer must read a product-wide
+  marketing-adjacent release note to learn that an MCP tool was removed or that an auth
+  integration has a hard migration deadline. There is no per-version API changelog, no RSS
+  feed dedicated to API changes, and no machine-readable release feed.
+
+entries:
+  - version: '2026-08'
+    date: '2026-08-04'
+    released: '2026-08-11'
+    url: https://champions.salesloft.com/product-updates/august-2026-release-notes-605
+    breaking: true
+    highlights:
+      - {area: agent, change: 'Salesloft MCP Server available as a custom connector for ChatGPT (requires ChatGPT Business/Enterprise and a Salesloft Admin enabling Settings > Artificial Intelligence > Salesloft MCP).', kind: addition}
+      - {area: agent, change: 'Transcript-retrieval tool REMOVED from the Salesloft MCP Server for Claude — the protocol could not return raw transcript content. Conversation intelligence remains via the conversation details tool (AI summary, extracted fields, key moments).', kind: removal}
+      - {area: crm, change: 'Salesloft External Client Application (ECA) on the Salesforce AppExchange replaces the legacy Salesforce Connected App. REQUIRED migration for all Salesforce customers by 2026-09-02; every user re-authenticates once after admin cutover.', kind: breaking}
+      - {area: crm, change: 'Automatic account-to-Salesforce linking by domain/website, plus detection and reconciliation of CRM merges (new "CRM Merge" sync log type).', kind: addition}
+      - {area: crm, change: 'Self-service Salesforce custom-object controls: field mapping, activity logging, group-based visibility, 10-object cap.', kind: addition}
+      - {area: workflow, change: 'Rhythm bulk delete/cancel of overdue tasks, run as a background job with a completion email.', kind: addition}
+  - version: '2026-07'
+    date: '2026-07'
+    url: https://champions.salesloft.com/product-updates/july-2026-release-notes-588
+  - version: '2026-06'
+    date: '2026-06'
+    url: https://champions.salesloft.com/product-updates/june-2026-release-notes-580
+  - version: '2026-05'
+    date: '2026-05'
+    url: https://champions.salesloft.com/product-updates/may-2026-release-notes-574
+  - version: '2026-04'
+    date: '2026-04'
+    url: https://champions.salesloft.com/product-updates/april-2026-release-notes-566
+    note: 'Salesloft MCP Server initial launch month (per the newsroom announcement).'
+  - version: '2026-03'
+    date: '2026-03'
+    url: https://champions.salesloft.com/product-updates/march-2026-release-notes-552
+  - version: '2026-02'
+    date: '2026-02-10'
+    url: https://champions.salesloft.com/product-updates/february-2026-release-notes-546
+  - version: '2026-01'
+    date: '2026-01'
+    url: https://champions.salesloft.com/product-updates/january-2026-release-notes-524
+  - version: '2025-12'
+    date: '2025-12'
+    url: https://champions.salesloft.com/product-updates/december-2025-release-notes-507
+  - version: '2025-11'
+    date: '2025-11'
+    url: https://champions.salesloft.com/product-updates/november-2025-release-notes-484
+  - version: '2025-10'
+    date: '2025-10'
+    url: https://champions.salesloft.com/product-updates/october-2025-release-notes-466
+
+archive_span: '2024-08 through 2026-08, monthly, unbroken'
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://champions.salesloft.com/product-updates', status: 200}
+    - {url: 'https://developers.salesloft.com/sitemap.xml', status: 200, note: 'no changelog/release-notes page on the developer portal'}

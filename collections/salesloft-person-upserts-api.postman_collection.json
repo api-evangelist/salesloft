@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "befc4707-bd7d-4945-9d0b-931d7f448f13",
+      "name": "Person Upserts",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/person-upserts/](https://developer.salesloft.com/docs/api/person-upserts/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d16b16b-9f98-4255-93d6-2908ee093cee",
+          "name": "Salesloft Person Upsert",
+          "request": {
+            "name": "Salesloft Person Upsert",
+            "description": {},
+            "url": {
+              "path": [
+                "person_upserts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c006b3e5-4daf-4475-a313-1858cf51e3ce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "person_upserts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"upsert_key\": \"string\",\n  \"id\": 0,\n  \"email_address\": \"string\",\n  \"secondary_email_adress\": \"string\",\n  \"personal_email_address\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\",\n  \"phone_extension\": \"string\",\n  \"mobile_phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"linkedin_url\": \"string\",\n  \"title\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country\": \"string\",\n  \"work_city\": \"string\",\n  \"work_state\": \"string\",\n  \"work_country\": \"string\",\n  \"person-company_name\": \"string\",\n  \"person_company_website\": \"string\",\n  \"person_company_industry\": \"string\",\n  \"job_seniority\": \"string\",\n  \"do_not_contact\": false,\n  \"eu_resident\": false,\n  \"locale\": \"string\",\n  \"personal_website\": \"string\",\n  \"twitter_handle\": \"string\",\n  \"tags\": [\n    \"string\"\n  ],\n  \"contact_restrictions\": [\n    \"string\"\n  ],\n  \"custom_fields\": {},\n  \"account_id\": 0,\n  \"owner_id\": 0,\n  \"import_id\": 0,\n  \"person_stage_id\": 0,\n  \"crm_id_type\": \"string\",\n  \"crm_d\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "baaf830b-7b40-41d9-96c0-2c46a840c3a1",
+    "name": "Salesloft Account and People Redaction Person Upserts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

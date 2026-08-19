@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "4d0f5d74-efb2-4fb4-89cc-7a1c81cdc585",
+      "name": "Profiles",
+      "description": {
+        "content": "[https://developers.salesloft.com/docs/api/profiles/](https://developers.salesloft.com/docs/api/profiles/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3452466-3cf0-45cc-bfbe-c632757fe9d0",
+          "name": "Salesloft Fetch Current User's Profile",
+          "request": {
+            "name": "Salesloft Fetch Current User's Profile",
+            "description": {},
+            "url": {
+              "path": [
+                "profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae88c783-beae-4924-9fde-7103404c38fd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ebb1abab-127d-4066-86b5-c04d3493ab49",
+    "name": "Salesloft Account and People Redaction Profiles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

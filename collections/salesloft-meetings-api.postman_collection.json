@@ -1,0 +1,477 @@
+{
+  "item": [
+    {
+      "id": "1a7671f8-ed7a-44ca-ba2c-14fded598386",
+      "name": "Meetings",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/meetings/](https://developer.salesloft.com/docs/api/meetings/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddae22a0-faf9-4d4a-a781-da6d245c6e14",
+          "name": "Salesloft List Meetings",
+          "request": {
+            "name": "Salesloft List Meetings",
+            "description": {},
+            "url": {
+              "path": [
+                "meetings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "person_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "account_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "person_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "event_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "i_cal_uids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "task_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_meetings_settings",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_guids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "show_deleted",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "booked_by_user_uuid",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "no_show",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "meeting_type_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cadence_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_paging_counts",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit_paging_counts",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43a7f086-ca31-489e-b796-f09aeb5dc332",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meetings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "person_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "person_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "i_cal_uids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "task_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_meetings_settings",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_time[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_time[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_time[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_time[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_at[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_at[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_at[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created_at[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_guids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "show_deleted",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booked_by_user_uuid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "no_show",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "meeting_type_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cadence_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "step_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_paging_counts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit_paging_counts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21665bde-9fe0-45d5-a2be-92925c323e5b",
+          "name": "Salesloft Update a Meeting",
+          "request": {
+            "name": "Salesloft Update a Meeting",
+            "description": {},
+            "url": {
+              "path": [
+                "meetings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab5d4fb3-d02e-42aa-9aa7-fdd290e699cd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meetings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"no_show\": true,\n  \"status\": \"string\",\n  \"reschedule_status\": \"string\",\n  \"event_id\": \"string\",\n  \"i_cal_uid\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3a9c73e1-bb28-4eee-9d73-f83b673dfdcf",
+    "name": "Salesloft Account and People Redaction Meetings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

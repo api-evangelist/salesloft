@@ -1,0 +1,49 @@
+generated: '2026-08-13'
+method: generated
+source: >-
+  Generated from the Salesloft developer documentation (developers.salesloft.com), the
+  published MCP manifest at https://mcp.salesloft.com/, and the artifacts in this repo
+  (conventions/, errors/, scopes/, rate-limits/, authentication/). Every operation named in a
+  skill is a METHOD + path that exists verbatim in openapi/ — the harvested spec is
+  Postman-derived and carries no operationIds, so paths are the real identifiers available.
+description: >-
+  Packaged Agent Skills for the Salesloft Platform API v2 and the Salesloft MCP server.
+  One skill per marquee flow, each grounded in real operations plus the cross-cutting rules an
+  agent gets wrong first: the 600-cost-per-minute TEAM budget, the deep-paging surcharge, the
+  data/metadata/error/errors envelope, and the fact that idempotency exists on exactly one endpoint.
+
+skills:
+  - file: salesloft-authenticate-and-call.md
+    name: Authenticate against the Salesloft Platform API
+    api: openapi/salesloft-me-api-openapi.yml
+    operations: ['POST /oauth/token', 'GET /me', 'GET /team']
+  - file: salesloft-find-account-and-people.md
+    name: Find an account and the people on it
+    api: openapi/salesloft-accounts-api-openapi.yml
+    operations: ['GET /accounts', 'GET /accounts/{id}', 'GET /people', 'GET /people/{id}']
+  - file: salesloft-add-person-to-cadence.md
+    name: Add a person to a cadence
+    api: openapi/salesloft-cadence-memberships-api-openapi.yml
+    operations: ['GET /people', 'POST /people', 'GET /cadences', 'GET /cadences/{id}', 'POST /cadence_memberships', 'DELETE /cadence_memberships/{id}']
+  - file: salesloft-log-call-and-note.md
+    name: Log a call and attach a note
+    api: openapi/salesloft-calls-api-openapi.yml
+    operations: ['GET /call_dispositions', 'GET /call_sentiments', 'POST /activities/calls', 'GET /activities/calls/{id}', 'POST /notes']
+  - file: salesloft-poll-changes-with-a-cursor.md
+    name: Poll Salesloft for changes without burning the rate limit
+    api: openapi/salesloft-people-api-openapi.yml
+    operations: ['GET /people', 'GET /accounts', 'GET /activities', 'GET /activity_histories']
+  - file: salesloft-subscribe-to-webhooks.md
+    name: Subscribe to Salesloft webhooks and verify the signature
+    api: openapi/salesloft-webhook-subscriptions-api-openapi.yml
+    operations: ['POST /webhook_subscriptions', 'GET /webhook_subscriptions', 'GET /webhook_subscriptions/{id}', 'PUT /webhook_subscriptions/{id}', 'DELETE /webhook_subscriptions/{id}']
+  - file: salesloft-send-a-rhythm-signal.md
+    name: Send a Rhythm signal (the one idempotent write in the API)
+    api: openapi/salesloft-signals-api-openapi.yml
+    operations: ['POST /signals', 'GET /signal_registrations', 'POST /play_registrations']
+  - file: salesloft-read-revenue-data-via-mcp.md
+    name: Read Salesloft revenue data through the official MCP server
+    api: mcp/salesloft-mcp.yml
+    operations: [current_user, current_team, search_accounts, account_by_id, search_people, person_by_id, search_users, user_by_id, search_opportunities, opportunity_by_id, search_conversations, conversation_by_id, conversation_recording_by_id]
+
+skill_count: 8

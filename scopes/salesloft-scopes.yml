@@ -1,0 +1,140 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.salesloft.com/docs/platform/api-basics/scopes/
+docs: https://developers.salesloft.com/docs/platform/api-basics/scopes/
+description: >-
+  Salesloft's OAuth 2.0 scope surface. The scope list below is transcribed verbatim from
+  two provider-published pages: the Scopes reference, and the "list of all general available
+  scopes associated with your app after hitting select all" printed on the Client Credentials
+  page. Scopes are also enforced on API Keys — a key is created with an explicit scope set and
+  the Save button stays disabled until at least one scope is selected — so this is not an
+  OAuth-only concern at Salesloft.
+  derive-oauth-scopes.py produced nothing here: the Postman-derived OpenAPI in openapi/
+  declares its OAuth scheme as an http/"oauth2" scheme with no flows and no scopes map, so
+  the spec carries zero scope data. Everything in this file came from the docs.
+
+schemes:
+  - name: oauth2-authorization-code
+    type: oauth2
+    flow: authorizationCode
+    authorizationUrl: https://accounts.salesloft.com/oauth/authorize
+    tokenUrl: https://accounts.salesloft.com/oauth/token
+    token_lifetime_seconds: 7200
+    refresh: 'Refresh tokens are issued and rotate on every use; old refresh tokens are revoked.'
+    docs: https://developers.salesloft.com/docs/platform/api-basics/oauth-authentication/
+  - name: oauth2-client-credentials
+    type: oauth2
+    flow: clientCredentials
+    tokenUrl: https://accounts.salesloft.com/oauth/token
+    token_lifetime_seconds: 7200
+    refresh: 'No refresh token is issued; re-request a token every two hours.'
+    scope_delimiter: space
+    docs: https://developers.salesloft.com/docs/platform/api-basics/client-creds/
+  - name: oidc
+    type: openIdConnect
+    openIdConnectUrl: https://accounts.salesloft.com/.well-known/openid-configuration
+    scopes_supported: [system:all, 'external_emails:create', openid]
+    note: >-
+      The OIDC discovery document advertises a scope set entirely disjoint from the API scope
+      set below — it governs identity/SSO, not Platform API authorization.
+  - name: mcp
+    type: oauth2
+    flow: authorizationCode
+    tokenUrl: https://accounts.salesloft.com/oauth/token
+    metadata: https://mcp.salesloft.com/.well-known/oauth-authorization-server
+    scopes_supported: ['accounts:read', 'conversations:read', 'opportunities:read', 'people:read', 'team:read', claudeai]
+    note: >-
+      The remote MCP server advertises its own, much narrower scope set — five read scopes plus
+      a client-specific "claudeai" scope. This is the read-only agent projection of the API.
+
+policy:
+  least_privilege: >-
+    "When requesting scopes, it's essential to adhere to the principle of least privilege and
+    request only the necessary permissions." Privileged scopes "should be requested with extreme
+    caution and only when absolutely necessary."
+  partner_requirement: >-
+    OAuth is the required authentication method for partners; partner applications submitted
+    using API Keys will not be approved.
+  privileged_review: Privileged scopes grant elevated access to sensitive data and are gated at app-review time.
+
+scopes:
+  # --- general scopes, verbatim from the Client Credentials "select all" list ---
+  - {scope: 'accounts:read', description: 'Read account (company) data.', category: accounts, privileged: false}
+  - {scope: 'accounts:write', description: 'Create and update accounts.', category: accounts, privileged: false}
+  - {scope: 'accounts:delete', description: 'Delete accounts.', category: accounts, privileged: false}
+  - {scope: 'people:read', description: 'Read information about people in Salesloft.', category: people, privileged: false}
+  - {scope: 'people:write', description: 'Create and update people.', category: people, privileged: false}
+  - {scope: 'people:delete', description: 'Delete people.', category: people, privileged: false}
+  - {scope: 'opportunities:read', description: 'Read opportunities.', category: opportunities, privileged: false}
+  - {scope: 'opportunities:write', description: 'Create and update opportunities.', category: opportunities, privileged: false}
+  - {scope: 'opportunities:delete', description: 'Delete opportunities.', category: opportunities, privileged: false}
+  - {scope: 'crm:read', description: 'Read data related to CRM integrations.', category: crm, privileged: false}
+  - {scope: 'external_id:read', description: 'Read external id mappings.', category: crm, privileged: false}
+  - {scope: 'external_id:write', description: 'Write external id mappings.', category: crm, privileged: false}
+  - {scope: 'external_id:delete', description: 'Delete external id mappings.', category: crm, privileged: false}
+  - {scope: 'external_id_configuration:read', description: 'Read external id configuration.', category: crm, privileged: false}
+  - {scope: 'external_id_configuration:write', description: 'Write external id configuration.', category: crm, privileged: false}
+  - {scope: 'external_id_configuration:delete', description: 'Delete external id configuration.', category: crm, privileged: false}
+  - {scope: 'activities:read', description: 'View activity logs, including emails, calls, and other interactions.', category: activities, privileged: false}
+  - {scope: 'activities:write', description: 'Log activities.', category: activities, privileged: false}
+  - {scope: 'calls:read', description: 'Retrieve call logs and related information.', category: calls, privileged: false}
+  - {scope: 'calls:write', description: 'Create and update calls.', category: calls, privileged: false}
+  - {scope: 'conversations:read', description: 'Read recorded conversations.', category: conversations, privileged: false}
+  - {scope: 'conversations:write', description: 'Create conversations.', category: conversations, privileged: false}
+  - {scope: 'dialer_recordings:read', description: 'Read dialer recordings.', category: calls, privileged: false}
+  - {scope: 'emails:read', description: 'Read email data.', category: emails, privileged: false}
+  - {scope: 'emails:write', description: 'Write email data.', category: emails, privileged: false}
+  - {scope: 'meetings:read', description: 'Read meetings.', category: meetings, privileged: false}
+  - {scope: 'meetings:write', description: 'Create and update meetings.', category: meetings, privileged: false}
+  - {scope: 'notifications:write', description: 'Send notifications.', category: notifications, privileged: false}
+  - {scope: 'audit_reports:read', description: 'Read audit reports.', category: governance, privileged: false}
+  - {scope: 'audit_reports:write', description: 'Create audit reports.', category: governance, privileged: false}
+  - {scope: 'groups:write', description: 'Write groups.', category: team, privileged: false}
+  - {scope: 'team:read', description: 'Read data related to team members and their assignments.', category: team, privileged: false}
+  - {scope: 'team:write', description: 'Write team data.', category: team, privileged: false}
+  - {scope: 'team:delete', description: 'Delete team data.', category: team, privileged: false}
+  - {scope: 'cadences:read', description: 'Read data about cadences.', category: cadences, privileged: false}
+  - {scope: 'cadences:write', description: 'Create and update cadences.', category: cadences, privileged: false}
+  - {scope: 'cadences:delete', description: 'Delete cadences.', category: cadences, privileged: false}
+  - {scope: 'notes:read', description: 'Read notes.', category: notes, privileged: false}
+  - {scope: 'notes:write', description: 'Create and update notes.', category: notes, privileged: false}
+  - {scope: 'notes:delete', description: 'Delete notes.', category: notes, privileged: false}
+  - {scope: 'signals:write', description: 'Send Rhythm signals.', category: rhythm, privileged: false}
+  - {scope: 'signal_registrations:read', description: 'Read signal registrations.', category: rhythm, privileged: false}
+  - {scope: 'signal_registrations:delete', description: 'Delete signal registrations.', category: rhythm, privileged: false}
+  - {scope: 'tasks:read', description: 'Read tasks.', category: tasks, privileged: false}
+  - {scope: 'tasks:write', description: 'Create and update tasks.', category: tasks, privileged: false}
+  - {scope: 'tasks:delete', description: 'Delete tasks.', category: tasks, privileged: false}
+  - {scope: 'workflow:read', description: 'Read workflow data.', category: workflow, privileged: false}
+  - {scope: 'workflow:write', description: 'Write workflow data.', category: workflow, privileged: false}
+  - {scope: 'workflow:delete', description: 'Delete workflow data.', category: workflow, privileged: false}
+  # --- privileged scopes, verbatim from the Scopes reference ---
+  - {scope: 'email_contents:read', description: 'Read email bodies and subjects for Salesloft emails.', category: emails, privileged: true}
+  - {scope: 'crm_id_person:write', description: 'Write to the crm_id field of the Person object.', category: crm, privileged: true}
+  - {scope: 'crm_id_account:write', description: 'Write to the crm_id field of the Account object.', category: crm, privileged: true}
+  - {scope: 'data_control:read', description: 'Read data redaction requests.', category: governance, privileged: true}
+  - {scope: 'data_control:write', description: 'Write data redaction requests.', category: governance, privileged: true}
+  - {scope: 'external_emails:write', description: 'Write MIME emails for reply tracking processing.', category: emails, privileged: true}
+  # --- frontend integration scopes, verbatim from the Scopes reference ---
+  - {scope: 'person:read', description: 'Enables a frontend integration to display information on the Person page.', category: frontend, privileged: false}
+  - {scope: 'account:read', description: 'Enables a frontend integration to display information on the Account page.', category: frontend, privileged: false}
+
+summary:
+  scope_count: 56
+  privileged_count: 6
+  frontend_count: 2
+  pattern: '<resource>:<read|write|delete>'
+  note: >-
+    Salesloft documents scopes per endpoint in the API reference ("see the documentation for
+    the endpoints that you intend to use"), but publishes no machine-readable scope-to-operation
+    map, and the OpenAPI carries no security requirements per operation. Binding scope to
+    operation therefore still requires reading the HTML reference page for each endpoint.
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/scopes/', status: 200}
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/client-creds/', status: 200}
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/oauth-authentication/', status: 200}
+    - {url: 'https://mcp.salesloft.com/.well-known/oauth-authorization-server', status: 200}
+    - {url: 'https://accounts.salesloft.com/.well-known/openid-configuration', status: 200}

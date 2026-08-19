@@ -1,0 +1,109 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  npm registry search + registry.npmjs.org metadata, pypi.org/pypi JSON, rubygems.org
+  API v1, and the github.com/SalesLoft organization listing (55 repositories, GitHub API).
+description: >-
+  Salesloft publishes NO first-party API client SDK in any language. The developer docs
+  (developers.salesloft.com) point at raw HTTP, a public Postman workspace, and example
+  repositories — not at a maintained client library. The only first-party package on a
+  public registry is an OmniAuth strategy (Ruby) that handles the OAuth handshake, not the
+  API surface, and its latest release is from 2017. Everything else that carries the
+  Salesloft name on npm, PyPI or RubyGems is third-party and stale. This is recorded as a
+  finding, not a gap in the search: every registry below answered.
+official_sdk_count: 0
+
+packages:
+  - language: ruby
+    registry: rubygems
+    name: omniauth-salesloft
+    url: https://rubygems.org/gems/omniauth-salesloft
+    source: https://github.com/salesloft/omniauth-salesloft
+    install: gem install omniauth-salesloft
+    official: true
+    kind: auth-strategy
+    version: 1.0.0
+    published: '2017-06-09'
+    note: >-
+      Published by "SalesLoft Engineering". An OmniAuth strategy for the SalesLoft Public
+      API — it implements the OAuth 2.0 authorization-code handshake only and wraps no API
+      operations, so it is NOT an API client SDK. Last release 2017-06-09, nine years before
+      the v2 API surface catalogued in openapi/. 96,014 downloads.
+  - language: javascript
+    registry: npm
+    name: salesloft
+    url: https://www.npmjs.com/package/salesloft
+    install: npm install salesloft
+    official: false
+    kind: api-client
+    version: 1.2.0
+    published: '2019-07-25'
+    note: >-
+      Self-described as "An unofficial Node client for the SalesLoft API." Published by an
+      individual (alexleventer), not Salesloft. Last release 2019-07-25; 12 weekly downloads.
+  - language: ruby
+    registry: rubygems
+    name: rsalesloft
+    url: https://rubygems.org/gems/rsalesloft
+    source: https://github.com/aureeaubert/rsalesloft
+    install: gem install rsalesloft
+    official: false
+    kind: api-client
+    version: '0.2'
+    published: '2019-04-16'
+    note: Third-party Ruby wrapper for the Salesloft API. Not maintained by Salesloft.
+  - language: javascript
+    registry: npm
+    name: '@friggframework/api-module-salesloft'
+    url: https://www.npmjs.com/package/@friggframework/api-module-salesloft
+    install: npm install @friggframework/api-module-salesloft
+    official: false
+    kind: integration-module
+    version: 0.10.1
+    published: '2024-03-27'
+    note: >-
+      Salesloft connector for the third-party Frigg integration framework (Left Hook), not a
+      Salesloft-published SDK.
+  - language: ruby
+    registry: rubygems
+    name: salesloft-jwt
+    url: https://rubygems.org/gems/salesloft-jwt
+    official: true
+    kind: withdrawn
+    version: 0.0.0
+    published: null
+    note: >-
+      Registry metadata reads "This gem has been removed by SalesLoft." Recorded because the
+      namespace is theirs and the withdrawal is itself the datum; no usable release exists.
+
+registries_checked:
+  - {registry: npm, query: 'text=salesloft', result: 'no first-party package'}
+  - {registry: pypi, query: 'salesloft, salesloft-api, pysalesloft', result: '404 — no package under any of these names'}
+  - {registry: rubygems, query: 'salesloft', result: 'omniauth-salesloft (first-party, auth only), rsalesloft (third-party), salesloft-jwt (withdrawn)'}
+  - {registry: packagist, query: salesloft, result: 'no first-party package'}
+  - {registry: crates.io, query: salesloft, result: 'no first-party package'}
+  - {registry: maven-central, query: salesloft, result: 'no first-party package'}
+  - {registry: pkg.go.dev, query: salesloft, result: 'no first-party package'}
+
+first_party_repositories:
+  note: >-
+    github.com/SalesLoft carries 55 repositories; the API-facing ones are examples and demos,
+    not distributable libraries, and none is published to a package registry.
+  repositories:
+    - {name: api-guide, url: 'https://github.com/SalesLoft/api-guide', language: Ruby, kind: guide, updated: '2026-02-11', archived: false}
+    - {name: api-example, url: 'https://github.com/SalesLoft/api-example', language: Ruby, kind: example, updated: '2021-09-02', archived: false}
+    - {name: public-demo-frontend-integration, url: 'https://github.com/SalesLoft/public-demo-frontend-integration', language: Ruby, kind: example, updated: '2022-05-12', archived: false}
+    - {name: omniauth-salesloft, url: 'https://github.com/SalesLoft/omniauth-salesloft', language: Ruby, kind: auth-strategy, updated: '2023-12-21', archived: false}
+
+alternatives_published_by_salesloft:
+  - {kind: postman-workspace, url: 'https://www.postman.com/salesloft-dev/salesloft', note: 'Public workspace, 2 collections, published by salesloft-dev; the closest thing Salesloft ships to a client library.'}
+  - {kind: mcp-server, url: 'https://mcp.salesloft.com/mcp', note: 'First-party remote MCP server — see mcp/salesloft-mcp.yml. Salesloft invested in an agent surface rather than in language SDKs.'}
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://registry.npmjs.org/-/v1/search?text=salesloft', status: 200}
+    - {url: 'https://pypi.org/pypi/salesloft/json', status: 404}
+    - {url: 'https://rubygems.org/api/v1/search.json?query=salesloft', status: 200}
+    - {url: 'https://rubygems.org/api/v1/gems/omniauth-salesloft.json', status: 200}
+    - {url: 'https://api.github.com/orgs/SalesLoft/repos', status: 200}

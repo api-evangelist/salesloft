@@ -1,0 +1,447 @@
+{
+  "item": [
+    {
+      "id": "f9710b70-cb2c-447b-9c45-7ee928526ee5",
+      "name": "People",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/people/](https://developer.salesloft.com/docs/api/people/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "053b37f0-ad7e-4f79-a6d2-1847dfdce9fd",
+          "name": "Salesloft Create a Person",
+          "request": {
+            "name": "Salesloft Create a Person",
+            "description": {},
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f811317d-e807-42d5-9c1d-8710032179db",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email_address\": \"string\",\n  \"secondary_email_adress\": \"string\",\n  \"personal_email_address\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\",\n  \"phone_extension\": \"string\",\n  \"mobile_phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"linkedin_url\": \"string\",\n  \"title\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country\": \"string\",\n  \"work_city\": \"string\",\n  \"work_state\": \"string\",\n  \"work_country\": \"string\",\n  \"person-company_name\": \"string\",\n  \"person_company_website\": \"string\",\n  \"person_company_industry\": \"string\",\n  \"job_seniority\": \"string\",\n  \"do_not_contact\": false,\n  \"eu_resident\": false,\n  \"locale\": \"string\",\n  \"personal_website\": \"string\",\n  \"twitter_handle\": \"string\",\n  \"tags\": [\n    \"string\"\n  ],\n  \"contact_restrictions\": [\n    \"string\"\n  ],\n  \"custom_fields\": {},\n  \"account_id\": 0,\n  \"owner_id\": 0,\n  \"import_id\": 0,\n  \"person_stage_id\": 0,\n  \"crm_id_type\": \"string\",\n  \"crm_d\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6025f94d-2714-40b3-82c6-20af5c7672d0",
+          "name": "Salesloft List People",
+          "request": {
+            "name": "Salesloft List People",
+            "description": {},
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b85e9102-c321-4c58-97f9-be6b80646f6e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7381b73f-6c01-4394-a620-7ca652cbd4f0",
+          "name": "Salesloft Fetch a Person",
+          "request": {
+            "name": "Salesloft Fetch a Person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "477e7bb1-c119-4eb4-8a09-0420bc39f7d7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e51eaa85-41f5-4384-bf32-9c767a1012d3",
+          "name": "Salesloft Update a Person",
+          "request": {
+            "name": "Salesloft Update a Person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f515b139-e280-477b-a913-91f53fc6e880",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email_address\": \"string\",\n  \"secondary_email_adress\": \"string\",\n  \"personal_email_address\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\",\n  \"phone_extension\": \"string\",\n  \"mobile_phone\": \"string\",\n  \"home_phone\": \"string\",\n  \"linkedin_url\": \"string\",\n  \"title\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country\": \"string\",\n  \"work_city\": \"string\",\n  \"work_state\": \"string\",\n  \"work_country\": \"string\",\n  \"person-company_name\": \"string\",\n  \"person_company_website\": \"string\",\n  \"person_company_industry\": \"string\",\n  \"job_seniority\": \"string\",\n  \"do_not_contact\": false,\n  \"eu_resident\": false,\n  \"locale\": \"string\",\n  \"personal_website\": \"string\",\n  \"twitter_handle\": \"string\",\n  \"tags\": [\n    \"string\"\n  ],\n  \"contact_restrictions\": [\n    \"string\"\n  ],\n  \"custom_fields\": {},\n  \"account_id\": 0,\n  \"owner_id\": 0,\n  \"import_id\": 0,\n  \"person_stage_id\": 0,\n  \"crm_id_type\": \"string\",\n  \"crm_d\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3197ac32-3aa7-4a06-973b-739b9c12c161",
+          "name": "Salesloft Delete a Person",
+          "request": {
+            "name": "Salesloft Delete a Person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "199954973"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46bcc46b-bf4e-4d72-8078-07f2cfb00181",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "199954973"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ff83d162-8e41-4267-958d-9b21feeaddf7",
+    "name": "Salesloft Account and Redaction People API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

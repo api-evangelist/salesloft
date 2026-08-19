@@ -1,0 +1,117 @@
+{
+  "item": [
+    {
+      "id": "899d53fd-38d5-4c54-b430-af0c188b691c",
+      "name": "Mime Email Payloads",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/mime-email-payloads/](https://developer.salesloft.com/docs/api/mime-email-payloads/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79f92e10-9f51-48cf-9591-45f1b17e6355",
+          "name": "Salesloft Fetch the MIME Content for Email",
+          "request": {
+            "name": "Salesloft Fetch the MIME Content for Email",
+            "description": {},
+            "url": {
+              "path": [
+                "mime_email_payloads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8e457df-10ae-47ca-a6a1-6cd5f765acb6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mime_email_payloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c93a19da-315f-49b9-b997-201769050ae8",
+    "name": "Salesloft Account and People Redaction Mime Email Payloads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

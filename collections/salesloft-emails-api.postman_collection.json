@@ -1,0 +1,489 @@
+{
+  "item": [
+    {
+      "id": "e2b1418d-a07f-44a1-95a1-5082be441fb2",
+      "name": "Emails",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/emails/](https://developer.salesloft.com/docs/api/emails/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "781a6ef8-8bea-4a17-b80b-a10862b79f28",
+          "name": "Salesloft List Emails",
+          "request": {
+            "name": "Salesloft List Emails",
+            "description": {},
+            "url": {
+              "path": [
+                "activities",
+                "emails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bounced",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "crm_activity_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "action_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cadence_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "one_off",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "scoped_fields",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "person_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email_addresses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "personalization",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sent_at[gt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sent_at[gte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sent_at[lt]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sent_at[lte]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email_template_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "account_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "has_replies",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "has_clicks",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "has_views",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_paging_counts",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit_paging_counts",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71338c12-37eb-4d89-bf9a-408222e1f3fb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    "emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounced",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "crm_activity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "action_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": " "
+                    },
+                    {
+                      "key": "cadence_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "step_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "one_off",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scoped_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "person_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email_addresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "personalization",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sent_at[gt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sent_at[gte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sent_at[lt]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sent_at[lte]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email_template_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "has_replies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "has_clicks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "has_views",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_paging_counts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit_paging_counts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6aecfa73-1a90-4b16-8d14-09e571940934",
+          "name": "Salesloft Fetch an Email",
+          "request": {
+            "name": "Salesloft Fetch an Email",
+            "description": {},
+            "url": {
+              "path": [
+                "activities",
+                "emails",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scoped_fields",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13d22662-245c-46b5-86ac-40dcee21dc8b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    "emails",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scoped_fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4ee24954-3023-4cfb-a766-2c5b8848eb8f",
+    "name": "Salesloft Account and People Redaction Emails API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

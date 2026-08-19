@@ -1,0 +1,224 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Opportunities API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Opportunities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunities",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "associated_account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_crm_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "opportunity_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stage_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[gt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[gte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[lt]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_date[lte]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_closed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_won",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "most_recent_cadence_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scoped_fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_paging_counts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit_paging_counts",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salesloft List Opportunities"
+        },
+        {
+          "info": {
+            "name": "Salesloft Fetch an Opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Fetch an Opportunity"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

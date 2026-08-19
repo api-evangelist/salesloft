@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesloft Account and People Redaction Opportunity People API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Opportunity People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Salesloft List Opportunity/person Associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_people"
+          },
+          "docs": "Salesloft List Opportunity/person Associations"
+        },
+        {
+          "info": {
+            "name": "Salesloft Create a Sales Opportunity Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_people",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "opportunity_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "person_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Salesloft Create a Sales Opportunity Person"
+        },
+        {
+          "info": {
+            "name": "Salesloft Delete a Opportunity Association",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{{salesloft_api_base_url}}/opportunity_people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Salesloft Delete a Opportunity Association"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

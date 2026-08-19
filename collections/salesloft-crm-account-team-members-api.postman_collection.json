@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "e7986e57-7b0e-4e61-8e89-d33043573ab0",
+      "name": "Crm Account Team Members",
+      "description": {
+        "content": "[https://developers.salesloft.com/docs/api/crm-account-team-members/](https://developers.salesloft.com/docs/api/crm-account-team-members/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34bcb101-815e-484a-b5b4-b89f6bdab01d",
+          "name": "Salesloft List CRM Account Team Members",
+          "request": {
+            "name": "Salesloft List CRM Account Team Members",
+            "description": {},
+            "url": {
+              "path": [
+                "crm_account_team_members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a7d54a8-c34b-4319-abfa-32ae01cd4df4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_account_team_members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "289e85cf-81dd-4b56-8340-fa359ed6233c",
+    "name": "Salesloft Account and People Redaction Crm Account Team Members API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

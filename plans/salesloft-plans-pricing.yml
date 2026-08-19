@@ -4,8 +4,12 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Salesloft
 providerId: salesloft
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-08-13'
+generated: '2026-08-13'
+method: searched
+source: https://www.salesloft.com/pricing
+reconciled: true
+plan_count: 0
 tags:
 - Sales
 - Sales Engagement
@@ -13,31 +17,55 @@ tags:
 - CRM
 - Email
 - Plans
-description: Placeholder plans/pricing artifact for Salesloft. Replace with real published pricing once the pipeline researches
-  the provider's plans page.
-notes: "Initial scaffold \u2014 plans/pricing have not yet been reconciled against the provider's documentation."
+description: >-
+  Salesloft publishes NO prices. The pricing page (https://www.salesloft.com/pricing, HTTP 200)
+  is a contact-sales page: it lists platform capabilities and customer proof points, then routes
+  every visitor to a 15-minute intro call. No tier names, no per-seat prices, no currency, no
+  billing period, and no API quota or overage schedule are stated anywhere on the public site.
+  There is no separate API price list either — API access is a property of the subscription, and
+  the API rate limit is a per-team cost budget that Salesloft adjusts on request rather than a
+  purchasable quota (see rate-limits/salesloft-rate-limits.yml).
+notes: >-
+  Replaces the 2026-05-08 placeholder scaffold. plan_count is 0 because the provider publishes
+  zero priced tiers, not because the pricing page could not be read — it was fetched and read.
+  The one machine-readable trace of Salesloft's tiering is not on the pricing page at all: the
+  current_team tool on the public MCP manifest (https://mcp.salesloft.com/) declares
+  team.plan as an enum of "group | professional | enterprise", and team.plan_features as an
+  add-on object. Recorded here as the only provider-published tier vocabulary; no price attaches
+  to any of the three.
+
+pricing_model: contact-sales
+currency: null
+billing_period: null
+
+plans: []
+
+tier_vocabulary:
+- id: group
+  source: 'https://mcp.salesloft.com/ (current_team tool outputSchema, team.plan enum)'
+  price: null
+- id: professional
+  source: 'https://mcp.salesloft.com/ (current_team tool outputSchema, team.plan enum)'
+  price: null
+- id: enterprise
+  source: 'https://mcp.salesloft.com/ (current_team tool outputSchema, team.plan enum)'
+  price: null
+
+entitlements_observed:
+- {feature: Salesloft MCP Server, requirement: 'Salesloft Agentic customers; Admin must enable Settings > Artificial Intelligence > Salesloft MCP', source: 'https://champions.salesloft.com/product-updates'}
+- {feature: API rate limit increase, requirement: 'Request via integrations@salesloft.com', source: 'https://developers.salesloft.com/docs/platform/api-basics/rate-limits/'}
+
 sources:
-- https://salesloft.com/
-- https://developers.salesloft.com/
-- https://developers.salesloft.com/docs/platform
-plans:
-- id: salesloft-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
-  entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
-    geo: global
-    unit: 1
-    price: see https://salesloft.com/
-    userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+- https://www.salesloft.com/pricing
+- https://mcp.salesloft.com/
+- https://champions.salesloft.com/product-updates
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+  - {url: 'https://www.salesloft.com/pricing', status: 200, note: 'contact-sales page; no prices rendered'}
+  - {url: 'https://www.salesloft.com/platform/pricing', status: 404}
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,88 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.salesloft.com/docs/platform/api-basics/request-response-format/
+description: >-
+  The Salesloft Platform API v2 error surface. Two things are true and both matter:
+  (1) Salesloft DOES publish an error contract — a two-shape envelope (`error` for 403/404,
+  `errors` for 422) documented on the Request & Response Format page, plus a specific 401
+  body and a documented 429; and (2) the harvested OpenAPI in openapi/ is useless for this
+  purpose — all 176 operations declare a single 200 response and not one 4xx or 5xx, an
+  artifact of the Postman export the spec was built from. So this catalogue is SEARCHED from
+  the docs and from live probes, not derived from the spec.
+format: custom
+rfc9457: false
+problem_json_media_type: false
+envelope:
+  singular: {field: error, type: string, used_by: [401, 403, 404]}
+  plural: {field: errors, type: 'object of field -> array of message strings', used_by: [422]}
+
+problems:
+  - status: 401
+    name: missing_or_invalid_token
+    title: No bearer token attached to request
+    envelope_field: error
+    body: '{"error":"No Bearer Token attached to request, please see documentation at developers.salesloft.com"}'
+    remediation: >-
+      Send Authorization: Bearer <access_token or api_key>. An OAuth access token expires after
+      7200 seconds — refresh (authorization_code) or re-request (client_credentials).
+    evidence: 'Observed live on every https://api.salesloft.com/* probe on 2026-08-13.'
+  - status: 403
+    name: forbidden
+    title: Request rejected
+    envelope_field: error
+    detail: 'A singular error message explaining why the request was rejected. Typically a missing scope on the token or API key.'
+    remediation: 'Check the scope set on the application or key against the scope the endpoint documents. See scopes/salesloft-scopes.yml.'
+    docs: https://developers.salesloft.com/docs/platform/api-basics/request-response-format/
+  - status: 404
+    name: not_found
+    title: Resource not found
+    envelope_field: error
+    detail: 'A singular error message. Also returned when the resource exists but is outside the caller''s visibility (group privacy settings).'
+    docs: https://developers.salesloft.com/docs/platform/api-basics/request-response-format/
+  - status: 422
+    name: unprocessable_entity
+    title: Validation failed
+    envelope_field: errors
+    detail: >-
+      An errors object of field/messages pairs, so many validation failures come back in one
+      response. Also returned for an invalid sort_by/sort_direction and for an invalid filter
+      VALUE (an unknown filter NAME is silently ignored instead).
+    example: '{"errors": {"email_address": ["is already taken"], "first_name": ["is required"]}}'
+    docs: https://developers.salesloft.com/docs/platform/api-basics/request-response-format/
+  - status: 429
+    name: rate_limited
+    title: Rate limit exceeded
+    detail: >-
+      The team's 600-cost-per-minute budget is exhausted. Inspect x-ratelimit-remaining-minute
+      and x-ratelimit-endpoint-cost on prior responses to predict this.
+    remediation: 'Back off with jitter; reduce deep paging (pages 501+ cost 30 points each); switch to an updated_at cursor poller.'
+    docs: https://developers.salesloft.com/docs/platform/api-basics/rate-limits/
+
+oauth_errors:
+  - code: invalid_grant
+    body: '{"error":"invalid_grant","error_description":"The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request"}'
+    remediation: >-
+      Send the parameters in the body (not headers), set Content-Type: application/json, and
+      re-issue the authorization code if it has been consumed or has expired.
+    docs: https://developers.salesloft.com/docs/platform/api-basics/oauth-authentication/
+
+mcp_errors:
+  - code: -32000
+    body: '{"error":{"code":-32000,"message":"User not authenticated"},"id":1,"jsonrpc":"2.0"}'
+    status: 401
+    surface: 'POST https://mcp.salesloft.com/mcp'
+    remediation: 'Complete the OAuth flow advertised at https://mcp.salesloft.com/.well-known/oauth-protected-resource.'
+    evidence: 'Observed live 2026-08-13.'
+
+gaps:
+  - 'No numbered/stable error-code registry: errors are prose strings, so a client cannot branch on a code.'
+  - 'No error `type` URIs and no application/problem+json — RFC 9457 is not implemented.'
+  - 'The OpenAPI documents zero non-2xx responses, so no error shape is machine-readable from the contract.'
+  - 'No documented 5xx contract.'
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://developers.salesloft.com/docs/platform/api-basics/request-response-format/', status: 200}
+    - {url: 'https://api.salesloft.com/v2/openapi.json', status: 401}
+    - {url: 'https://mcp.salesloft.com/mcp', status: 401}

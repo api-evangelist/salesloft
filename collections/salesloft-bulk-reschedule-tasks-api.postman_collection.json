@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "2b8e8390-9647-445d-a6aa-30f018d0e271",
+      "name": "Bulk Reschedule Tasks",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/bulk-reschedule-tasks/](https://developer.salesloft.com/docs/api/bulk-reschedule-tasks/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c320ae80-16d0-4602-bc5c-4c99207d49bf",
+          "name": "Salesloft Reschedule Many Tasks at Once",
+          "request": {
+            "name": "Salesloft Reschedule Many Tasks at Once",
+            "description": {},
+            "url": {
+              "path": [
+                "bulk_reschedule_tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a680ef4-fa69-451d-aab8-2f47b8b73479",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulk_reschedule_tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"task_ids\": [\n    0,\n    1\n  ],\n  \"due_date\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "03f2d1b3-a051-4f6f-9e51-55cc62eb6036",
+    "name": "Salesloft Account and People Redaction Bulk Reschedule Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Salesloft Account and People Redaction Email Missing Tags API
+  version: 1.0.0
+extends: openapi/salesloft-email-missing-tags-api-openapi.yml
+x-generated: '2026-08-13'
+x-method: generated
+x-source: Generated from apis.yml, the Salesloft developer docs (developers.salesloft.com) and the artifacts
+  in this repo. The harvested spec is never mutated.
+actions:
+- target: $.servers
+  description: The harvested spec carries two unresolved Postman variables (http://{{salesloft_api_base_url}})
+    and the OAuth host. The documented production base for every v2 resource operation is https://api.salesloft.com/v2;
+    https://accounts.salesloft.com is correct only for /oauth/*.
+  update:
+  - url: https://api.salesloft.com/v2
+    description: Salesloft Platform API v2 production base (developers.salesloft.com/docs/platform/intro/)
+- target: $.info
+  update:
+    contact:
+      name: Salesloft Developer Documentation
+      url: https://developers.salesloft.com/
+    license:
+      name: Proprietary - Salesloft
+      url: https://www.salesloft.com/legal/msa
+    termsOfService: https://www.salesloft.com/legal/msa
+    x-apievangelist-provider: salesloft
+    x-apievangelist-authentication: authentication/salesloft-authentication.yml
+    x-apievangelist-scopes: scopes/salesloft-scopes.yml
+    x-apievangelist-conventions: conventions/salesloft-conventions.yml
+    x-apievangelist-errors: errors/salesloft-problem-types.yml
+    x-apievangelist-rate-limits: rate-limits/salesloft-rate-limits.yml
+- target: $
+  update:
+    externalDocs:
+      description: Salesloft Platform API reference
+      url: https://developers.salesloft.com/docs/api/

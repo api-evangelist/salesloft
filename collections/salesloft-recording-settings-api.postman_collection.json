@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "64109f2f-853c-44db-ab50-9aa59782b7c7",
+      "name": "Recording Settings",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/recording-settings/](https://developer.salesloft.com/docs/api/recording-settings/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ba924b5-30a7-4e8a-8200-a278d9a5542e",
+          "name": "Salesloft Fetch Recording Setting",
+          "request": {
+            "name": "Salesloft Fetch Recording Setting",
+            "description": {},
+            "url": {
+              "path": [
+                "phone_numbers",
+                "recording_settings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5844e8e-0675-4297-a921-48763b9d6df6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phone_numbers",
+                    "recording_settings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ecdf0ee7-2c81-4eb9-bb6f-00a2246524a8",
+    "name": "Salesloft Account and People Redaction Recording Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

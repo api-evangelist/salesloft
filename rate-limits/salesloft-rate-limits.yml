@@ -4,8 +4,11 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Salesloft
 providerId: salesloft
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-08-13'
+generated: '2026-08-13'
+method: searched
+source: https://developers.salesloft.com/docs/platform/api-basics/rate-limits/
+reconciled: true
 tags:
 - Sales
 - Sales Engagement
@@ -15,23 +18,89 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Salesloft. Replace with real limits once researched.
-notes: "Initial scaffold \u2014 limits have not yet been reconciled."
-sources:
-- https://salesloft.com/
-- https://developers.salesloft.com/
-- https://developers.salesloft.com/docs/platform
+description: >-
+  Salesloft prices the Platform API rather than counting it: every request draws from a
+  600-cost-per-minute budget held at the TEAM level, each endpoint has a default cost of 1,
+  and Salesloft can change an endpoint's cost at any time without treating it as a deprecation.
+  Deep paging is the expensive case — a request for page 501 or beyond costs 30 points, one
+  twentieth of the whole minute. Two response headers expose the runtime signal.
+notes: >-
+  Replaces the 2026-05-08 placeholder scaffold. Every value below is transcribed from the
+  provider's published Rate Limits page.
+
+limits:
+- name: Team cost budget
+  scope: team
+  metric: cost
+  limit: 600
+  timeFrame: minute
+  window: PT1M
+  default_endpoint_cost: 1
+  notes: >-
+    Applies per integrated team, not per integration. Multiple integrations on the same team
+    share one budget and can exhaust each other's headroom. Salesloft can raise the ceiling
+    customer-wide or per team on request to integrations@salesloft.com.
+- name: Deep paging surcharge (pages 101-150)
+  scope: endpoint
+  metric: cost
+  limit: 3
+  timeFrame: request
+  notes: 'Additional cost applied when the page parameter references index 101-150.'
+- name: Deep paging surcharge (pages 151-250)
+  scope: endpoint
+  metric: cost
+  limit: 8
+  timeFrame: request
+- name: Deep paging surcharge (pages 251-500)
+  scope: endpoint
+  metric: cost
+  limit: 10
+  timeFrame: request
+- name: Deep paging surcharge (pages 501+)
+  scope: endpoint
+  metric: cost
+  limit: 30
+  timeFrame: request
+  notes: >-
+    "For specific use cases, there may be a valid reason to request high page numbers, but
+    we've found that most customers find success using a cursor poller based on the updated_at
+    field."
+
+responseHeaders:
+- name: x-ratelimit-endpoint-cost
+  description: The cost of the request that was executed.
+- name: x-ratelimit-remaining-minute
+  description: Remaining available requests for the minute the request was made.
+
 responseCodes:
   throttled: 429
-limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+
 policies:
+- name: Cost may change
+  description: >-
+    "Salesloft is able to change the cost for an existing endpoint at any time, as the
+    functionality doesn't become deprecated from a cost change." Costs are documented per
+    endpoint and updates are posted to the rate-limits page.
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: >-
+    Read x-ratelimit-remaining-minute before issuing bursts and back off with jitter on 429.
+    No Retry-After header is documented.
+- name: Prefer a cursor poller over deep paging
+  description: Poll on updated_at rather than incrementing page.
+  url: https://developers.salesloft.com/docs/platform/guides/building-an-efficient-cursor-poller/
+- name: Request an increase
+  description: Teams exceeding the limit due to a large number of integrations should contact integrations@salesloft.com.
+
+sources:
+- https://developers.salesloft.com/docs/platform/api-basics/rate-limits/
+- https://developers.salesloft.com/docs/platform/api-basics/filtering-paging-sorting/
+- https://developers.salesloft.com/docs/platform/guides/building-an-efficient-cursor-poller/
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+  - {url: 'https://developers.salesloft.com/docs/platform/api-basics/rate-limits/', status: 200}
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

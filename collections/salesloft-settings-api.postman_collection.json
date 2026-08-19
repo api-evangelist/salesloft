@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "a859e1a3-d84c-41f5-897f-e764902ad858",
+      "name": "Settings",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/settings/](https://developer.salesloft.com/docs/api/settings/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "740a8434-9fa5-4d04-a94d-75368dc5f197",
+          "name": "Salesloft Update a Meeting Setting",
+          "request": {
+            "name": "Salesloft Update a Meeting Setting",
+            "description": {},
+            "url": {
+              "path": [
+                "meetings",
+                "settings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f1bea2b-9f72-4277-aef9-0645cab561e4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meetings",
+                    "settings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"primary_calendar_id\": \"string\",\n  \"primary_calendar_name\": \"string\",\n  \"calendar_type\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"location\": \"string\",\n  \"default_meeting_length\": 0,\n  \"buffer_time_duration\": 0,\n  \"times_available\": {},\n  \"schedule_buffer_enabled\": true,\n  \"availability_limit_enabled\": true,\n  \"availability_limit\": 0,\n  \"schedule_delay\": 0,\n  \"allow_booking_on_behalf\": true,\n  \"allow_booking_overtime\": false,\n  \"allow_event_overlap\": false,\n  \"share_event_detail\": true,\n  \"enable_dynamic_location\": true,\n  \"enable_calendar_sync\": true,\n  \"time_zone\": \"string\",\n  \"primary_calendar_connection_failed\": false,\n  \"reschedule_meetings_enabled\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f456a9a8-5bbd-4d30-97a6-1728dbd40030",
+    "name": "Salesloft Account and People Redaction Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

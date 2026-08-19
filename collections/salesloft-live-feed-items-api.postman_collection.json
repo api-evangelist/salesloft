@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "aa1b1a11-6589-43a0-b960-5059481841e3",
+      "name": "Live Feed Items",
+      "description": {
+        "content": "[https://developer.salesloft.com/docs/api/live-feed-items/](https://developer.salesloft.com/docs/api/live-feed-items/)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca8ae90f-25a6-4db3-b3cc-e7d556e99697",
+          "name": "Salesloft Create a Live Feed Item",
+          "request": {
+            "name": "Salesloft Create a Live Feed Item",
+            "description": {},
+            "url": {
+              "path": [
+                "third_party_live_feed_items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "769c1fce-9572-4043-aa31-98e63d95069d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "third_party_live_feed_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_guid\": \"string\",\n  \"subject_type\": \"string\",\n  \"subject_id\": 0,\n  \"message\": \"string\",\n  \"idempotency_key\": \"string\",\n  \"event_occurred_at\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://{{salesloft_api_base_url}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "847150a7-314a-417b-bac5-2db708a3d7dd",
+    "name": "Salesloft Account and People Redaction Live Feed Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...",
+      "type": "text/plain"
+    }
+  }
+}

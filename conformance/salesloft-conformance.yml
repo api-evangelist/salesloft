@@ -1,0 +1,109 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Docs claims at developers.salesloft.com plus live probes of the OAuth/OIDC discovery
+  documents, cross-checked against openapi/ and the published certifications on
+  https://trust.salesloft.com/ and https://www.salesloft.com/security.
+description: >-
+  Which cross-cutting standards the Salesloft surface actually conforms to. Salesloft is
+  strong on the identity/authorization standards (OAuth 2.0, OIDC discovery, RFC 8414,
+  RFC 9728, RFC 7591, PKCE) — several of them proven by live metadata documents rather than
+  by claim — and weak on the API-representation standards (no RFC 9457, no OpenAPI published
+  by the provider, no AsyncAPI, no JSON:API).
+
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: 'Authorization-code and client-credentials flows documented with real endpoints at accounts.salesloft.com/oauth/{authorize,token}; token responses include access_token/refresh_token/expires_in/scope.'
+    source: https://developers.salesloft.com/docs/platform/api-basics/oauth-authentication/
+  - id: oauth2-client-credentials
+    conforms: true
+    evidence: 'Documented server-to-server flow with space-delimited scope parameter and HTTP Basic client authentication.'
+    source: https://developers.salesloft.com/docs/platform/api-basics/client-creds/
+  - id: oidc
+    conforms: true
+    evidence: 'Live discovery document at https://accounts.salesloft.com/.well-known/openid-configuration (200): issuer, authorization/token/userinfo endpoints, jwks_uri, RS256, 17 claims.'
+    source: https://accounts.salesloft.com/.well-known/openid-configuration
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: 'Served at both accounts.salesloft.com and mcp.salesloft.com (200, application/json).'
+  - id: rfc9728-oauth-protected-resource-metadata
+    conforms: true
+    evidence: 'https://mcp.salesloft.com/.well-known/oauth-protected-resource returns 200, and the 401 from POST /mcp advertises it in WWW-Authenticate resource_metadata.'
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: 'registration_endpoint https://accounts.salesloft.com/oauth/client/register advertised in the MCP authorization-server metadata.'
+  - id: rfc7636-pkce
+    conforms: true
+    evidence: 'code_challenge_methods_supported [plain, S256] in the MCP authorization-server metadata.'
+  - id: mcp
+    conforms: true
+    version: '2024-11-05'
+    evidence: 'First-party remote MCP server at https://mcp.salesloft.com/mcp; manifest at / declares mcp_version 2024-11-05 and 15 tools with JSON Schema input and output schemas.'
+    note: 'Protocol revision 2024-11-05 is several revisions behind the current MCP spec.'
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: 'No /.well-known/security.txt on any Salesloft host — 404 on www.salesloft.com and developers.salesloft.com, 401 on api.salesloft.com, HTML SPA shell on accounts.salesloft.com.'
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 'Custom envelope (error string on 403/404, errors object on 422). No application/problem+json, no type URIs.'
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: 'No Sunset or Deprecation header support and no deprecation policy published.'
+  - id: openapi
+    conforms: false
+    evidence: >-
+      Salesloft publishes no OpenAPI. The 82 documents in openapi/ were derived by API Evangelist
+      from the public Postman collections; api.salesloft.com/{openapi.json,swagger.json,api-docs}
+      all return 401 and developers.salesloft.com/openapi.json returns the Docusaurus 404 shell.
+  - id: asyncapi
+    conforms: false
+    evidence: 'No AsyncAPI published. asyncapi.yml in this repo is an API Evangelist rendering of the documented webhook event catalogue, not a provider artifact.'
+  - id: webhooks
+    conforms: true
+    evidence: 'Documented push surface with a managed subscription resource (/v2/webhook_subscriptions), an x-salesloft-event type header and an x-salesloft-signature HMAC-SHA1 body signature keyed on the subscription callback token.'
+    source: https://developers.salesloft.com/docs/platform/webhooks/
+  - id: json-api
+    conforms: false
+    evidence: 'Custom data/metadata envelope; not JSON:API.'
+  - id: pagination
+    conforms: true
+    style: offset
+    evidence: 'per_page/page request params; per_page/current_page/next_page/prev_page/total_pages/total_count in response metadata; documented defaults and ranges.'
+  - id: idempotency
+    conforms: partial
+    evidence: 'Required idempotency_key (UUID4) on POST /v2/signals only. No platform-wide Idempotency-Key header.'
+  - id: rate-limit-headers
+    conforms: partial
+    evidence: 'Custom x-ratelimit-endpoint-cost and x-ratelimit-remaining-minute headers; not the IETF RateLimit-* draft field names, and no Retry-After documented.'
+  - id: scim
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: fhir
+    conforms: false
+  - id: graphql
+    conforms: false
+    evidence: 'No GraphQL endpoint published or discoverable.'
+
+compliance_program:
+  published: true
+  trust_center: https://trust.salesloft.com/
+  security_page: https://www.salesloft.com/security
+  certifications: [SOC 2 Type 2, ISO 27001, ISO 27017, ISO 27018, PCI DSS, HIPAA, FedRAMP, GDPR, CSA STAR]
+  detail: security/salesloft-trust-center.yml
+  note: >-
+    Certifications are enumerated on the trust portal and echoed on the public security page,
+    which additionally documents AES-256-GCM at rest, TLS 1.2+ in transit, US and EU hosting on
+    AWS and GCP, an ongoing bug-bounty program, and annual third-party security assessments.
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - {url: 'https://accounts.salesloft.com/.well-known/openid-configuration', status: 200}
+    - {url: 'https://mcp.salesloft.com/.well-known/oauth-protected-resource', status: 200}
+    - {url: 'https://mcp.salesloft.com/.well-known/oauth-authorization-server', status: 200}
+    - {url: 'https://api.salesloft.com/openapi.json', status: 401}
+    - {url: 'https://developers.salesloft.com/openapi.json', status: 404}
+    - {url: 'https://www.salesloft.com/.well-known/security.txt', status: 404}
+    - {url: 'https://trust.salesloft.com/', status: 200}
