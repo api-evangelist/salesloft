@@ -32,6 +32,21 @@ tags:
 - Revenue Intelligence
 - Conversation Intelligence
 - Sales Automation
+- Webhook
+- MCP
+- Agents
+- Dialer
+- Pipeline
+- Forecasting
+tags_raw:
+- Sales
+- Sales Engagement
+- Cadences
+- CRM
+- Email
+- Revenue Intelligence
+- Conversation Intelligence
+- Sales Automation
 - Webhooks
 - MCP
 - Agents
@@ -73,6 +88,9 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Webhook
+  - Event
+  tags_raw:
   - Webhooks
   - Events
   properties:
@@ -162,6 +180,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -487,6 +507,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - CRM Users
+  tags_raw:
   - Crm Users
   properties:
   - type: OpenAPI
@@ -607,6 +629,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -991,6 +1015,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -1051,6 +1077,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
