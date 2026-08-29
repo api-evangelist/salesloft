@@ -9,6 +9,18 @@ description: Salesloft is a sales engagement and revenue orchestration platform,
   governance and Rhythm signals, authenticated with OAuth 2.0 (authorization code and client credentials) or scoped API keys
   and priced against a 600-cost-per-minute per-team budget. Salesloft also publishes a documented webhook surface with HMAC-signed
   deliveries and a first-party remote MCP server at https://mcp.salesloft.com/mcp exposing fifteen read-only tools to AI agents.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -1098,6 +1110,9 @@ apis:
   - type: Overlay
     url: overlays/salesloft-webhook-subscriptions-api-overlay.yaml
 common:
+- type: CapabilityMap
+  url: capabilities/salesloft-capability-edges.yml
+  name: Salesloft Business Capability Map
 - type: AgenticAccess
   url: agentic-access/salesloft-agentic-access.yml
 - type: TrustCenter
