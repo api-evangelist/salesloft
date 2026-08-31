@@ -519,7 +519,7 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
-  - CRM Users
+  - Crm Users
   tags_raw:
   - Crm Users
   properties:
