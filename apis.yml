@@ -48,7 +48,7 @@ tags:
 - MCP
 - Agents
 - Dialer
-- Pipeline
+- Pipelines
 - Forecasting
 tags_raw:
 - Sales
@@ -593,6 +593,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Email
+  tags_raw:
   - Emails
   properties:
   - type: OpenAPI
@@ -655,6 +657,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Import
+  tags_raw:
   - Imports
   properties:
   - type: OpenAPI
