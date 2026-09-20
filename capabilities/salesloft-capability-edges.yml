@@ -1,0 +1,118 @@
+slug: salesloft
+provider: Salesloft
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 11
+edges:
+- tag: Opportunities
+  spec_file: salesloft-opportunities-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.9
+  evidence: GET /opportunities 'List Opportunities'; GET /opportunities/{id} 'Fetch an Opportunity'
+  reason: Sales opportunity records in a revenue platform — directly Opportunity & Pipeline Management.
+- tag: Right to Be Forgotten
+  spec_file: salesloft-right-to-be-forgotten-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.9
+  evidence: POST /data_control/right_to_be_forgotten — "Submit a Right to Be Forgotten Request"
+  reason: Explicitly submits an erasure (right-to-be-forgotten) request over person data, which is the
+    GDPR data-subject-rights function of privacy and data protection management.
+- tag: Opportunity People
+  spec_file: salesloft-opportunity-people-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.85
+  evidence: POST /opportunity_people — 'Create a Sales Opportunity Person'
+  reason: Associating people (buying-group contacts) with sales opportunities is part of the deal/opportunity
+    lifecycle.
+- tag: Opportunity Stages
+  spec_file: salesloft-opportunity-stages-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.85
+  evidence: POST /opportunity_stages 'Create an Opportunity Stage'
+  reason: Maintains the stage taxonomy used to progress deals through the pipeline — Opportunity & Pipeline
+    Management.
+- tag: Webhook Subscriptions
+  spec_file: salesloft-webhook-subscriptions-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: POST /webhook_subscriptions — "Salesloft Create a Webhook Subscription"; DELETE /webhook_subscriptions/{id}
+  reason: Full CRUD lifecycle over outbound webhook subscriptions, which is exactly Webhook & Event Subscription
+    Management within the developer platform/API ecosystem capability.
+- tag: People
+  spec_file: salesloft-people-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.75
+  evidence: POST /people 'Create a Person', GET /people/{id} 'Fetch a Person'
+  reason: CRUD over prospect/contact person records is customer/prospect master data maintenance in the
+    sales platform.
+- tag: Cadences
+  spec_file: salesloft-cadences-api-openapi.yml
+  capability_id: BC-410.50
+  capability_id_l1: BC-410
+  capability_name: Sales Operations Management
+  confidence: 0.72
+  evidence: GET /cadences — 'List Cadences'; vendor 'used by more than 4,000 sales teams to run cadences'
+  reason: Cadences are the structured multi-step sales outreach sequences the platform exists to run;
+    this is sales process/enablement tooling rather than a marketing or CRM master-data capability.
+- tag: Requests
+  spec_file: salesloft-requests-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.72
+  evidence: GET /data_control/requests — "Retrieve a List of Requests"; GET /data_control/requests/{id}
+    — "Fetch a Request Record"
+  reason: The /data_control/ namespace and the spec's "Account and People Redaction" framing indicate
+    these requests are data-redaction / data-subject requests, tracked alongside the Right to Be Forgotten
+    endpoint. That is privacy and data-protection (data subject rights) administration. Slight uncertainty
+    because 'Requests' is generic and the schemas are not shown.
+- tag: Accounts
+  spec_file: salesloft-accounts-api-openapi.yml
+  capability_id: BC-410.20
+  capability_id_l1: BC-410
+  capability_name: Account Management
+  confidence: 0.7
+  evidence: GET /accounts "List Accounts"; POST /accounts "Create an Account"; DELETE /accounts/{id} "Delete
+    an Account"
+  reason: Full CRUD over sales accounts (target companies) in a sales engagement platform — account management.
+    Some overlap with customer data management, hence not higher.
+- tag: Cadence Memberships
+  spec_file: salesloft-cadence-memberships-api-openapi.yml
+  capability_id: BC-410.50
+  capability_id_l1: BC-410
+  capability_name: Sales Operations Management
+  confidence: 0.7
+  evidence: POST /cadence_memberships — 'Create a Cadence Membership'; GET /cadence_memberships — 'List
+    Cadence Memberships'
+  reason: Enrolling and removing people from sales outreach cadences is execution of the sales engagement
+    process, i.e. sales operations; sub-capability choice between pipeline and sales operations carries
+    some ambiguity.
+- tag: Person Upserts
+  spec_file: salesloft-person-upserts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /person_upserts — 'Person Upsert'
+  reason: Idempotent create-or-update of person records is prospect/customer master data synchronisation.
