@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Person Upserts API
+  title: Salesloft Person Upserts API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Person Upserts
-  description: '[https://developer.salesloft.com/docs/api/person-upserts/](https://developer.salesloft.com/docs/api/person-upserts/)'
+  description: https://developer.salesloft.com/docs/api/person-upserts/
 paths:
   /person_upserts:
     post:
@@ -68,6 +68,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postPersonUpserts
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

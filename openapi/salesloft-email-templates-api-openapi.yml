@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Email Templates API
+  title: Salesloft Email Templates API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Email Templates
-  description: '[https://developer.salesloft.com/docs/api/email-templates/](https://developer.salesloft.com/docs/api/email-templates/)'
+  description: https://developer.salesloft.com/docs/api/email-templates/
 paths:
   /email_templates:
     get:
@@ -104,6 +104,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getEmailTemplates
+      x-operation-id-source: derived
     post:
       tags:
       - Email Templates
@@ -127,6 +129,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postEmailTemplates
+      x-operation-id-source: derived
   /email_templates/{id}:
     put:
       tags:
@@ -159,6 +163,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putEmailTemplatesById
+      x-operation-id-source: derived
     get:
       tags:
       - Email Templates
@@ -178,6 +184,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getEmailTemplatesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

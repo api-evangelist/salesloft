@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Tasks API
+  title: Salesloft Tasks API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Tasks
-  description: '[https://developer.salesloft.com/docs/api/tasks/](https://developer.salesloft.com/docs/api/tasks/)'
+  description: https://developer.salesloft.com/docs/api/tasks/
 paths:
   /tasks:
     get:
@@ -140,6 +140,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getTasks
+      x-operation-id-source: derived
     post:
       tags:
       - Tasks
@@ -164,6 +166,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postTasks
+      x-operation-id-source: derived
   /tasks/265615502:
     put:
       tags:
@@ -191,6 +195,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putTasks265615502
+      x-operation-id-source: derived
   /tasks/{id}:
     get:
       tags:
@@ -207,6 +213,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getTasksById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

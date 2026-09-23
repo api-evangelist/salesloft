@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Crm Users API
+  title: Salesloft Crm Users API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -10,13 +10,13 @@ servers:
 security:
 - oauth2Auth: []
 tags:
-- name: Crm Users
-  description: '[https://developer.salesloft.com/docs/api/crm-users/](https://developer.salesloft.com/docs/api/crm-users/)'
+- name: CRM Users
+  description: https://developer.salesloft.com/docs/api/crm-users/
 paths:
   /crm_users:
     get:
       tags:
-      - Crm Users
+      - CRM Users
       summary: Salesloft List Crm Users
       parameters:
       - name: ids
@@ -68,6 +68,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getCrmUsers
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

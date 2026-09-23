@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Custom Roles API
+  title: Salesloft Custom Roles API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Custom Roles
-  description: '[https://developer.salesloft.com/docs/api/custom-roles/](https://developer.salesloft.com/docs/api/custom-roles/)'
+  description: https://developer.salesloft.com/docs/api/custom-roles/
 paths:
   /custom_roles:
     get:
@@ -52,6 +52,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getCustomRoles
+      x-operation-id-source: derived
   /custom_roles/{id}:
     get:
       tags:
@@ -68,6 +70,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getCustomRolesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

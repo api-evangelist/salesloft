@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Searches API
+  title: Salesloft Searches API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Searches
-  description: '[https://developer.salesloft.com/docs/api/searches/](https://developer.salesloft.com/docs/api/searches/)'
+  description: https://developer.salesloft.com/docs/api/searches/
 paths:
   /meetings/settings/searches:
     post:
@@ -74,6 +74,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postMeetingsSettingsSearches
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

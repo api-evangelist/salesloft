@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Account Team Member Roles API
+  title: Salesloft Account Team Member Roles API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Account Team Member Roles
-  description: '[https://developer.salesloft.com/docs/api/account-team-member-roles-index/](https://developer.salesloft.com/docs/api/account-team-member-roles-index/)'
+  description: https://developer.salesloft.com/docs/api/account-team-member-roles-index/
 paths:
   /account_team_member_roles:
     get:
@@ -48,6 +48,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getAccountTeamMemberRoles
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

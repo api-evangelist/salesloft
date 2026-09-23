@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Me API
+  title: Salesloft Me API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Me
-  description: '[https://developer.salesloft.com/docs/api/me/](https://developer.salesloft.com/docs/api/me/)'
+  description: https://developer.salesloft.com/docs/api/me/
 paths:
   /me:
     get:
@@ -23,6 +23,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getMe
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

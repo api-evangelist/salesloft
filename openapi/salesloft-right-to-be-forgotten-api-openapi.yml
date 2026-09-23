@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Right to Be Forgotten API
+  title: Salesloft Right to Be Forgotten API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Right to Be Forgotten
-  description: '[https://developer.salesloft.com/docs/api/right-to-be-forgotten/](https://developer.salesloft.com/docs/api/right-to-be-forgotten/)'
+  description: https://developer.salesloft.com/docs/api/right-to-be-forgotten/
 paths:
   /data_control/right_to_be_forgotten:
     post:
@@ -34,6 +34,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postDataControlRightToBeForgotten
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Groups API
+  title: Salesloft Groups API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Groups
-  description: '[https://developer.salesloft.com/docs/api/groups/](https://developer.salesloft.com/docs/api/groups/)'
+  description: https://developer.salesloft.com/docs/api/groups/
 paths:
   /groups:
     post:
@@ -31,6 +31,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postGroups
+      x-operation-id-source: derived
     get:
       tags:
       - Groups
@@ -53,6 +55,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getGroups
+      x-operation-id-source: derived
   /groups/{id}:
     get:
       tags:
@@ -69,6 +73,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getGroupsById
+      x-operation-id-source: derived
     put:
       tags:
       - Groups
@@ -92,6 +98,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putGroupsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Groups
@@ -107,6 +115,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: deleteGroupsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and Redaction People API
+  title: Salesloft People API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: People
-  description: '[https://developer.salesloft.com/docs/api/people/](https://developer.salesloft.com/docs/api/people/)'
+  description: https://developer.salesloft.com/docs/api/people/
 paths:
   /people:
     post:
@@ -66,6 +66,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postPeople
+      x-operation-id-source: derived
     get:
       tags:
       - People
@@ -75,6 +77,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getPeople
+      x-operation-id-source: derived
   /people/{id}:
     get:
       tags:
@@ -91,6 +95,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getPeopleById
+      x-operation-id-source: derived
     put:
       tags:
       - People
@@ -149,6 +155,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putPeopleById
+      x-operation-id-source: derived
   /people/199954973:
     get:
       tags:
@@ -159,6 +167,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getPeople199954973
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

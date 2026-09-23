@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Bulk Jobs API
+  title: Salesloft Bulk Jobs API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Bulk Jobs
-  description: '[https://developer.salesloft.com/docs/api/bulk-jobs/](https://developer.salesloft.com/docs/api/bulk-jobs/)'
+  description: https://developer.salesloft.com/docs/api/bulk-jobs/
 paths:
   /bulk_jobs/{id}:
     put:
@@ -37,6 +37,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putBulkJobsById
+      x-operation-id-source: derived
     get:
       tags:
       - Bulk Jobs
@@ -52,6 +54,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getBulkJobsById
+      x-operation-id-source: derived
   /bulk_jobs:
     post:
       tags:
@@ -70,6 +74,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postBulkJobs
+      x-operation-id-source: derived
     get:
       tags:
       - Bulk Jobs
@@ -92,6 +98,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getBulkJobs
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

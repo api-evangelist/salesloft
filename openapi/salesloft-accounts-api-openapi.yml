@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Accounts API
+  title: Salesloft Accounts API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Accounts
-  description: '[https://developer.salesloft.com/docs/api/accounts/](https://developer.salesloft.com/docs/api/accounts/)'
+  description: https://developer.salesloft.com/docs/api/accounts/
 paths:
   /accounts:
     get:
@@ -176,6 +176,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getAccounts
+      x-operation-id-source: derived
     post:
       tags:
       - Accounts
@@ -219,6 +221,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postAccounts
+      x-operation-id-source: derived
   /accounts/{id}:
     get:
       tags:
@@ -235,6 +239,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getAccountsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Accounts
@@ -250,6 +256,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: deleteAccountsById
+      x-operation-id-source: derived
   /accounts/53457352:
     put:
       tags:
@@ -295,6 +303,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putAccounts53457352
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

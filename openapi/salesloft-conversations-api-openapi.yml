@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Conversations API
+  title: Salesloft Conversations API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Conversations
-  description: '[https://developer.salesloft.com/docs/api/conversations/](https://developer.salesloft.com/docs/api/conversations/)'
+  description: https://developer.salesloft.com/docs/api/conversations/
 paths:
   /conversations:
     get:
@@ -138,6 +138,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getConversations
+      x-operation-id-source: derived
   /conversations/{id}:
     get:
       tags:
@@ -154,6 +156,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getConversationsById
+      x-operation-id-source: derived
   /conversations/71d91aec-80bc-463b-b072-475aea744805/extensive:
     get:
       tags:
@@ -166,6 +170,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getConversations71d91aec80bc463bB072475aea744805Extensive
+      x-operation-id-source: derived
   /conversations/{id}/recording:
     get:
       tags:
@@ -182,6 +188,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getConversationsByIdRecording
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

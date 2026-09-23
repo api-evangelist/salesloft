@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Signal Registrations API
+  title: Salesloft Signal Registrations API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Signal Registrations
-  description: '[https://developer.salesloft.com/docs/api/signal-registrations/](https://developer.salesloft.com/docs/api/signal-registrations/)'
+  description: https://developer.salesloft.com/docs/api/signal-registrations/
 paths:
   /integrations/signals/registrations/{id}:
     get:
@@ -29,6 +29,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getIntegrationsSignalsRegistrationsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Signal Registrations
@@ -44,6 +46,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: deleteIntegrationsSignalsRegistrationsById
+      x-operation-id-source: derived
     put:
       tags:
       - Signal Registrations
@@ -72,16 +76,20 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putIntegrationsSignalsRegistrationsById
+      x-operation-id-source: derived
   /integrations/signals/registrations:
     get:
       tags:
       - Signal Registrations
-      summary: Salesloft List  Signal Registrations
+      summary: Salesloft List Signal Registrations
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+      operationId: getIntegrationsSignalsRegistrations
+      x-operation-id-source: derived
     post:
       tags:
       - Signal Registrations
@@ -105,6 +113,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postIntegrationsSignalsRegistrations
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

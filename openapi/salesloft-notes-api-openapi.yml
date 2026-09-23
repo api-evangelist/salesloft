@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Notes API
+  title: Salesloft Notes API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Notes
-  description: '[https://developer.salesloft.com/docs/api/notes/](https://developer.salesloft.com/docs/api/notes/)'
+  description: https://developer.salesloft.com/docs/api/notes/
 paths:
   /notes:
     post:
@@ -36,6 +36,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postNotes
+      x-operation-id-source: derived
     get:
       tags:
       - Notes
@@ -98,6 +100,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getNotes
+      x-operation-id-source: derived
   /notes/{id}:
     get:
       tags:
@@ -114,6 +118,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getNotesById
+      x-operation-id-source: derived
     put:
       tags:
       - Notes
@@ -137,6 +143,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putNotesById
+      x-operation-id-source: derived
     delete:
       tags:
       - Notes
@@ -152,6 +160,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: deleteNotesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

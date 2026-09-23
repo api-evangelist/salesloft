@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Phone Number Assignments API
+  title: Salesloft Phone Number Assignments API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Phone Number Assignments
-  description: '[https://developer.salesloft.com/docs/api/phone-number-assignments/](https://developer.salesloft.com/docs/api/phone-number-assignments/)'
+  description: https://developer.salesloft.com/docs/api/phone-number-assignments/
 paths:
   /phone_number_assignments:
     get:
@@ -52,6 +52,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getPhoneNumberAssignments
+      x-operation-id-source: derived
   /phone_number_assignments/{id}:
     get:
       tags:
@@ -68,6 +70,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getPhoneNumberAssignmentsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

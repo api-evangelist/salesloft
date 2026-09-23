@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Saved List Views API
+  title: Salesloft Saved List Views API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Saved List Views
-  description: '[https://developer.salesloft.com/docs/api/saved-list-views/](https://developer.salesloft.com/docs/api/saved-list-views/)'
+  description: https://developer.salesloft.com/docs/api/saved-list-views/
 paths:
   /saved_list_views:
     get:
@@ -64,6 +64,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getSavedListViews
+      x-operation-id-source: derived
     post:
       tags:
       - Saved List Views
@@ -84,6 +86,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postSavedListViews
+      x-operation-id-source: derived
   /saved_list_views/{id}:
     put:
       tags:
@@ -110,6 +114,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: putSavedListViewsById
+      x-operation-id-source: derived
     get:
       tags:
       - Saved List Views
@@ -125,6 +131,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getSavedListViewsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Saved List Views
@@ -140,6 +148,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: deleteSavedListViewsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

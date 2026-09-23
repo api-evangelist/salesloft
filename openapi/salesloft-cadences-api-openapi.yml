@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Cadences API
+  title: Salesloft Cadences API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Cadences
-  description: '[https://developer.salesloft.com/docs/api/cadences/](https://developer.salesloft.com/docs/api/cadences/)'
+  description: https://developer.salesloft.com/docs/api/cadences/
 paths:
   /cadences:
     get:
@@ -108,6 +108,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getCadences
+      x-operation-id-source: derived
   /cadences/{id}:
     get:
       tags:
@@ -124,6 +126,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getCadencesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

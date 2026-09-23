@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Crm Activity Fields API
+  title: Salesloft Crm Activity Fields API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Crm Activity Fields
-  description: '[https://developer.salesloft.com/docs/api/crm-activity-fields/](https://developer.salesloft.com/docs/api/crm-activity-fields/)'
+  description: https://developer.salesloft.com/docs/api/crm-activity-fields/
 paths:
   /crm_activity_fields:
     get:
@@ -56,6 +56,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getCrmActivityFields
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

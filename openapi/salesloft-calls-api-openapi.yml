@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Calls API
+  title: Salesloft Calls API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Calls
-  description: '[https://developer.salesloft.com/docs/api/calls/](https://developer.salesloft.com/docs/api/calls/)'
+  description: https://developer.salesloft.com/docs/api/calls/
 paths:
   /activities/calls:
     get:
@@ -100,6 +100,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getActivitiesCalls
+      x-operation-id-source: derived
     post:
       tags:
       - Calls
@@ -129,6 +131,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postActivitiesCalls
+      x-operation-id-source: derived
   /activities/calls/{id}:
     get:
       tags:
@@ -145,6 +149,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getActivitiesCallsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

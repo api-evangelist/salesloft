@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Signals API
+  title: Salesloft Signals API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Signals
-  description: '[https://developer.salesloft.com/docs/api/signals/](https://developer.salesloft.com/docs/api/signals/)'
+  description: https://developer.salesloft.com/docs/api/signals/
 paths:
   /signals:
     post:
@@ -37,6 +37,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: postSignals
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

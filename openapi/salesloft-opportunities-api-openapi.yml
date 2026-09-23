@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Opportunities API
+  title: Salesloft Opportunities API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Opportunities
-  description: '[https://developers.salesloft.com/docs/api/opportunities/](https://developers.salesloft.com/docs/api/opportunities/)'
+  description: https://developers.salesloft.com/docs/api/opportunities/
 paths:
   /opportunities:
     get:
@@ -164,6 +164,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getOpportunities
+      x-operation-id-source: derived
   /opportunities/{id}:
     get:
       tags:
@@ -180,6 +182,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getOpportunitiesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:

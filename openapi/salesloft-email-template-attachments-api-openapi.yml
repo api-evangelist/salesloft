@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Salesloft Account and People Redaction Email Template Attachments API
+  title: Salesloft Email Template Attachments API
   description: This data allows integration owners to self-serve and claim more ownership over API usage, especially when using the Signals API to integrate with Rhythm. This ...
   version: 1.0.0
 servers:
@@ -11,7 +11,7 @@ security:
 - oauth2Auth: []
 tags:
 - name: Email Template Attachments
-  description: '[https://developer.salesloft.com/docs/api/email-template-attachments/](https://developer.salesloft.com/docs/api/email-template-attachments/)'
+  description: https://developer.salesloft.com/docs/api/email-template-attachments/
 paths:
   /email_template_attachments:
     get:
@@ -52,6 +52,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
+      operationId: getEmailTemplateAttachments
+      x-operation-id-source: derived
 components:
   securitySchemes:
     noauthAuth:
