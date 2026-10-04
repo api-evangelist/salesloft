@@ -1,24 +1,22 @@
-# Kin Score artifact — salesloft — 2026-08-27T123021
+# Kin Score artifact — salesloft — 2026-10-03T000835
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: salesloft
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T123021
-  composite: 59.6
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T000835
+  composite: 63.5
   band: strong
   facets:
-    discoverability: 61.1
-    contract_quality: 58.9
-    governance: 43.9
+    discoverability: 63.3
+    contract_quality: 56.5
+    contract_governance: 31.8
     operational_transparency: 84.2
-    developer_ergonomics: 58.9
-    commercial_clarity: 53.9
-    contract_governance: 43.9
+    developer_ergonomics: 61.3
     access_clarity: 53.9
   agent_readiness:
-    score: 47.9
+    score: 44.2
     band: agent-native
     dimensions:
       spec_presence: true
@@ -26,11 +24,11 @@ kin_score:
       reversibility_documented: false
       mcp_server: documented
       auth_clarity: served
-      idempotency: verified
+      idempotency: documented
       error_semantics: documented
       openapi_examples: partial
       rate_limit_signal: documented
-      event_surface_described: true
+      event_surface_described: unknown
       agent_skills: derived
       well_known_catalog: false
       consent_identity: false
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: verified
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 40.2
+    matched_via: fallback
   provenance:
     mcp: first-party
     skills: derived
