@@ -1,0 +1,469 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/salesloft/integrations
+checked:
+- https://composio.dev/toolkits/salesloft
+- https://monid.ai/tools/salesloft
+- https://n8n.io/integrations/salesloft/
+- https://zapier.com/apps/salesloft/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: salesloft
+  url: https://zapier.com/apps/salesloft/integrations
+  external_url: https://www.salesloft.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: account
+    label: Account Created, Updated or Deleted
+  - key: cadence
+    label: Cadence Created, Updated or Deleted
+  - key: call
+    label: Call Created or Updated
+  - key: meeting
+    label: Meeting Created or Updated
+  - key: note
+    label: Note Created, Updated or Deleted
+  - key: person
+    label: Person Created, Updated or Deleted
+  - key: step
+    label: Step Created, Created/Updated or Deleted
+  - key: task
+    label: Task Created, Completed or Deleted
+  - key: user
+    label: User Created or Updated
+  actions:
+  - key: person
+    label: Create Person
+  - key: _zap_raw_request
+    label: API Request (Beta)
+  searches:
+  - key: find_person
+    label: Find Person
+  - key: find_user
+    label: Find User
+edges:
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Pipedrive
+  partner: pipedrive
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/pipedrive
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://pipedrive.com/
+- partner_name: Attio
+  partner: attio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/attio
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://attio.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: umsatz.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/umsatzio
+  direction: third-party
+  category: Sales & CRM
+  partner_url: https://umsatz.io/
+- partner_name: folk
+  partner: folk
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/folk
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://app.folk.app/?utm_source=zapier&utm_campaign=directory
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: Squarespace Forms
+  partner: squarespace
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/squarespace-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.squarespace.com/
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Typeform
+  partner: typeform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/typeform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.typeform.com/signup?utm_medium=referral&utm_source=zapier&utm_campaign=zapier_integration&utm_content=marketplace
+- partner_name: Anthropic (Claude)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/anthropic-claude
+  direction: third-party
+  category: AI Models
+  partner_url: https://www.anthropic.com/
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Salesforce
+  partner: salesforce
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/salesforce
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.salesforce.com/
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: WPForms
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/wpforms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://wpforms.com/
+- partner_name: LinkedIn Ads
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/linkedin-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.linkedin.com/
+- partner_name: Pardot
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/pardot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.pardot.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: LeadConnector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/leadconnector
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.leadconnectorhq.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Constant Contact
+  partner: constant-contact
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/constant-contact
+  direction: third-party
+  category: Email Newsletters
+  partner_url: http://www.constantcontact.com/signup.jsp?pn=zapier
+- partner_name: Intercom
+  partner: intercom
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/intercom
+  direction: third-party
+  category: Customer Support
+  partner_url: https://www.intercom.com/welcome-to-intercom?utm_source=external-website&utm_medium=partner&utm_campaign=20220503_all_oc_all_global_gl_all_all_par_extmktplc&utm_term=zapier
+- partner_name: Ontraport
+  partner: ontraport
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/ontraport
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://zapier.com/ontraport.com
+- partner_name: Iterable
+  partner: iterable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/iterable
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://iterable.com/
+- partner_name: HeyGen
+  partner: heygen
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/heygen
+  direction: third-party
+  category: AI Content Generation
+  partner_url: https://www.heygen.com/
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: Facebook Conversions
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/facebook-conversions
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://developers.facebook.com/docs/marketing-api/server-side-api/guides/zapier-integration
+- partner_name: Google Tasks
+  partner: google-tasks
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/google-tasks
+  direction: third-party
+  category: Google
+  partner_url: https://google.com/
+- partner_name: LinkedIn
+  partner: linkedin
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/linkedin
+  direction: third-party
+  category: Microsoft
+  partner_url: http://www.linkedin.com/
+- partner_name: Human in the Loop
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/salesloft/integrations/human-in-the-loop
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://zapier.com/blog/human-in-the-loop-guide/
+- partner_name: supaglue
+  partner: supaglue
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/supaglue/blob/main/openapi/supaglue-syncconfigs-api-openapi.yml
+  contract_reference:
+    repo: supaglue
+    spec_file: supaglue-syncconfigs-api-openapi.yml
+    value: salesloft
+    property: components.schemas.provider_name
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: vessel
+  partner: vessel
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/vessel/blob/main/openapi/vessel-connection-api-openapi.yml
+  contract_reference:
+    repo: vessel
+    spec_file: vessel-connection-api-openapi.yml
+    value: salesloft
+    property: schemas.EngIntegration.integrationId
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+templates:
+- title: Manage new or updated Salesloft persons by creating records in Zapier Tables
+  url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables
+  apps:
+  - salesloft
+  - zapier-tables
+- title: Create, complete, or delete tasks in Salesloft to trigger outbound emails in Email by Zapier
+  url: https://zapier.com/apps/email/integrations/salesloft/1747748/create-complete-or-delete-tasks-in-salesloft-to-trigger-outbound-emails-in-email-by-zapier
+  apps:
+  - salesloft
+  - email
+- title: Add new NioLeads contacts to a Salesloft person list
+  url: https://zapier.com/apps/nioleads/integrations/salesloft/1751535/add-new-nioleads-contacts-to-a-salesloft-person-list
+  apps:
+  - nioleads
+  - salesloft
+- title: Create or update Beetexting contacts when new or updated Salesloft meetings occur
+  url: https://zapier.com/apps/beetexting/integrations/salesloft/1775086/create-or-update-beetexting-contacts-when-new-or-updated-salesloft-meetings-occur
+  apps:
+  - salesloft
+  - beetexting
+- title: Create or update Levitate contacts when new or updated meetings occur in Salesloft
+  url: https://zapier.com/apps/levitate/integrations/salesloft/1775091/create-or-update-levitate-contacts-when-new-or-updated-meetings-occur-in-salesloft
+  apps:
+  - salesloft
+  - levitate
+- title: Create to-dos in Things for new persons created in Salesloft
+  url: https://zapier.com/apps/salesloft/integrations/things/1775215/create-to-dos-in-things-for-new-persons-created-in-salesloft
+  apps:
+  - salesloft
+  - things
+- title: Create Google Calendar events for new Salesloft persons
+  url: https://zapier.com/apps/google-calendar/integrations/salesloft/1775216/create-google-calendar-events-for-new-salesloft-persons
+  apps:
+  - salesloft
+  - google-calendar
+- title: Create new Google Contacts for every new person added in Salesloft
+  url: https://zapier.com/apps/google-contacts/integrations/salesloft/1775220/create-new-google-contacts-for-every-new-person-added-in-salesloft
+  apps:
+  - salesloft
+  - google-contacts
+- title: Create or update Quo contacts when new persons are created in Salesloft
+  url: https://zapier.com/apps/quo/integrations/salesloft/1775222/create-or-update-quo-contacts-when-new-persons-are-created-in-salesloft
+  apps:
+  - salesloft
+  - quo
+- title: Create new contacts in Constant Contact when new persons are created in Salesloft
+  url: https://zapier.com/apps/constant-contact/integrations/salesloft/1775224/create-new-contacts-in-constant-contact-when-new-persons-are-created-in-salesloft
+  apps:
+  - salesloft
+  - constant-contact
+- title: Create new Mailchimp subscribers from newly created Salesloft people
+  url: https://zapier.com/apps/mailchimp/integrations/salesloft/1775227/create-new-mailchimp-subscribers-from-newly-created-salesloft-people
+  apps:
+  - salesloft
+  - mailchimp
+- title: Create or update Levitate contacts for new Salesloft persons
+  url: https://zapier.com/apps/levitate/integrations/salesloft/1775233/create-or-update-levitate-contacts-for-new-salesloft-persons
+  apps:
+  - salesloft
+  - levitate
+template_total: 88
