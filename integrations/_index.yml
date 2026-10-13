@@ -200,7 +200,6 @@
   arazzo: null
 - slug: salesloft-linkedin-ads
   label: LinkedIn Ads
-  partner: linkedin-ads
   partner_name: LinkedIn Ads
   category: Ads & Conversion
   type: marketplace
@@ -208,11 +207,10 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/salesloft/integrations/linkedin-ads
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: salesloft-pardot
   label: Pardot
-  partner: pardot
   partner_name: Pardot
   category: Marketing Automation
   type: marketplace
@@ -220,7 +218,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/salesloft/integrations/pardot
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: salesloft-slack
   label: Slack
@@ -247,7 +245,6 @@
   arazzo: null
 - slug: salesloft-microsoft-excel
   label: Microsoft Excel
-  partner: microsoft-excel
   partner_name: Microsoft Excel
   category: Microsoft
   type: marketplace
@@ -255,7 +252,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/salesloft/integrations/excel
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: salesloft-intercom
   label: Intercom
@@ -397,5 +394,17 @@
     property: schemas.EngIntegration.integrationId
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+  status: not-a-workflow
+  arazzo: null
+- slug: salesloft-aws-marketplace
+  label: AWS Marketplace
+  partner: amazon-web-services
+  partner_name: AWS Marketplace
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=seller-ahnmfglioj2oa
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

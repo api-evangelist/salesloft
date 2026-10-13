@@ -3,6 +3,7 @@ method: searched
 source:
 - https://zapier.com/apps/salesloft/integrations
 checked:
+- https://aws.amazon.com/marketplace/
 - https://composio.dev/toolkits/salesloft
 - https://monid.ai/tools/salesloft
 - https://n8n.io/integrations/salesloft/
@@ -405,6 +406,22 @@ edges:
     property: schemas.EngIntegration.integrationId
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=seller-ahnmfglioj2oa
+  listing_count: 2
+  apps:
+  - Salesloft
+  - Drift Conversational Marketing from Salesloft
+  seller_name: Salesloft
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
 templates:
 - title: Manage new or updated Salesloft persons by creating records in Zapier Tables
   url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables
