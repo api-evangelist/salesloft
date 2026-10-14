@@ -5,6 +5,7 @@ source:
 checked:
 - https://aws.amazon.com/marketplace/
 - https://composio.dev/toolkits/salesloft
+- https://hightouch.com/docs/destinations/salesloft
 - https://monid.ai/tools/salesloft
 - https://n8n.io/integrations/salesloft/
 - https://zapier.com/apps/salesloft/integrations
@@ -422,6 +423,24 @@ edges:
   seller_name: Salesloft
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/salesloft
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - salesloft
+      status: released
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 templates:
 - title: Manage new or updated Salesloft persons by creating records in Zapier Tables
   url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables
