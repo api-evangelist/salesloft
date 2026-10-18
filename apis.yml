@@ -47,7 +47,7 @@ tags:
 - Webhook
 - MCP
 - Agents
-- Dialer
+- Sales Dialer
 - Pipelines
 - Forecasting
 tags_raw:
@@ -410,6 +410,8 @@ apis:
   humanURL: https://developers.salesloft.com/docs/platform
   baseURL: https://api.salesloft.com/v2
   tags:
+  - Caller IDs
+  tags_raw:
   - Caller Ids
   properties:
   - type: OpenAPI
