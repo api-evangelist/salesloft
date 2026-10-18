@@ -499,7 +499,7 @@
     - beta
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: salesloft-fivetran
   label: Fivetran
@@ -525,7 +525,7 @@
     - connectors/applications/salesloft
     vendor_link: https://salesloft.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: salesloft-meltano
   label: Meltano
@@ -557,7 +557,7 @@
     - bronze
     - silver
     builder: 'community (Meltano Hub variant maintainers: airbyte, markestey)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: salesloft-slack-own
   label: Slack (own)
