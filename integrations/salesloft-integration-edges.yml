@@ -16,6 +16,8 @@ checked:
 - https://n8n.io/integrations/salesloft/
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/salesloft/integrations
+- slack/integrations/slack-integration-edges.yml
+- zoom/integrations/zoom-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -587,6 +589,40 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: airbyte, markestey)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A40SFFY3H-salesloft
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Salesloft
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/eySqWmhLQS6XZ96OlErIPA
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Salesloft Conversations
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
 templates:
 - title: Manage new or updated Salesloft persons by creating records in Zapier Tables
   url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables
