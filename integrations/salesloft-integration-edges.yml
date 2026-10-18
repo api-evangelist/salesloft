@@ -5,7 +5,12 @@ source:
 checked:
 - https://aws.amazon.com/marketplace/
 - https://composio.dev/toolkits/salesloft
+- https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
+- https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://fivetran.com/docs-sitemap.xml
+- https://fivetran.com/docs/connectors/partner-built-program
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/meltano/hub
 - https://hightouch.com/docs/destinations/salesloft
 - https://monid.ai/tools/salesloft
 - https://n8n.io/integrations/salesloft/
@@ -494,6 +499,94 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Airbyte
+  partner: airbyte
+  partner_match: aggregator
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://docs.airbyte.com/integrations/sources/salesloft
+  category: null
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-community
+    registered_name: Salesloft
+    matched_domain: salesloft.com
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-salesloft
+    support_level:
+    - community
+    release_stage:
+    - beta
+    in_cloud: true
+    builder: unknown (community connector; contributor not in the record)
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
+  type: marketplace
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://fivetran.com/docs/connectors/applications/salesloft
+  category: null
+  contract_reference:
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    spec_file: null
+    role: elt-connector:fivetran
+    registered_name: Salesloft
+    matched_domain: salesloft.com
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/applications/salesloft
+    vendor_link: https://salesloft.com/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-salesloft--airbyte
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: Salesloft
+    matched_domain: salesloft.com
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-salesloft--airbyte
+    - tap-salesloft--markestey
+    maintenance_status:
+    - active
+    - beta
+    quality:
+    - bronze
+    - silver
+    builder: 'community (Meltano Hub variant maintainers: airbyte, markestey)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
 templates:
 - title: Manage new or updated Salesloft persons by creating records in Zapier Tables
   url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables
