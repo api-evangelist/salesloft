@@ -26,6 +26,7 @@ checked:
 - https://appexchange.salesforce.com/consulting
 - https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
 - https://slack.com/marketplace
+- hubspot/integrations/hubspot-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -267,59 +268,6 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-- partner_name: Genesys (own)
-  partner: genesys
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://appfoundry.genesys.com/filter/genesysengage/listing/ddf08f9f-1d7b-4727-b669-f7216ba6db84
-  mirror_of: genesys/integrations/genesys-integration-edges.yml
-  apps:
-  - Genesys Integration by Salesloft
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: customerEngagement
-  publisher_verified:
-  - attestation:gdpr
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A40SFFY3H-salesloft
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - Salesloft
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
-- partner_name: Zoom (own)
-  partner: zoom
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.zoom.us/apps/eySqWmhLQS6XZ96OlErIPA
-  mirror_of: zoom/integrations/zoom-integration-edges.yml
-  apps:
-  - Salesloft Conversations
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Zoom app
 - partner_name: HubSpot
   partner: hubspot
   partner_match: domain
@@ -717,6 +665,78 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-salesforce-appexchange.py
   first_seen: '2026-10-21'
+- partner_name: Genesys (own)
+  partner: genesys
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appfoundry.genesys.com/filter/genesysengage/listing/ddf08f9f-1d7b-4727-b669-f7216ba6db84
+  mirror_of: genesys/integrations/genesys-integration-edges.yml
+  apps:
+  - Genesys Integration by Salesloft
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: customerEngagement
+  publisher_verified:
+  - attestation:gdpr
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A40SFFY3H-salesloft
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Salesloft
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/eySqWmhLQS6XZ96OlErIPA
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Salesloft Conversations
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/drift
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - Drift
+  - Drift Email
+  - Salesloft CRM Sync
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: SALES_ENABLEMENT
 templates:
 - title: Manage new or updated Salesloft persons by creating records in Zapier Tables
   url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables

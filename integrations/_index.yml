@@ -247,45 +247,6 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
-- slug: salesloft-genesys-own
-  label: Genesys (own)
-  partner: genesys
-  partner_name: Genesys (own)
-  category: customerEngagement
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://appfoundry.genesys.com/filter/genesysengage/listing/ddf08f9f-1d7b-4727-b669-f7216ba6db84
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: salesloft-slack-own
-  label: Slack (own)
-  partner: slack
-  partner_name: Slack (own)
-  category: Slack app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://slack.com/marketplace/A40SFFY3H-salesloft
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: salesloft-zoom-own
-  label: Zoom (own)
-  partner: zoom
-  partner_name: Zoom (own)
-  category: Zoom app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://marketplace.zoom.us/apps/eySqWmhLQS6XZ96OlErIPA
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: salesloft-hubspot
   label: HubSpot
   partner: hubspot
@@ -667,5 +628,57 @@
     requirement: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
     detected_by: sweep-salesforce-appexchange.py
     detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
+- slug: salesloft-genesys-own
+  label: Genesys (own)
+  partner: genesys
+  partner_name: Genesys (own)
+  category: customerEngagement
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://appfoundry.genesys.com/filter/genesysengage/listing/ddf08f9f-1d7b-4727-b669-f7216ba6db84
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: salesloft-slack-own
+  label: Slack (own)
+  partner: slack
+  partner_name: Slack (own)
+  category: Slack app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://slack.com/marketplace/A40SFFY3H-salesloft
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: salesloft-zoom-own
+  label: Zoom (own)
+  partner: zoom
+  partner_name: Zoom (own)
+  category: Zoom app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.zoom.us/apps/eySqWmhLQS6XZ96OlErIPA
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: salesloft-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: SALES_ENABLEMENT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/drift
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
