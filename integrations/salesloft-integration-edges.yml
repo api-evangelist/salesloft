@@ -27,6 +27,8 @@ checked:
 - https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
 - https://slack.com/marketplace
 - hubspot/integrations/hubspot-integration-edges.yml
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -737,6 +739,47 @@ edges:
   detected: '2026-10-21'
   detected_by: mirror-platform-listings.py
   category: SALES_ENABLEMENT
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: salesloft.com
+    matched_domain: salesloft.com
+    matched_by: domain
+    apis_listed: 1
+    version_count: 1
+    first_added: '2017-11-25'
+    last_updated: '2023-03-06'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - developers.salesloft.com
+    categories:
+    - customer_relation
+    own_openapi_files: 83
+    listings:
+    - key: salesloft.com
+      title: SalesLoft Platform
+      preferred: v2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/salesloft.com/v2/openapi.json
+      origin_url: https://developers.salesloft.com/v2_api_def.json
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
 templates:
 - title: Manage new or updated Salesloft persons by creating records in Zapier Tables
   url: https://zapier.com/apps/salesloft/integrations/zapier-tables/1744895/manage-new-or-updated-salesloft-persons-by-creating-records-in-zapier-tables
